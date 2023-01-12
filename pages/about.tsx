@@ -12,7 +12,7 @@ const AboutMe: React.FC<Props> = ({}) => {
         <div className="absolute w-full h-96 bg-sky-400 z-0"></div>
         <div className="py-10 px-6 sm:px-10 border-[0.5px] shadow-xl rounded-2xl relative bg-white max-w-4xl">
           <h1 className="text-3xl font-inter text-opacity-70 text-center mb-8">
-            About me
+            All about me!!
           </h1>
           <Image
             src="/profile.jpg"
