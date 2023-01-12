@@ -21,6 +21,7 @@ const AboutMe: React.FC<Props> = ({}) => {
             height={288}
             className="rounded-3xl hidden sm:block w-52 md:w-72 float-left mr-6 mb-4 shadow-xl"
           />
+
           <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
             I don’t have much to say about myself. But I understand that some who come
             across this site may, for their own peace of mind, desire to know something
