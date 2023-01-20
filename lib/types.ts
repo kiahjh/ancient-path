@@ -33,15 +33,15 @@ export type Post<L extends Lang> = {
   audioSize: number;
   audioDuration: number;
   lang: L;
-  createdAt: Date;
-  modifiedAt: Date;
-  publishedAt: Date;
+  createdAt: string;
+  modifiedAt: string;
+  publishedAt: string;
 };
 
 export type DualPost = {
   en: Post<'en'>;
   es: Post<'es'>;
-  createdAt: Date;
-  modifiedAt: Date;
-  publishedAt: Date;
+  createdAt: string;
+  modifiedAt: string;
+  publishedAt: string;
 };

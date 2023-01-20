@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { Lang } from './types';
+import type { Lang } from './types';
 
-export const LanguageContext = createContext<Lang>('en');
+export const LanguageContext = createContext<Lang>(`en`);

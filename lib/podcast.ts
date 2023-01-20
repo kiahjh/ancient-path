@@ -1,9 +1,11 @@
 import striptags from 'striptags';
-import { Lang, Post } from './types';
+import type { Lang, Post } from './types';
 
 export function podcastXml(posts: Array<Post<Lang>>): string {
   const lang = posts[0]?.lang ?? `en`;
-  const url = process.env.DEPLOY_PRIME_URL ?? 'https://hender.blog';
+  const url = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : `https://hender.blog`;
   const description =
     lang === `en`
       ? `I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.`
@@ -42,7 +44,7 @@ export function podcastXml(posts: Array<Post<Lang>>): string {
       </image>
       <itunes:category text="Religion &amp; Spirituality">
         <itunes:category text="Christianity" />
-      </itunes:category> 
+      </itunes:category>
       ${posts
         .map(
           (post) => `
@@ -52,7 +54,7 @@ export function podcastXml(posts: Array<Post<Lang>>): string {
         `,
         )
         .join(``)}
-    </channel>  
+    </channel>
   </rss>`.trim();
 }
 
@@ -79,7 +81,9 @@ function cdata(text: string): string {
 
 function audioItemData(post: Post<any>): string {
   const summary = striptags(post.content).substring(0, 200);
-  const url = process.env.DEPLOY_PRIME_URL ?? 'https://hender.blog';
+  const url = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : `https://hender.blog`;
   return [
     `<title>${post.title}</title>`,
     `<enclosure url="${post.mp3Url}" length="${post.audioSize}" type="audio/mpeg" />`,
@@ -89,7 +93,7 @@ function audioItemData(post: Post<any>): string {
     `<description>${cdata(summary)}</description>`,
     `<link>${url}posts/${post.slug}</link>`,
     `<guid>${url}posts/${post.slug}</guid>`,
-    `<pubDate>${post.publishedAt.toUTCString()}</pubDate>`,
+    `<pubDate>${post.publishedAt}</pubDate>`,
     `<itunes:duration>${post.audioDuration}</itunes:duration>`,
     `<itunes:explicit>clean</itunes:explicit>`,
     `<itunes:episodeType>full</itunes:episodeType>`,

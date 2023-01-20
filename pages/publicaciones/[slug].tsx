@@ -1,10 +1,11 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useContext } from 'react';
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import type { DualPost, Lang } from '../../lib/types';
 import EmbeddedAudio from '../../components/EmbeddedAudio';
 import Footer from '../../components/Footer';
 import { getAllPosts } from '../../lib/getAllPosts';
 import { LanguageContext } from '../../lib/LanguageContext';
-import { DualPost, Lang, Post } from '../../lib/types';
+import { Post } from '../../lib/types';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const allDualPosts = await getAllPosts();
@@ -12,9 +13,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     .flatMap((dual: DualPost) => [dual.en, dual.es])
     .map((post) => ({
       ...post,
-      createdAt: post.createdAt.toISOString(),
-      modifiedAt: post.modifiedAt.toISOString(),
-      publishedAt: post.publishedAt.toISOString(),
+      createdAt: post.createdAt,
+      modifiedAt: post.modifiedAt,
+      publishedAt: post.publishedAt,
     }));
   const post = mixedPosts.filter((p) => p.slug === context.params?.slug)[0];
   return { props: { post } };
