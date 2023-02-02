@@ -76,7 +76,7 @@ const Chrome: React.FC<Props> = ({ page, smallFooter, children }) => {
               </>
             ) : (
               <>
-                <SidebarNavLink to="/">Home</SidebarNavLink>
+                <SidebarNavLink to="/">Inicio</SidebarNavLink>
                 <SidebarNavLink to="/publicaciones">Publicaciones</SidebarNavLink>
                 <SidebarNavLink to="/es-podcast">Podcast</SidebarNavLink>
                 <SidebarNavLink to="/acerca-de-mi">Acerca de mí</SidebarNavLink>

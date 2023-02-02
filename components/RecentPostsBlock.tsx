@@ -40,19 +40,23 @@ const RecentPostsBlock: React.FC<Props> = ({ posts }) => {
         {language === 'en' ? (
           <Advertisement
             img={FriendsLibraryLogo.src}
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptate quas, vel ad perferendis quis quibusdam nisi est mollitia ea tempora."
+            description="In my opinion, there is no other collection of Christian writings that more accurately communicates or more powerfully illustrates the soul-transforming power of the gospel of Jesus Christ."
             url="https://friendslibrary.com"
           />
         ) : (
           <Advertisement
             img={BibliotecaDeLosAmigosLogo.src}
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptate quas, vel ad perferendis quis quibusdam nisi est mollitia ea tempora."
+            description="En mi opinión, no existe otra colección de escritos cristianos que comunique con mayor precisión o ilustre con  más pureza, el poder del evangelio de Jesucristo que transforma el alma."
             url="https://bibliotecadelosamigos.com"
           />
         )}
         <Advertisement
           img={GertrudeLogo.src}
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptate quas, vel ad perferendis quis quibusdam nisi est mollitia ea tempora."
+          description={
+            language === 'en'
+              ? 'By far, the best internet protection software I’ve seen for parents who are genuinely concerned about their children’s online activity. Currently only available for Mac computers.'
+              : 'Sin duda, la mejor aplicación de control parental que he visto para padres realmente preocupados por la seguridad de sus hijos en internet. Actualmente sólo disponible para computadoras Mac.'
+          }
           url="https://gertrude.app"
         />
       </div>

@@ -12,7 +12,7 @@ const BaseHead: React.FC = ({}) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Script src="https://kit.fontawesome.com/597740db7b.js"></Script>
     </>
