@@ -39,7 +39,7 @@ const FloatingNav: React.FC<Props> = ({ page, className, language }) => {
         ) : (
           <>
             <NavLink to="/" selected={page === '/'}>
-              Home
+              Inicio
             </NavLink>
             <NavLink to="/publicaciones" selected={page === '/publicaciones'}>
               Publicaciones

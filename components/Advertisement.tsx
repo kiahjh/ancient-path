@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../lib/LanguageContext';
 
 interface Props {
   img: string;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const Advertisement: React.FC<Props> = ({ img, description, url }) => {
+  const language = useContext(LanguageContext);
   return (
     <div className="bg-white flex flex-col rounded-xl shadow-lg">
       <div className="p-6 pb-3">
@@ -19,7 +21,8 @@ const Advertisement: React.FC<Props> = ({ img, description, url }) => {
           className="text-blue-500 hover:text-blue-600 transition duration-100 cursor-pointer"
           href={url}
         >
-          Check it out <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+          {language === 'en' ? 'Check it out' : 'Echa un vistazo'}{' '}
+          <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
         </a>
       </div>
     </div>

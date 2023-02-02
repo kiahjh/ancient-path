@@ -34,7 +34,7 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
         ) : (
           <>
             <NavLink to="/" selected={page === '/'}>
-              Home
+              Inicio
             </NavLink>
             <NavLink to="/publicaciones" selected={page === '/publicaciones'}>
               Publicaciones

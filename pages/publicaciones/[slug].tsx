@@ -47,7 +47,7 @@ const Post: React.FC<Props> = ({ post }) => {
       <div className="fixed w-screen p-6 top-0 z-10">
         <a
           className="left-16 top-6 w-12 h-12 hover:bg-sky-50 cursor-pointer transition duration-100 flex justify-center items-center rounded-full text-gray-500 hover:text-gray-600 border-[0.5px] shadow-md bg-white"
-          href="/posts"
+          href="/publicaciones"
         >
           <i className="fa fa-arrow-left text-xl"></i>
         </a>
