@@ -27,7 +27,7 @@ const HeroBlock: React.FC = () => {
           </span>
         )}
       </p>
-      <div className="mt-12 flex flex-col xs:flex-row space-y-3 xs:space-y-0 xs:space-x-4 relative">
+      <div className="mt-12 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 relative">
         <a
           className="flex justify-center items-center bg-sky-400 text-white rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-500 transition duration-100 cursor-pointer"
           href="/posts"
