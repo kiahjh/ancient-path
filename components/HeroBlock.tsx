@@ -37,7 +37,7 @@ const HeroBlock: React.FC = () => {
         </a>
         <a
           className="flex justify-center items-center bg-white text-sky-500 border-[0.5px] rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-50 transition duration-100 cursor-pointer"
-          href="/podcast"
+          href={language === 'en' ? '/en-podcast' : '/es-podcast'}
         >
           <i className="fa-solid fa-podcast mr-3"></i>
           {language === 'en' ? 'Listen to podcast' : 'Escuchar el podcast'}
