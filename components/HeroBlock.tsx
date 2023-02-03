@@ -8,7 +8,7 @@ const HeroBlock: React.FC = () => {
       <div className="w-96 h-96 bg-sky-300 rounded-2xl absolute right-56 -bottom-52 rotate-45 bg-opacity-20 sm:bg-opacity-50"></div>
       <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute right-20 -bottom-72 rotate-45 bg-opacity-20 sm:bg-opacity-50"></div>
       <h1 className="text-3xl xs:text-4xl md:text-6xl font-inter relative">
-        {language === 'en' ? 'The Ancient Path' : 'El Camino Antiguo'}
+        {language === 'en' ? 'The Ancient Path' : 'La Senda Antigua'}
       </h1>
       <p className="mt-6 text-black text-opacity-50 max-w-4xl xs:text-lg relative">
         {language === 'en' ? (
@@ -33,7 +33,7 @@ const HeroBlock: React.FC = () => {
           href="/posts"
         >
           <i className="fa-solid fa-arrow-right mr-3"></i>
-          {language === 'en' ? 'View posts' : 'Ver publicaciones'}
+          {language === 'en' ? 'View all posts' : 'Ver publicaciones'}
         </a>
         <a
           className="flex justify-center items-center bg-white text-sky-500 border-[0.5px] rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-50 transition duration-100 cursor-pointer"
