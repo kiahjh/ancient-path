@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import { useContext } from 'react';
+import { LanguageContext } from '../lib/LanguageContext';
 
 const BaseHead: React.FC = ({}) => {
+  const language = useContext(LanguageContext);
   return (
     <>
       <Head>

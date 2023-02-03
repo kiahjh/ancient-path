@@ -6,6 +6,7 @@ import FriendsLibraryLogo from '../public/friends-library-logo.png';
 import BibliotecaDeLosAmigosLogo from '../public/biblioteca-de-los-amigos-logo.png';
 import GertrudeLogo from '../public/gertrude-logo.png';
 import { LanguageContext } from '../lib/LanguageContext';
+import Link from 'next/link';
 
 interface Props {
   posts: DualPost[];
@@ -15,7 +16,7 @@ const RecentPostsBlock: React.FC<Props> = ({ posts }) => {
   const language = useContext(LanguageContext);
   return (
     <section className="bg-sky-500 flex flex-col lg:flex-row pt-8 p-6 xs:p-8 md:p-12 lg:p-16">
-      <div className="flex-grow">
+      <div className="flex-grow flex flex-col">
         <h1 className="text-3xl sm:text-4xl text-white font-inter">
           {language === 'en' ? 'Recent posts' : 'Publicaciones recientes'}
         </h1>
@@ -30,6 +31,15 @@ const RecentPostsBlock: React.FC<Props> = ({ posts }) => {
             <i className="fa-solid fa-spinner text-2xl text-white text-opacity-70 animate-spin" />
           </div>
         )}
+        <div className="flex justify-center items-center mb-10 lg:-mb-4">
+          <Link
+            className="flex items-center px-6 py-2 text-white bg-white/10 rounded-lg font-medium hover:bg-white/20 cursor-pointer transition duration-100"
+            href={language === 'en' ? '/posts' : '/publicaciones'}
+          >
+            <i className="fa-solid fa-list mr-2" />
+            {language === 'en' ? 'See more' : 'Ver más'}
+          </Link>
+        </div>
       </div>
       <div className="shrink-0 flex flex-col border-white border-opacity-20 lg:ml-8 lg:p-8 pr-0 space-y-8 lg:max-w-md my-6 lg:mt-0">
         <h2 className="text-2xl font-bold text-white mb-2 sm:mb-4">

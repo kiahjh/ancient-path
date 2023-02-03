@@ -30,7 +30,9 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
       ></p>
       <a
         className="flex justify-center items-center self-start space-x-2 transition duration-100 text-sky-100 hover:text-sky-300 cursor-pointer py-2"
-        href={`/posts/${post.en.slug}`}
+        href={
+          language === 'en' ? `/posts/${post.en.slug}` : `/publicaciones/${post.es.slug}`
+        }
       >
         <span>{language === 'en' ? 'Read post' : 'Leer publicación'}</span>
         <i className="fa-solid fa-arrow-right"></i>
