@@ -16,7 +16,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
           {language === 'en' ? post.en.title : post.es.title}
         </h2>
         <h3 className="text-white text-opacity-70 font-medium shrink-0">
-          {relativeTime(post.publishedAt)}
+          {relativeTime(post.publishedAt, language)}
         </h3>
       </div>
       <p
