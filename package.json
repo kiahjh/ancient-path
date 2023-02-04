@@ -7,11 +7,13 @@
     "typecheck:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "@tailwindcss/typography": "^0.5.8",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
