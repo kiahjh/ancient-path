@@ -1,5 +1,6 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/react';
+import '../styles/globals.css';
 import BaseHead from '../components/BaseHead';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -7,6 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <BaseHead />
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 }
