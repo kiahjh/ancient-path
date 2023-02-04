@@ -19,7 +19,7 @@ const handler: NextApiHandler = async (req, res) => {
 
   const msg: MailDataRequired = {
     to: '82uii.betsy-mcstandard@inbox.testmail.app',
-    from: 'miciahjohnhenderson@gmail.com',
+    from: '82uii.betsy-mcstandard@inbox.testmail.app',
     subject: `Ancient Path form submission from: ${email}`,
     text: message,
   };
