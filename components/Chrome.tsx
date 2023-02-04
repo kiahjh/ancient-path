@@ -97,7 +97,12 @@ const Chrome: React.FC<Props> = ({ page, smallFooter, children }) => {
               alt="photo of Jason Henderson"
               width={70}
               height={70}
-              className="w-12 h-12 rounded-full shadow-lg"
+              className={cx(
+                'w-20 h-20 rounded-full shadow-lg',
+                page === '/about' || page === '/acerca-de-mi'
+                  ? 'block sm:hidden'
+                  : 'hidden',
+              )}
             />
           </div>
           <button

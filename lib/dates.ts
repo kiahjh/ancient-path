@@ -1,3 +1,5 @@
+import { Lang } from './types';
+
 export const englishMonths = [
   'January',
   'February',
@@ -28,9 +30,10 @@ export const spanishMonths = [
   'Diciembre',
 ];
 
-const rtf = new Intl.RelativeTimeFormat(`en`, { numeric: `auto` });
+const rtf_en = new Intl.RelativeTimeFormat(`en`, { numeric: `auto` });
+const rtf_es = new Intl.RelativeTimeFormat(`es`, { numeric: `auto` });
 
-export function relativeTime(isoOrDate: Date | string): string {
+export function relativeTime(isoOrDate: Date | string, language: Lang): string {
   const date = typeof isoOrDate === `string` ? new Date(isoOrDate) : isoOrDate;
   const now = new Date();
   const diff = now.getTime() - date.getTime();
@@ -45,7 +48,9 @@ export function relativeTime(isoOrDate: Date | string): string {
   } as const;
   for (const [unit, num] of Object.entries(UNITS)) {
     if (Math.abs(diff) > num || unit === `second`) {
-      return rtf.format(-Math.round(diff / num), unit as any);
+      return language === 'en'
+        ? rtf_en.format(-Math.round(diff / num), unit as any)
+        : rtf_es.format(-Math.round(diff / num), unit as any);
     }
   }
   return `just now`;
