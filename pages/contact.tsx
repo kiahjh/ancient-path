@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
             <button
               className="flex justify-center items-center bg-sky-500 text-white rounded-lg shadow-md py-2 px-5 font-medium text-lg hover:bg-sky-400 transition duration-100 active:shadow-sm active:scale-95 active:translate-y-0.5 hover:-translate-y-0.5 flex-grow xs:flex-grow-0"
               onClick={async (event) => {
-                // event.preventDefault();
+                event.preventDefault();
                 // if (!email) {
                 //   setStatus('missing_field');
                 //   setBannerMessage('Please fill out email field');
