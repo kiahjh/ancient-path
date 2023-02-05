@@ -33,7 +33,12 @@ const Contacto: React.FC = () => {
           <div className="flex justify-end mt-8">
             <button
               className="flex justify-center items-center bg-sky-500 text-white rounded-lg shadow-md py-2 px-5 font-medium text-lg hover:bg-sky-400 transition duration-100 active:shadow-sm active:scale-95 active:translate-y-0.5 hover:-translate-y-0.5 flex-grow xs:flex-grow-0"
-              type="submit"
+              onClick={(event) => {
+                event.preventDefault();
+                alert(
+                  'Lo sentimos, nuestro formulario de contacto no funciona actualmente. Vuelve a comprobarlo mañana y debería funcionar.',
+                );
+              }}
             >
               <i className="fa-solid fa-arrow-right mr-3"></i>
               Enviar
