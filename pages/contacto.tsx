@@ -8,6 +8,7 @@ const Contacto: React.FC = () => {
   let bannerMessage =
     'Algo ha fallado. Intenta actualizar la página y vuelve a intentarlo.';
   let bannerState: 'missing_field' | 'api_error' | 'success' | 'idle' = 'idle';
+
   if (state.succeeded) {
     bannerMessage = 'Gracias por el mensaje. Intentaré responderte lo antes posible.';
     bannerState = 'success';
