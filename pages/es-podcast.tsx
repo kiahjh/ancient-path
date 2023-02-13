@@ -10,7 +10,7 @@ import RSS from '../public/rss.webp';
 
 const SpanishPodcasts: React.FC = () => {
   return (
-    <Chrome page="/es-podcast" smallFooter>
+    <Chrome page="/es-podcast" smallFooter language="es" redirectTo="/en-podcast">
       <div className="p-8 md:p-16">
         <h2 className="text-3xl xs:text-4xl font-inter">Podcast</h2>
         <p className="mt-3 text-gray-500">

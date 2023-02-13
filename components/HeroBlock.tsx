@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../lib/LanguageContext';
+import { Lang } from '../lib/types';
 
-const HeroBlock: React.FC = () => {
-  const language = useContext(LanguageContext);
+interface Props {
+  language: Lang;
+}
+
+const HeroBlock: React.FC<Props> = ({ language }) => {
   return (
     <section className="p-6 xs:p-12 md:p-16 lg:p-20 relative overflow-hidden">
       <div className="w-96 h-96 bg-sky-300 rounded-2xl absolute right-56 -bottom-52 rotate-45 bg-opacity-20 sm:bg-opacity-50"></div>

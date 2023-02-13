@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Posts: React.FC<Props> = ({ allPosts }) => (
-  <Chrome page="/publicaciones">
+  <Chrome page="/publicaciones" language="es" redirectTo="/posts">
     <div className="p-8 md:p-16">
       <h2 className="text-3xl xs:text-4xl font-inter">Publicaciones</h2>
       <p className="mt-3 text-gray-500">

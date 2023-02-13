@@ -19,7 +19,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
       {new Date().getTime() - new Date(post.publishedAt).getTime() <
         1000 * 60 * 60 * 24 * 7 && (
         <div className="w-12 h-12 bg-sky-400 rounded-full flex justify-center items-center text-white right-4 -top-4 absolute shadow-md uppercase text-sm font-medium rotate-12">
-          New
+          {language === 'en' ? 'New' : 'Nuevo'}
         </div>
       )}
       <div className="absolute w-20 h-20 rounded-full shadow-md bg-white md:-left-10 md:top-6 -top-10 left-4 flex flex-col items-center justify-center border-[0.5px]">

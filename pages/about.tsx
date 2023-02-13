@@ -6,7 +6,7 @@ interface Props {}
 
 const AboutMe: React.FC<Props> = ({}) => {
   return (
-    <Chrome page="/about" smallFooter>
+    <Chrome page="/about" smallFooter language="en" redirectTo="/acerca-de-mi">
       <section className="flex justify-center items-center py-8 px-3 sm:px-8 relative">
         <div className="absolute w-full h-112 bg-sky-100 z-0"></div>
         <div className="absolute w-full h-96 bg-sky-400 z-0"></div>
