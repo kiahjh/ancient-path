@@ -1,19 +1,18 @@
-import React, { useContext } from 'react';
-import { DualPost } from '../lib/types';
+import React from 'react';
+import Link from 'next/link';
+import { DualPost, Lang } from '../lib/types';
 import Advertisement from './Advertisement';
 import HomePagePostPreview from './HomePagePostPreview';
 import FriendsLibraryLogo from '../public/friends-library-logo.png';
 import BibliotecaDeLosAmigosLogo from '../public/biblioteca-de-los-amigos-logo.png';
 import GertrudeLogo from '../public/gertrude-logo.png';
-import { LanguageContext } from '../lib/LanguageContext';
-import Link from 'next/link';
 
 interface Props {
   posts: DualPost[];
+  language: Lang;
 }
 
-const RecentPostsBlock: React.FC<Props> = ({ posts }) => {
-  const language = useContext(LanguageContext);
+const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
   return (
     <section className="bg-sky-500 flex flex-col lg:flex-row pt-8 p-6 xs:p-8 md:p-12 lg:p-16">
       <div className="flex-grow flex flex-col">

@@ -1,8 +1,10 @@
+import fs from 'node:fs';
 import type { GetStaticProps } from 'next';
 import type { DualPost } from '../../lib/types';
 import Chrome from '../../components/Chrome';
 import PostPreview from '../../components/PostPreview';
 import { getAllPosts } from '../../lib/getAllPosts';
+import { podcastXml } from '../../lib/podcast';
 
 interface Props {
   allPosts: DualPost[];
@@ -10,11 +12,16 @@ interface Props {
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPosts = await getAllPosts();
+  const enPosts = allPosts.map((dual) => dual.en);
+  const esPosts = allPosts.map((dual) => dual.es);
+  fs.writeFileSync(`./public/podcast.en.rss`, podcastXml(enPosts));
+  fs.writeFileSync(`./public/podcast.es.rss`, podcastXml(esPosts));
+
   return { props: { allPosts: allPosts } };
 };
 
 const Posts: React.FC<Props> = ({ allPosts }) => (
-  <Chrome page="/posts">
+  <Chrome page="/posts" language="en" redirectTo="/publicaciones">
     <div className="p-8 md:p-16">
       <h2 className="text-3xl xs:text-4xl font-inter">Posts</h2>
       <p className="mt-3 text-gray-500">

@@ -53,8 +53,8 @@ const Post: React.FC<Props> = ({ post }) => {
         </a>
       </div>
       <div className="flex flex-col min-h-screen prose mx-6 sm:mx-8 mt-24 lg:mt-10 text-justify bg-white p-6 sm:p-8 pb-0 mb-10 border-[0.5px] rounded-xl max-w-3xl relative shadow">
-        <header className="mb-2 flex justify-start items-center">
-          <h1 className="text-3xl font-inter text-left">{post.title}</h1>
+        <header className="flex justify-start items-center">
+          <h1 className="text-4xl font-inter text-left">{post.title}</h1>
         </header>
         <main className="grow">
           <EmbeddedAudio

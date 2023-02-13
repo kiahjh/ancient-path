@@ -2,6 +2,7 @@ import React from 'react';
 import striptags from 'striptags';
 import { relativeTime } from '../lib/dates';
 import { DualPost, Lang } from '../lib/types';
+import TeachingBadge from './TeachingBadge';
 
 interface Props {
   post: DualPost;
@@ -12,11 +13,14 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
   return (
     <div className="p-3 sm:p-6 rounded-2xl flex flex-col">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-white">
-          {language === 'en' ? post.en.title : post.es.title}
-        </h2>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 shrink-0 mb-1 sm:mb-0">
+          <h2 className="text-2xl font-bold text-white">
+            {language === 'en' ? post.en.title : post.es.title}
+          </h2>
+          {post.category === 'teaching' && <TeachingBadge language={language} onDark />}
+        </div>
         <h3 className="text-white text-opacity-70 font-medium shrink-0">
-          {relativeTime(post.publishedAt, language)}
+          {relativeTime(post.createdAt, language)}
         </h3>
       </div>
       <p

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import cx from 'classnames';
+import { setCookie } from 'cookies-next';
 import ProfilePic from '../public/profile.jpg';
 import FloatingNav from './FloatingNav';
 import Footer from './Footer';
@@ -12,28 +14,21 @@ import { LanguageContext } from '../lib/LanguageContext';
 interface Props {
   page: string;
   smallFooter?: boolean;
+  language: Lang;
   children: React.ReactNode;
+  redirectTo: string;
 }
 
-const Chrome: React.FC<Props> = ({ page, smallFooter, children }) => {
+const Chrome: React.FC<Props> = ({
+  page,
+  smallFooter,
+  children,
+  language,
+  redirectTo,
+}) => {
   const [navOpen, setNavOpen] = useState(false);
-  const [language, setLanguage] = useState<Lang | null>(null);
-
-  useEffect(() => {
-    const detectedLang = localStorage.getItem('language');
-    if (!detectedLang || (detectedLang !== 'en' && detectedLang !== 'es')) {
-      if (window.navigator.language.startsWith('es')) {
-        localStorage.setItem('language', 'es');
-        setLanguage('es');
-      } else {
-        localStorage.setItem('language', 'en');
-        setLanguage('en');
-      }
-    } else {
-      localStorage.setItem('language', detectedLang);
-      setLanguage(detectedLang);
-    }
-  }, []);
+  const [lang, setLang] = useState(language);
+  const router = useRouter();
 
   if (!language) {
     return (
@@ -43,8 +38,23 @@ const Chrome: React.FC<Props> = ({ page, smallFooter, children }) => {
     );
   }
 
+  function toggleLanguage(): void {
+    if (language === 'en') {
+      setLang('es');
+      setCookie('languageOverride', 'es', {
+        maxAge: 60 * 60 * 24 * 365, // one year
+      });
+    } else {
+      setLang('en');
+      setCookie('languageOverride', 'en', {
+        maxAge: 60 * 60 * 24 * 365, // one year
+      });
+    }
+    router.push(redirectTo);
+  }
+
   return (
-    <LanguageContext.Provider value={language}>
+    <LanguageContext.Provider value={lang}>
       <div className="flex flex-col min-h-screen relative">
         <div
           className={cx(
@@ -85,7 +95,7 @@ const Chrome: React.FC<Props> = ({ page, smallFooter, children }) => {
             )}
           </div>
           <div className="flex justify-center items-center mt-8">
-            <LanguageToggler language={language} setLanguage={setLanguage} page={page} />
+            <LanguageToggler language={lang} setLanguage={toggleLanguage} page={page} />
           </div>
           <div className="w-96 h-96 bg-sky-300 rounded-2xl absolute right-8 -bottom-72 rotate-45 bg-opacity-30"></div>
           <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute -right-28 -bottom-96 rotate-45 bg-opacity-30"></div>
@@ -111,16 +121,16 @@ const Chrome: React.FC<Props> = ({ page, smallFooter, children }) => {
           >
             <i className="fa-solid fa-bars" />
           </button>
-          <FloatingNav page={page} language={language} />
+          <FloatingNav page={page} language={lang} />
           <LanguageToggler
             className="hidden md-lg:flex w-[182px]"
-            language={language}
-            setLanguage={setLanguage}
+            language={lang}
+            setLanguage={toggleLanguage}
             page={page}
           />
         </header>
         <section className="flex-grow flex flex-col">{children}</section>
-        <Footer page={page} small={smallFooter} language={language} />
+        <Footer page={page} small={smallFooter} language={lang} />
       </div>
     </LanguageContext.Provider>
   );
