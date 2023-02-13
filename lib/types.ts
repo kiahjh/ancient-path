@@ -18,7 +18,10 @@ export type ApiPost = {
     spanish_mp3_url: string;
     spanish_audio_size: number;
     spanish_audio_duration: number;
-    category: undefined | { key: 'teaching'; value: 'Teaching' };
+    category:
+      | undefined
+      | { key: 'teaching'; value: 'Teaching' }
+      | { key: 'post'; value: 'Post' };
   };
 };
 

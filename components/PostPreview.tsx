@@ -3,6 +3,7 @@ import striptags from 'striptags';
 import type { DualPost } from '../lib/types';
 import { englishMonths, spanishMonths } from '../lib/dates';
 import { LanguageContext } from '../lib/LanguageContext';
+import TeachingBadge from './TeachingBadge';
 
 interface Props {
   post: DualPost;
@@ -33,11 +34,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
       <div className="p-6 md:pl-16 pt-16 md:pt-6 pb-4">
         <div className="flex justify-start items-center space-x-4">
           <h2 className="text-xl font-inter text-gray-900">{post[language].title}</h2>
-          {post.category === 'teaching' && (
-            <span className="py-0.5 px-4 text-sm border border-sky-300 bg-sky-50 rounded-full text-sky-500 font-medium">
-              {language === 'en' ? 'teaching' : 'ensañanza'}
-            </span>
-          )}
+          {post.category === 'teaching' && <TeachingBadge language={language} />}
         </div>
         <p
           className="mt-3 mb-3 text-gray-500"

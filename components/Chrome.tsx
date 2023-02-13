@@ -41,10 +41,14 @@ const Chrome: React.FC<Props> = ({
   function toggleLanguage(): void {
     if (language === 'en') {
       setLang('es');
-      setCookie('languageOverride', 'es');
+      setCookie('languageOverride', 'es', {
+        maxAge: 60 * 60 * 24 * 365, // one year
+      });
     } else {
       setLang('en');
-      setCookie('languageOverride', 'en');
+      setCookie('languageOverride', 'en', {
+        maxAge: 60 * 60 * 24 * 365, // one year
+      });
     }
     router.push(redirectTo);
   }
