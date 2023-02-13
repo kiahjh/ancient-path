@@ -14,8 +14,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const allPosts = await getAllPosts();
   const enPosts = allPosts.map((dual) => dual.en);
   const esPosts = allPosts.map((dual) => dual.es);
-  fs.writeFileSync(`../../public/podcast.en.rss`, podcastXml(enPosts));
-  fs.writeFileSync(`../../public/podcast.es.rss`, podcastXml(esPosts));
+  fs.writeFileSync(`./public/podcast.en.rss`, podcastXml(enPosts));
+  fs.writeFileSync(`./public/podcast.es.rss`, podcastXml(esPosts));
 
   return { props: { allPosts: allPosts } };
 };

@@ -15,7 +15,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const allPosts = await getAllPosts();
-  // console.log(allPosts[1]);
 
   return {
     props: {
