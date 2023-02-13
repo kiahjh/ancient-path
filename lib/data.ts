@@ -33,5 +33,6 @@ export function toDual(api: ApiPost): DualPost {
     createdAt: api.created_at,
     modifiedAt: api.modified_at,
     publishedAt: api.published_at,
+    category: api.metadata.category ? 'teaching' : 'post',
   };
 }
