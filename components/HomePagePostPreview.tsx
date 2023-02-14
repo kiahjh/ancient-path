@@ -17,8 +17,10 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
           {language === 'en' ? post.en.title : post.es.title}
         </h2>
         <div className="flex-grow flex justify-between items-center mb-2">
-          {post.category === 'teaching' && (
+          {post.category === 'teaching' ? (
             <TeachingBadge language={language} onDark className="mr-2" />
+          ) : (
+            <div />
           )}
           <h3 className="text-white text-opacity-70 font-medium shrink-0">
             {relativeTime(post.createdAt, language)}
