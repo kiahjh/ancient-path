@@ -36,15 +36,19 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
         }}
         className="text-white text-opacity-80 sm:text-lg mt-2 mb-4"
       ></p>
-      <a
-        className="flex justify-center items-center self-start space-x-2 transition duration-100 text-sky-100 hover:text-sky-300 cursor-pointer py-2"
-        href={
-          language === 'en' ? `/posts/${post.en.slug}` : `/publicaciones/${post.es.slug}`
-        }
-      >
-        <span>{language === 'en' ? 'Read post' : 'Leer publicación'}</span>
-        <i className="fa-solid fa-arrow-right"></i>
-      </a>
+      <div className="flex justify-start">
+        <a
+          className="flex justify-center items-center self-start space-x-2 bg-white bg-opacity-10 dark:bg-sky-800/70 dark:bg-opacity-100 dark:hover:bg-sky-800 py-2 px-4 rounded-lg font-medium transition duration-100 text-white dark:text-opacity-90 hover:bg-opacity-30 cursor-pointer"
+          href={
+            language === 'en'
+              ? `/posts/${post.en.slug}`
+              : `/publicaciones/${post.es.slug}`
+          }
+        >
+          <span>{language === 'en' ? 'Read post' : 'Leer publicación'}</span>
+          <i className="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
   );
 };
