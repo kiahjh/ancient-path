@@ -14,7 +14,7 @@ interface Props {
 
 const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
   return (
-    <section className="bg-sky-500 flex flex-col lg:flex-row pt-8 p-6 xs:p-8 md:p-12 lg:p-16">
+    <section className="bg-sky-500 dark:bg-sky-900 flex flex-col lg:flex-row pt-8 p-6 xs:p-8 md:p-12 lg:p-16">
       <div className="flex-grow flex flex-col">
         <h1 className="text-3xl sm:text-4xl text-white font-inter">
           {language === 'en' ? 'Recent posts' : 'Publicaciones recientes'}
@@ -30,9 +30,9 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
             <i className="fa-solid fa-spinner text-2xl text-white text-opacity-70 animate-spin" />
           </div>
         )}
-        <div className="flex justify-center items-center mb-10 lg:-mb-4">
+        <div className="flex justify-center items-center mb-10 lg:-mb-4 mt-8 sm:mt-0">
           <Link
-            className="flex items-center px-6 py-2 text-white bg-white/10 rounded-lg font-medium hover:bg-white/20 cursor-pointer transition duration-100"
+            className="flex items-center px-6 py-2 text-sky-500 bg-white dark:bg-sky-700 dark:hover:bg-sky-600 dark:text-white rounded-lg font-medium hover:text-sky-600 hover:bg-sky-50 cursor-pointer transition duration-100"
             href={language === 'en' ? '/posts' : '/publicaciones'}
           >
             <i className="fa-solid fa-list mr-2" />

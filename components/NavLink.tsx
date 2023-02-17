@@ -13,8 +13,10 @@ const NavLink: React.FC<Props> = ({ to, selected, isNew, children }) => {
     <Link
       href={to}
       className={`${
-        selected ? 'text-gray-600' : 'text-gray-400'
-      } hover:text-sky-400 transition duration-100 select-none mx-3 my-1 flex items-center`}
+        selected
+          ? 'text-gray-600 dark:text-slate-200'
+          : 'text-gray-400 dark:text-slate-500'
+      } hover:text-sky-400 dark:hover:text-sky-400 transition duration-100 select-none mx-3 my-1 flex items-center`}
     >
       {children}
       {isNew && (

@@ -1,17 +1,23 @@
 import Image from 'next/image';
 import React from 'react';
-import Chrome from '../components/Chrome';
+import PageWrapper from '../components/PageWrapper';
 
 interface Props {}
 
 const AcercaDeMi: React.FC<Props> = ({}) => {
   return (
-    <Chrome page="/acerca-de-mi" smallFooter language="es" redirectTo="/about">
+    <PageWrapper
+      page="/acerca-de-mi"
+      withChrome
+      smallFooter
+      language="es"
+      redirectTo="/about"
+    >
       <section className="flex justify-center items-center py-8 px-3 sm:px-8 relative">
-        <div className="absolute w-full h-112 bg-sky-100 z-0"></div>
-        <div className="absolute w-full h-96 bg-sky-400 z-0"></div>
-        <div className="py-10 px-6 sm:px-10 border-[0.5px] shadow-xl rounded-2xl relative bg-white max-w-4xl">
-          <h1 className="text-3xl font-inter text-opacity-70 text-center mb-8">
+        <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>
+        <div className="absolute w-full h-96 bg-sky-400 dark:bg-opacity-10 z-0"></div>
+        <div className="py-10 px-6 sm:px-10 border-[0.5px] dark:border-slate-700 shadow-xl rounded-2xl relative bg-white dark:bg-slate-800/50 dark:backdrop-blur max-w-4xl">
+          <h1 className="text-3xl font-inter text-opacity-70 text-center mb-8 dark:text-white">
             Acerca de mí
           </h1>
           <Image
@@ -21,7 +27,7 @@ const AcercaDeMi: React.FC<Props> = ({}) => {
             height={288}
             className="rounded-3xl hidden sm:block w-52 md:w-72 float-left mr-6 mb-4 shadow-xl"
           />
-          <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
+          <p className="mt-5 text-lg text-black dark:text-slate-400 text-opacity-60 text-justify">
             No tengo mucho que decir acerca de mí, pero comprendo que algunos de los que
             llegan a este sitio, para su propia tranquilidad, pueden desear conocer algo
             acerca del autor. A éstos entonces déjenme decirles: Soy un Cristiano, un
@@ -34,7 +40,7 @@ const AcercaDeMi: React.FC<Props> = ({}) => {
             través de la operación de Su gracia y agradarlo ofreciéndole el incremento de
             Su propia semilla celestial.
           </p>
-          <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
+          <p className="mt-5 text-lg text-black dark:text-slate-400 text-opacity-60 text-justify">
             No tengo credenciales, títulos, conexiones, prestigio, coberturas o historias
             de éxito que ofrecer para su consideración, y nunca recomendaría mis escritos
             basándome en tales cosas. Sólo puedo decir, que por la misericordia de Dios, y
@@ -53,16 +59,16 @@ const AcercaDeMi: React.FC<Props> = ({}) => {
             de seguirlo a Él más plenamente en el camino estrecho (y cada vez más
             impopular) de la cruz.
           </p>
-          <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
+          <p className="mt-5 text-lg text-black dark:text-slate-400 text-opacity-60 text-justifyy">
             Estoy casado, tengo cuatro hijos y vivo en Ohio, Estados Unidos; donde estoy
             muy involucrado en una pequeña iglesia local.
           </p>
-          <p className="mt-5 text-lg italic text-right font-medium text-black/80">
+          <p className="mt-5 text-lg italic text-right font-medium text-black/80 dark:text-slate-300">
             &ndash; Jason Henderson, agosto 2022
           </p>
         </div>
       </section>
-    </Chrome>
+    </PageWrapper>
   );
 };
 
