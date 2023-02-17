@@ -1,9 +1,9 @@
-import type { NextPage, GetStaticProps, GetServerSideProps } from 'next';
-import type { DualPost, Lang } from '../lib/types';
-import Chrome from '../components/Chrome';
+import type { NextPage, GetServerSideProps } from 'next';
+import type { DualPost, Lang, Theme } from '../lib/types';
 import HeroBlock from '../components/HeroBlock';
 import RecentPostsBlock from '../components/RecentPostsBlock';
 import { getAllPosts } from '../lib/getAllPosts';
+import PageWrapper from '../components/PageWrapper';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let language: Lang = 'en';
@@ -14,11 +14,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     language = 'es';
   }
 
+  let theme: Theme = 'light';
+  const themeCookie = context.req.cookies.theme;
+  if (themeCookie === 'dark') {
+    theme = themeCookie;
+  }
+
   const allPosts = await getAllPosts();
 
   return {
     props: {
       language,
+      theme,
       recentPosts: allPosts.slice(0, 3),
     },
   };
@@ -27,13 +34,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 interface Props {
   recentPosts: DualPost[];
   language: Lang;
+  theme: Theme;
 }
 
-const Home: NextPage<Props> = ({ recentPosts, language }) => (
-  <Chrome page="/" language={language} redirectTo="/">
+const Home: NextPage<Props> = ({ recentPosts, language, theme }) => (
+  <PageWrapper page="/" language={language} theme={theme} withChrome redirectTo="/">
     <HeroBlock language={language} />
     <RecentPostsBlock posts={recentPosts} language={language} />
-  </Chrome>
+  </PageWrapper>
 );
 
 export default Home;

@@ -1,17 +1,23 @@
 import Image from 'next/image';
 import React from 'react';
-import Chrome from '../components/Chrome';
+import PageWrapper from '../components/PageWrapper';
 
 interface Props {}
 
 const AboutMe: React.FC<Props> = ({}) => {
   return (
-    <Chrome page="/about" smallFooter language="en" redirectTo="/acerca-de-mi">
+    <PageWrapper
+      page="/about"
+      withChrome
+      smallFooter
+      language="en"
+      redirectTo="/acerca-de-mi"
+    >
       <section className="flex justify-center items-center py-8 px-3 sm:px-8 relative">
-        <div className="absolute w-full h-112 bg-sky-100 z-0"></div>
-        <div className="absolute w-full h-96 bg-sky-400 z-0"></div>
-        <div className="py-10 px-6 sm:px-10 border-[0.5px] shadow-xl rounded-2xl relative bg-white max-w-4xl">
-          <h1 className="text-3xl font-inter text-opacity-70 text-center mb-8">
+        <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>
+        <div className="absolute w-full h-96 bg-sky-400 dark:bg-opacity-10 z-0"></div>
+        <div className="py-10 px-6 sm:px-10 border-[0.5px] dark:border-slate-700 shadow-xl rounded-2xl relative bg-white dark:bg-slate-800/50 dark:backdrop-blur max-w-4xl">
+          <h1 className="text-3xl font-inter text-opacity-70 text-center mb-8 dark:text-white">
             About me
           </h1>
           <Image
@@ -21,7 +27,7 @@ const AboutMe: React.FC<Props> = ({}) => {
             height={288}
             className="rounded-3xl hidden sm:block w-52 md:w-72 float-left mr-6 mb-4 shadow-xl"
           />
-          <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
+          <p className="mt-5 text-lg text-black dark:text-slate-400 text-opacity-60 text-justify">
             I don’t have much to say about myself. But I understand that some who come
             across this site may, for their own peace of mind, desire to know something
             about the author. To these then, let me say: I am a Christian, a sincere
@@ -34,7 +40,7 @@ const AboutMe: React.FC<Props> = ({}) => {
             Him by the operation of His grace, and to please Him by offering Him the
             increase of His own heavenly seed.
           </p>
-          <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
+          <p className="mt-5 text-lg text-black dark:text-slate-400 text-opacity-60 text-justify">
             I have no credentials, degrees, connections, prestige, endorsements, or
             success stories to offer for your consideration, and would never recommend my
             writings based upon such things. I can only say that, by the mercy of God, and
@@ -52,16 +58,16 @@ const AboutMe: React.FC<Props> = ({}) => {
             willingness wrought in your hearts to follow Him more fully in the narrow (and
             increasingly unpopular) way of the cross.
           </p>
-          <p className="mt-5 text-lg text-black text-opacity-60 text-justify">
+          <p className="mt-5 text-lg text-black dark:text-slate-400 text-opacity-60 text-justify">
             I am married, have four children, and live in Ohio, USA, where I am very
             involved in a small local church.
           </p>
-          <p className="mt-5 text-lg italic text-right font-medium text-black/80">
+          <p className="mt-5 text-lg italic text-right font-medium text-black/80 dark:text-slate-300">
             &ndash; Jason Henderson, August 2022
           </p>
         </div>
       </section>
-    </Chrome>
+    </PageWrapper>
   );
 };
 

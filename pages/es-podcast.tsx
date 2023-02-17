@@ -1,5 +1,4 @@
 import React from 'react';
-import Chrome from '../components/Chrome';
 import PodcastService from '../components/PodcastService';
 
 import Apple from '../public/apple-podcasts.webp';
@@ -7,17 +6,24 @@ import Overcast from '../public/overcast.webp';
 import Spotify from '../public/spotify.webp';
 import Android from '../public/android.webp';
 import RSS from '../public/rss.webp';
+import PageWrapper from '../components/PageWrapper';
 
 const SpanishPodcasts: React.FC = () => {
   return (
-    <Chrome page="/es-podcast" smallFooter language="es" redirectTo="/en-podcast">
-      <div className="p-8 md:p-16">
-        <h2 className="text-3xl xs:text-4xl font-inter">Podcast</h2>
-        <p className="mt-3 text-gray-500">
+    <PageWrapper
+      page="/es-podcast"
+      smallFooter
+      language="es"
+      withChrome
+      redirectTo="/en-podcast"
+    >
+      <div className="p-8 md:p-16 dark:bg-slate-900">
+        <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">Podcast</h2>
+        <p className="mt-3 text-slate-500">
           Para suscribirte a un podcast de los audios de las publicaciones de este blog,
           haz clic en uno de los enlaces siguientes:
         </p>
-        <div className="flex items-center justify-center flex-wrap bg-gray-100 mt-12 rounded-3xl p-6">
+        <div className="flex items-center justify-center flex-wrap bg-gray-100 dark:bg-black/20 mt-12 rounded-3xl p-6">
           <PodcastService
             href="https://podcasts.apple.com/us/podcast/hender-blog/id1645366119"
             name="Apple"
@@ -53,7 +59,7 @@ const SpanishPodcasts: React.FC = () => {
           />
         </div>
       </div>
-    </Chrome>
+    </PageWrapper>
   );
 };
 
