@@ -44,7 +44,7 @@ const Post: React.FC<Props> = ({ post }) => {
         <div className="w-176 h-176 absolute -left-128 top-60 sky-cloud"></div>
         <div className="w-176 h-176 absolute -right-128 top-176 sky-cloud"></div>
         <div className="w-176 h-176 absolute left-36 bottom-52 sky-cloud"></div>
-        <div className="flex flex-col min-h-screen prose dark:prose-invert mx-6 sm:mx-8 mt-24 lg:mt-10 text-justify bg-white dark:bg-slate-800/80 p-6 sm:p-8 pb-0 mb-10 border-[0.5px] dark:border-slate-700 rounded-xl max-w-3xl relative shadow">
+        <div className="flex flex-col min-h-screen prose dark:prose-invert mx-0 sm:mx-8 mt-2 md:mt-10 text-justify bg-white dark:bg-slate-800/80 p-6 sm:p-8 pb-0 mb-10 sm:border-[0.5px] dark:border-slate-700 sm:rounded-xl max-w-3xl relative sm:shadow">
           <header className="flex justify-start items-center">
             <h1 className="text-4xl font-inter text-left dark:text-white">
               {post.en.title}

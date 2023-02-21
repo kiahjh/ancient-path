@@ -58,7 +58,7 @@ const LanguageToggler: React.FC<Props> = ({ language, setLanguage, className, pa
         className={cx(
           'py-2 px-4 text-gray-500 dark:text-slate-500',
           language === 'en' &&
-            'bg-white dark:bg-slate-800 rounded-xl border dark:border-slate-700 text-sky-500 dark:text-sky-500 font-medium transition duration-150',
+            'bg-white dark:bg-slate-800 rounded-xl border dark:border-slate-700 text-sky-500/100 dark:text-sky-500 font-medium transition duration-150',
         )}
       >
         English
@@ -67,7 +67,7 @@ const LanguageToggler: React.FC<Props> = ({ language, setLanguage, className, pa
         className={cx(
           'py-2 px-4 text-gray-500 dark:text-slate-500',
           language === 'es' &&
-            'bg-white dark:bg-slate-800 rounded-xl border dark:border-slate-700 text-sky-500 dark:text-sky-500 font-medium transition duration-150',
+            'bg-white dark:bg-slate-800 rounded-xl border dark:border-slate-700 text-sky-500/100 dark:text-sky-500 font-medium transition duration-150',
         )}
       >
         Español
