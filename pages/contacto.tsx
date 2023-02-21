@@ -25,6 +25,8 @@ const Contacto: React.FC = () => {
       smallFooter
       language="es"
       redirectTo="/contact"
+      title="Contacto | La Senda Antigua"
+      metaDescription="Escrituras espirituales"
     >
       <div className="flex justify-center items-center py-12 px-6 sm:px-12 flex-grow">
         <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>

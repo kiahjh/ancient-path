@@ -6,7 +6,6 @@ import BaseHead from '../components/BaseHead';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <BaseHead />
       <Component {...pageProps} />
       <Analytics />
     </>

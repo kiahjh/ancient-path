@@ -38,7 +38,15 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ recentPosts, language, theme }) => (
-  <PageWrapper page="/" language={language} theme={theme} withChrome redirectTo="/">
+  <PageWrapper
+    page="/"
+    language={language}
+    theme={theme}
+    withChrome
+    redirectTo="/"
+    title={language === 'en' ? 'The Ancient Path' : 'La Senda Antigua'}
+    metaDescription={language === 'en' ? 'Spiritual writings' : 'Escrituras espirituales'}
+  >
     <HeroBlock language={language} />
     <RecentPostsBlock posts={recentPosts} language={language} />
   </PageWrapper>

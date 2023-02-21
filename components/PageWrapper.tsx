@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { LanguageContext } from '../lib/LanguageContext';
 import { ThemeContext } from '../lib/ThemeContext';
 import { Lang, Theme } from '../lib/types';
+import BaseHead from './BaseHead';
 import Chrome from './Chrome';
 
 type Props = {
   children: React.ReactNode;
   language: Lang;
   theme?: Theme;
+  title: string;
+  metaDescription: string;
 } & (
   | { withChrome: false }
   | { withChrome: true; smallFooter?: boolean; page: string; redirectTo: string }
@@ -28,6 +31,7 @@ const PageWrapper: React.FC<Props> = (props) => {
   return (
     <LanguageContext.Provider value={lang}>
       <ThemeContext.Provider value={theme}>
+        <BaseHead description={props.metaDescription} title={props.title} />
         <main className={theme}>
           {props.withChrome ? (
             <Chrome

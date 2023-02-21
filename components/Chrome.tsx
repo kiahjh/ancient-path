@@ -118,7 +118,7 @@ const Chrome: React.FC<Props> = ({
       <header className="flex flex-row-reverse md-lg:flex-row justify-between items-center py-5 px-5 sm:px-10 top-0 bg-white bg-opacity-20 dark:bg-slate-900">
         <div className="lg:w-[182px]">
           <button
-            className="rounded-full border-[0.5px] dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50"
+            className="rounded-full border-[0.5px] dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50 dark:hover:bg-slate-700"
             onClick={toggletheme}
           >
             <i

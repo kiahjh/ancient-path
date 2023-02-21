@@ -16,6 +16,8 @@ const EnglishPodcasts: React.FC = () => {
       language="en"
       withChrome
       redirectTo="/es-podcast"
+      title="Podcast | The Ancient Path"
+      metaDescription="Spiritual writings"
     >
       <div className="p-8 md:p-16 dark:bg-slate-900">
         <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">Podcast</h2>

@@ -21,7 +21,14 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Posts: React.FC<Props> = ({ allPosts }) => (
-  <PageWrapper page="/posts" withChrome language="en" redirectTo="/publicaciones">
+  <PageWrapper
+    page="/posts"
+    withChrome
+    language="en"
+    redirectTo="/publicaciones"
+    title="Posts | The Ancient Path"
+    metaDescription="Spiritual writings"
+  >
     <div className="p-8 md:p-16 dark:bg-slate-900">
       <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">Posts</h2>
       <p className="mt-3 text-slate-500">

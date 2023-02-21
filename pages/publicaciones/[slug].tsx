@@ -36,6 +36,8 @@ const Post: React.FC<Props> = ({ post }) => {
       page="/publicaciones"
       smallFooter
       redirectTo={`/posts/${post.en.slug}`}
+      title={`${post.es.title} | La Senda Antigua`}
+      metaDescription={'Escrituras espirituales'}
     >
       <div className="bg-graph-paper dark:bg-slate-900 dark:[background-image:none] relative flex flex-col items-center overflow-x-hidden">
         <div className="w-176 h-176 absolute -left-96 top-128 sky-cloud"></div>
