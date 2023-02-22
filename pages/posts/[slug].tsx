@@ -15,7 +15,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allDualPosts = await getAllPosts();
-  const mixedPosts = allDualPosts.flatMap((dual: DualPost) => [dual.en, dual.es]);
+  const mixedPosts = allDualPosts
+    .flatMap((dual: DualPost) => [dual.en, dual.es])
+    .filter((post) => post.lang === 'en');
 
   const paths = mixedPosts.map((post: Post<Lang>) => ({
     params: { slug: post.slug },
