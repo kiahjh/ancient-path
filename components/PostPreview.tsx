@@ -5,6 +5,7 @@ import type { DualPost } from '../lib/types';
 import { englishMonths, spanishMonths } from '../lib/dates';
 import { LanguageContext } from '../lib/LanguageContext';
 import TeachingBadge from './TeachingBadge';
+import { getExcerpt } from '../lib/helpers';
 
 interface Props {
   post: DualPost;
@@ -12,9 +13,7 @@ interface Props {
 
 const PostPreview: React.FC<Props> = ({ post }) => {
   const language = useContext(LanguageContext);
-  const previewText =
-    striptags(post[language].content).replace(`&nbsp;`, ` `).substring(0, 400).trim() +
-    `...`;
+  const previewText = getExcerpt(post[language].content, 400);
 
   return (
     <div className="shadow-lg border-[0.5px] dark:border-slate-700 rounded-xl relative bg-white dark:bg-slate-800/50 flex flex-col justify-start items-start md:ml-10">

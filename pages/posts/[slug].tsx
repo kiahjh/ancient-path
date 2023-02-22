@@ -2,10 +2,10 @@ import React from 'react';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import type { DualPost, Lang } from '../../lib/types';
 import EmbeddedAudio from '../../components/EmbeddedAudio';
-import Footer from '../../components/Footer';
 import { getAllPosts } from '../../lib/getAllPosts';
 import { Post } from '../../lib/types';
 import PageWrapper from '../../components/PageWrapper';
+import { getExcerpt } from '../../lib/helpers';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const allDualPosts = await getAllPosts();
@@ -39,7 +39,7 @@ const Post: React.FC<Props> = ({ post }) => {
       smallFooter
       redirectTo={`/publicaciones/${post.es.slug}`}
       title={`${post.en.title} | The Ancient Path`}
-      metaDescription={'Spiritual writings'}
+      metaDescription={getExcerpt(post.en.content, 300) /* TEMP */}
     >
       <div className="bg-graph-paper dark:bg-slate-900 dark:[background-image:none] relative flex flex-col items-center overflow-x-hidden">
         <div className="w-176 h-176 absolute -left-96 top-128 sky-cloud"></div>
