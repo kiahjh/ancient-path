@@ -14,7 +14,7 @@ const FloatingNav: React.FC<Props> = ({ page, className, language }) => {
     <div className="hidden md-lg:block">
       <nav
         className={cx(
-          `border-[0.5px] dark:border-gray-700 shadow-lg rounded-full py-1 px-8 bg-white relative z-20 flex flex-wrap justify-center dark:bg-slate-800`,
+          `border-[0.5px] dark:border-slate-700 shadow-lg rounded-full py-1 px-8 bg-white relative z-20 flex flex-wrap justify-center dark:bg-slate-800`,
           className,
         )}
       >

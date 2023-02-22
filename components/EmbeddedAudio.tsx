@@ -10,7 +10,7 @@ interface Props {
 const EmbeddedAudio: React.FC<Props> = ({ title, trackId, lang }) => {
   return (
     <iframe
-      className="bg-gray-100 rounded-sm mb-10"
+      className="bg-slate-100 rounded-sm mb-10"
       title={title}
       width="100%"
       scrolling="no"

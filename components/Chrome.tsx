@@ -34,7 +34,7 @@ const Chrome: React.FC<Props> = ({
 
   if (!language) {
     return (
-      <div className="h-screen flex justify-center items-center font-inter text-3xl text-gray-500 animate-pulse">
+      <div className="h-screen flex justify-center items-center font-inter text-3xl text-slate-500 animate-pulse">
         loading...
       </div>
     );
@@ -85,7 +85,7 @@ const Chrome: React.FC<Props> = ({
         )}
       >
         <button
-          className="absolute top-0 right-0 p-4 text-gray-300 dark:text-slate-500 hover:text-gray-400 dark:hover:text-slate-400 transition duration-100"
+          className="absolute top-0 right-0 p-4 text-slate-300 dark:text-slate-500 hover:text-slate-400 dark:hover:text-slate-400 transition duration-100"
           onClick={() => setNavOpen(false)}
         >
           <i className="fa-solid fa-times text-2xl" />
@@ -130,7 +130,7 @@ const Chrome: React.FC<Props> = ({
           </button>
         </div>
         <button
-          className="md-lg:hidden border-[0.5px] w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-gray-400 hover:text-gray-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
+          className="md-lg:hidden border-[0.5px] w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
           onClick={() => setNavOpen(true)}
         >
           <i className="fa-solid fa-bars" />
@@ -160,7 +160,7 @@ const SidebarNavLink: React.FC<SidebarNavLinkProps> = ({ to, children }) => {
   return (
     <Link
       href={to}
-      className="text-lg font-medium border-b-2 border-gray-100 dark:border-slate-800/50 hover:border-sky-200 dark:hover:border-slate-800 p-2 text-gray-500 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-400 transition duration-100"
+      className="text-lg font-medium border-b-2 border-slate-100 dark:border-slate-800/50 hover:border-sky-200 dark:hover:border-slate-800 p-2 text-slate-500 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 transition duration-100"
     >
       {children}
     </Link>

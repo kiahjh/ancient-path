@@ -25,7 +25,7 @@ const SpanishPodcasts: React.FC = () => {
           Para suscribirte a un podcast de los audios de las publicaciones de este blog,
           haz clic en uno de los enlaces siguientes:
         </p>
-        <div className="flex items-center justify-center flex-wrap bg-gray-100 dark:bg-black/20 mt-12 rounded-3xl p-6">
+        <div className="flex items-center justify-center flex-wrap bg-slate-100 dark:bg-black/20 mt-12 rounded-3xl p-6">
           <PodcastService
             href="https://podcasts.apple.com/us/podcast/hender-blog/id1645366119"
             name="Apple"

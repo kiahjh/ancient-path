@@ -15,7 +15,7 @@ const LanguageToggler: React.FC<Props> = ({ language, setLanguage, className, pa
   return (
     <button
       className={cx(
-        'flex justify-center items-center space-x-1 bg-gray-100 dark:bg-black dark:bg-opacity-20 shadow-inner rounded-xl',
+        'flex justify-center items-center space-x-1 bg-slate-100 dark:bg-black dark:bg-opacity-20 shadow-inner rounded-xl',
         className,
       )}
       onClick={() => {
@@ -56,7 +56,7 @@ const LanguageToggler: React.FC<Props> = ({ language, setLanguage, className, pa
     >
       <span
         className={cx(
-          'py-2 px-4 text-gray-500 dark:text-slate-500',
+          'py-2 px-4 text-slate-500 dark:text-slate-500',
           language === 'en' &&
             'bg-white dark:bg-slate-800 rounded-xl border dark:border-slate-700 text-sky-500/100 dark:text-sky-500 font-medium transition duration-150',
         )}
@@ -65,7 +65,7 @@ const LanguageToggler: React.FC<Props> = ({ language, setLanguage, className, pa
       </span>
       <span
         className={cx(
-          'py-2 px-4 text-gray-500 dark:text-slate-500',
+          'py-2 px-4 text-slate-500 dark:text-slate-500',
           language === 'es' &&
             'bg-white dark:bg-slate-800 rounded-xl border dark:border-slate-700 text-sky-500/100 dark:text-sky-500 font-medium transition duration-150',
         )}

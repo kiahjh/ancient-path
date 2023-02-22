@@ -14,8 +14,8 @@ const NavLink: React.FC<Props> = ({ to, selected, isNew, children }) => {
       href={to}
       className={`${
         selected
-          ? 'text-gray-600 dark:text-slate-200'
-          : 'text-gray-400 dark:text-slate-500'
+          ? 'text-slate-600 dark:text-slate-200'
+          : 'text-slate-400 dark:text-slate-500'
       } hover:text-sky-400 dark:hover:text-sky-400 transition duration-100 select-none mx-3 my-1 flex items-center`}
     >
       {children}
