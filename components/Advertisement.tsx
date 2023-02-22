@@ -20,7 +20,7 @@ const Advertisement: React.FC<Props> = ({ img, description, url }) => {
           src={img}
           className="mb-4 dark:[filter:brightness(200)]"
         />
-        <p className="text-gray-500 dark:text-slate-400 mb-3">{description}</p>
+        <p className="text-slate-500 dark:text-slate-400 mb-3">{description}</p>
       </div>
       <div className="flex justify-end p-4 bg-slate-50 dark:bg-slate-800 rounded-b-xl">
         <a

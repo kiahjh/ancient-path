@@ -16,6 +16,8 @@ const EnglishPodcasts: React.FC = () => {
       language="en"
       withChrome
       redirectTo="/es-podcast"
+      title="Podcast | The Ancient Path"
+      metaDescription="Spiritual writings"
     >
       <div className="p-8 md:p-16 dark:bg-slate-900">
         <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">Podcast</h2>
@@ -23,7 +25,7 @@ const EnglishPodcasts: React.FC = () => {
           To subscribe to a podcast of the audio versions of posts from this blog, click
           one of the links below:
         </p>
-        <div className="flex items-center justify-center flex-wrap bg-gray-100 dark:bg-black/20 mt-12 rounded-3xl p-6">
+        <div className="flex items-center justify-center flex-wrap bg-slate-100 dark:bg-black/20 mt-12 rounded-3xl p-6">
           <PodcastService
             href="https://podcasts.apple.com/us/podcast/hender-blog/id1645365966"
             name="Apple"

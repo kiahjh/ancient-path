@@ -12,6 +12,8 @@ const AcercaDeMi: React.FC<Props> = ({}) => {
       smallFooter
       language="es"
       redirectTo="/about"
+      title="Acerca de mí | La Senda Antigua"
+      metaDescription="Escrituras espirituales"
     >
       <section className="flex justify-center items-center py-8 px-3 sm:px-8 relative">
         <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>

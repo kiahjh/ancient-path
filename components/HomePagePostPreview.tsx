@@ -1,6 +1,7 @@
 import React from 'react';
 import striptags from 'striptags';
 import { relativeTime } from '../lib/dates';
+import { getExcerpt } from '../lib/helpers';
 import { DualPost, Lang } from '../lib/types';
 import TeachingBadge from './TeachingBadge';
 
@@ -29,10 +30,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
       </div>
       <p
         dangerouslySetInnerHTML={{
-          __html:
-            striptags(language === 'en' ? post.en.content : post.es.content)
-              .substring(0, 400)
-              .trim() + '...',
+          __html: getExcerpt(language === 'en' ? post.en.content : post.es.content, 400),
         }}
         className="text-white text-opacity-80 sm:text-lg mt-2 mb-4"
       ></p>

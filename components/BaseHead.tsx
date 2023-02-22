@@ -1,12 +1,17 @@
 import Head from 'next/head';
 import Script from 'next/script';
 
-const BaseHead: React.FC = ({}) => {
+interface Props {
+  description: string;
+  title: string;
+}
+
+const BaseHead: React.FC<Props> = ({ title, description }) => {
   return (
     <>
       <Head>
-        <title>The Ancient Path</title>
-        <meta name="description" content="Spiritual writings" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta name="author" content="Jason Henderson" />
         <meta
           name="viewport"

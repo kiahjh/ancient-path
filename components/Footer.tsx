@@ -56,21 +56,21 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
   return (
     <section className="relative overflow-hidden">
       <section className="bg-white dark:bg-slate-900 h-80 flex justify-center items-center relative p-8">
-        <i className="fa-solid fa-quote-left text-7xl text-gray-100 dark:text-slate-800 sm:text-gray-200 absolute left-8 top-8" />
-        <i className="fa-solid fa-quote-right text-7xl text-gray-100 dark:text-slate-800 sm:text-gray-200 absolute bottom-8 right-8" />
-        <p className="max-w-2xl text-center text-xl sm:text-2xl font-extralight relative z-10 text-gray-700 dark:text-slate-400">
+        <i className="fa-solid fa-quote-left text-7xl text-slate-100 dark:text-slate-800 sm:text-slate-200 absolute left-8 top-8" />
+        <i className="fa-solid fa-quote-right text-7xl text-slate-100 dark:text-slate-800 sm:text-slate-200 absolute bottom-8 right-8" />
+        <p className="max-w-2xl text-center text-xl sm:text-2xl font-extralight relative z-10 text-slate-700 dark:text-slate-400">
           {language === 'en' ? (
             <span>
               While you have the light, believe in the light, that you may become sons of
               light.{' '}
-              <span className="font-medium text-gray-600 dark:text-slate-200">
+              <span className="font-medium text-slate-600 dark:text-slate-200">
                 - John 12:26
               </span>
             </span>
           ) : (
             <span>
               Entre tanto que tenéis la luz, creed en la luz, para que seáis hijos de luz.{' '}
-              <span className="font-medium text-gray-600 dark:text-slate-200">
+              <span className="font-medium text-slate-600 dark:text-slate-200">
                 - Juan 12:26
               </span>
             </span>

@@ -12,6 +12,8 @@ const AboutMe: React.FC<Props> = ({}) => {
       smallFooter
       language="en"
       redirectTo="/acerca-de-mi"
+      title="About me | The Ancient Path"
+      metaDescription={'Spiritual writings'}
     >
       <section className="flex justify-center items-center py-8 px-3 sm:px-8 relative">
         <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>

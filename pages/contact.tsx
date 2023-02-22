@@ -26,6 +26,8 @@ const Contact: React.FC = () => {
       withChrome
       smallFooter
       redirectTo="/contacto"
+      title="Contact me | The Ancient Path"
+      metaDescription="Spiritual writings"
     >
       <div className="flex justify-center items-center py-12 px-6 sm:px-12 flex-grow">
         <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>
