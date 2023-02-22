@@ -3,9 +3,6 @@ import type { Lang, Post } from './types';
 
 export function podcastXml(posts: Array<Post<Lang>>): string {
   const lang = posts[0]?.lang ?? `en`;
-  const url = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : `https://hender.blog`;
   const description =
     lang === `en`
       ? `I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.`
@@ -19,12 +16,12 @@ export function podcastXml(posts: Array<Post<Lang>>): string {
     xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
       <atom:link
-        href="${url}podcast.${lang}.rss"
+        href="${url()}/podcast.${lang}.rss"
         rel="self"
         type="application/rss+xml"
       />
-      <title>hender.blog</title>
-      <link>${url}</link>
+      <title>${lang === `en` ? `The Ancient Path` : `La Senda Antigua`}</title>
+      <link>${url()}</link>
       <language>en</language>
       <itunes:author>Jason Henderson</itunes:author>
       <itunes:subtitle>${description}</itunes:subtitle>
@@ -36,11 +33,11 @@ export function podcastXml(posts: Array<Post<Lang>>): string {
         <itunes:name>Jared Henderson</itunes:name>
         <itunes:email>jared.thomas.henderson@gmail.com</itunes:email>
       </itunes:owner>
-      <itunes:image href="https://flp-assets.nyc3.digitaloceanspaces.com/static/henderblog.jpg" />
+      <itunes:image href="https://flp-assets.nyc3.digitaloceanspaces.com/ancient-path/podcast-${lang}.png" />
       <image>
-        <url>https://flp-assets.nyc3.digitaloceanspaces.com/static/henderblog.jpg</url>
-        <title>hender.blog</title>
-        <link>${url}</link>
+        <url>https://flp-assets.nyc3.digitaloceanspaces.com/ancient-path/podcast-${lang}.png</url>
+        <title>${lang === `en` ? `The Ancient Path` : `La Senda Antigua`}</title>
+        <link>${url()}</link>
       </image>
       <itunes:category text="Religion &amp; Spirituality">
         <itunes:category text="Christianity" />
@@ -81,9 +78,6 @@ function cdata(text: string): string {
 
 function audioItemData(post: Post<any>): string {
   const summary = striptags(post.content).substring(0, 200);
-  const url = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : `https://hender.blog`;
   return [
     `<title>${post.title}</title>`,
     `<enclosure url="${post.mp3Url}" length="${post.audioSize}" type="audio/mpeg" />`,
@@ -91,13 +85,23 @@ function audioItemData(post: Post<any>): string {
     `<itunes:subtitle>${cdata(summary)}</itunes:subtitle>`,
     `<itunes:summary>${cdata(summary)}</itunes:summary>`,
     `<description>${cdata(summary)}</description>`,
-    `<link>${url}posts/${post.slug}</link>`,
-    `<guid>${url}posts/${post.slug}</guid>`,
-    `<pubDate>${post.publishedAt}</pubDate>`,
+    `<link>${url()}/posts/${post.slug}</link>`,
+    `<guid>${url()}/posts/${post.slug}</guid>`,
+    `<pubDate>${post.createdAt}</pubDate>`,
     `<itunes:duration>${post.audioDuration}</itunes:duration>`,
     `<itunes:explicit>clean</itunes:explicit>`,
     `<itunes:episodeType>full</itunes:episodeType>`,
   ]
     .map((line) => `      ${line}`)
     .join(`\n    `);
+}
+
+function url(): string {
+  if (process.env.VERCEL_ENV === `production`) {
+    return `https://hender.blog`;
+  } else if (process.env.VERCEL_URL !== undefined) {
+    return `https://${process.env.VERCEL_URL}`;
+  } else {
+    return `http://localhost:3000`;
+  }
 }
