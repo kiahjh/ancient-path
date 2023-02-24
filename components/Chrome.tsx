@@ -61,11 +61,13 @@ const Chrome: React.FC<Props> = ({
       setCookie('theme', 'dark', {
         maxAge: 60 * 60 * 24 * 365, // one year
       });
+      document.querySelector('html')?.classList.add('dark');
     } else {
       setTheme('light');
       setCookie('theme', 'light', {
         maxAge: 60 * 60 * 24 * 365, // one year
       });
+      document.querySelector('html')?.classList.remove('dark');
     }
   }
 

@@ -6,10 +6,21 @@ interface Props {
   title: string;
 }
 
+function initializeTheme(): void {
+  if (document.cookie.includes(`theme=dark`)) {
+    document.querySelector('html')?.classList.add('dark');
+  }
+}
+
 const BaseHead: React.FC<Props> = ({ title, description }) => {
   return (
     <>
       <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(${initializeTheme.toString()})()`,
+          }}
+        />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="author" content="Jason Henderson" />

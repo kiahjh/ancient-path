@@ -14,18 +14,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     language = 'es';
   }
 
-  let theme: Theme = 'light';
-  const themeCookie = context.req.cookies.theme;
-  if (themeCookie === 'dark') {
-    theme = themeCookie;
-  }
-
   const allPosts = await getAllPosts();
 
   return {
     props: {
       language,
-      theme,
       recentPosts: allPosts.slice(0, 3),
     },
   };
@@ -34,14 +27,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 interface Props {
   recentPosts: DualPost[];
   language: Lang;
-  theme: Theme;
 }
 
-const Home: NextPage<Props> = ({ recentPosts, language, theme }) => (
+const Home: NextPage<Props> = ({ recentPosts, language }) => (
   <PageWrapper
     page="/"
     language={language}
-    theme={theme}
     withChrome
     redirectTo="/"
     title={language === 'en' ? 'The Ancient Path' : 'La Senda Antigua'}
