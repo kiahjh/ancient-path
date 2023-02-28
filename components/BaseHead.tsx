@@ -7,7 +7,11 @@ interface Props {
 }
 
 function initializeTheme(): void {
-  if (document.cookie.includes(`theme=dark`)) {
+  if (
+    document.cookie.includes(`theme=dark`) ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches &&
+      !document.cookie.includes(`theme=light`))
+  ) {
     document.querySelector('html')?.classList.add('dark');
   }
 }
