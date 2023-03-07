@@ -1,15 +1,16 @@
 import React from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import cx from 'classnames';
-import { Theme } from '../lib/types';
+import { Lang, Theme } from '../lib/types';
 import { deleteCookie, setCookie } from 'cookies-next';
 
 interface Props {
   theme: Theme;
   setTheme(arg: Theme): void;
+  language: Lang;
 }
 
-const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme }) => {
+const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
   function toggleTheme(arg: Theme): () => void {
     return () => {
       setTheme(arg);
@@ -77,7 +78,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme }) => {
                   <i className="fa-solid fa-sun mr-4 text-slate-500" />
                 </div>
                 <span className="shrink-0 font-medium text-slate-800 dark:text-slate-300">
-                  Light
+                  {language === 'en' ? 'Light' : 'Claro'}
                 </span>
               </button>
             )}
@@ -95,7 +96,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme }) => {
                   <i className="fa-solid fa-moon mr-4 text-slate-500" />
                 </div>
                 <span className="shrink-0 font-medium text-slate-800 dark:text-slate-300">
-                  Dark
+                  {language === 'en' ? 'Dark' : 'Oscuro'}
                 </span>
               </button>
             )}
@@ -113,7 +114,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme }) => {
                   <i className="fa-solid fa-desktop mr-4 text-slate-500" />
                 </div>
                 <span className="shrink-0 font-medium text-slate-800 dark:text-slate-300">
-                  System
+                  {language === 'en' ? 'System' : 'Sistema'}
                 </span>
               </button>
             )}

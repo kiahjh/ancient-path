@@ -104,7 +104,7 @@ const Chrome: React.FC<Props> = ({
       </nav>
       <header className="flex flex-row-reverse md-lg:flex-row justify-between items-center py-5 px-5 sm:px-10 top-0 bg-white bg-opacity-20 dark:bg-slate-900 z-20">
         <div className="lg:w-[182px]">
-          <ThemeSwitcher theme={theme} setTheme={setTheme} />
+          <ThemeSwitcher theme={theme} setTheme={setTheme} language={language} />
         </div>
         <button
           className="md-lg:hidden border-[0.5px] w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
