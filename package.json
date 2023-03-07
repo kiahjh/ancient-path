@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@formspree/react": "^2.4.1",
+    "@headlessui/react": "^1.7.12",
     "cors": "^2.8.5",
     "next": "latest",
     "react": "18.2.0",

@@ -26,7 +26,7 @@ export type ApiPost = {
 };
 
 export type Lang = 'en' | 'es';
-export type Theme = 'light' | 'dark';
+export type Theme = 'light' | 'dark' | 'system';
 
 export type Post<L extends Lang> = {
   id: string;
