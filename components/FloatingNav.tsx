@@ -23,7 +23,7 @@ const FloatingNav: React.FC<Props> = ({ page, className, language }) => {
             <NavLink to="/" selected={page === '/'}>
               Home
             </NavLink>
-            <NavLink to="/posts" selected={page === '/posts'}>
+            <NavLink to="/posts/page/1" selected={page === '/posts'}>
               Posts
             </NavLink>
             <NavLink to="/en-podcast" selected={page === '/en-podcast'}>
@@ -41,7 +41,7 @@ const FloatingNav: React.FC<Props> = ({ page, className, language }) => {
             <NavLink to="/" selected={page === '/'}>
               Inicio
             </NavLink>
-            <NavLink to="/publicaciones" selected={page === '/publicaciones'}>
+            <NavLink to="/publicaciones/pagina/1" selected={page === '/publicaciones'}>
               Publicaciones
             </NavLink>
             <NavLink to="/es-podcast" selected={page === '/es-podcast'}>

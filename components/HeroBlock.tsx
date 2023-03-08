@@ -37,7 +37,7 @@ const HeroBlock: React.FC<Props> = ({ language }) => {
       <div className="mt-12 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 relative">
         <a
           className="flex justify-center items-center bg-sky-400 dark:bg-sky-800 text-white rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-500 dark:hover:bg-sky-900 transition duration-100 cursor-pointer"
-          href={language === 'en' ? '/posts' : '/publicaciones'}
+          href={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
         >
           <i className="fa-solid fa-arrow-right mr-3"></i>
           {language === 'en' ? 'View all posts' : 'Ver publicaciones'}

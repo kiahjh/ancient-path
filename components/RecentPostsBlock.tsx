@@ -33,7 +33,7 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
         <div className="flex justify-center items-center mb-10 lg:-mb-4 mt-8 sm:mt-0">
           <Link
             className="flex items-center px-6 py-2 text-sky-500 bg-white dark:bg-sky-700 dark:hover:bg-sky-600 dark:text-white rounded-lg font-medium hover:text-sky-600 hover:bg-sky-50 cursor-pointer transition duration-100"
-            href={language === 'en' ? '/posts' : '/publicaciones'}
+            href={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
           >
             <i className="fa-solid fa-list mr-2" />
             {language === 'en' ? 'See more' : 'Ver más'}

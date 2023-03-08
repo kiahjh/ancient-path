@@ -1,58 +1,27 @@
 import React from 'react';
 import cx from 'classnames';
 import { Lang } from '../lib/types';
-import { useRouter } from 'next/router';
 
 interface Props {
   language: Lang;
-  setLanguage(l: Lang): unknown;
+  toggleLanguage(): unknown;
   page: string;
   className?: string;
 }
 
-const LanguageToggler: React.FC<Props> = ({ language, setLanguage, className, page }) => {
-  const router = useRouter();
+const LanguageToggler: React.FC<Props> = ({
+  language,
+  toggleLanguage,
+  className,
+  page,
+}) => {
   return (
     <button
       className={cx(
         'flex justify-center items-center space-x-1 bg-slate-100 dark:bg-black dark:bg-opacity-20 shadow-inner rounded-xl',
         className,
       )}
-      onClick={() => {
-        if (language === 'en') {
-          setLanguage('es');
-          localStorage.setItem('language', 'es');
-        } else {
-          setLanguage('en');
-          localStorage.setItem('language', 'en');
-        }
-        switch (page) {
-          case '/posts':
-            router.push('/publicaciones');
-            break;
-          case '/publicaciones':
-            router.push('/posts');
-            break;
-          case '/contact':
-            router.push('/contacto');
-            break;
-          case '/contacto':
-            router.push('/contact');
-            break;
-          case '/about':
-            router.push('/acerca-de-mi');
-            break;
-          case '/acerca-de-mi':
-            router.push('/about');
-            break;
-          case '/en-podcast':
-            router.push('/es-podcast');
-            break;
-          case '/es-podcast':
-            router.push('/en-podcast');
-            break;
-        }
-      }}
+      onClick={() => toggleLanguage()}
     >
       <span
         className={cx(

@@ -81,7 +81,7 @@ const Chrome: React.FC<Props> = ({
           {language === 'en' ? (
             <>
               <SidebarNavLink to="/">Home</SidebarNavLink>
-              <SidebarNavLink to="/posts">Posts</SidebarNavLink>
+              <SidebarNavLink to="/posts/page/1">Posts</SidebarNavLink>
               <SidebarNavLink to="/en-podcast">Podcast</SidebarNavLink>
               <SidebarNavLink to="/about">About</SidebarNavLink>
               <SidebarNavLink to="/contact">Contact me</SidebarNavLink>
@@ -89,7 +89,7 @@ const Chrome: React.FC<Props> = ({
           ) : (
             <>
               <SidebarNavLink to="/">Inicio</SidebarNavLink>
-              <SidebarNavLink to="/publicaciones">Publicaciones</SidebarNavLink>
+              <SidebarNavLink to="/publicaciones/pagina/1">Publicaciones</SidebarNavLink>
               <SidebarNavLink to="/es-podcast">Podcast</SidebarNavLink>
               <SidebarNavLink to="/acerca-de-mi">Acerca de mí</SidebarNavLink>
               <SidebarNavLink to="/contacto">Contacto</SidebarNavLink>
@@ -97,7 +97,11 @@ const Chrome: React.FC<Props> = ({
           )}
         </div>
         <div className="flex justify-center items-center mt-8">
-          <LanguageToggler language={language} setLanguage={toggleLanguage} page={page} />
+          <LanguageToggler
+            language={language}
+            toggleLanguage={toggleLanguage}
+            page={page}
+          />
         </div>
         <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-2xl absolute right-8 -bottom-72 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
         <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute -right-28 -bottom-96 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
@@ -116,7 +120,7 @@ const Chrome: React.FC<Props> = ({
         <LanguageToggler
           className="hidden md-lg:flex w-[182px]"
           language={language}
-          setLanguage={toggleLanguage}
+          toggleLanguage={toggleLanguage}
           page={page}
         />
       </header>
