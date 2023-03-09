@@ -11,13 +11,7 @@ import { paginate } from '../../../lib/helpers';
 export const getStaticProps: GetStaticProps = async (context) => {
   const allPosts = await getAllPosts();
   const whichPage = Number(context.params?.page_number);
-  const thisPagePosts = paginate(
-    allPosts.sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-    ),
-    whichPage,
-    8,
-  );
+  const thisPagePosts = paginate(allPosts, whichPage, 8);
 
   return {
     props: {
