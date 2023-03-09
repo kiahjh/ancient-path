@@ -21,7 +21,7 @@ const LanguageToggler: React.FC<Props> = ({
         'flex justify-center items-center space-x-1 bg-slate-100 dark:bg-black dark:bg-opacity-20 shadow-inner rounded-xl',
         className,
       )}
-      onClick={() => toggleLanguage()}
+      onClick={toggleLanguage}
     >
       <span
         className={cx(

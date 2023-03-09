@@ -18,10 +18,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     whichPage,
     8,
   );
-  const enPosts = allPosts.map((dual) => dual.en);
-  const esPosts = allPosts.map((dual) => dual.es);
-  fs.writeFileSync(`./public/podcast.en.rss`, podcastXml(enPosts));
-  fs.writeFileSync(`./public/podcast.es.rss`, podcastXml(esPosts));
 
   return {
     props: {
@@ -34,6 +30,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allDualPosts = await getAllPosts();
+
+  const enPosts = allDualPosts.map((dual) => dual.en);
+  const esPosts = allDualPosts.map((dual) => dual.es);
+  fs.writeFileSync(`./public/podcast.en.rss`, podcastXml(enPosts));
+  fs.writeFileSync(`./public/podcast.es.rss`, podcastXml(esPosts));
+
   const numberOfPages = Math.ceil(allDualPosts.length / 8);
   const pages = new Array(numberOfPages).fill(0).map((_, index) => index + 1);
 
@@ -57,11 +59,14 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
       withChrome
       language="en"
       redirectTo={`/publicaciones/pagina/${pageNum}`}
-      title="Posts | The Ancient Path"
+      title={`Posts (page ${pageNum}) | The Ancient Path`}
       metaDescription="Spiritual writings"
     >
       <div className="p-8 md:p-16 dark:bg-slate-900">
         <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">Posts</h2>
+        <h4 className="text-slate-500 dark:text-slate-400 mt-1 font-medium">
+          Page {pageNum} of {pageCount}
+        </h4>
         <p className="mt-3 text-slate-500">
           The majority of these posts are my replies to emails, text messages, or other
           questions brought up in various settings. Any names or personal information have

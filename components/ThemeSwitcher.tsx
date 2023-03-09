@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
-  function toggleTheme(arg: Theme): () => void {
+  function changeTheme(arg: Theme): () => void {
     return () => {
       setTheme(arg);
       if (arg === 'system') {
@@ -33,18 +33,16 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
     };
   }
 
-  let icon = '';
-  switch (theme) {
-    case 'light':
-      icon = 'sun';
-      break;
-    case 'dark':
-      icon = 'moon';
-      break;
-    case 'system':
-      icon = 'desktop';
-      break;
-  }
+  const icon = (() => {
+    switch (theme) {
+      case `light`:
+        return `sun`;
+      case `dark`:
+        return `moon`;
+      case `system`:
+        return `desktop`;
+    }
+  })();
 
   return (
     <Menu>
@@ -72,7 +70,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
                   active && 'bg-slate-50 dark:bg-slate-700/50',
                   'px-4 py-2 flex items-center rounded-t-xl',
                 )}
-                onClick={toggleTheme('light')}
+                onClick={changeTheme('light')}
               >
                 <div className="w-8 shrink-0 flex justify-center items-center">
                   <i className="fa-solid fa-sun mr-4 text-slate-500" />
@@ -90,7 +88,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
                   active && 'bg-slate-50 dark:bg-slate-700/50',
                   'px-4 py-2 flex items-center',
                 )}
-                onClick={toggleTheme('dark')}
+                onClick={changeTheme('dark')}
               >
                 <div className="w-8 shrink-0 flex justify-center items-center">
                   <i className="fa-solid fa-moon mr-4 text-slate-500" />
@@ -108,7 +106,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
                   active && 'bg-slate-50 dark:bg-slate-700/50',
                   'px-4 py-2 flex items-center rounded-b-xl',
                 )}
-                onClick={toggleTheme('system')}
+                onClick={changeTheme('system')}
               >
                 <div className="w-8 shrink-0 flex justify-center items-center">
                   <i className="fa-solid fa-desktop mr-4 text-slate-500" />

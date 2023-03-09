@@ -51,11 +51,14 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
       withChrome
       language="es"
       redirectTo={`/posts/page/${pageNum}`}
-      title="Publicaciones | La Senda Antigua"
+      title={`Publicaciones (página ${pageNum}) | La Senda Antigua`}
       metaDescription="Escrituras espirituales"
     >
       <div className="p-8 md:p-16 dark:bg-slate-900">
         <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">Publicaciones</h2>
+        <h4 className="text-slate-500 dark:text-slate-400 mt-1 font-medium">
+          Página {pageNum} de {pageCount}
+        </h4>
         <p className="mt-3 text-slate-500">
           La mayoría de estas publicaciones son respuestas a correos electrónicos,
           mensajes de texto u otras preguntas planteadas en diversos contextos. Por
