@@ -36,14 +36,14 @@ const HeroBlock: React.FC<Props> = ({ language }) => {
       </p>
       <div className="mt-12 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 relative">
         <a
-          className="flex justify-center items-center bg-sky-400 dark:bg-sky-800 text-white rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-500 dark:hover:bg-sky-900 transition duration-100 cursor-pointer"
-          href={language === 'en' ? '/posts' : '/publicaciones'}
+          className="flex justify-center items-center bg-sky-400 dark:bg-sky-800 text-white rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-500 dark:hover:bg-sky-900 transition duration-100 cursor-pointer select-none"
+          href={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
         >
           <i className="fa-solid fa-arrow-right mr-3"></i>
           {language === 'en' ? 'View all posts' : 'Ver publicaciones'}
         </a>
         <a
-          className="flex justify-center items-center bg-white dark:bg-slate-800 text-sky-500 dark:text-slate-400 border-[0.5px] dark:border-slate-700 rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-50 dark:hover:bg-opacity-70 transition duration-100 cursor-pointer"
+          className="flex justify-center items-center bg-white dark:bg-slate-800 text-sky-500 dark:text-slate-400 border-[0.5px] dark:border-slate-700 rounded-lg shadow-md py-3 px-5 font-medium text-lg hover:bg-sky-50 dark:hover:bg-opacity-70 transition duration-100 cursor-pointer select-none"
           href={language === 'en' ? '/en-podcast' : '/es-podcast'}
         >
           <i className="fa-solid fa-podcast mr-3"></i>

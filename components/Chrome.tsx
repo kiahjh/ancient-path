@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Link from 'next/link';
 import LanguageToggler from './LanguageToggler';
 import { Lang, Theme } from '../lib/types';
+import ThemeSwitcher from './ThemeSwitcher';
 
 interface Props {
   page: string;
@@ -55,24 +56,8 @@ const Chrome: React.FC<Props> = ({
     router.push(redirectTo);
   }
 
-  function toggletheme(): void {
-    if (theme === 'light') {
-      setTheme('dark');
-      setCookie('theme', 'dark', {
-        maxAge: 60 * 60 * 24 * 365, // one year
-      });
-      document.querySelector('html')?.classList.add('dark');
-    } else {
-      setTheme('light');
-      setCookie('theme', 'light', {
-        maxAge: 60 * 60 * 24 * 365, // one year
-      });
-      document.querySelector('html')?.classList.remove('dark');
-    }
-  }
-
   return (
-    <div className="flex flex-col min-h-screen relative">
+    <div className="flex flex-col min-h-screen relative z-30">
       <div
         className={cx(
           'z-40 bg-black left-0 top-0 w-screen h-screen md-lg:hidden bg-opacity-70 fixed',
@@ -96,7 +81,7 @@ const Chrome: React.FC<Props> = ({
           {language === 'en' ? (
             <>
               <SidebarNavLink to="/">Home</SidebarNavLink>
-              <SidebarNavLink to="/posts">Posts</SidebarNavLink>
+              <SidebarNavLink to="/posts/page/1">Posts</SidebarNavLink>
               <SidebarNavLink to="/en-podcast">Podcast</SidebarNavLink>
               <SidebarNavLink to="/about">About</SidebarNavLink>
               <SidebarNavLink to="/contact">Contact me</SidebarNavLink>
@@ -104,7 +89,7 @@ const Chrome: React.FC<Props> = ({
           ) : (
             <>
               <SidebarNavLink to="/">Inicio</SidebarNavLink>
-              <SidebarNavLink to="/publicaciones">Publicaciones</SidebarNavLink>
+              <SidebarNavLink to="/publicaciones/pagina/1">Publicaciones</SidebarNavLink>
               <SidebarNavLink to="/es-podcast">Podcast</SidebarNavLink>
               <SidebarNavLink to="/acerca-de-mi">Acerca de mí</SidebarNavLink>
               <SidebarNavLink to="/contacto">Contacto</SidebarNavLink>
@@ -112,24 +97,18 @@ const Chrome: React.FC<Props> = ({
           )}
         </div>
         <div className="flex justify-center items-center mt-8">
-          <LanguageToggler language={language} setLanguage={toggleLanguage} page={page} />
+          <LanguageToggler
+            language={language}
+            toggleLanguage={toggleLanguage}
+            page={page}
+          />
         </div>
         <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-2xl absolute right-8 -bottom-72 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
         <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute -right-28 -bottom-96 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
       </nav>
-      <header className="flex flex-row-reverse md-lg:flex-row justify-between items-center py-5 px-5 sm:px-10 top-0 bg-white bg-opacity-20 dark:bg-slate-900">
+      <header className="flex flex-row-reverse md-lg:flex-row justify-between items-center py-5 px-5 sm:px-10 top-0 bg-white bg-opacity-20 dark:bg-slate-900 z-20">
         <div className="lg:w-[182px]">
-          <button
-            className="rounded-full border-[0.5px] dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50 dark:hover:bg-slate-700"
-            onClick={toggletheme}
-          >
-            <i
-              className={cx(
-                'fa-solid text-xl text-sky-400 dark:text-sky-500 transition duration-100',
-                theme === 'light' ? 'fa-sun' : 'fa-moon',
-              )}
-            />
-          </button>
+          <ThemeSwitcher theme={theme} setTheme={setTheme} language={language} />
         </div>
         <button
           className="md-lg:hidden border-[0.5px] w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
@@ -141,11 +120,13 @@ const Chrome: React.FC<Props> = ({
         <LanguageToggler
           className="hidden md-lg:flex w-[182px]"
           language={language}
-          setLanguage={toggleLanguage}
+          toggleLanguage={toggleLanguage}
           page={page}
         />
       </header>
-      <section className="flex-grow flex flex-col dark:bg-slate-900">{children}</section>
+      <section className="flex-grow flex flex-col dark:bg-slate-900 z-0">
+        {children}
+      </section>
       <Footer page={page} small={smallFooter} language={language} />
     </div>
   );

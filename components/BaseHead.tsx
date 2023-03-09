@@ -7,12 +7,14 @@ interface Props {
 }
 
 function initializeTheme(): void {
-  if (
-    document.cookie.includes(`theme=dark`) ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches &&
-      !document.cookie.includes(`theme=light`))
-  ) {
+  if (document.cookie.includes(`theme=dark`)) {
     document.querySelector('html')?.classList.add('dark');
+  } else if (document.cookie.includes(`theme=light`)) {
+    document.querySelector('html')?.classList.remove('dark');
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.querySelector('html')?.classList.add('dark');
+  } else {
+    document.querySelector('html')?.classList.remove('dark');
   }
 }
 

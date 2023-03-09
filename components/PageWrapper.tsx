@@ -23,8 +23,8 @@ const PageWrapper: React.FC<Props> = (props) => {
     const themeCookie = getCookie('theme');
     if (themeCookie === 'dark' || themeCookie === 'light') {
       setTheme(themeCookie);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
+    } else {
+      setTheme(`system`);
     }
   }, [theme]);
 
