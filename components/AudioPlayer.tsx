@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
+import cx from 'classnames';
 import styles from '../styles/AudioPlayer.module.css';
 import SoundAnimation from './SoundAnimation';
 
 interface Props {
   src: string;
+  postTitle: string;
+  className?: string;
 }
 
-const AudioPlayer: React.FC<Props> = ({ src }) => {
+const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
   const audioPlayer = useRef<HTMLAudioElement>(null);
   const progressBar = useRef<HTMLInputElement>(null);
   const animationRef = useRef<number>();
@@ -51,7 +54,19 @@ const AudioPlayer: React.FC<Props> = ({ src }) => {
   }
 
   return (
-    <div className="rounded-xl border-[0.5px] border-slate-200 shadow">
+    <div
+      className={cx(
+        'rounded-xl border-[0.5px] border-slate-200 shadow relative',
+        className,
+      )}
+    >
+      <a
+        download
+        href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
+        className="absolute top-1 right-1 w-10 h-10 rounded-full transition duration-100 hover:bg-slate-100 cursor-pointer flex justify-center items-center no-underline z-10"
+      >
+        <i className="fa-solid fa-cloud-arrow-down text-slate-400 no-underline" />
+      </a>
       <audio src={src} ref={audioPlayer}>
         AudioPlayer
       </audio>

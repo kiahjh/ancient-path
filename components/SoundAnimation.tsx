@@ -24,7 +24,7 @@ const SoundAnimation: React.FC<Props> = ({ className, animate }) => {
     if (elapsed > fpsInterval) {
       then = now - (elapsed % fpsInterval);
       setHeights((heights) =>
-        heights.map((h, index) => Math.sin(t / 400 - index / 2) * 10 + 28),
+        heights.map((_, index) => Math.sin(t / 400 - index / 2) * 10 + 28),
       );
     }
   };
