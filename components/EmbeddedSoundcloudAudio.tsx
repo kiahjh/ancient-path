@@ -7,7 +7,7 @@ interface Props {
   lang: Lang;
 }
 
-const EmbeddedAudio: React.FC<Props> = ({ title, trackId, lang }) => {
+const EmbeddedSoundcloudAudio: React.FC<Props> = ({ title, trackId, lang }) => {
   return (
     <iframe
       className="bg-slate-100 rounded-sm mb-10"
@@ -20,7 +20,7 @@ const EmbeddedAudio: React.FC<Props> = ({ title, trackId, lang }) => {
   );
 };
 
-export default EmbeddedAudio;
+export default EmbeddedSoundcloudAudio;
 
 function src(trackId: number, lang: Lang): string {
   const params: Record<string, string> = {

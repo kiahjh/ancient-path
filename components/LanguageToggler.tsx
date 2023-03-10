@@ -5,20 +5,14 @@ import { Lang } from '../lib/types';
 interface Props {
   language: Lang;
   toggleLanguage(): unknown;
-  page: string;
   className?: string;
 }
 
-const LanguageToggler: React.FC<Props> = ({
-  language,
-  toggleLanguage,
-  className,
-  page,
-}) => {
+const LanguageToggler: React.FC<Props> = ({ language, toggleLanguage, className }) => {
   return (
     <button
       className={cx(
-        'flex justify-center items-center space-x-1 bg-slate-100 dark:bg-black dark:bg-opacity-20 shadow-inner rounded-xl',
+        'flex justify-center items-center space-x-1 bg-slate-100 dark:bg-black dark:bg-opacity-20 shadow-inner rounded-xl outline-none focus:outline focus:outline-sky-500',
         className,
       )}
       onClick={toggleLanguage}
