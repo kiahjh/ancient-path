@@ -56,21 +56,21 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
   return (
     <div
       className={cx(
-        'rounded-xl border-[0.5px] border-slate-200 shadow relative',
+        'rounded-xl border-[0.5px] dark:shadow-black/10 border-slate-200 dark:border-slate-700 shadow relative dark:bg-slate-700/10',
         className,
       )}
     >
       <a
         download
         href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
-        className="absolute top-1 right-1 w-10 h-10 rounded-full transition duration-100 hover:bg-slate-100 cursor-pointer flex justify-center items-center no-underline z-10"
+        className="absolute top-1 right-1 w-10 h-10 rounded-full transition duration-100 hover:bg-slate-100 cursor-pointer flex justify-center items-center no-underline z-10 dark:hover:bg-slate-700/50"
       >
-        <i className="fa-solid fa-cloud-arrow-down text-slate-400 no-underline" />
+        <i className="fa-solid fa-cloud-arrow-down text-slate-400 dark:text-slate-500 no-underline" />
       </a>
       <audio src={src} ref={audioPlayer}>
         AudioPlayer
       </audio>
-      <div className="flex justify-center items-center p-4 overflow-hidden relative border-b-[0.5px] border-slate-200">
+      <div className="flex justify-center items-center p-4 overflow-hidden relative border-b-[0.5px] border-slate-200 dark:border-slate-700">
         <SoundAnimation className="absolute bottom-0" animate={isPlaying} />
         <button
           className="flex items-center hover:bg-sky-400/10 transition duration-100 py-2 px-4 rounded-lg relative text-sky-500 hover:text-sky-600"
@@ -111,7 +111,7 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
           <i className="fa-solid fa-forward text-xl" />
         </button>
       </div>
-      <div className="flex items-center space-x-4 bg-slate-50 p-4 rounded-b-xl">
+      <div className="flex items-center space-x-4 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-b-xl">
         <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
         <div className="relative flex-grow -mt-2">
           <input
