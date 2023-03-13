@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import styles from '../styles/AudioPlayer.module.css';
 import SoundAnimation from './SoundAnimation';
+import { SpeakerWaveIcon, SpeakerXMarkIcon } from '@heroicons/react/24/solid';
 
 interface Props {
   src: string;
@@ -17,6 +18,8 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [loadingDownload, setLoadingDownload] = useState(false);
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
     if (audioPlayer.current && progressBar.current) {
@@ -60,13 +63,6 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
         className,
       )}
     >
-      <a
-        download
-        href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
-        className="absolute top-1 right-1 w-10 h-10 rounded-full transition duration-100 hover:bg-slate-100 cursor-pointer flex justify-center items-center no-underline z-10 dark:hover:bg-slate-700/50"
-      >
-        <i className="fa-solid fa-cloud-arrow-down text-slate-400 dark:text-slate-500 no-underline" />
-      </a>
       <audio src={src} ref={audioPlayer}>
         AudioPlayer
       </audio>
@@ -111,33 +107,67 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
           <i className="fa-solid fa-forward text-xl" />
         </button>
       </div>
-      <div className="flex items-center space-x-4 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-b-xl">
-        <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
-        <div className="relative flex-grow -mt-2">
-          <input
-            ref={progressBar}
-            type="range"
-            className={styles.progressBar}
-            value={currentTime}
-            onChange={() => {
+      <div className="flex items-center bg-slate-50 dark:bg-slate-700/50 p-3 space-x-8 rounded-b-xl">
+        <div className="shrink-0 flex justify-center items-center">
+          <a
+            download
+            href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
+            className="hover:bg-slate-200/50 dark:hover:bg-slate-700 w-8 h-8 flex justify-center items-center rounded-full text-slate-400 dark:text-slate-500 dark:hover:text-slate-400 cursor-pointer transition duration-100"
+            onClick={() => setLoadingDownload(true)}
+          >
+            <i
+              className={`fa-solid fa-${
+                loadingDownload ? 'spinner animate-spin' : 'cloud-arrow-down'
+              }`}
+            />
+          </a>
+        </div>
+        <div className="flex-grow flex items-center shrink-0 space-x-2">
+          <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
+          <div className="relative flex-grow -mt-2">
+            <input
+              ref={progressBar}
+              type="range"
+              className={styles.progressBar}
+              value={currentTime}
+              onChange={() => {
+                if (audioPlayer.current) {
+                  audioPlayer.current.currentTime = Number(progressBar.current?.value);
+                  setCurrentTime(Number(progressBar.current?.value));
+                }
+              }}
+            />
+            <div
+              className="absolute h-[8.4px] left-0 top-0 rounded-l-full z-10 bg-sky-500"
+              style={{
+                width: `calc(${(100 * currentTime) / duration}% - ${
+                  (20 * currentTime) / duration
+                }px + 1px)`,
+              }}
+            />
+          </div>
+          <span className="w-16 text-slate-400 flex justify-end">
+            {formatDuration(duration)}
+          </span>
+        </div>
+        <div className="shrink-0 flex justify-center items-center">
+          <button
+            className="hover:bg-slate-200/50 dark:hover:bg-slate-700 w-8 h-8 flex justify-center items-center rounded-full text-slate-400 dark:text-slate-500 dark:hover:text-slate-400  transition duration-100"
+            onClick={() => {
               if (audioPlayer.current) {
-                audioPlayer.current.currentTime = Number(progressBar.current?.value);
-                setCurrentTime(Number(progressBar.current?.value));
+                const prevValue = muted;
+                setMuted(!prevValue);
+                audioPlayer.current.volume = prevValue ? 1 : 0;
               }
             }}
-          />
-          <div
-            className="absolute h-[8.4px] left-0 top-0 rounded-l-full z-10 bg-sky-500"
-            style={{
-              width: `calc(${(100 * currentTime) / duration}% - ${
-                (20 * currentTime) / duration
-              }px + 1px)`,
-            }}
-          />
+          >
+            {muted ? (
+              <SpeakerXMarkIcon className="w-5" />
+            ) : (
+              <SpeakerWaveIcon className="w-5" />
+            )}
+          </button>
         </div>
-        <span className="w-16 text-slate-400 flex justify-end">
-          {formatDuration(duration)}
-        </span>
       </div>
     </div>
   );
