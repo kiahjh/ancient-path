@@ -30,10 +30,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const allDualPosts = await getAllPosts();
 
-  // const enPosts = allDualPosts.map((dual) => dual.en);
-  // const esPosts = allDualPosts.map((dual) => dual.es);
-  // fs.writeFileSync(`./public/podcast.en.rss`, podcastXml(enPosts));
-  // fs.writeFileSync(`./public/podcast.es.rss`, podcastXml(esPosts));
+  const enPosts = allDualPosts.map((dual) => dual.en);
+  const esPosts = allDualPosts.map((dual) => dual.es);
+  fs.writeFileSync(`./public/podcast.en.rss`, podcastXml(enPosts));
+  fs.writeFileSync(`./public/podcast.es.rss`, podcastXml(esPosts));
 
   const numberOfPages = Math.ceil(allDualPosts.length / 8);
   const pages = new Array(numberOfPages).fill(0).map((_, index) => index + 1);
@@ -61,17 +61,6 @@ interface Props {
   pageCount: number;
 }
 
-const content = {
-  en: {
-    page: '/posts',
-    metaDescription: 'Spiritual writings',
-  },
-  es: {
-    page: '/publicaciones',
-    metaDescription: 'Escrituras espirituales',
-  },
-};
-
 const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
   const language = posts[0].lang;
   const content = {
@@ -94,24 +83,23 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
       paragraph: `La mayoría de estas publicaciones son respuestas a correos electrónicos, mensajes de texto u otras preguntas planteadas en diversos contextos. Por supuesto, se ha eliminado cualquier nombre o información personal.`,
     },
   };
+  const c = content[language];
 
   return (
     <PageWrapper
-      page={content[language].page}
+      page={c.page}
       withChrome
       language={language}
-      redirectTo={content[language].redirectTo}
-      title={content[language].title}
-      metaDescription={content[language].metaDescription}
+      redirectTo={c.redirectTo}
+      title={c.title}
+      metaDescription={c.metaDescription}
     >
       <div className="p-8 md:p-16 dark:bg-slate-900">
-        <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">
-          {content[language].heading}
-        </h2>
+        <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">{c.heading}</h2>
         <h4 className="text-slate-500 dark:text-slate-400 mt-1 font-medium">
-          {content[language].subheading}
+          {c.subheading}
         </h4>
-        <p className="mt-3 text-slate-500">{content[language].paragraph}</p>
+        <p className="mt-3 text-slate-500">{c.paragraph}</p>
       </div>
       {posts.length > 0 ? (
         <section className="sm:p-16 p-8 pt-12 sm:pt-4 space-y-14 md:space-y-8 relative bg-graph-paper dark:bg-slate-900 dark:[background-image:none]">

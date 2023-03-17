@@ -60,15 +60,16 @@ const Post: React.FC<Props> = ({ post, alternateLanguageSlug }) => {
       title: `${post.title} | La Senda Antigua`,
     },
   };
+  const c = content[language];
 
   return (
     <PageWrapper
       language={language}
       withChrome
-      page={content[language].page}
+      page={c.page}
       smallFooter
-      redirectTo={content[language].redirectTo}
-      title={content[language].title}
+      redirectTo={c.redirectTo}
+      title={c.title}
       metaDescription={getExcerpt(post.content, 300) /* TEMP */}
     >
       <div className="bg-graph-paper dark:bg-slate-900 dark:[background-image:none] relative flex flex-col items-center overflow-x-hidden">
