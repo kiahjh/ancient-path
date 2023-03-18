@@ -14,26 +14,6 @@ interface Props {
 }
 
 const PodcastPage: React.FC<Props> = ({ language }) => {
-  const content = {
-    en: {
-      page: '/en-podcast',
-      redirectTo: '/es-podcast',
-      title: 'Podcast | The Ancient Path',
-      metaDescription: 'Spiritual writings',
-      heading: 'Podcast',
-      paragraph:
-        'To subscribe to a podcast of the audio versions of posts from this blog, click one of the links below:',
-    },
-    es: {
-      page: '/es-podcast',
-      redirectTo: '/en-podcast',
-      title: 'Podcast | La Senda Antigua',
-      metaDescription: 'Escrituras espirituales',
-      heading: 'Podcast',
-      paragraph:
-        'Para suscribirte a un podcast de los audios de las publicaciones de este blog, haz clic en uno de los enlaces siguientes:',
-    },
-  };
   const c = content[language];
 
   return (
@@ -75,7 +55,7 @@ const PodcastPage: React.FC<Props> = ({ language }) => {
             img={RSS.src}
             onClick={() => {
               navigator.clipboard
-                .writeText('http://hender.blog/podcast.en.rss')
+                .writeText(`https://hender.blog/podcast.${language}.rss`)
                 .then(() =>
                   alert(
                     'The podcast URL was copied to your clipboard. Open your podcast app of choice and paste it in. You may need to search for an advanced option that allows you to "Add a show by URL".',
@@ -90,3 +70,24 @@ const PodcastPage: React.FC<Props> = ({ language }) => {
 };
 
 export default PodcastPage;
+
+const content = {
+  en: {
+    page: '/en-podcast',
+    redirectTo: '/es-podcast',
+    title: 'Podcast | The Ancient Path',
+    metaDescription: 'Spiritual writings',
+    heading: 'Podcast',
+    paragraph:
+      'To subscribe to a podcast of the audio versions of posts from this blog, click one of the links below:',
+  },
+  es: {
+    page: '/es-podcast',
+    redirectTo: '/en-podcast',
+    title: 'Podcast | La Senda Antigua',
+    metaDescription: 'Escrituras espirituales',
+    heading: 'Podcast',
+    paragraph:
+      'Para suscribirte a un podcast de los audios de las publicaciones de este blog, haz clic en uno de los enlaces siguientes:',
+  },
+};

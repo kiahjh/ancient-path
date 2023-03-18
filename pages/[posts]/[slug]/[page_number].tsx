@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import type { DualPost, Post } from '../../../lib/types';
+import type { DualPost, Lang, Post } from '../../../lib/types';
 import PostPreview from '../../../components/PostPreview';
 import { getAllPosts } from '../../../lib/getAllPosts';
 import { podcastXml } from '../../../lib/podcast';
@@ -11,10 +11,7 @@ import { paginate } from '../../../lib/helpers';
 export const getStaticProps: GetStaticProps = async (context) => {
   const dualPosts = await getAllPosts();
   const whichLanguage = context.params?.slug === 'page' ? 'en' : 'es';
-  const posts = dualPosts.map((post) => ({
-    ...post[whichLanguage],
-    category: post.category,
-  }));
+  const posts = dualPosts.map((dual) => dual[whichLanguage]);
   const whichPage = Number(context.params?.page_number);
   const thisPagePosts = paginate(posts, whichPage, 8);
 
@@ -56,7 +53,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 interface Props {
-  posts: Array<Post<'en' | 'es'> & { category: 'teaching' | 'post' }>;
+  posts: Array<Post<Lang> & { category: 'teaching' | 'post' }>;
   pageNum: number;
   pageCount: number;
 }
@@ -104,7 +101,7 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
       {posts.length > 0 ? (
         <section className="sm:p-16 p-8 pt-12 sm:pt-4 space-y-14 md:space-y-8 relative bg-graph-paper dark:bg-slate-900 dark:[background-image:none]">
           {posts.map((post) => (
-            <PostPreview category={post.category} post={post} key={post.id} />
+            <PostPreview post={post} key={post.id} />
           ))}
           <Paginator numPages={pageCount} page={pageNum} />
         </section>

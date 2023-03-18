@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 interface Props {
-  post: Post<'en' | 'es'>;
+  post: Post<Lang>;
   alternateLanguageSlug: string;
 }
 

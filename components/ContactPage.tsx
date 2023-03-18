@@ -9,42 +9,6 @@ interface Props {
 }
 
 const ContactPage: React.FC<Props> = ({ language }) => {
-  const content = {
-    en: {
-      errMessage:
-        'Whoops, something went wrong on our end. Try refreshing the page and trying again.',
-      successMessage:
-        "Thanks for the message! I'll try to get back to you as soon as possible.",
-      page: '/contact',
-      redirectTo: '/contacto',
-      title: 'Contact me | The Ancient Path',
-      metaDescription: 'Spiritual writings',
-      heading: 'Contact me',
-      paragraph:
-        "Feel free to contact me using the form below with any questions or comments. I'll respond to you as soon as possible.",
-      emailLabel: 'Email',
-      emailPlaceholder: 'me@example.com',
-      messageLabel: 'Message',
-      messagePlaceholder: 'Questions or comments',
-      buttonText: 'Submit',
-    },
-    es: {
-      errMessage: 'Algo ha fallado. Intenta actualizar la página y vuelve a intentarlo.',
-      successMessage: 'Gracias por el mensaje. Intentaré responderte lo antes posible.',
-      page: '/contacto',
-      redirectTo: '/contact',
-      title: 'Contacto | La Senda Antigua',
-      metaDescription: 'Escrituras espirituales',
-      heading: 'Contacto',
-      paragraph:
-        'No dudes en ponerte en contacto conmigo a través del siguiente formulario si tienes alguna pregunta o comentario. Te responderé lo antes posible.',
-      emailLabel: 'Correo electrónico',
-      emailPlaceholder: 'yo@ejemplo.com',
-      messageLabel: 'Mensaje',
-      messagePlaceholder: 'Preguntas o comentarios',
-      buttonText: 'Enviar',
-    },
-  };
   const c = content[language];
 
   const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM!);
@@ -138,3 +102,40 @@ const ContactPage: React.FC<Props> = ({ language }) => {
 };
 
 export default ContactPage;
+
+const content = {
+  en: {
+    errMessage:
+      'Whoops, something went wrong on our end. Try refreshing the page and trying again.',
+    successMessage:
+      "Thanks for the message! I'll try to get back to you as soon as possible.",
+    page: '/contact',
+    redirectTo: '/contacto',
+    title: 'Contact me | The Ancient Path',
+    metaDescription: 'Spiritual writings',
+    heading: 'Contact me',
+    paragraph:
+      "Feel free to contact me using the form below with any questions or comments. I'll respond to you as soon as possible.",
+    emailLabel: 'Email',
+    emailPlaceholder: 'me@example.com',
+    messageLabel: 'Message',
+    messagePlaceholder: 'Questions or comments',
+    buttonText: 'Submit',
+  },
+  es: {
+    errMessage: 'Algo ha fallado. Intenta actualizar la página y vuelve a intentarlo.',
+    successMessage: 'Gracias por el mensaje. Intentaré responderte lo antes posible.',
+    page: '/contacto',
+    redirectTo: '/contact',
+    title: 'Contacto | La Senda Antigua',
+    metaDescription: 'Escrituras espirituales',
+    heading: 'Contacto',
+    paragraph:
+      'No dudes en ponerte en contacto conmigo a través del siguiente formulario si tienes alguna pregunta o comentario. Te responderé lo antes posible.',
+    emailLabel: 'Correo electrónico',
+    emailPlaceholder: 'yo@ejemplo.com',
+    messageLabel: 'Mensaje',
+    messagePlaceholder: 'Preguntas o comentarios',
+    buttonText: 'Enviar',
+  },
+};

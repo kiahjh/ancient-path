@@ -7,10 +7,9 @@ import { getExcerpt } from '../lib/helpers';
 
 interface Props {
   post: Post<Lang>;
-  category: 'teaching' | 'post';
 }
 
-const PostPreview: React.FC<Props> = ({ post, category }) => {
+const PostPreview: React.FC<Props> = ({ post }) => {
   const language = post.lang;
   const previewText = getExcerpt(post.content, 400);
 
@@ -42,7 +41,7 @@ const PostPreview: React.FC<Props> = ({ post, category }) => {
           <h2 className="text-xl font-inter text-slate-900 dark:text-white mr-3 mb-2">
             {post.title}
           </h2>
-          {category === 'teaching' && (
+          {post.category === 'teaching' && (
             <TeachingBadge language={language} className="mb-2" />
           )}
         </div>
