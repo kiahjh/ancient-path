@@ -80,6 +80,8 @@ const content = {
     heading: 'Podcast',
     paragraph:
       'To subscribe to a podcast of the audio versions of posts from this blog, click one of the links below:',
+    RSSAlertText:
+      'The podcast URL was copied to your clipboard. Open your podcast app of choice and paste it in. You may need to search for an advanced option that allows you to "Add a show by URL".',
   },
   es: {
     page: '/es-podcast',
@@ -89,5 +91,7 @@ const content = {
     heading: 'Podcast',
     paragraph:
       'Para suscribirte a un podcast de los audios de las publicaciones de este blog, haz clic en uno de los enlaces siguientes:',
+    RSSAlertText:
+      'La URL del podcast se ha copiado en el portapapeles. Abre la aplicación de podcasts que prefieras y pégala. Puede que tengas que buscar una opción avanzada que te permita “Añadir un programa por URL”.',
   },
 };

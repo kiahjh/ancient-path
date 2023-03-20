@@ -29,7 +29,7 @@ const AboutPage: React.FC<Props> = ({ language }) => {
           </h1>
           <Image
             src="/profile.jpg"
-            alt="Photo of Jason Henderson"
+            alt={c.imgAlt}
             width={288}
             height={288}
             className="rounded-3xl hidden sm:block w-52 md:w-72 float-left mr-6 mb-4 shadow-xl"
@@ -68,6 +68,7 @@ const content = {
     paragraph3:
       'I am married, have four children, and live in Ohio, USA, where I am very involved in a small local church.',
     signature: '– Jason Henderson, August 2022',
+    imgAlt: 'Photo of Jason Henderson',
   },
   es: {
     page: '/acerca-de-mi',
@@ -82,5 +83,6 @@ const content = {
     paragraph3:
       'Estoy casado, tengo cuatro hijos y vivo en Ohio, Estados Unidos; donde estoy muy involucrado en una pequeña iglesia local.',
     signature: '– Jason Henderson, agosto 2022',
+    imgAlt: 'Foto de Jason Henderson',
   },
 };
