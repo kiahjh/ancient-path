@@ -29,6 +29,7 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
     }
   }, [
     audioPlayer.current?.readyState,
+    audioPlayer.current?.duration,
     audioPlayer.current?.onloadeddata,
     audioPlayer.current?.onloadedmetadata,
   ]);
@@ -113,7 +114,10 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
             download
             href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
             className="hover:bg-slate-200/50 dark:hover:bg-slate-700 w-8 h-8 flex justify-center items-center rounded-full text-slate-400 dark:text-slate-500 dark:hover:text-slate-400 cursor-pointer transition duration-100"
-            onClick={() => setLoadingDownload(true)}
+            onClick={() => {
+              setLoadingDownload(true);
+              setInterval(() => setLoadingDownload(false), 5000);
+            }}
           >
             <i
               className={`fa-solid fa-${
@@ -124,7 +128,7 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
         </div>
         <div className="flex-grow flex items-center shrink-0 space-x-2">
           <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
-          <div className="relative flex-grow -mt-2">
+          <div className="relative flex-grow -mt-1.5">
             <input
               ref={progressBar}
               type="range"
@@ -138,10 +142,10 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
               }}
             />
             <div
-              className="absolute h-[8.4px] left-0 top-0 rounded-l-full z-10 bg-sky-500"
+              className="absolute h-[6px] left-0 top-0 rounded-l-full z-10 bg-sky-500"
               style={{
                 width: `calc(${(100 * currentTime) / duration}% - ${
-                  (20 * currentTime) / duration
+                  (16 * currentTime) / duration
                 }px + 1px)`,
               }}
             />
@@ -176,6 +180,9 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
 export default AudioPlayer;
 
 function formatDuration(seconds: number): string {
+  if (isNaN(seconds)) {
+    return `00:00`;
+  }
   const hourPart = Math.floor(seconds / 3600);
   const minutePart = Math.floor((seconds - hourPart * 3600) / 60);
   const secondPart = seconds % 60;
