@@ -56,11 +56,7 @@ const PodcastPage: React.FC<Props> = ({ language }) => {
             onClick={() => {
               navigator.clipboard
                 .writeText(`https://hender.blog/podcast.${language}.rss`)
-                .then(() =>
-                  alert(
-                    'The podcast URL was copied to your clipboard. Open your podcast app of choice and paste it in. You may need to search for an advanced option that allows you to "Add a show by URL".',
-                  ),
-                );
+                .then(() => alert(c.RSSAlertText));
             }}
           />
         </div>
