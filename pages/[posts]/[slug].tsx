@@ -3,7 +3,7 @@ import React from 'react';
 import AudioPlayer from '../../components/AudioPlayer';
 import PageWrapper from '../../components/PageWrapper';
 import { getAllPosts } from '../../lib/getAllPosts';
-import { getExcerpt } from '../../lib/helpers';
+import { description } from '../../lib/helpers';
 import { Lang, Post } from '../../lib/types';
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
@@ -70,7 +70,7 @@ const Post: React.FC<Props> = ({ post, alternateLanguageSlug }) => {
       smallFooter
       redirectTo={c.redirectTo}
       title={c.title}
-      metaDescription={getExcerpt(post.content, 300) /* TEMP */}
+      metaDescription={description(post)}
     >
       <div className="bg-graph-paper dark:bg-slate-900 dark:[background-image:none] relative flex flex-col items-center overflow-x-hidden">
         <div className="w-176 h-176 absolute -left-96 top-128 sky-cloud"></div>

@@ -18,6 +18,7 @@ export function toDual(api: ApiPost): DualPost {
       modifiedAt: api.modified_at,
       publishedAt: api.published_at,
       category,
+      description: api.metadata.description,
     },
     es: {
       lang: `es`,
@@ -33,6 +34,7 @@ export function toDual(api: ApiPost): DualPost {
       modifiedAt: api.modified_at,
       publishedAt: api.published_at,
       category,
+      description: api.metadata.spanish_description,
     },
     createdAt: api.created_at,
     modifiedAt: api.modified_at,

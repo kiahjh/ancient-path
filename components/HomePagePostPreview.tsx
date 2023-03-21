@@ -1,7 +1,6 @@
 import React from 'react';
-import striptags from 'striptags';
 import { relativeTime } from '../lib/dates';
-import { getExcerpt } from '../lib/helpers';
+import { description } from '../lib/helpers';
 import { DualPost, Lang } from '../lib/types';
 import TeachingBadge from './TeachingBadge';
 
@@ -12,7 +11,7 @@ interface Props {
 
 const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
   return (
-    <div className="p-3 sm:p-6 rounded-2xl flex flex-col">
+    <div className="p-3 sm:p-6 flex flex-col">
       <div className="flex flex-row flex-wrap items-center">
         <h2 className="text-xl sm:text-2xl font-bold text-white mr-3 mb-2">
           {language === 'en' ? post.en.title : post.es.title}
@@ -30,7 +29,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
       </div>
       <p
         dangerouslySetInnerHTML={{
-          __html: getExcerpt(language === 'en' ? post.en.content : post.es.content, 400),
+          __html: description(post[language]),
         }}
         className="text-white text-opacity-80 sm:text-lg mt-2 mb-4"
       ></p>
