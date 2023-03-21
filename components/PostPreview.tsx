@@ -1,19 +1,17 @@
-import React, { useContext } from 'react';
-import striptags from 'striptags';
+import React from 'react';
 import cx from 'classnames';
-import type { DualPost } from '../lib/types';
+import type { Lang, Post } from '../lib/types';
 import { englishMonths, spanishMonths } from '../lib/dates';
-import { LanguageContext } from '../lib/LanguageContext';
 import TeachingBadge from './TeachingBadge';
 import { getExcerpt } from '../lib/helpers';
 
 interface Props {
-  post: DualPost;
+  post: Post<Lang>;
 }
 
 const PostPreview: React.FC<Props> = ({ post }) => {
-  const language = useContext(LanguageContext);
-  const previewText = getExcerpt(post[language].content, 400);
+  const language = post.lang;
+  const previewText = getExcerpt(post.content, 400);
 
   return (
     <div className="shadow-lg border-[0.5px] dark:border-slate-700 rounded-xl relative bg-white dark:bg-slate-800/50 flex flex-col justify-start items-start md:ml-10">
@@ -41,7 +39,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
       <div className="p-6 md:pl-16 pt-16 md:pt-6 pb-4">
         <div className="flex justify-start items-center flex-wrap">
           <h2 className="text-xl font-inter text-slate-900 dark:text-white mr-3 mb-2">
-            {post[language].title}
+            {post.title}
           </h2>
           {post.category === 'teaching' && (
             <TeachingBadge language={language} className="mb-2" />
@@ -55,11 +53,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
       <div className="p-4 flex justify-end w-full bg-slate-50 dark:bg-slate-700/30 rounded-b-xl">
         <a
           className="block self-end px-4 py-2 text-sky-500 dark:text-sky-300 transition duration-100 hover:text-sky-600 dark:hover:text-sky-200 cursor-pointer rounded-lg bg-sky-100 dark:bg-sky-500/10"
-          href={
-            language === `en`
-              ? `/posts/${post.en.slug}`
-              : `/publicaciones/${post.es.slug}`
-          }
+          href={language === `en` ? `/posts/${post.slug}` : `/publicaciones/${post.slug}`}
         >
           {language === `en` ? `Read post` : `Leer publicación`}
           {` `}

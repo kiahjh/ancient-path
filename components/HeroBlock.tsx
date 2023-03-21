@@ -13,13 +13,13 @@ const HeroBlock: React.FC<Props> = ({ language }) => {
       <h1 className="text-3xl xs:text-4xl dark:text-white md:text-6xl font-inter relative">
         {language === 'en' ? 'The Ancient Path' : 'La Senda Antigua'}
       </h1>
-      <p className="mt-6 text-black dark:text-slate-500 text-opacity-50 max-w-4xl xs:text-lg relative">
+      <p className="mt-6 text-slate-500 dark:text-slate-500 max-w-4xl xs:text-lg relative">
         {language === 'en' ? (
           <span>
             Stand by the ways and see and ask for the ancient paths, where the good way
             is, and walk in it; and you will find rest for your souls. But they said, "We
             will not walk in it." -{' '}
-            <span className="font-medium text-black dark:text-slate-400 text-opacity-60">
+            <span className="font-medium text-slate-600 dark:text-slate-400">
               Jeremiah 6:16
             </span>
           </span>

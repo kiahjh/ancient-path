@@ -1,6 +1,8 @@
 import type { DualPost, ApiPost } from './types';
 
 export function toDual(api: ApiPost): DualPost {
+  const category =
+    !api.metadata.category || api.metadata.category.key === 'post' ? 'post' : 'teaching';
   return {
     en: {
       lang: `en`,
@@ -15,6 +17,7 @@ export function toDual(api: ApiPost): DualPost {
       createdAt: api.created_at,
       modifiedAt: api.modified_at,
       publishedAt: api.published_at,
+      category,
     },
     es: {
       lang: `es`,
@@ -29,13 +32,11 @@ export function toDual(api: ApiPost): DualPost {
       createdAt: api.created_at,
       modifiedAt: api.modified_at,
       publishedAt: api.published_at,
+      category,
     },
     createdAt: api.created_at,
     modifiedAt: api.modified_at,
     publishedAt: api.published_at,
-    category:
-      !api.metadata.category || api.metadata.category.key === 'post'
-        ? 'post'
-        : 'teaching',
+    category,
   };
 }

@@ -41,6 +41,7 @@ export type Post<L extends Lang> = {
   createdAt: string;
   modifiedAt: string;
   publishedAt: string;
+  category: 'teaching' | 'post';
 };
 
 export type DualPost = {
