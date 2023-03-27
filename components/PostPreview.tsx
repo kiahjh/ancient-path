@@ -3,7 +3,7 @@ import cx from 'classnames';
 import type { Lang, Post } from '../lib/types';
 import { englishMonths, spanishMonths } from '../lib/dates';
 import TeachingBadge from './TeachingBadge';
-import { getExcerpt } from '../lib/helpers';
+import { description } from '../lib/helpers';
 
 interface Props {
   post: Post<Lang>;
@@ -11,7 +11,6 @@ interface Props {
 
 const PostPreview: React.FC<Props> = ({ post }) => {
   const language = post.lang;
-  const previewText = getExcerpt(post.content, 400);
 
   return (
     <div className="shadow-lg border-[0.5px] dark:border-slate-700 rounded-xl relative bg-white dark:bg-slate-800/50 flex flex-col justify-start items-start md:ml-10">
@@ -47,7 +46,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
         </div>
         <p
           className="mt-3 mb-3 text-slate-500 dark:text-slate-400"
-          dangerouslySetInnerHTML={{ __html: previewText }}
+          dangerouslySetInnerHTML={{ __html: description(post) }}
         />
       </div>
       <div className="p-4 flex justify-end w-full bg-slate-50 dark:bg-slate-700/30 rounded-b-xl">

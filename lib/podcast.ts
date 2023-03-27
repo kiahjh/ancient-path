@@ -1,5 +1,4 @@
-import striptags from 'striptags';
-import { getExcerpt } from './helpers';
+import { description } from './helpers';
 import type { Lang, Post } from './types';
 
 export function podcastXml(posts: Array<Post<Lang>>): string {
@@ -78,7 +77,7 @@ function cdata(text: string): string {
 }
 
 function audioItemData(post: Post<any>): string {
-  const summary = getExcerpt(post.content, 200);
+  const summary = description(post);
   return [
     `<title>${post.title}</title>`,
     `<enclosure url="${post.mp3Url}" length="${post.audioSize}" type="audio/mpeg" />`,

@@ -46,7 +46,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
 
   return (
     <Menu>
-      <Menu.Button className="rounded-full border-[0.5px] dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50 dark:hover:bg-slate-700">
+      <Menu.Button className="rounded-full border-[0.5px] dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50 dark:hover:bg-slate-700 outline-none focus:border-sky-500 dark:focus:border-sky-500">
         <i
           className={cx(
             'fa-solid text-xl text-sky-400 dark:text-sky-500 transition duration-100',
@@ -62,7 +62,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Menu.Items className="border-[0.5px] dark:border-slate-700 flex flex-col absolute mt-2 z-50 rounded-xl shadow-xl bg-white dark:bg-slate-800 right-0 md-lg:right-auto">
+        <Menu.Items className="border-[0.5px] dark:border-slate-700 flex flex-col absolute mt-2 z-50 rounded-xl shadow-xl bg-white dark:bg-slate-800 right-0 md-lg:right-auto outline-none">
           <Menu.Item>
             {({ active }) => (
               <button

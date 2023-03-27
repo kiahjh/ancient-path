@@ -26,6 +26,7 @@ const Advertisement: React.FC<Props> = ({ img, description, url }) => {
         <a
           className="text-blue-500 dark:text-sky-400 hover:text-blue-600 dark:hover:text-sky-300 transition duration-100 cursor-pointer"
           href={url}
+          target="_blank"
         >
           {language === 'en' ? 'Check it out' : 'Echa un vistazo'}{' '}
           <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
