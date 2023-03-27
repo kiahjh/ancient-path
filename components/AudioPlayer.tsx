@@ -108,8 +108,8 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
           <i className="fa-solid fa-forward text-xl" />
         </button>
       </div>
-      <div className="flex items-center bg-slate-50 dark:bg-slate-700/50 p-3 pb-2 sm:pb-3 sm:space-x-8 rounded-b-xl flex-wrap sm:flex-nowrap">
-        <div className="shrink-0 flex justify-start sm:justify-center items-center flex-grow sm:flex-grow-0">
+      <div className="flex items-center bg-slate-50 dark:bg-slate-700/50 p-3 pb-2 sm:pb-3 sm:space-x-8 rounded-b-xl">
+        {/* <div className="shrink-0 flex justify-start sm:justify-center items-center flex-grow sm:flex-grow-0">
           <a
             download
             href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
@@ -125,8 +125,8 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
               }`}
             />
           </a>
-        </div>
-        <div className="flex-grow flex items-center shrink-0 space-x-2 order-first sm:order-none w-full sm:w-auto mb-2 sm:mb-0">
+        </div> */}
+        <div className="flex-grow flex items-center shrink-0 space-x-2 ml-2">
           <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
           <div className="relative flex-grow -mt-1.5">
             <input
@@ -154,7 +154,7 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
             {formatDuration(duration)}
           </span>
         </div>
-        <div className="shrink-0 flex justify-end sm:justify-center items-center flex-grow sm:flex-grow-0">
+        <div className="shrink-0 flex justify-end sm:justify-center items-center ml-6">
           <button
             className="hover:bg-slate-200/50 dark:hover:bg-slate-700 w-8 h-8 flex justify-center items-center rounded-full text-slate-400 dark:text-slate-500 dark:hover:text-slate-400  transition duration-100"
             onClick={() => {
