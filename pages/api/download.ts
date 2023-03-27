@@ -3,18 +3,20 @@ import fetch from 'node-fetch';
 
 const handler: NextApiHandler = async (req, res) => {
   const url = req.query.url;
-  const fileName = decodeURIComponent(req.query.title as string).replace(
-    /[^a-z0-9]/gi,
-    '_',
-  );
-  const fetchResponse = await fetch(url as string);
-  const bob = await fetchResponse.arrayBuffer();
+  const title = req.query.title;
+  if (typeof url !== 'string' || typeof title !== 'string') {
+    res.status(400).send('Bad Request');
+    return;
+  }
+  const fileName = decodeURIComponent(title).replace(/[^a-z0-9]/gi, '_');
+  const fetchResponse = await fetch(url);
+  const buffer = await fetchResponse.arrayBuffer();
   res
     .setHeader('Content-Type', 'application/mp3')
-    .setHeader('Content-Length', bob.byteLength)
+    .setHeader('Content-Length', buffer.byteLength)
     .setHeader('Content-Disposition', `filename="${fileName}"`)
     .status(200)
-    .end(Buffer.from(bob));
+    .end(Buffer.from(buffer));
 };
 
 export default handler;

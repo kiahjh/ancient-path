@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useContext } from 'react';
 import { LanguageContext } from '../lib/LanguageContext';
 
@@ -24,14 +23,14 @@ const Advertisement: React.FC<Props> = ({ img, description, url }) => {
         <p className="text-slate-500 dark:text-slate-400 mb-3">{description}</p>
       </div>
       <div className="flex justify-end p-4 bg-slate-50 dark:bg-slate-800 rounded-b-xl">
-        <Link
+        <a
           className="text-blue-500 dark:text-sky-400 hover:text-blue-600 dark:hover:text-sky-300 transition duration-100 cursor-pointer"
           href={url}
           target="_blank"
         >
           {language === 'en' ? 'Check it out' : 'Echa un vistazo'}{' '}
           <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
-        </Link>
+        </a>
       </div>
     </div>
   );
