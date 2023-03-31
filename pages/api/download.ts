@@ -20,3 +20,9 @@ const handler: NextApiHandler = async (req, res) => {
 };
 
 export default handler;
+
+export const config = {
+  api: {
+    responseLimit: false,
+  },
+};
