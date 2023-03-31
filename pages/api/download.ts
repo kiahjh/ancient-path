@@ -23,6 +23,6 @@ export default handler;
 
 export const config = {
   api: {
-    responseLimit: false,
+    responseLimit: '100mb',
   },
 };
