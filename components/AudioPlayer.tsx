@@ -109,7 +109,7 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
         </button>
       </div>
       <div className="flex items-center bg-slate-50 dark:bg-slate-700/50 p-3 pb-2 sm:pb-3 sm:space-x-8 rounded-b-xl">
-        {/* <div className="shrink-0 flex justify-start sm:justify-center items-center flex-grow sm:flex-grow-0">
+        <div className="shrink-0 flex justify-start sm:justify-center items-center flex-grow sm:flex-grow-0">
           <a
             download
             href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
@@ -125,7 +125,7 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
               }`}
             />
           </a>
-        </div> */}
+        </div>
         <div className="flex-grow flex items-center shrink-0 space-x-2 ml-2">
           <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
           <div className="relative flex-grow -mt-1.5">
