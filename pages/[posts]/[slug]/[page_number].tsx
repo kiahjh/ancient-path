@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import type { DualPost, Lang, Post } from '../../../lib/types';
 import PostPreview from '../../../components/PostPreview';
 import { getAllPosts } from '../../../lib/getAllPosts';
 import { podcastXml } from '../../../lib/podcast';
@@ -8,12 +7,22 @@ import PageWrapper from '../../../components/PageWrapper';
 import Paginator from '../../../components/Paginator';
 import { paginate } from '../../../lib/helpers';
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<React.ComponentProps<typeof Posts>> = async (
+  context,
+) => {
   const dualPosts = await getAllPosts();
   const whichLanguage = context.params?.slug === 'page' ? 'en' : 'es';
   const posts = dualPosts.map((dual) => dual[whichLanguage]);
   const whichPage = Number(context.params?.page_number);
-  const thisPagePosts = paginate(posts, whichPage, 8);
+  const thisPagePosts = paginate(posts, whichPage, 8).map((p) => ({
+    lang: p.lang,
+    description: p.description,
+    title: p.title,
+    slug: p.slug,
+    createdAt: p.createdAt,
+    id: p.id,
+    category: p.category,
+  }));
 
   return {
     props: {
@@ -53,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 interface Props {
-  posts: Array<Post<Lang> & { category: 'teaching' | 'post' }>;
+  posts: Array<React.ComponentProps<typeof PostPreview>['post']>;
   pageNum: number;
   pageCount: number;
 }

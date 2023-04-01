@@ -37,6 +37,7 @@ const Paginator: React.FC<Props> = ({ page, numPages }) => {
                   ? `/posts/page/${index + 1}`
                   : `/publicaciones/pagina/${index + 1}`
               }
+              key={index}
             >
               {index + 1}
             </Link>

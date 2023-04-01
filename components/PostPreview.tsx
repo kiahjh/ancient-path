@@ -6,7 +6,10 @@ import TeachingBadge from './TeachingBadge';
 import { description } from '../lib/helpers';
 
 interface Props {
-  post: Post<Lang>;
+  post: Pick<
+    Post<Lang>,
+    'title' | 'createdAt' | 'category' | 'lang' | 'description' | 'id' | 'slug'
+  >;
 }
 
 const PostPreview: React.FC<Props> = ({ post }) => {
@@ -46,7 +49,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
         </div>
         <p
           className="mt-3 mb-3 text-slate-500 dark:text-slate-400"
-          dangerouslySetInnerHTML={{ __html: description(post) }}
+          dangerouslySetInnerHTML={{ __html: post.description }}
         />
       </div>
       <div className="p-4 flex justify-end w-full bg-slate-50 dark:bg-slate-700/30 rounded-b-xl">

@@ -7,8 +7,8 @@ export type ApiPost = {
   modified_at: string;
   published_at: string;
   metadata: {
-    description?: string;
-    spanish_description?: string;
+    description: string;
+    spanish_description: string;
     mp3_url: string;
     audio_size: number;
     audio_duration: number;
@@ -41,7 +41,7 @@ export type Post<L extends Lang> = {
   modifiedAt: string;
   publishedAt: string;
   category: 'teaching' | 'post';
-  description?: string;
+  description: string;
 };
 
 export type DualPost = {
