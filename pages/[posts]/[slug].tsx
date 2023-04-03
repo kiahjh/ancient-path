@@ -22,7 +22,9 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<React.ComponentProps<typeof Post>> = async (
+  context,
+) => {
   const allDualPosts = await getAllPosts();
   let whichLanguage: Lang = 'en';
   const dualPost = allDualPosts.find((post) => {
