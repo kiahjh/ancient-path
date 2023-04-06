@@ -127,7 +127,7 @@ const Post: React.FC<Props> = ({
               <Link
                 href={c.prevButtonHref}
                 className={cx(
-                  `bg-sky-100 px-4 py-2 font-medium text-sky-500 rounded-lg transition duration-100 hover:bg-sky-200/70 active:scale-95`,
+                  `bg-sky-100 dark:bg-sky-500/10 dark:hover:bg-sky-500/20 dark:text-sky-400 px-4 py-2 font-medium text-sky-500 rounded-lg transition duration-100 hover:bg-sky-200/70 active:scale-95`,
                 )}
               >
                 <i className="mr-2 fa-solid fa-arrow-left" />
@@ -140,7 +140,7 @@ const Post: React.FC<Props> = ({
               <Link
                 href={c.nextButtonHref}
                 className={cx(
-                  `bg-sky-100 px-4 py-2 font-medium text-sky-500 rounded-lg transition duration-100 hover:bg-sky-200/70 active:scale-95`,
+                  `bg-sky-100 dark:bg-sky-500/10 dark:hover:bg-sky-500/20 dark:text-sky-400 px-4 py-2 font-medium text-sky-500 rounded-lg transition duration-100 hover:bg-sky-200/70 active:scale-95`,
                 )}
               >
                 {c.nextButtonText}
