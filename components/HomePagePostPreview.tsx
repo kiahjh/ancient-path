@@ -13,7 +13,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
   return (
     <div className="p-3 sm:p-6 flex flex-col">
       <div className="flex flex-row flex-wrap items-center">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mr-3 mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold text-white dark:text-white/90 mr-3 mb-2">
           {language === 'en' ? post.en.title : post.es.title}
         </h2>
         <div className="flex-grow flex justify-between items-center mb-2">
@@ -31,7 +31,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
         dangerouslySetInnerHTML={{
           __html: description(post[language]),
         }}
-        className="text-white text-opacity-80 sm:text-lg mt-2 mb-4"
+        className="text-white text-opacity-80 dark:text-opacity-70 sm:text-lg mt-2 mb-4"
       ></p>
       <div className="flex justify-start">
         <a
