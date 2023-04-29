@@ -42,7 +42,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
               : `/publicaciones/${post.es.slug}`
           }
         >
-          <span>{language === 'en' ? 'Read post' : 'Leer publicación'}</span>
+          <span>{language === 'en' ? 'View post' : 'Ver publicación'}</span>
           <i className="fa-solid fa-arrow-right"></i>
         </a>
       </div>
