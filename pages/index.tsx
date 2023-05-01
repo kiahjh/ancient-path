@@ -1,5 +1,5 @@
 import type { NextPage, GetServerSideProps } from 'next';
-import type { DualPost, Lang, Theme } from '../lib/types';
+import type { DualPost, Lang, Post, Theme } from '../lib/types';
 import HeroBlock from '../components/HeroBlock';
 import RecentPostsBlock from '../components/RecentPostsBlock';
 import { getAllPosts } from '../lib/getAllPosts';
@@ -16,40 +16,42 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
 
   const allPosts = await getAllPosts();
-  let featuredPosts: DualPost[] = [];
-
-  if (language === 'en') {
-    featuredPosts = allPosts.filter(
+  const featuredPosts = allPosts
+    .filter(
       (post) =>
         post.en.slug === 'two-births-in-man' ||
         post.en.slug === 'christ-died-for-us-not-instead-of-us' ||
         post.en.slug === 'leaving-egypt' ||
         post.en.slug === 'the-appearings-of-christ' ||
         post.en.slug === 'grace-should-reign',
-    );
-  } else {
-    featuredPosts = allPosts.filter(
-      (post) =>
-        post.es.slug === 'dos-nacimientos-en-el-hombre' ||
-        post.es.slug === 'cristo-murio-por-nosotros-no-en-lugar-de-nosotros' ||
-        post.es.slug === 'dejar-egipto' ||
-        post.es.slug === 'las-apariciones-de-cristo' ||
-        post.es.slug === 'la-gracia-debe-reinar',
-    );
-  }
+    )
+    .map((post) => ({
+      title: post[language].title,
+      description: post[language].description.split(' ').slice(0, 46).join(' '),
+      slug: post[language].slug,
+    }));
+  const recentPosts = allPosts.slice(0, 3).map((post) => ({
+    title: post[language].title,
+    description: post[language].description,
+    slug: post[language].slug,
+    createdAt: post[language].createdAt,
+    category: post[language].category,
+  }));
 
   return {
     props: {
       language,
-      recentPosts: allPosts.slice(0, 3),
+      recentPosts,
       featuredPosts,
     },
   };
 };
 
 interface Props {
-  recentPosts: DualPost[];
-  featuredPosts: DualPost[];
+  featuredPosts: Array<Pick<Post<Lang>, 'title' | 'description' | 'slug'>>;
+  recentPosts: Array<
+    Pick<Post<Lang>, 'title' | 'description' | 'slug' | 'createdAt' | 'category'>
+  >;
   language: Lang;
 }
 

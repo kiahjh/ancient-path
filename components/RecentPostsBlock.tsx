@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { DualPost, Lang } from '../lib/types';
+import { Lang, Post } from '../lib/types';
 import Advertisement from './Advertisement';
 import HomePagePostPreview from './HomePagePostPreview';
 import FriendsLibraryLogo from '../public/friends-library-logo.png';
@@ -8,7 +8,9 @@ import BibliotecaDeLosAmigosLogo from '../public/biblioteca-de-los-amigos-logo.p
 import GertrudeLogo from '../public/gertrude-logo.png';
 
 interface Props {
-  posts: DualPost[];
+  posts: Array<
+    Pick<Post<Lang>, 'title' | 'description' | 'slug' | 'createdAt' | 'category'>
+  >;
   language: Lang;
 }
 
@@ -22,7 +24,7 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
         {posts.length > 0 ? (
           <div className="mt-6 sm:mt-8 space-y-6 flex flex-col">
             {posts.slice(0, 3).map((post) => (
-              <HomePagePostPreview post={post} key={post.en.id} language={language} />
+              <HomePagePostPreview post={post} key={post.slug} language={language} />
             ))}
           </div>
         ) : (
