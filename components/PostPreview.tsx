@@ -57,7 +57,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
           className="block self-end px-4 py-2 text-sky-500 dark:text-sky-300 transition duration-100 hover:text-sky-600 dark:hover:text-sky-200 cursor-pointer rounded-lg bg-sky-100 dark:bg-sky-500/10"
           href={language === `en` ? `/posts/${post.slug}` : `/publicaciones/${post.slug}`}
         >
-          {language === `en` ? `Read post` : `Leer publicación`}
+          {language === `en` ? `View post` : `Ver publicación`}
           {` `}
           <i className="fa-solid fa-arrow-right ml-1"></i>
         </a>
