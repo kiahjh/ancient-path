@@ -55,6 +55,22 @@ const ContactPage: React.FC<Props> = ({ language }) => {
             <div className="flex flex-col mb-8 space-y-2">
               <label
                 className="text-slate-600 dark:text-slate-400 font-medium"
+                htmlFor="name"
+              >
+                {c.nameLabel}
+              </label>
+              <input
+                className="outline-none border py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow"
+                placeholder={c.namePlaceholder}
+                id="name"
+                type="text"
+                name="name"
+              />
+              <ValidationError prefix="Email" field="email" errors={state.errors} />
+            </div>
+            <div className="flex flex-col mb-8 space-y-2">
+              <label
+                className="text-slate-600 dark:text-slate-400 font-medium"
                 htmlFor="email"
               >
                 {c.emailLabel}
@@ -116,6 +132,8 @@ const content = {
     heading: 'Contact me',
     paragraph:
       "Feel free to contact me using the form below with any questions or comments. I'll respond to you as soon as possible.",
+    nameLabel: 'Name',
+    namePlaceholder: 'John',
     emailLabel: 'Email',
     emailPlaceholder: 'me@example.com',
     messageLabel: 'Message',
@@ -132,6 +150,8 @@ const content = {
     heading: 'Contacto',
     paragraph:
       'No dudes en ponerte en contacto conmigo a través del siguiente formulario si tienes alguna pregunta o comentario. Te responderé lo antes posible.',
+    nameLabel: 'Nombre',
+    namePlaceholder: 'Juan',
     emailLabel: 'Correo electrónico',
     emailPlaceholder: 'yo@ejemplo.com',
     messageLabel: 'Mensaje',
