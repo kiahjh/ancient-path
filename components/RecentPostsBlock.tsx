@@ -22,7 +22,7 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
           {language === 'en' ? 'Recent posts' : 'Publicaciones recientes'}
         </h1>
         {posts.length > 0 ? (
-          <div className="mt-6 sm:mt-8 space-y-6 flex flex-col">
+          <div className="mt-6 sm:mt-8 gap-2 flex flex-col mb-6">
             {posts.slice(0, 3).map((post) => (
               <HomePagePostPreview post={post} key={post.slug} language={language} />
             ))}
@@ -32,17 +32,8 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
             <i className="fa-solid fa-spinner text-2xl text-white text-opacity-70 animate-spin" />
           </div>
         )}
-        <div className="flex justify-center items-center mb-10 lg:-mb-4 mt-8 sm:mt-0">
-          <Link
-            className="flex items-center px-6 py-2 text-sky-500 bg-white dark:bg-sky-700 dark:hover:bg-sky-600 dark:text-white rounded-lg font-medium hover:text-sky-600 hover:bg-sky-50 cursor-pointer transition duration-100"
-            href={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
-          >
-            <i className="fa-solid fa-list mr-2" />
-            {language === 'en' ? 'See more' : 'Ver más'}
-          </Link>
-        </div>
       </div>
-      <div className="shrink-0 flex flex-col border-white border-opacity-20 lg:ml-8 lg:p-8 pr-0 space-y-8 lg:max-w-md my-6 lg:mt-0">
+      <aside className="shrink-0 flex flex-col border-white border-opacity-20 lg:ml-8 lg:p-8 pr-0 space-y-8 lg:max-w-md mt-6 lg:mt-0">
         <h2 className="text-2xl font-bold text-white mb-2 sm:mb-4">
           {language === 'en'
             ? 'Some sites and services I recommend:'
@@ -70,7 +61,7 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
           }
           url="https://gertrude.app"
         />
-      </div>
+      </aside>
     </section>
   );
 };

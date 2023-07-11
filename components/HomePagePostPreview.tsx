@@ -10,7 +10,7 @@ interface Props {
 
 const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
   return (
-    <div className="p-3 sm:p-6 flex flex-col">
+    <div className="p-3 sm:p-6 flex flex-col first:rounded-t-3xl last:rounded-b-3xl rounded-lg bg-white/10 dark:bg-sky-700/10">
       <div className="flex flex-row flex-wrap items-center">
         <h2 className="text-xl sm:text-2xl font-bold text-white dark:text-white/90 mr-3 mb-2">
           {post.title}
@@ -30,7 +30,7 @@ const HomePagePostPreview: React.FC<Props> = ({ post, language }) => {
         dangerouslySetInnerHTML={{
           __html: post.description,
         }}
-        className="text-white text-opacity-80 dark:text-opacity-70 sm:text-lg mt-2 mb-4"
+        className="text-white text-opacity-80 dark:text-opacity-70 mb-4"
       ></p>
       <div className="flex justify-start">
         <a
