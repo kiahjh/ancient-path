@@ -5,6 +5,7 @@ import RecentPostsBlock from '../components/RecentPostsBlock';
 import { getAllPosts } from '../lib/getAllPosts';
 import PageWrapper from '../components/PageWrapper';
 import StartHereBlock from '../components/StartHereBlock';
+import AllPostsBlock from '../components/AllPostsBlock';
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   let language: Lang = 'en';
@@ -30,18 +31,21 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       description: post[language].description.split(' ').slice(0, 46).join(' '),
       slug: post[language].slug,
     }));
-  const recentPosts = allPosts.slice(0, 3).map((post) => ({
+
+  const posts = allPosts.map((post) => ({
     title: post[language].title,
     description: post[language].description,
     slug: post[language].slug,
     createdAt: post[language].createdAt,
     category: post[language].category,
   }));
+  const recentPosts = posts.slice(0, 3);
 
   return {
     props: {
       language,
       recentPosts,
+      allPosts: posts,
       featuredPosts,
     },
   };
@@ -52,10 +56,13 @@ interface Props {
   recentPosts: Array<
     Pick<Post<Lang>, 'title' | 'description' | 'slug' | 'createdAt' | 'category'>
   >;
+  allPosts: Array<
+    Pick<Post<Lang>, 'title' | 'slug' | 'createdAt' | 'category' | 'description'>
+  >;
   language: Lang;
 }
 
-const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts }) => (
+const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts, allPosts }) => (
   <PageWrapper
     page="/"
     language={language}
@@ -67,6 +74,7 @@ const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts }) => (
     <HeroBlock language={language} />
     <StartHereBlock featuredPosts={featuredPosts} language={language} />
     <RecentPostsBlock posts={recentPosts} language={language} />
+    <AllPostsBlock allPosts={allPosts} language={language} />
   </PageWrapper>
 );
 
