@@ -1,5 +1,5 @@
 import type { NextPage, GetServerSideProps } from 'next';
-import type { DualPost, Lang, Post, Theme } from '../lib/types';
+import type { Lang, Post } from '../lib/types';
 import HeroBlock from '../components/HeroBlock';
 import RecentPostsBlock from '../components/RecentPostsBlock';
 import { getAllPosts } from '../lib/getAllPosts';
@@ -30,18 +30,21 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       description: post[language].description.split(' ').slice(0, 46).join(' '),
       slug: post[language].slug,
     }));
-  const recentPosts = allPosts.slice(0, 3).map((post) => ({
+
+  const posts = allPosts.map((post) => ({
     title: post[language].title,
     description: post[language].description,
     slug: post[language].slug,
     createdAt: post[language].createdAt,
     category: post[language].category,
   }));
+  const recentPosts = posts.slice(0, 3);
 
   return {
     props: {
       language,
       recentPosts,
+      allPosts: posts,
       featuredPosts,
     },
   };
@@ -52,10 +55,13 @@ interface Props {
   recentPosts: Array<
     Pick<Post<Lang>, 'title' | 'description' | 'slug' | 'createdAt' | 'category'>
   >;
+  allPosts: Array<
+    Pick<Post<Lang>, 'title' | 'slug' | 'createdAt' | 'category' | 'description'>
+  >;
   language: Lang;
 }
 
-const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts }) => (
+const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts, allPosts }) => (
   <PageWrapper
     page="/"
     language={language}

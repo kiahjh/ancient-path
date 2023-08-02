@@ -52,7 +52,7 @@ const PostPreview: React.FC<Props> = ({ post }) => {
           dangerouslySetInnerHTML={{ __html: post.description }}
         />
       </div>
-      <div className="p-4 flex justify-end w-full bg-slate-50 dark:bg-slate-700/30 rounded-b-xl">
+      <div className="p-4 flex justify-end w-full bg-slate-50 dark:bg-slate-800/50 rounded-b-xl">
         <a
           className="block self-end px-4 py-2 text-sky-500 dark:text-sky-300 transition duration-100 hover:text-sky-600 dark:hover:text-sky-200 cursor-pointer rounded-lg bg-sky-100 dark:bg-sky-500/10"
           href={language === `en` ? `/posts/${post.slug}` : `/publicaciones/${post.slug}`}
