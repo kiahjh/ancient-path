@@ -55,7 +55,7 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
   }
   return (
     <section className="relative overflow-hidden">
-      <section className="bg-white dark:bg-slate-900 h-80 flex justify-center items-center relative p-8">
+      <section className="bg-white dark:bg-slate-900 flex justify-center items-center relative p-8 pt-20">
         <p className="max-w-3xl text-center text-xl sm:text-2xl font-light text-slate-700 dark:text-slate-400 p-8 sm:p-16 rounded-3xl bg-white/10 dark:bg-slate-900/10 backdrop-blur-3xl border-[0.5px] border-sky-200 dark:border-sky-950 relative z-10 shadow shadow-slate-300/50 dark:shadow-black/50">
           {language === 'en' ? (
             <div className="flex flex-col items-center gap-2">

@@ -16,7 +16,7 @@ interface Props {
 
 const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
   return (
-    <section className="bg-sky-500 dark:bg-sky-950 relative flex flex-col lg:flex-row pt-8 p-6 xs:p-8 md:p-12 lg:p-16">
+    <section className="bg-gradient-to-b from-sky-500 via-sky-500 to-sky-500 dark:from-sky-950 dark:via-sky-950 dark:to-sky-950/30 relative flex flex-col lg:flex-row pt-8 p-6 xs:p-8 md:p-12 lg:p-16">
       <div className="flex-grow flex flex-col">
         <h1 className="text-3xl sm:text-4xl text-white font-inter">
           {language === 'en' ? 'Recent posts' : 'Publicaciones recientes'}

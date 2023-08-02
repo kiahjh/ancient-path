@@ -1,11 +1,10 @@
 import type { NextPage, GetServerSideProps } from 'next';
-import type { DualPost, Lang, Post, Theme } from '../lib/types';
+import type { Lang, Post } from '../lib/types';
 import HeroBlock from '../components/HeroBlock';
 import RecentPostsBlock from '../components/RecentPostsBlock';
 import { getAllPosts } from '../lib/getAllPosts';
 import PageWrapper from '../components/PageWrapper';
 import StartHereBlock from '../components/StartHereBlock';
-import AllPostsBlock from '../components/AllPostsBlock';
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   let language: Lang = 'en';
@@ -74,7 +73,6 @@ const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts, allPosts 
     <HeroBlock language={language} />
     <StartHereBlock featuredPosts={featuredPosts} language={language} />
     <RecentPostsBlock posts={recentPosts} language={language} />
-    <AllPostsBlock allPosts={allPosts} language={language} />
   </PageWrapper>
 );
 
