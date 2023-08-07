@@ -32,6 +32,15 @@ const RecentPostsBlock: React.FC<Props> = ({ posts, language }) => {
             <i className="fa-solid fa-spinner text-2xl text-white text-opacity-70 animate-spin" />
           </div>
         )}
+        <div className="flex justify-center">
+          <a
+            className="flex justify-center items-center bg-sky-50 dark:bg-sky-900 text-sky-600 dark:text-sky-300 rounded-lg shadow-lg shadow-sky-500/30 dark:shadow-black/10 py-2 px-4 font-medium hover:bg-sky-200 dark:hover:bg-sky-900/60 transition duration-100 cursor-pointer select-none"
+            href={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
+          >
+            <i className="fa-solid fa-arrow-right mr-3"></i>
+            {language === 'en' ? 'View all posts' : 'Ver publicaciones'}
+          </a>
+        </div>
       </div>
       <aside className="shrink-0 flex flex-col border-white border-opacity-20 lg:ml-8 lg:p-8 pr-0 space-y-8 lg:max-w-md mt-6 lg:mt-0">
         <h2 className="text-2xl font-bold text-white mb-2 sm:mb-4">

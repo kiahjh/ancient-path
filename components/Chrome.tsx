@@ -103,18 +103,18 @@ const Chrome: React.FC<Props> = ({
         <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute -right-28 -bottom-96 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
       </nav>
       <header className="flex flex-row-reverse md-lg:flex-row justify-between items-center py-5 px-5 sm:px-10 top-0 bg-white bg-opacity-20 dark:bg-slate-900 z-20">
-        <div className="lg:w-[182px]">
+        <div className="lg:w-[191px]">
           <ThemeSwitcher theme={theme} setTheme={setTheme} language={language} />
         </div>
         <button
-          className="md-lg:hidden border-[0.5px] w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
+          className="md-lg:hidden border-[0.5px] border-slate-200 w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
           onClick={() => setNavOpen(true)}
         >
           <i className="fa-solid fa-bars" />
         </button>
         <FloatingNav page={page} language={language} />
         <LanguageToggler
-          className="hidden md-lg:flex w-[182px]"
+          className="hidden md-lg:flex"
           language={language}
           toggleLanguage={toggleLanguage}
         />
