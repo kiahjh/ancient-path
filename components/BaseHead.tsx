@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import { LanguageContext } from '../lib/LanguageContext';
+import { useContext } from 'react';
 
 interface Props {
   description: string;
@@ -19,6 +21,7 @@ function initializeTheme(): void {
 }
 
 const BaseHead: React.FC<Props> = ({ title, description }) => {
+  const language = useContext(LanguageContext);
   return (
     <>
       <Head>
@@ -34,6 +37,12 @@ const BaseHead: React.FC<Props> = ({ title, description }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <meta property="og:title" content="The Ancient Path" />
+        <meta
+          property="og:description"
+          content="A blog and podcast containing the writings and teachings of Jason R. Henderson"
+        />
+        <meta property="og:image" content="/opengraph-image.en.png" />
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Script src="https://kit.fontawesome.com/597740db7b.js"></Script>
