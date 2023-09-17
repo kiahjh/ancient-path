@@ -30,26 +30,10 @@ const PodcastPage: React.FC<Props> = ({ language }) => {
         <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">{c.heading}</h2>
         <p className="mt-3 text-slate-500">{c.paragraph}</p>
         <div className="flex items-center justify-center flex-wrap bg-slate-100 dark:bg-black/20 mt-12 rounded-3xl p-6">
-          <PodcastService
-            href="https://podcasts.apple.com/us/podcast/hender-blog/id1645365966"
-            name="Apple"
-            img={Apple.src}
-          />
-          <PodcastService
-            href="https://overcast.fm/itunes1645365966"
-            name="Overcast"
-            img={Overcast.src}
-          />
-          <PodcastService
-            href="https://open.spotify.com/show/3JDQmzp0D4FNXeE7NC5D5S"
-            name="Spotify"
-            img={Spotify.src}
-          />
-          <PodcastService
-            href="https://www.subscribeonandroid.com/hender.blog/podcast.en.rss"
-            name="Android"
-            img={Android.src}
-          />
+          <PodcastService href={c.links.apple} name="Apple" img={Apple.src} />
+          <PodcastService href={c.links.overcast} name="Overcast" img={Overcast.src} />
+          <PodcastService href={c.links.spotify} name="Spotify" img={Spotify.src} />
+          <PodcastService href={c.links.android} name="Android" img={Android.src} />
           <PodcastService
             name="RSS"
             img={RSS.src}
@@ -74,6 +58,12 @@ const content = {
     title: 'Podcast | The Ancient Path',
     metaDescription: 'Spiritual writings',
     heading: 'Podcast',
+    links: {
+      apple: 'https://podcasts.apple.com/us/podcast/hender-blog/id1645365966',
+      overcast: 'https://overcast.fm/itunes1645365966',
+      spotify: 'https://open.spotify.com/show/3JDQmzp0D4FNXeE7NC5D5S',
+      android: 'https://www.subscribeonandroid.com/hender.blog/podcast.en.rss',
+    },
     paragraph:
       'To subscribe to a podcast of the audio versions of posts from this blog, click one of the links below:',
     RSSAlertText:
@@ -85,6 +75,12 @@ const content = {
     title: 'Podcast | La Senda Antigua',
     metaDescription: 'Escrituras espirituales',
     heading: 'Podcast',
+    links: {
+      apple: 'https://podcasts.apple.com/us/podcast/la-senda-antigua/id1645366119',
+      overcast: 'https://overcast.fm/itunes1645366119',
+      spotify: 'https://open.spotify.com/show/3T32aJ757tMg2kyzG2kANh',
+      android: 'https://www.subscribeonandroid.com/hender.blog/podcast.es.rss',
+    },
     paragraph:
       'Para suscribirte a un podcast de los audios de las publicaciones de este blog, haz clic en uno de los enlaces siguientes:',
     RSSAlertText:
