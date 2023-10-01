@@ -12,11 +12,3 @@
 .sky-cloud {
   background: radial-gradient(closest-side, rgba(97, 193, 253, 0.2), transparent);
 }
-
-.dark input[type="range"]::-moz-range-track {
-  background-color: #475569;
-}
-
-.dark input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #475569;
-}

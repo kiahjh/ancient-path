@@ -1,4 +1,20 @@
-import type { DualPost, ApiPost } from './types';
+import type { DualPost, ApiPost, ApiSeries, Series } from './types';
+
+export function toSeries(api: ApiSeries): Series {
+  return {
+    id: api.id,
+    en: {
+      title: api.title,
+      slug: api.slug,
+      description: api.metadata.english_description,
+    },
+    es: {
+      title: api.metadata.spanish_title,
+      slug: api.metadata.spanish_slug,
+      description: api.metadata.spanish_description,
+    },
+  };
+}
 
 export function toDual(api: ApiPost): DualPost {
   const category =
@@ -18,6 +34,7 @@ export function toDual(api: ApiPost): DualPost {
       publishedAt: api.published_at,
       category,
       description: api.metadata.description,
+      series: api.metadata.series,
     },
     es: {
       lang: `es`,
@@ -33,6 +50,7 @@ export function toDual(api: ApiPost): DualPost {
       publishedAt: api.published_at,
       category,
       description: api.metadata.spanish_description,
+      series: api.metadata.series,
     },
     createdAt: api.created_at,
     modifiedAt: api.modified_at,

@@ -23,7 +23,7 @@ const Paginator: React.FC<Props> = ({ page, numPages }) => {
           numPages={numPages}
           language={language}
         />
-        <div className="flex space-x-4 justify-center p-2 md:p-0">
+        <div className="flex space-x-4 justify-center p-2 md:p-0 md:px-4">
           {new Array(numPages).fill(0).map((_, index) => (
             <Link
               className={cx(

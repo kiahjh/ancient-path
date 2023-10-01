@@ -46,7 +46,7 @@ const ThemeSwitcher: React.FC<Props> = ({ setTheme, theme, language }) => {
 
   return (
     <Menu>
-      <Menu.Button className="rounded-full border-[0.5px] border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-800/50 shadow-lg w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50 dark:hover:bg-slate-700 outline-none focus:border-sky-500 dark:focus:border-sky-500">
+      <Menu.Button className="rounded-full border-[0.5px] border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-800/50 shadow-md shadow-slate-300/50 w-12 h-12 flex justify-center items-center transition duration-100 hover:bg-sky-50 dark:hover:bg-slate-700 outline-none focus:border-sky-500 dark:focus:border-sky-500">
         <i
           className={cx(
             'fa-solid text-xl text-sky-400 dark:text-sky-500 transition duration-100',

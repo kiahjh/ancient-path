@@ -1,5 +1,6 @@
 import React from 'react';
 import { Lang } from '../lib/types';
+import Button from './Button';
 
 interface Props {
   language: Lang;
@@ -7,13 +8,13 @@ interface Props {
 
 const HeroBlock: React.FC<Props> = ({ language }) => {
   return (
-    <section className="p-6 xs:p-12 md:p-16 lg:p-20 relative dark:bg-slate-900">
+    <section className="p-6 xs:py-12 md:py-16 lg:py-28 xs:px-12 md:px-16 lg:px-20 relative dark:bg-slate-900">
       <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-2xl absolute right-56 -bottom-52 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50"></div>
       <div className="w-72 h-72 bg-sky-500 rounded-2xl absolute right-28 -bottom-44 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50"></div>
       <h1 className="text-3xl xs:text-4xl dark:text-white md:text-6xl font-inter relative">
         {language === 'en' ? 'The Ancient Path' : 'La Senda Antigua'}
       </h1>
-      <p className="mt-6 text-slate-500 dark:text-slate-500 max-w-4xl xs:text-lg relative">
+      <p className="mt-6 text-slate-400 dark:text-slate-500 max-w-4xl xs:text-xl relative">
         {language === 'en' ? (
           <span>
             Stand by the ways and see and ask for the ancient paths, where the good way
@@ -35,20 +36,26 @@ const HeroBlock: React.FC<Props> = ({ language }) => {
         )}
       </p>
       <div className="mt-12 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 relative">
-        <a
-          className="flex justify-center items-center bg-sky-400 dark:bg-sky-800 text-white rounded-lg shadow-lg shadow-sky-500/30 dark:shadow-sky-950/80 py-3 px-5 font-medium text-lg hover:bg-sky-500 dark:hover:bg-sky-900 transition duration-100 cursor-pointer select-none"
-          href={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
+        <Button
+          type="link"
+          to={language === 'en' ? '/posts/page/1' : '/publicaciones/pagina/1'}
+          color="primary"
+          icon="arrow-right"
+          shadow
+          size="lg"
         >
-          <i className="fa-solid fa-arrow-right mr-3"></i>
           {language === 'en' ? 'View all posts' : 'Ver publicaciones'}
-        </a>
-        <a
-          className="flex justify-center items-center bg-white dark:bg-slate-800 text-sky-500 dark:text-slate-400 border-[0.5px] border-slate-200 dark:border-slate-700 rounded-lg shadow-lg shadow-slate-300/40 dark:shadow-slate-950/10 py-3 px-5 font-medium text-lg hover:bg-sky-50 dark:hover:bg-opacity-70 transition duration-100 cursor-pointer select-none"
-          href={language === 'en' ? '/en-podcast' : '/es-podcast'}
+        </Button>
+        <Button
+          type="link"
+          to={language === 'en' ? '/en-podcast' : '/es-podcast'}
+          color="secondary"
+          icon="podcast"
+          shadow
+          size="lg"
         >
-          <i className="fa-solid fa-podcast mr-3"></i>
           {language === 'en' ? 'Listen to podcast' : 'Escuchar el podcast'}
-        </a>
+        </Button>
       </div>
     </section>
   );

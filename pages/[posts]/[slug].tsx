@@ -4,11 +4,11 @@ import Link from 'next/link';
 import cx from 'classnames';
 import AudioPlayer from '../../components/AudioPlayer';
 import PageWrapper from '../../components/PageWrapper';
-import { getAllPosts } from '../../lib/getAllPosts';
+import { getAllPosts } from '../../lib/getData';
 import { description } from '../../lib/helpers';
 import { Lang, Post } from '../../lib/types';
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const dualPosts = await getAllPosts();
   const paths = dualPosts
     .flatMap((post) => [post.en, post.es])
@@ -116,7 +116,7 @@ const Post: React.FC<Props> = ({
             </h1>
           </header>
           <main className="grow">
-            <AudioPlayer src={post.mp3Url} postTitle={post.title} className="my-6" />
+            <AudioPlayer src={post.mp3Url} className="my-6" />
             <div
               className="mb-8 prose dark:prose-invert "
               dangerouslySetInnerHTML={{ __html: post.content }}

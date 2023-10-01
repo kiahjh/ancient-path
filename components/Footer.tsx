@@ -58,7 +58,7 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
       <section className="bg-white dark:bg-slate-900 flex justify-center items-center relative p-8 pt-20">
         <p className="max-w-3xl text-center text-xl sm:text-2xl font-light text-slate-700 dark:text-slate-400 p-8 sm:p-16 rounded-3xl bg-white/10 dark:bg-slate-900/10 backdrop-blur-3xl border-[0.5px] border-sky-200 dark:border-sky-950 relative z-10 shadow shadow-slate-300/50 dark:shadow-black/50">
           {language === 'en' ? (
-            <div className="flex flex-col items-center gap-2">
+            <span className="flex flex-col items-center gap-2">
               <span>
                 While you have the light, believe in the light, that you may become sons
                 of light.
@@ -66,9 +66,9 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
               <span className="font-medium text-sky-400 dark:text-slate-200">
                 John 12:26
               </span>
-            </div>
+            </span>
           ) : (
-            <div className="flex flex-col items-center gap-2">
+            <span className="flex flex-col items-center gap-2">
               <span>
                 Entre tanto que tenéis la luz, creed en la luz, para que seáis hijos de
                 luz.
@@ -76,7 +76,7 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
               <span className="font-medium text-sky-400 dark:text-slate-200">
                 Juan 12:26
               </span>
-            </div>
+            </span>
           )}
         </p>
       </section>

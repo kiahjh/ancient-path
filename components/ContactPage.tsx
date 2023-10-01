@@ -37,7 +37,7 @@ const ContactPage: React.FC<Props> = ({ language }) => {
         <div className="absolute w-full h-112 bg-sky-100 dark:bg-sky-500 dark:bg-opacity-10 z-0"></div>
         <div className="absolute w-full h-96 bg-sky-400 dark:bg-opacity-10 z-0"></div>
         <form
-          className="border-[0.5px] rounded-2xl shadow-xl py-8 px-6 sm:px-8 max-w-xl bg-white dark:bg-slate-800/50 dark:backdrop-blur dark:border-slate-700 relative"
+          className="border-[0.5px] border-slate-200 rounded-2xl shadow-xl py-8 px-6 sm:px-8 max-w-xl bg-white dark:bg-slate-800/50 dark:backdrop-blur dark:border-slate-700 relative"
           onSubmit={handleSubmit}
         >
           <h2 className="text-2xl font-inter text-center sm:text-left dark:text-white">
@@ -60,7 +60,7 @@ const ContactPage: React.FC<Props> = ({ language }) => {
                 {c.nameLabel}
               </label>
               <input
-                className="outline-none border py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow"
+                className="outline-none border border-slate-200 py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow shadow-slate-300/50 dark:shadow-black/30"
                 placeholder={c.namePlaceholder}
                 id="name"
                 type="text"
@@ -76,7 +76,7 @@ const ContactPage: React.FC<Props> = ({ language }) => {
                 {c.emailLabel}
               </label>
               <input
-                className="outline-none border py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow"
+                className="outline-none border border-slate-200 py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow shadow-slate-300/50 dark:shadow-black/30"
                 placeholder={c.emailPlaceholder}
                 id="email"
                 type="email"
@@ -92,7 +92,7 @@ const ContactPage: React.FC<Props> = ({ language }) => {
                 {c.messageLabel}
               </label>
               <textarea
-                className="outline-none border py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow"
+                className="outline-none border border-slate-200 py-3 px-4 rounded-lg dark:bg-slate-900/70 dark:text-slate-200 dark:border-slate-700 focus:border-sky-300 dark:focus:border-sky-600 dark:placeholder:text-slate-600 transition duration-100 shadow shadow-slate-300/50 dark:shadow-black/30"
                 rows={5}
                 placeholder={c.messagePlaceholder}
                 id="message"

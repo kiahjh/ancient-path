@@ -2,9 +2,10 @@ import type { NextPage, GetServerSideProps } from 'next';
 import type { Lang, Post } from '../lib/types';
 import HeroBlock from '../components/HeroBlock';
 import RecentPostsBlock from '../components/RecentPostsBlock';
-import { getAllPosts } from '../lib/getAllPosts';
+import { getAllPosts } from '../lib/getData';
 import PageWrapper from '../components/PageWrapper';
 import StartHereBlock from '../components/StartHereBlock';
+import Button from '../components/Button';
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   let language: Lang = 'en';
