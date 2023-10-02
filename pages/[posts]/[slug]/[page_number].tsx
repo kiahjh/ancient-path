@@ -1,32 +1,28 @@
+import React from 'react';
 import fs from 'node:fs';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import PostPreview from '../../../components/PostPreview';
-import { getAllPosts } from '../../../lib/getAllPosts';
 import { podcastXml } from '../../../lib/podcast';
 import PageWrapper from '../../../components/PageWrapper';
 import Paginator from '../../../components/Paginator';
 import { paginate } from '../../../lib/helpers';
+import { getAllPosts, getAllSeries } from '../../../lib/getData';
+import PostsList from '../../../components/PostsList';
+import { Series } from '../../../lib/types';
+import { useState } from 'react';
 
-export const getStaticProps: GetStaticProps<React.ComponentProps<typeof Posts>> = async (
-  context,
-) => {
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const dualPosts = await getAllPosts();
+  const series = await getAllSeries();
   const whichLanguage = context.params?.slug === 'page' ? 'en' : 'es';
   const posts = dualPosts.map((dual) => dual[whichLanguage]);
   const whichPage = Number(context.params?.page_number);
-  const thisPagePosts = paginate(posts, whichPage, 8).map((p) => ({
-    lang: p.lang,
-    description: p.description,
-    title: p.title,
-    slug: p.slug,
-    createdAt: p.createdAt,
-    id: p.id,
-    category: p.category,
-  }));
+  const thisPagePosts = paginate(posts, whichPage, 8);
 
   return {
     props: {
       posts: thisPagePosts,
+      series,
       pageCount: Math.ceil(posts.length / 8),
       pageNum: whichPage,
     },
@@ -63,11 +59,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 interface Props {
   posts: Array<React.ComponentProps<typeof PostPreview>['post']>;
+  series: Series[];
   pageNum: number;
   pageCount: number;
 }
 
-const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
+const Posts: React.FC<Props> = ({ posts, pageNum, pageCount, series }) => {
   const language = posts[0].lang;
   const content = {
     en: {
@@ -91,6 +88,8 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
   };
   const c = content[language];
 
+  const [query, setQuery] = useState('');
+
   return (
     <PageWrapper
       page={c.page}
@@ -100,25 +99,28 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount }) => {
       title={c.title}
       metaDescription={c.metaDescription}
     >
-      <div className="p-8 md:p-16 dark:bg-slate-900">
-        <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">{c.heading}</h2>
-        <h4 className="text-slate-500 dark:text-slate-400 mt-1 font-medium">
-          {c.subheading}
-        </h4>
-        <p className="mt-3 text-slate-500">{c.paragraph}</p>
-      </div>
-      {posts.length > 0 ? (
-        <section className="sm:p-16 p-8 pt-12 sm:pt-4 space-y-14 md:space-y-8 relative bg-graph-paper dark:bg-slate-900 dark:[background-image:none]">
-          {posts.map((post) => (
-            <PostPreview post={post} key={post.id} />
-          ))}
-          <Paginator numPages={pageCount} page={pageNum} />
-        </section>
-      ) : (
-        <div className="flex justify-center items-center mt-20 dark:bg-slate-900">
-          <i className="fa-solid fa-spinner text-5xl text-sky-500 text-opacity-30 animate-spin" />
+      <div className="flex justify-center px-6 xs:px-8 sm:px-12 lg:px-20 md:pb-0 pb-8">
+        <div className="dark:bg-slate-900 flex-grow max-w-[1400px] pt-20">
+          <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">{c.heading}</h2>
+          <h4 className="text-slate-500 dark:text-slate-400 mt-1 font-medium">
+            {c.subheading}
+          </h4>
+          <p className="mt-3 text-slate-500">{c.paragraph}</p>
         </div>
-      )}
+      </div>
+      <PostsList
+        series={series}
+        language={language}
+        searchQuery={query}
+        setSearchQuery={setQuery}
+        seriesFilter={null}
+        queryParams={new URLSearchParams(`q=`)}
+        loading={false}
+        posts={posts}
+      />
+      <div className="flex justify-center mb-8 mt-8 md:mt-0">
+        <Paginator page={pageNum} numPages={pageCount} />
+      </div>
     </PageWrapper>
   );
 };

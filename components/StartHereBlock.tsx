@@ -1,5 +1,6 @@
 import React from 'react';
 import { Lang, Post } from '../lib/types';
+import Button from './Button';
 
 interface Props {
   featuredPosts: Array<Pick<Post<Lang>, 'title' | 'description' | 'slug'>>;
@@ -28,19 +29,20 @@ const StartHereBlock: React.FC<Props> = ({ featuredPosts, language }) => {
                 {post.description}...
               </p>
             </div>
-            <div className="flex justify-end p-4 bg-slate-50 dark:bg-slate-800/40 rounded-b-3xl">
-              <a
-                className="block self-end px-4 py-2 text-sky-500 dark:text-sky-300 transition duration-100 hover:text-sky-600 dark:hover:text-sky-200 cursor-pointer rounded-lg bg-sky-100 dark:bg-sky-500/10"
-                href={
+            <div className="flex justify-end p-4 dark:bg-slate-800/40 rounded-b-3xl">
+              <Button
+                type="link"
+                to={
                   language === `en`
                     ? `/posts/${post.slug}`
                     : `/publicaciones/${post.slug}`
                 }
+                color="secondary"
+                icon="arrow-right"
+                size="sm"
               >
                 {language === `en` ? `View post` : `Ver publicación`}
-                {` `}
-                <i className="fa-solid fa-arrow-right ml-1"></i>
-              </a>
+              </Button>
             </div>
           </div>
         ))}

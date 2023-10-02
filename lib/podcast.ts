@@ -76,7 +76,7 @@ function cdata(text: string): string {
   return `<![CDATA[${encoded}]]>`;
 }
 
-function audioItemData(post: Post<any>): string {
+function audioItemData(post: Post<Lang>): string {
   const summary = description(post);
   return [
     `<title>${post.title}</title>`,

@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import { LanguageContext } from '../lib/LanguageContext';
-import { useContext } from 'react';
 
 interface Props {
   description: string;
@@ -21,7 +19,6 @@ function initializeTheme(): void {
 }
 
 const BaseHead: React.FC<Props> = ({ title, description }) => {
-  const language = useContext(LanguageContext);
   return (
     <>
       <Head>

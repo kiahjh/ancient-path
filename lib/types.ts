@@ -22,6 +22,22 @@ export type ApiPost = {
       | undefined
       | { key: 'teaching'; value: 'Teaching' }
       | { key: 'post'; value: 'Post' };
+    series: string | null;
+  };
+};
+
+export type ApiSeries = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: string;
+  modified_at: string;
+  published_at: string;
+  metadata: {
+    spanish_title: string;
+    spanish_slug: string;
+    english_description: string;
+    spanish_description: string;
   };
 };
 
@@ -42,6 +58,7 @@ export type Post<L extends Lang> = {
   publishedAt: string;
   category: 'teaching' | 'post';
   description: string;
+  series: string | null;
 };
 
 export type DualPost = {
@@ -51,4 +68,18 @@ export type DualPost = {
   modifiedAt: string;
   publishedAt: string;
   category: 'teaching' | 'post';
+};
+
+export type Series = {
+  id: string;
+  en: {
+    title: string;
+    slug: string;
+    description: string;
+  };
+  es: {
+    title: string;
+    slug: string;
+    description: string;
+  };
 };

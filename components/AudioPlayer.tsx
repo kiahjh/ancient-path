@@ -6,11 +6,10 @@ import SoundAnimation from './SoundAnimation';
 
 interface Props {
   src: string;
-  postTitle: string;
   className?: string;
 }
 
-const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
+const AudioPlayer: React.FC<Props> = ({ src, className }) => {
   const audioPlayer = useRef<HTMLAudioElement>(null);
   const progressBar = useRef<HTMLInputElement>(null);
   const animationRef = useRef<number>();
@@ -18,7 +17,6 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [loadingDownload, setLoadingDownload] = useState(false);
   const [muted, setMuted] = useState(false);
 
   useEffect(() => {
@@ -60,17 +58,17 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
   return (
     <div
       className={cx(
-        'rounded-xl border-[0.5px] dark:shadow-black/10 border-slate-200 dark:border-slate-700 shadow relative dark:bg-slate-700/10',
+        'rounded-xl border-[0.5px] dark:shadow-black/10 border-slate-200 dark:border-slate-700/50 shadow shadow-slate-300/50 relative dark:bg-slate-700/10 flex flex-col justify-between',
         className,
       )}
     >
       <audio src={src} ref={audioPlayer}>
         AudioPlayer
       </audio>
-      <div className="flex justify-center items-center p-4 overflow-hidden relative border-b-[0.5px] border-slate-200 dark:border-slate-700">
+      <div className="flex justify-center items-center p-4 overflow-hidden relative border-b-[0.5px] border-slate-200 dark:border-slate-700/50 flex-grow bg-white dark:bg-slate-950/80 rounded-t-xl">
         <SoundAnimation className="absolute bottom-0" animate={isPlaying} />
         <button
-          className="flex items-center hover:bg-sky-400/10 transition duration-100 py-2 px-4 rounded-lg relative text-sky-500 hover:text-sky-600"
+          className="flex items-center hover:bg-sky-400/10 transition duration-100 py-2 px-4 rounded-lg relative text-sky-500 dark:text-sky-700 dark:hover:text-sky-600 hover:text-sky-600"
           onClick={() => {
             if (audioPlayer.current) {
               if (currentTime > 15) {
@@ -87,12 +85,12 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
         </button>
         <button
           onClick={toggleIsPlaying}
-          className="w-16 h-16 rounded-full bg-sky-500 text-white flex justify-center items-center hover:bg-sky-600 transition duration-100 mx-4 relative active:scale-95"
+          className="w-16 h-16 rounded-full bg-sky-500 dark:bg-sky-700 dark:hover:bg-sky-600 text-white flex justify-center items-center hover:bg-sky-600 transition duration-100 mx-4 relative active:scale-95"
         >
           <i className={`fa-solid fa-${isPlaying ? 'pause' : 'play'} text-2xl`} />
         </button>
         <button
-          className="flex items-center hover:bg-sky-400/10 transition duration-100 py-2 px-4 rounded-lg relative text-sky-500 hover:text-sky-600"
+          className="flex items-center hover:bg-sky-400/10 transition duration-100 py-2 px-4 rounded-lg relative text-sky-500 dark:text-sky-700 dark:hover:text-sky-600 hover:text-sky-600"
           onClick={() => {
             if (audioPlayer.current) {
               if (currentTime < duration - 15) {
@@ -108,31 +106,14 @@ const AudioPlayer: React.FC<Props> = ({ src, postTitle, className }) => {
           <i className="fa-solid fa-forward text-xl" />
         </button>
       </div>
-      <div className="flex items-center bg-slate-50 dark:bg-slate-700/50 p-3 pb-2 sm:pb-3 sm:space-x-8 rounded-b-xl">
-        {/* <div className="shrink-0 flex justify-start sm:justify-center items-center flex-grow sm:flex-grow-0">
-          <a
-            download
-            href={`/api/download?url=${src}&title=${encodeURIComponent(postTitle)}`}
-            className="hover:bg-slate-200/50 dark:hover:bg-slate-700 w-8 h-8 flex justify-center items-center rounded-full text-slate-400 dark:text-slate-500 dark:hover:text-slate-400 cursor-pointer transition duration-100"
-            onClick={() => {
-              setLoadingDownload(true);
-              setInterval(() => setLoadingDownload(false), 5000);
-            }}
-          >
-            <i
-              className={`fa-solid fa-${
-                loadingDownload ? 'spinner animate-spin' : 'cloud-arrow-down'
-              }`}
-            />
-          </a>
-        </div> */}
+      <div className="flex items-center bg-slate-50 dark:bg-slate-900 p-3 pb-2 sm:pb-3 sm:space-x-8 rounded-b-xl">
         <div className="flex-grow flex items-center shrink-0 space-x-2 ml-2">
           <span className="w-16 text-slate-400">{formatDuration(currentTime)}</span>
           <div className="relative flex-grow -mt-1.5">
             <input
               ref={progressBar}
               type="range"
-              className={styles.progressBar}
+              className={cx(styles.progressBar, `audio-player-progress-bar`)}
               value={currentTime}
               onChange={() => {
                 if (audioPlayer.current) {

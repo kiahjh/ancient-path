@@ -60,19 +60,21 @@ const Chrome: React.FC<Props> = ({
     <div className="flex flex-col min-h-screen relative z-30">
       <div
         className={cx(
-          'z-40 bg-black left-0 top-0 w-screen h-screen md-lg:hidden bg-opacity-70 fixed',
-          navOpen ? 'block' : 'hidden',
+          'z-40 left-0 top-0 w-screen h-screen md-lg:hidden fixed transition-all duration-300',
+          navOpen
+            ? `pointer-events-auto bg-slate-500/30 backdrop-blur-xl`
+            : `opacity-0 pointer-events-none bg-white/0 backdrop-blur-none`,
         )}
         onClick={() => setNavOpen(false)}
       />
       <nav
         className={cx(
-          'fixed md-lg:hidden h-screen w-72 bg-white dark:bg-slate-900 shadow-xl z-50 left-0 top-0 [transition:150ms] rounded-r-xl overflow-hidden',
+          'fixed md-lg:hidden h-screen w-72 bg-white dark:bg-slate-900 shadow-xl z-50 left-0 top-0 [transition:300ms] rounded-r-3xl overflow-hidden',
           navOpen ? 'ml-0' : '-ml-80',
         )}
       >
         <button
-          className="absolute top-0 right-0 p-4 text-slate-300 dark:text-slate-500 hover:text-slate-400 dark:hover:text-slate-400 transition duration-100"
+          className="absolute top-2 right-2 p-4 text-slate-300 dark:text-slate-500 hover:text-slate-400 dark:hover:text-slate-400 transition duration-150 hover:bg-slate-100 rounded-full w-8 h-8 flex justify-center items-center"
           onClick={() => setNavOpen(false)}
         >
           <i className="fa-solid fa-times text-2xl" />
@@ -107,7 +109,7 @@ const Chrome: React.FC<Props> = ({
           <ThemeSwitcher theme={theme} setTheme={setTheme} language={language} />
         </div>
         <button
-          className="md-lg:hidden border-[0.5px] border-slate-200 w-12 h-12 rounded-full shadow-lg flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
+          className="md-lg:hidden border-[0.5px] border-slate-200 w-12 h-12 rounded-full shadow shadow-slate-300/50 dark:shadow-black/50 flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
           onClick={() => setNavOpen(true)}
         >
           <i className="fa-solid fa-bars" />
