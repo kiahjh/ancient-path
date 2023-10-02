@@ -6,9 +6,3 @@
 
 A blog and podcast consisting of the writings and teachings of Jason R. Henderson. Check
 it out [here](https://hender.blog).
-
-### Stack:
-
-- Next.js
-- Cosmic (CMS)
-- Tailwind CSS
