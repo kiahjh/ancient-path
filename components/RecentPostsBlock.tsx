@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { Lang, Post } from '../lib/types';
 import Advertisement from './Advertisement';
 import HomePagePostPreview from './HomePagePostPreview';

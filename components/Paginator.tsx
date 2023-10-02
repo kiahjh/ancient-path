@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import cx from 'classnames';
 import { LanguageContext } from '../lib/LanguageContext';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Lang } from '../lib/types';
 
@@ -12,9 +11,8 @@ interface Props {
 
 const Paginator: React.FC<Props> = ({ page, numPages }) => {
   const language = useContext(LanguageContext);
-  const router = useRouter();
   return (
-    <div className="bg-white dark:bg-slate-800 border-[0.5px] dark:border-slate-700 rounded-xl md:rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-slate-800 border-[0.5px] dark:border-slate-700 rounded-xl md:rounded-2xl shadow shadow-slate-300/50 dark:shadow-black/50 mx-4">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center space-x-4">
         <PageTurner
           mode="prev"
@@ -23,14 +21,14 @@ const Paginator: React.FC<Props> = ({ page, numPages }) => {
           numPages={numPages}
           language={language}
         />
-        <div className="flex space-x-4 justify-center p-2 md:p-0 md:px-4">
+        <div className="flex gap-4 justify-center p-2 md:p-0 md:px-4 flex-wrap">
           {new Array(numPages).fill(0).map((_, index) => (
             <Link
               className={cx(
-                'border dark:border-slate-700 w-10 h-10 rounded-full font-medium hover:bg-slate-50 transition duration-100 flex justify-center items-center cursor-pointer select-none',
+                'w-10 h-10 rounded-full font-medium transition duration-100 flex justify-center items-center cursor-pointer select-none',
                 index + 1 === page
-                  ? 'text-sky-500 border-sky-200 bg-sky-50 dark:bg-slate-700'
-                  : 'text-slate-400 dark:text-slate-500 dark:hover:bg-slate-700/50',
+                  ? 'text-sky-500 bg-sky-50 dark:bg-sky-500/10 hover:bg-sky-100 dark:hover:bg-sky-500/20'
+                  : 'text-slate-300 dark:text-slate-500 dark:hover:bg-slate-700/50 hover:bg-slate-50 hover:text-slate-400 dark:hover:text-slate-400',
               )}
               href={
                 language === 'en'
@@ -92,17 +90,17 @@ const PageTurner: React.FC<PageTurnerProps> = ({
 }) => {
   const bigStyles = cx(
     'transition duration-100 dark:border-slate-700 font-bold hidden md:flex px-4 py-4 w-16 lg:w-32 items-center justify-center select-none',
-    mode === `prev` ? 'border-r rounded-l-lg' : 'border-l rounded-r-lg',
+    mode === `prev` ? 'border-r rounded-l-2xl' : 'border-l rounded-r-2xl',
     (mode === 'prev' ? currentPage === 1 : currentPage === numPages)
       ? 'bg-slate-50 dark:bg-gray-900/30 text-slate-400 dark:text-slate-500 cursor-not-allowed'
-      : 'bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-sky-500 dark:text-sky-400',
+      : 'bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700/50 text-sky-500 dark:text-sky-400',
     className,
   );
   const smallStyles = cx(
     'text-lg rounded-full flex justify-center items-center w-12 h-12 transition duration-100 select-none',
     (mode === 'prev' ? currentPage === 1 : currentPage === numPages)
-      ? 'bg-slate-200 dark:bg-slate-700 text-slate-500 cursor-not-allowed'
-      : 'bg-sky-500 dark:bg-sky-700 text-white shadow-md hover:bg-sky-600 dark:hover:bg-sky-600',
+      ? 'bg-slate-100 dark:bg-slate-700 text-slate-300 dark:text-slate-500 cursor-not-allowed'
+      : 'bg-sky-100 dark:bg-sky-600 text-sky-500 dark:text-sky-200 hover:bg-sky-600 dark:hover:bg-sky-600',
     className,
   );
 

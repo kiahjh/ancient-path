@@ -116,7 +116,7 @@ const Post: React.FC<Props> = ({
             </h1>
           </header>
           <main className="grow">
-            <AudioPlayer src={post.mp3Url} className="my-6" />
+            <AudioPlayer src={post.mp3Url} className="my-12" />
             <div
               className="mb-8 prose dark:prose-invert "
               dangerouslySetInnerHTML={{ __html: post.content }}

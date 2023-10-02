@@ -49,8 +49,8 @@ export function relativeTime(isoOrDate: Date | string, language: Lang): string {
   for (const [unit, num] of Object.entries(UNITS)) {
     if (Math.abs(diff) > num || unit === `second`) {
       return language === 'en'
-        ? rtf_en.format(-Math.round(diff / num), unit as any)
-        : rtf_es.format(-Math.round(diff / num), unit as any);
+        ? rtf_en.format(-Math.round(diff / num), unit as any) // eslint-disable-line
+        : rtf_es.format(-Math.round(diff / num), unit as any); // eslint-disable-line
     }
   }
   return `just now`;

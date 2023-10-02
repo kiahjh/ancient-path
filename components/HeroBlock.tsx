@@ -9,8 +9,8 @@ interface Props {
 const HeroBlock: React.FC<Props> = ({ language }) => {
   return (
     <section className="p-6 xs:py-12 md:py-16 lg:py-28 xs:px-12 md:px-16 lg:px-20 relative dark:bg-slate-900">
-      <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-2xl absolute right-56 -bottom-52 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50"></div>
-      <div className="w-72 h-72 bg-sky-500 rounded-2xl absolute right-28 -bottom-44 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50"></div>
+      <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-3xl absolute right-56 -bottom-52 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50"></div>
+      <div className="w-72 h-72 bg-sky-500 rounded-3xl absolute right-28 -bottom-44 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50"></div>
       <h1 className="text-3xl xs:text-4xl dark:text-white md:text-6xl font-inter relative">
         {language === 'en' ? 'The Ancient Path' : 'La Senda Antigua'}
       </h1>
@@ -18,8 +18,8 @@ const HeroBlock: React.FC<Props> = ({ language }) => {
         {language === 'en' ? (
           <span>
             Stand by the ways and see and ask for the ancient paths, where the good way
-            is, and walk in it; and you will find rest for your souls. But they said, "We
-            will not walk in it." -{' '}
+            is, and walk in it; and you will find rest for your souls. But they said,
+            &quot;We will not walk in it.&quot; -{' '}
             <span className="font-medium text-slate-600 dark:text-slate-400">
               Jeremiah 6:16
             </span>
@@ -28,7 +28,7 @@ const HeroBlock: React.FC<Props> = ({ language }) => {
           <span>
             Párense en los caminos y miren, y pregunten por los senderos antiguos, cuál es
             el buen camino, y anden por él; y hallarán descanso para sus almas. Pero
-            dijeron: "No andaremos en él" -{' '}
+            dijeron: &quot;No andaremos en él&quot; -{' '}
             <span className="font-medium text-black dark:text-slate-400 text-opacity-60">
               Jeremías 6:16
             </span>

@@ -99,7 +99,7 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount, series }) => {
       title={c.title}
       metaDescription={c.metaDescription}
     >
-      <div className="flex justify-center px-20">
+      <div className="flex justify-center px-6 xs:px-8 sm:px-12 lg:px-20 md:pb-0 pb-8">
         <div className="dark:bg-slate-900 flex-grow max-w-[1400px] pt-20">
           <h2 className="text-3xl xs:text-4xl font-inter dark:text-white">{c.heading}</h2>
           <h4 className="text-slate-500 dark:text-slate-400 mt-1 font-medium">
@@ -110,7 +110,7 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount, series }) => {
       </div>
       <PostsList
         series={series}
-        language={'en'}
+        language={language}
         searchQuery={query}
         setSearchQuery={setQuery}
         seriesFilter={null}
@@ -118,7 +118,7 @@ const Posts: React.FC<Props> = ({ posts, pageNum, pageCount, series }) => {
         loading={false}
         posts={posts}
       />
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-8 mt-8 md:mt-0">
         <Paginator page={pageNum} numPages={pageCount} />
       </div>
     </PageWrapper>

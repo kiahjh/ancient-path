@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchResultsPage from '../components/SearchResultsPage';
 
-const SearchResults: React.FC = () => <SearchResultsPage language="en" />;
+const SearchResults: React.FC = () => <SearchResultsPage language="es" />;
 
 export default SearchResults;

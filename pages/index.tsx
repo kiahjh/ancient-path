@@ -5,7 +5,6 @@ import RecentPostsBlock from '../components/RecentPostsBlock';
 import { getAllPosts } from '../lib/getData';
 import PageWrapper from '../components/PageWrapper';
 import StartHereBlock from '../components/StartHereBlock';
-import Button from '../components/Button';
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   let language: Lang = 'en';
@@ -45,7 +44,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       language,
       recentPosts,
-      allPosts: posts,
       featuredPosts,
     },
   };
@@ -56,13 +54,10 @@ interface Props {
   recentPosts: Array<
     Pick<Post<Lang>, 'title' | 'description' | 'slug' | 'createdAt' | 'category'>
   >;
-  allPosts: Array<
-    Pick<Post<Lang>, 'title' | 'slug' | 'createdAt' | 'category' | 'description'>
-  >;
   language: Lang;
 }
 
-const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts, allPosts }) => (
+const Home: NextPage<Props> = ({ recentPosts, language, featuredPosts }) => (
   <PageWrapper
     page="/"
     language={language}

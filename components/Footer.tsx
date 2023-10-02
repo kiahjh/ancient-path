@@ -81,8 +81,8 @@ const Footer: React.FC<Props> = ({ page, small, language }) => {
         </p>
       </section>
       <footer className="px-10 py-6 flex justify-center items-center relative dark:bg-slate-900">
-        <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-2xl absolute left-56 -bottom-52 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50" />
-        <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute left-20 -bottom-72 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50" />
+        <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-3xl absolute left-56 -bottom-52 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50" />
+        <div className="w-96 h-96 bg-sky-500 rounded-3xl absolute left-20 -bottom-72 rotate-45 bg-opacity-20 dark:bg-opacity-5 sm:dark:bg-opacity-10 sm:bg-opacity-50" />
         <FloatingNav page={page} language={language} />
       </footer>
     </section>

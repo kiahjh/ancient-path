@@ -15,7 +15,7 @@ const SoundAnimation: React.FC<Props> = ({ className, animate }) => {
 
   useEffect(() => {
     startAnimating();
-  }, []);
+  }, []); // eslint-disable-line
 
   const draw: FrameRequestCallback = (t: number) => {
     requestAnimationFrame(draw);
@@ -39,7 +39,7 @@ const SoundAnimation: React.FC<Props> = ({ className, animate }) => {
     <div className={cx('h-12 flex space-x-1 items-end', className)}>
       {heights.map((height, index) => (
         <div
-          className="w-1.5 h-8 bg-sky-400/20 rounded-t-full [transition:100ms]"
+          className="w-1.5 h-8 bg-sky-400/20 dark:bg-sky-600/20 rounded-t-full [transition:100ms]"
           key={index}
           style={{ height: animate ? height : 0 }}
         />

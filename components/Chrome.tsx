@@ -109,7 +109,7 @@ const Chrome: React.FC<Props> = ({
           <ThemeSwitcher theme={theme} setTheme={setTheme} language={language} />
         </div>
         <button
-          className="md-lg:hidden border-[0.5px] border-slate-200 w-12 h-12 rounded-full shadow-md shadow-slate-300/50 flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
+          className="md-lg:hidden border-[0.5px] border-slate-200 w-12 h-12 rounded-full shadow shadow-slate-300/50 dark:shadow-black/50 flex justify-center items-center transition duration-100 hover:bg-sky-50 text-slate-400 hover:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-300 text-lg"
           onClick={() => setNavOpen(true)}
         >
           <i className="fa-solid fa-bars" />
