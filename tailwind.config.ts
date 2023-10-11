@@ -1,20 +1,37 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: `class`,
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    `./pages/**/*.{js,ts,jsx,tsx}`,
+    `./components/**/*.{js,ts,jsx,tsx}`,
+    `./app/**/*.{js,ts,jsx,tsx}`,
   ],
   theme: {
+    screens: {
+      xs: `500px`,
+      sm: `640px`,
+      md: `768px`,
+      "md-lg": `900px`,
+      lg: `1024px`,
+      "lg+": `1152px`,
+      xl: `1280px`,
+      "2xl": `1600px`,
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        inter: [`Inter`],
+        "reem-kufi": [`Reem Kufi`],
+        lato: [`lato`],
+      },
+      spacing: {
+        112: `28rem`,
+        128: `32rem`,
+        152: `38rem`,
+        176: `44rem`,
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [require(`@tailwindcss/typography`)],
+};
+export default config;
