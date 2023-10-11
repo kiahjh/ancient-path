@@ -5,19 +5,25 @@ import {
   ArchiveBoxIcon as ArchiveBoxIconOutline,
   BookOpenIcon as BookOpenIconOutline,
   ChatBubbleLeftIcon as ChatBubbleLeftIconOutline,
+  ChatBubbleOvalLeftIcon as ChatBubbleOvalLeftIconOutline,
   HomeIcon as HomeIconOutline,
+  MapPinIcon as MapPinIconOutline,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
 } from "@heroicons/react/24/outline";
 import {
   ArchiveBoxIcon as ArchiveBoxIconSolid,
   BookOpenIcon as BookOpenIconSolid,
   ChatBubbleLeftIcon as ChatBubbleLeftIconSolid,
+  ChatBubbleOvalLeftIcon as ChatBubbleOvalLeftIconSolid,
   HomeIcon as HomeIconSolid,
+  MapPinIcon as MapPinIconSolid,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconSolid,
 } from "@heroicons/react/24/solid";
 import NavLink from "./NavLink";
 
 const GlobalNav: React.FC = () => (
   <nav className="">
-    <div className="mt-8 p-4">
+    <div className="mt-12 p-4">
       <div className="p-2">
         <NavLink
           href="/"
@@ -27,11 +33,32 @@ const GlobalNav: React.FC = () => (
           Home
         </NavLink>
         <NavLink
+          href="/where-to-start"
+          DefaultIcon={MapPinIconOutline}
+          SelectedIcon={MapPinIconSolid}
+        >
+          Where to start
+        </NavLink>
+        <NavLink
+          href="/about"
+          DefaultIcon={QuestionMarkCircleIconOutline}
+          SelectedIcon={QuestionMarkCircleIconSolid}
+        >
+          About
+        </NavLink>
+        <NavLink
           href="/books"
           DefaultIcon={BookOpenIconOutline}
           SelectedIcon={BookOpenIconSolid}
         >
           Books
+        </NavLink>
+        <NavLink
+          href="/contact"
+          DefaultIcon={ChatBubbleOvalLeftIconOutline}
+          SelectedIcon={ChatBubbleOvalLeftIconSolid}
+        >
+          Contact me
         </NavLink>
       </div>
       <div className="mt-8">

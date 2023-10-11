@@ -1,7 +1,7 @@
 import React from "react";
 
 const Home: React.FC = () => (
-  <div className="p-28 flex flex-col items-center justify-between h-full">
+  <div className="py-28 px-12 flex flex-col items-center justify-center gap-20 h-full">
     <div className="flex flex-col items-center">
       <h1 className="font-black text-6xl text-slate-800">The Ancient Path</h1>
       <h2 className="mt-6 text-xl max-w-2xl text-center text-slate-800/70">
