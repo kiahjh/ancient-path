@@ -3,7 +3,12 @@
 import React from "react";
 import Script from "next/script";
 import cx from "classnames";
-import { BackwardIcon, ForwardIcon, PlayIcon } from "@heroicons/react/24/solid";
+import {
+  BackwardIcon,
+  ChevronLeftIcon,
+  ForwardIcon,
+  PlayIcon,
+} from "@heroicons/react/24/solid";
 import {
   ChatBubbleOvalLeftIcon,
   QuestionMarkCircleIcon,
@@ -18,14 +23,31 @@ import { roboto } from "@/lib/fonts";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [settingsPanelOpen, setSettingsPanelOpen] = React.useState(false);
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   return (
     <html lang="TODO">
       <body
         style={{ background: `#e0f2fe url(${NoiseBg.src})` }}
         className={cx(`flex flex-col min-h-screen bg-cover bg-center`, roboto)}
       >
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className={cx(
+            `w-10 h-10 rounded-full flex justify-center items-center absolute top-2 transition-[left,transform,background-color] duration-300 hover:bg-white`,
+            sidebarOpen
+              ? `left-60 bg-sky-50`
+              : `left-2 rotate-180 bg-sky-200/50`,
+          )}
+        >
+          <ChevronLeftIcon className="w-6 text-sky-500" />
+        </button>
         <div className="flex-grow flex">
-          <div className="w-72 flex flex-col justify-between shrink-0">
+          <div
+            className={cx(
+              `w-72 flex flex-col justify-between shrink-0 transition-[margin-left] duration-300`,
+              !sidebarOpen && `-ml-72`,
+            )}
+          >
             <GlobalNav />
             <div>
               <div
@@ -57,7 +79,14 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </div>
             </div>
           </div>
-          <main className="flex-grow rounded-bl-3xl bg-sky-50">{children}</main>
+          <main
+            className={cx(
+              `flex-grow transition-[border-radius] duration-300 bg-sky-50`,
+              sidebarOpen && `rounded-bl-3xl`,
+            )}
+          >
+            {children}
+          </main>
         </div>
         <div className="h-24 flex items-center justify-between gap-8 pr-8">
           <div className="h-24 flex items-center justify-center gap-4 w-72">
@@ -70,20 +99,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <button className="w-14 h-10 rounded-2xl hover:bg-sky-200/60 flex justify-center items-center transition-[background-color,transform] duration-200 active:bg-sky-300/70 active:scale-95">
               <ForwardIcon className="w-8 ml-0.5 text-sky-500" />
             </button>
-          </div>
-          <div className="flex justify-center items-center gap-8">
-            <Link
-              href="/about"
-              className="bg-sky-50 w-12 h-12 rounded-full flex justify-center items-center text-sky-600/60 hover:bg-white transition-colors duration-200"
-            >
-              <QuestionMarkCircleIcon className="w-7" />
-            </Link>
-            <Link
-              href="/contact"
-              className="bg-sky-50 w-12 h-12 rounded-full flex justify-center items-center text-sky-600/60 hover:bg-white transition-colors duration-200"
-            >
-              <ChatBubbleOvalLeftIcon className="w-6" />
-            </Link>
           </div>
         </div>
       </body>
