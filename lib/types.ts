@@ -1,4 +1,8 @@
-export type ApiPost = {
+import type { ArrowRightIcon } from "@heroicons/react/24/solid";
+
+export type HeroIcon = typeof ArrowRightIcon;
+
+export interface ApiPost {
   id: string;
   title: string;
   slug: string;
@@ -20,13 +24,13 @@ export type ApiPost = {
     spanish_audio_duration: number;
     category:
       | undefined
-      | { key: 'teaching'; value: 'Teaching' }
-      | { key: 'post'; value: 'Post' };
+      | { key: "teaching"; value: "Teaching" }
+      | { key: "post"; value: "Post" };
     series: string | null;
   };
-};
+}
 
-export type ApiSeries = {
+export interface ApiSeries {
   id: string;
   slug: string;
   title: string;
@@ -39,39 +43,40 @@ export type ApiSeries = {
     english_description: string;
     spanish_description: string;
   };
-};
+}
 
-export type Lang = 'en' | 'es';
-export type Theme = 'light' | 'dark' | 'system';
-
-export type Post<L extends Lang> = {
+export interface Post {
   id: string;
-  slug: string;
-  title: string;
-  content: string;
-  mp3Url: string;
-  audioSize: number;
-  audioDuration: number;
-  lang: L;
   createdAt: string;
   modifiedAt: string;
   publishedAt: string;
-  category: 'teaching' | 'post';
-  description: string;
   series: string | null;
-};
+  category: "teaching" | "reply";
+  en: {
+    title: string;
+    slug: string;
+    content: string;
+    description: string;
+    mp3Url: string;
+    audioSize: number;
+    audioDuration: number;
+  };
+  es: {
+    title: string;
+    slug: string;
+    content: string;
+    description: string;
+    mp3Url: string;
+    audioSize: number;
+    audioDuration: number;
+  };
+}
 
-export type DualPost = {
-  en: Post<'en'>;
-  es: Post<'es'>;
+export interface Series {
+  id: string;
   createdAt: string;
   modifiedAt: string;
   publishedAt: string;
-  category: 'teaching' | 'post';
-};
-
-export type Series = {
-  id: string;
   en: {
     title: string;
     slug: string;
@@ -82,4 +87,4 @@ export type Series = {
     slug: string;
     description: string;
   };
-};
+}

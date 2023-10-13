@@ -1,29 +1,35 @@
-import Link from 'next/link';
-import React from 'react';
+"use client";
+
+import Link from "next/link";
+import cx from "classnames";
+import type { HeroIcon } from "@/lib/types";
 
 interface Props {
-  to: string;
-  selected?: boolean;
-  isNew?: boolean;
+  href: string;
+  selected: boolean;
   children: React.ReactNode;
+  DefaultIcon: HeroIcon;
+  SelectedIcon: HeroIcon;
 }
 
-const NavLink: React.FC<Props> = ({ to, selected, isNew, children }) => {
+const NavLink: React.FC<Props> = ({
+  href,
+  selected,
+  children,
+  DefaultIcon,
+  SelectedIcon,
+}) => {
+  const Icon = selected ? SelectedIcon : DefaultIcon;
   return (
     <Link
-      href={to}
-      className={`${
-        selected
-          ? 'text-slate-600 dark:text-slate-200'
-          : 'text-slate-400 dark:text-slate-500'
-      } hover:text-sky-400 dark:hover:text-sky-400 transition duration-100 select-none mx-3 my-1 flex items-center`}
-    >
-      {children}
-      {isNew && (
-        <span className="text-xs uppercase bg-sky-300 text-white rounded-full px-1 py-0.5 ml-1.5">
-          new
-        </span>
+      href={href}
+      className={cx(
+        `flex items-center gap-4 hover:bg-sky-200/70 active:bg-sky-300/50 active:scale-[98%] transition-[background-color,transform] duration-200 px-6 py-4 rounded-3xl`,
+        selected && `bg-sky-200/50`,
       )}
+    >
+      <Icon className="w-6 text-sky-600" />
+      <span className={cx(`text-xl font-medium text-sky-800`)}>{children}</span>
     </Link>
   );
 };
