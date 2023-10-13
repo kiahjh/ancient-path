@@ -1,6 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import { getAllPosts, getAllSeries } from "@/lib/get-data";
+import PostPreview from "@/components/PostPreview";
 
 const SeriesPage: React.FC<{ params: { slug: string } }> = async ({
   params,
@@ -19,6 +20,11 @@ const SeriesPage: React.FC<{ params: { slug: string } }> = async ({
         {series.en.title}
       </h1>
       <p className="mt-4 text-slate-500 max-w-5xl">{series.en.description}</p>
+      <div className="mt-8 gap-8 flex flex-col">
+        {seriesPosts.map((post) => (
+          <PostPreview post={post} />
+        ))}
+      </div>
     </div>
   );
 };

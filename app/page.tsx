@@ -12,7 +12,7 @@ const Home: React.FC = () => (
     </div>
     <div className="p-8 border border-dashed border-sky-500/40 rounded-3xl flex flex-col items-center relative">
       <span className="text-lg text-sky-500/70 absolute -top-4 bg-sky-50 px-4">
-        Recent posts
+        Coming soon: recent posts
       </span>
       <div className="flex gap-8 flex-wrap justify-center">
         <HomePageRecentPost />

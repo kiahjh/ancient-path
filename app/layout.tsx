@@ -21,9 +21,15 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
   return (
     <html lang="TODO">
+      <div className="flex xl:hidden justify-center items-center h-screen">
+        Coming soon: small screen support
+      </div>
       <body
         style={{ background: `#e0f2fe url(${NoiseBg.src})` }}
-        className={cx(`flex flex-col min-h-screen bg-cover bg-center`, roboto)}
+        className={cx(
+          `xl:flex flex-col min-h-screen bg-cover bg-center hidden`,
+          roboto,
+        )}
       >
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -47,14 +53,14 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div>
               <div
                 className={cx(
-                  `mx-4 rounded-3xl flex flex-col transition-[background-color,height,padding] duration-300`,
+                  `mx-4 rounded-3xl flex flex-col transition-[background-color,height,padding] duration-300 overflow-hidden`,
                   settingsPanelOpen ? `h-60 bg-sky-300/30 p-2` : `h-12`,
                 )}
               >
                 <button
                   onClick={() => setSettingsPanelOpen(!settingsPanelOpen)}
                   className={cx(
-                    `flex justify-between items-center h-12 transition-[background-color,padding,border-radius] duration-300 hover:bg-sky-300/20 active:bg-sky-300/40`,
+                    `flex justify-between items-center h-12 transition-[background-color,padding,border-radius] duration-300 hover:bg-sky-300/20 active:bg-sky-300/40 shrink-0`,
                     settingsPanelOpen ? `px-4 rounded-2xl` : `px-6 rounded-3xl`,
                   )}
                 >
@@ -71,6 +77,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     )}
                   />
                 </button>
+                <div className="text-center p-4 text-sky-800/50">
+                  Coming soon: Spanish support and dark mode
+                </div>
               </div>
             </div>
           </div>
@@ -88,7 +97,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <button className="w-14 h-10 rounded-2xl hover:bg-sky-200/60 flex justify-center items-center transition-[background-color,transform] duration-200 active:bg-sky-300/70 active:scale-95">
               <BackwardIcon className="w-8 ml-0.5 text-sky-500" />
             </button>
-            <button className="w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center">
+            <button
+              onClick={() => alert(`Coming soon: audio streaming`)}
+              className="w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center"
+            >
               <PlayIcon className="w-6 text-white" />
             </button>
             <button className="w-14 h-10 rounded-2xl hover:bg-sky-200/60 flex justify-center items-center transition-[background-color,transform] duration-200 active:bg-sky-300/70 active:scale-95">
