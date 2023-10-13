@@ -9,14 +9,9 @@ import {
   ForwardIcon,
   PlayIcon,
 } from "@heroicons/react/24/solid";
-import {
-  ChatBubbleOvalLeftIcon,
-  QuestionMarkCircleIcon,
-  PlusIcon,
-} from "@heroicons/react/24/solid";
-import Link from "next/link";
+import { PlusIcon } from "@heroicons/react/24/solid";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
-import NoiseBg from "@/public/noise.svg";
+import NoiseBg from "@/public/chrome-bg-noise.svg";
 import "./globals.css";
 import GlobalNav from "@/components/GlobalNav";
 import { roboto } from "@/lib/fonts";
@@ -81,7 +76,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
           <main
             className={cx(
-              `flex-grow transition-[border-radius] duration-300 bg-sky-50`,
+              `flex-grow transition-[border-radius] duration-300 bg-sky-50 h-[calc(100vh-96px)] overflow-scroll`,
               sidebarOpen && `rounded-bl-3xl`,
             )}
           >
@@ -89,12 +84,12 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </main>
         </div>
         <div className="h-24 flex items-center justify-between gap-8 pr-8">
-          <div className="h-24 flex items-center justify-center gap-4 w-72">
+          <div className="h-full w-72 flex items-center justify-center gap-4">
             <button className="w-14 h-10 rounded-2xl hover:bg-sky-200/60 flex justify-center items-center transition-[background-color,transform] duration-200 active:bg-sky-300/70 active:scale-95">
               <BackwardIcon className="w-8 ml-0.5 text-sky-500" />
             </button>
             <button className="w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center">
-              <PlayIcon className="w-6 ml-0.5 text-white" />
+              <PlayIcon className="w-6 text-white" />
             </button>
             <button className="w-14 h-10 rounded-2xl hover:bg-sky-200/60 flex justify-center items-center transition-[background-color,transform] duration-200 active:bg-sky-300/70 active:scale-95">
               <ForwardIcon className="w-8 ml-0.5 text-sky-500" />

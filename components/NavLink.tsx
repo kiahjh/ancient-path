@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import cx from "classnames";
 import type { HeroIcon } from "@/lib/types";
 
 interface Props {
   href: string;
+  selected: boolean;
   children: React.ReactNode;
   DefaultIcon: HeroIcon;
   SelectedIcon: HeroIcon;
@@ -14,12 +14,11 @@ interface Props {
 
 const NavLink: React.FC<Props> = ({
   href,
+  selected,
   children,
   DefaultIcon,
   SelectedIcon,
 }) => {
-  const path = usePathname();
-  const selected = href === `/` ? path === `/` : path.includes(href);
   const Icon = selected ? SelectedIcon : DefaultIcon;
   return (
     <Link
