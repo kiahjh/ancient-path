@@ -1,4 +1,5 @@
 import React from "react";
+import HomePageRecentPost from "@/components/HomePageRecentPost";
 
 const Home: React.FC = () => (
   <div className="py-28 px-12 flex flex-col items-center justify-center gap-20 h-full">
@@ -14,30 +15,9 @@ const Home: React.FC = () => (
         Recent posts
       </span>
       <div className="flex gap-8 flex-wrap justify-center">
-        <div className="w-96 bg-white p-8 rounded-3xl">
-          <h4 className="text-sky-500/70">3 days ago</h4>
-          <h3 className="text-xl font-bold text-slate-800">The Work of God</h3>
-          <p className="text-slate-500 mt-2">
-            Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
-            cillum sint consectetur cupidatat.
-          </p>
-        </div>
-        <div className="w-96 bg-white p-8 rounded-3xl">
-          <h4 className="text-sky-500/70">last week</h4>
-          <h3 className="text-xl font-bold text-slate-800">The Work of God</h3>
-          <p className="text-slate-500 mt-2">
-            Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
-            cillum sint consectetur cupidatat.
-          </p>
-        </div>
-        <div className="w-96 bg-white p-8 rounded-3xl">
-          <h4 className="text-sky-500/70">2 weeks ago</h4>
-          <h3 className="text-xl font-bold text-slate-800">The Work of God</h3>
-          <p className="text-slate-500 mt-2">
-            Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
-            cillum sint consectetur cupidatat.
-          </p>
-        </div>
+        <HomePageRecentPost />
+        <HomePageRecentPost />
+        <HomePageRecentPost />
       </div>
     </div>
   </div>
