@@ -81,7 +81,7 @@ const GlobalNav: React.FC = () => {
               Teachings
             </NavLink>
             <NavLink
-              href="/replies"
+              href="/replies/page/1"
               selected={path.includes(`/replies`)}
               DefaultIcon={ChatBubbleLeftIconOutline}
               SelectedIcon={ChatBubbleLeftIconSolid}

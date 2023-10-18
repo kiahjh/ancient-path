@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { NextPage } from "next";
 import { getAllPosts } from "@/lib/get-data";
 
-const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
+const IndividualReply: NextPage<{ params: { slug: string } }> = async ({
   params,
 }) => {
   const teaching = (await getAllPosts()).find((s) => s.en.slug === params.slug);
@@ -26,4 +26,4 @@ const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
   );
 };
 
-export default IndividualTeaching;
+export default IndividualReply;

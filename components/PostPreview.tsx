@@ -8,7 +8,7 @@ interface Props {
 
 const PostPreview: React.FC<Props> = ({ post }) => (
   <Link
-    href={`/${post.category === `teaching` ? `teachings` : `posts`}/${
+    href={`/${post.category === `teaching` ? `teachings` : `replies`}/${
       post.en.slug
     }`}
     className="bg-white p-8 rounded-3xl"
