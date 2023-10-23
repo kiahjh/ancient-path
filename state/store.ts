@@ -11,7 +11,7 @@ export interface State {
 
 export const initialState: State = {
   audio: {
-    source: `https://cdn.cosmicjs.com/9390ebd0-5e35-11ee-b975-cb0cfadd93ad-Law-and-Grace-03.mp3`,
+    source: null,
     isPlaying: false,
     currentTime: 0,
     duration: 0,

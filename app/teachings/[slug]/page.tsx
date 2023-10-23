@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import type { NextPage } from "next";
 import { getAllPosts } from "@/lib/get-data";
+import PostPageAudioPrompt from "@/components/PostPageAudioPrompt";
 
 const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
   params,
@@ -15,7 +16,7 @@ const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
           <h1 className="text-4xl font-bold mb-8 text-slate-800">
             {teaching.en.title}
           </h1>
-          {teaching.en.mp3Url}
+          <PostPageAudioPrompt mp3Url={teaching.en.mp3Url} />
           <div
             dangerouslySetInnerHTML={{ __html: teaching.en.content }}
             className="prose max-w-2xl mt-8"
