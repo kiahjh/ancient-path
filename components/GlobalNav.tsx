@@ -53,14 +53,6 @@ const GlobalNav: React.FC = () => {
             About
           </NavLink>
           <NavLink
-            href="/books"
-            selected={path.includes(`/books`)}
-            DefaultIcon={BookOpenIconOutline}
-            SelectedIcon={BookOpenIconSolid}
-          >
-            Books
-          </NavLink>
-          <NavLink
             href="/contact"
             selected={path === `/contact`}
             DefaultIcon={ChatBubbleOvalLeftIconOutline}
@@ -70,7 +62,7 @@ const GlobalNav: React.FC = () => {
           </NavLink>
         </div>
         <div className="mt-8">
-          <h4 className="ml-6 mb-1 font-medium text-sky-700/60">Posts</h4>
+          <h4 className="ml-6 mb-1 font-medium text-sky-700/60">Resources</h4>
           <div className="bg-sky-200/10 border border-dashed border-sky-300/50 p-2 rounded-3xl">
             <NavLink
               href="/teachings/page/1"
@@ -81,12 +73,20 @@ const GlobalNav: React.FC = () => {
               Teachings
             </NavLink>
             <NavLink
-              href="/replies"
-              selected={path.includes(`/replies`)}
+              href="/posts/page/1"
+              selected={path.includes(`/posts`)}
               DefaultIcon={ChatBubbleLeftIconOutline}
               SelectedIcon={ChatBubbleLeftIconSolid}
             >
-              Replies
+              Posts
+            </NavLink>
+            <NavLink
+              href="/books"
+              selected={path.includes(`/books`)}
+              DefaultIcon={BookOpenIconOutline}
+              SelectedIcon={BookOpenIconSolid}
+            >
+              Books
             </NavLink>
           </div>
         </div>

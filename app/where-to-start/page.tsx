@@ -1,6 +1,7 @@
 import React from "react";
+import type { NextPage } from "next";
 
-const WhereToStart: React.FC = () => (
+const WhereToStart: NextPage = () => (
   <div className="p-20 flex justify-center items-center h-full text-3xl text-slate-800 font-bold">
     Coming soon
   </div>

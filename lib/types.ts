@@ -51,7 +51,7 @@ export interface Post {
   modifiedAt: string;
   publishedAt: string;
   series: string | null;
-  category: "teaching" | "reply";
+  category: "teaching" | "post";
   en: {
     title: string;
     slug: string;

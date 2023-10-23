@@ -8,7 +8,7 @@ export function toPost(apiPost: ApiPost): Post {
     publishedAt: apiPost.published_at,
     series: apiPost.metadata.series,
     category:
-      apiPost.metadata.category?.key === `teaching` ? `teaching` : `reply`,
+      apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,
     en: {
       title: apiPost.title,
       slug: apiPost.slug,

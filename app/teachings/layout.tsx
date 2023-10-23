@@ -1,9 +1,10 @@
 import React from "react";
+import type { NextPage } from "next";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
 import { getAllSeries } from "@/lib/get-data";
 import SeriesNav from "@/components/SeriesNav";
 
-const TeachingsLayout: React.FC<{ children: React.ReactNode }> = async ({
+const TeachingsLayout: NextPage<{ children: React.ReactNode }> = async ({
   children,
 }) => {
   const series = await getAllSeries();

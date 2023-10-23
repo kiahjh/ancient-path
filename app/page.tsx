@@ -1,7 +1,8 @@
 import React from "react";
+import type { NextPage } from "next";
 import HomePageRecentPost from "@/components/HomePageRecentPost";
 
-const Home: React.FC = () => (
+const Home: NextPage = () => (
   <div className="py-28 px-12 flex flex-col items-center justify-center gap-20 h-full">
     <div className="flex flex-col items-center">
       <h1 className="font-black text-6xl text-slate-800">The Ancient Path</h1>
