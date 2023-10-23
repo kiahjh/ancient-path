@@ -6,13 +6,13 @@ import { paginate } from "@/lib/helpers";
 import Paginator from "@/components/Paginator";
 import PostPreview from "@/components/PostPreview";
 
-const RepliesPage: NextPage<{ params: { number: string } }> = async ({
+const PostsPage: NextPage<{ params: { number: string } }> = async ({
   params,
 }) => {
-  const replies = (await getAllPosts()).filter(
-    (post) => post.category === `reply`,
+  const posts = (await getAllPosts()).filter(
+    (post) => post.category === `post`,
   );
-  const numPages = Math.ceil(replies.length / 8);
+  const numPages = Math.ceil(posts.length / 8);
   const pageNum = Number(params.number);
   if (isNaN(pageNum)) return notFound();
 
@@ -21,9 +21,9 @@ const RepliesPage: NextPage<{ params: { number: string } }> = async ({
   return (
     <div className="flex flex-col">
       <main className="flex-grow p-20">
-        <h1 className="text-4xl font-bold text-slate-800">Replies</h1>
+        <h1 className="text-4xl font-bold text-slate-800">Posts</h1>
         <h2 className="text-lg font-medium text-slate-800">
-          Page {pageNum} of {Math.ceil(replies.length / 8)}
+          Page {pageNum} of {Math.ceil(posts.length / 8)}
         </h2>
         <p className="text-lg mt-2 text-slate-500 max-w-4xl">
           Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
@@ -31,7 +31,7 @@ const RepliesPage: NextPage<{ params: { number: string } }> = async ({
           minim labore adipisicing minim sint cillum sint consectetur cupidatat.
         </p>
         <div className="grid grid-cols-1 gap-4 mt-8">
-          {paginate(replies, pageNum, 8).map((teaching) => (
+          {paginate(posts, pageNum, 8).map((teaching) => (
             <PostPreview post={teaching} />
           ))}
         </div>
@@ -40,11 +40,11 @@ const RepliesPage: NextPage<{ params: { number: string } }> = async ({
         <Paginator
           numPages={numPages}
           currentPage={pageNum}
-          basePath={`/replies/page`}
+          basePath={`/posts/page`}
         />
       </footer>
     </div>
   );
 };
 
-export default RepliesPage;
+export default PostsPage;

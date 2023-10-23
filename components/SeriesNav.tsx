@@ -23,14 +23,14 @@ const SeriesNav: React.FC<Props> = ({ series }) => {
             <div
               className={cx(
                 `bg-sky-500/50 w-1.5 h-5 rounded-r-full`,
-                path.includes(s.en.slug) ? `opacity-100` : `opacity-0`,
+                path.endsWith(s.en.slug) ? `opacity-100` : `opacity-0`,
               )}
             />
             <Link
               href={`/teachings/series/${s.en.slug}`}
               className={cx(
                 `text-lg active:scale-[98%] transition-[background-color,transform] px-4 py-2 rounded-2xl text-sky-700 font-medium flex-grow`,
-                path.includes(s.en.slug)
+                path.endsWith(s.en.slug)
                   ? `bg-sky-200/50 hover:bg-sky-200/70 active:bg-sky-200`
                   : `hover:bg-sky-200/50 active:bg-sky-200`,
               )}

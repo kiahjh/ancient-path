@@ -19,7 +19,7 @@ const AudioPlayer: React.FC = () => {
         duration: audioRef.current.duration,
       });
     }
-  }, [dispatch]);
+  }, [dispatch, audioRef.current?.duration]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -53,6 +53,7 @@ const AudioPlayer: React.FC = () => {
   return (
     <div className="relative flex-grow flex items-center gap-4">
       {audio.source && <audio ref={audioRef} src={audio.source} />}
+      <span>{Math.floor(audio.currentTime)}</span>
       <div className="flex-grow flex relative">
         <input
           type="range"
@@ -77,6 +78,7 @@ const AudioPlayer: React.FC = () => {
           }}
         />
       </div>
+      <span>{Math.floor(audio.duration)}</span>
     </div>
   );
 };
