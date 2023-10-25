@@ -1,3 +1,5 @@
+import type { Language } from "@/lib/types";
+
 export interface State {
   audio: {
     source: string | null;
@@ -7,6 +9,7 @@ export interface State {
     muted: boolean;
     playbackRate: 1 | 1.25 | 1.5 | 2;
   };
+  language: Language;
 }
 
 export const initialState: State = {
@@ -18,6 +21,7 @@ export const initialState: State = {
     muted: false,
     playbackRate: 1,
   },
+  language: `en`,
 };
 
 export type Action =
@@ -25,7 +29,8 @@ export type Action =
   | { type: "setAudioDuration"; duration: number }
   | { type: "toggleAudioPlaying" }
   | { type: "toggleAudioMuted" }
-  | { type: "setCurrentTime"; time: number };
+  | { type: "setCurrentTime"; time: number }
+  | { type: "setLanguage"; language: Language };
 
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -68,6 +73,11 @@ export function reducer(state: State, action: Action): State {
           ...state.audio,
           currentTime: action.time,
         },
+      };
+    case `setLanguage`:
+      return {
+        ...state,
+        language: action.language,
       };
   }
 }

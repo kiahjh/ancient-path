@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
 import cx from "classnames";
 import styles from "@/styles/AudioPlayer.module.css";
