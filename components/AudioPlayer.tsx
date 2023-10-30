@@ -4,8 +4,9 @@ import React, { useEffect, useRef } from "react";
 import cx from "classnames";
 import styles from "@/styles/AudioPlayer.module.css";
 import { useGlobalState } from "@/state/hooks";
+import { formatTime } from "@/lib/dates";
 
-const AudioPlayer: React.FC = () => {
+const AudioPlayer: React.FC<{ className?: string }> = ({ className }) => {
   const {
     state: { audio },
     dispatch,
@@ -53,9 +54,14 @@ const AudioPlayer: React.FC = () => {
   ]);
 
   return (
-    <div className="relative flex-grow flex items-center gap-4">
+    <div
+      className={cx(
+        `relative flex-grow flex items-center gap-4 transition-opacity`,
+        className,
+      )}
+    >
       {audio.source && <audio ref={audioRef} src={audio.source} />}
-      <span>{Math.floor(audio.currentTime)}</span>
+      <span className="text-sky-700">{formatTime(audio.currentTime)}</span>
       <div className="flex-grow flex relative">
         <input
           type="range"
@@ -80,7 +86,7 @@ const AudioPlayer: React.FC = () => {
           }}
         />
       </div>
-      <span>{Math.floor(audio.duration)}</span>
+      <span className="text-slate-800/50">{formatTime(audio.duration)}</span>
     </div>
   );
 };

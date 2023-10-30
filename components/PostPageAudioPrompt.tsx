@@ -7,9 +7,10 @@ import { useGlobalState } from "@/state/hooks";
 
 interface Props {
   mp3Url: string;
+  title: string;
 }
 
-const PostPageAudioPrompt: React.FC<Props> = ({ mp3Url }) => {
+const PostPageAudioPrompt: React.FC<Props> = ({ mp3Url, title }) => {
   const {
     state: { audio },
     dispatch,
@@ -22,10 +23,10 @@ const PostPageAudioPrompt: React.FC<Props> = ({ mp3Url }) => {
         onClick={() => {
           if (audio.source !== mp3Url && audio.isPlaying) {
             dispatch({ type: `setCurrentTime`, time: 0 });
-            dispatch({ type: `setAudioSource`, source: mp3Url });
+            dispatch({ type: `setAudio`, source: mp3Url, title });
           } else if (audio.source !== mp3Url && !audio.isPlaying) {
             dispatch({ type: `setCurrentTime`, time: 0 });
-            dispatch({ type: `setAudioSource`, source: mp3Url });
+            dispatch({ type: `setAudio`, source: mp3Url, title });
             dispatch({ type: `toggleAudioPlaying` });
           } else {
             dispatch({ type: `toggleAudioPlaying` });
@@ -61,7 +62,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({ mp3Url }) => {
         <span
           className={cx(
             `relative text-2xl font-medium text-slate-600 transition-[opacity,transform] duration-500 block`,
-            isPlaying && `translate-y-4 opacity-0`,
+            isPlaying && `translate-y-4 opacity-0 pointer-events-none`,
           )}
         >
           Listen online

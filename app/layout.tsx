@@ -15,29 +15,31 @@ import SettingsPanel from "@/components/SettingsPanel";
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
 
+  const dark = false;
+
   return (
     <GlobalStateProvider>
-      <html lang="TODO">
+      <html lang="TODO" className={dark ? `dark` : `light`}>
         <body
           style={{
-            background: `#e0f2fe url(${NoiseBg.src})`,
+            backgroundImage: !dark ? `url(${NoiseBg.src})` : ``,
             backgroundSize: `200px`,
           }}
           className={cx(
-            `flex flex-col min-h-screen bg-cover bg-center`,
+            `flex flex-col min-h-screen bg-cover bg-center bg-sky-100 dark:bg-slate-900`,
             roboto,
           )}
         >
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className={cx(
-              `w-10 h-10 rounded-full flex justify-center items-center absolute top-2 transition-[left,transform,background-color] duration-300 hover:bg-white`,
+              `w-10 h-10 rounded-full flex justify-center items-center absolute top-2 transition-[left,transform,background-color] duration-300 hover:bg-white dark:hover:bg-slate-950`,
               sidebarOpen
-                ? `left-60 bg-sky-50`
-                : `left-2 rotate-180 bg-sky-200/50`,
+                ? `left-60 bg-sky-50 dark:bg-slate-800`
+                : `left-2 rotate-180 bg-sky-200/50 dark:bg-slate-900`,
             )}
           >
-            <ChevronLeftIcon className="w-6 text-sky-500" />
+            <ChevronLeftIcon className="w-6 text-sky-500 dark:text-sky-600" />
           </button>
           <div className="flex-grow flex">
             <div
@@ -46,12 +48,14 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 !sidebarOpen && `-ml-72`,
               )}
             >
-              <GlobalNav />
+              <div>
+                <GlobalNav />
+              </div>
               <SettingsPanel />
             </div>
             <main
               className={cx(
-                `flex-grow transition-[border-radius] duration-300 bg-sky-50 h-[calc(100vh-96px)] overflow-scroll`,
+                `flex-grow transition-[border-radius] duration-300 bg-sky-50 dark:bg-slate-950/70 h-[calc(100vh-96px)] overflow-scroll`,
                 sidebarOpen && `rounded-bl-3xl`,
               )}
             >

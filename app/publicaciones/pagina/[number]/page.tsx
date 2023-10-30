@@ -18,7 +18,7 @@ const PostsPage: NextPage<{ params: { number: string } }> = async ({
 
   return (
     <PostListTemplate
-      language={`en`}
+      language={`es`}
       posts={posts}
       currentPage={pageNum}
       numPages={numPages}

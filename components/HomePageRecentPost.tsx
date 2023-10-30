@@ -2,19 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import cx from "classnames";
-import type { Post } from "@/lib/types";
+import type { Language, Post } from "@/lib/types";
 import BlobNoise from "@/public/blob-noise.svg";
 import { useGlobalState } from "@/state/hooks";
 import { relativeTime } from "@/lib/dates";
 
 interface Props {
   post: Post;
+  language: Language;
 }
 
-const HomePageRecentPost: React.FC<Props> = ({ post }) => {
-  const {
-    state: { language },
-  } = useGlobalState();
+const HomePageRecentPost: React.FC<Props> = ({ post, language }) => {
   const [position, setPosition] = useState({
     x: Math.random() * 100,
     y: Math.random() * 100,
