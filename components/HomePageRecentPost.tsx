@@ -2,9 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import cx from "classnames";
+import type { Language, Post } from "@/lib/types";
 import BlobNoise from "@/public/blob-noise.svg";
+import { useGlobalState } from "@/state/hooks";
+import { relativeTime } from "@/lib/dates";
 
-const HomePageRecentPost: React.FC = () => {
+interface Props {
+  post: Post;
+  language: Language;
+}
+
+const HomePageRecentPost: React.FC<Props> = ({ post, language }) => {
   const [position, setPosition] = useState({
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -51,11 +59,14 @@ const HomePageRecentPost: React.FC = () => {
         )}
       />
       <div className="relative">
-        <h4 className="text-sky-500/70">2 weeks ago</h4>
-        <h3 className="text-xl font-bold text-slate-800">The Work of God</h3>
+        <h4 className="text-sky-500/70">
+          {relativeTime(post.createdAt, `en`)}
+        </h4>
+        <h3 className="text-xl font-bold text-slate-800">
+          {post[language].title}
+        </h3>
         <p className="text-slate-500 mt-2">
-          Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
-          cillum sint consectetur cupidatat.
+          {post[language].description.slice(0, 180).trim() + `...`}
         </p>
       </div>
     </div>

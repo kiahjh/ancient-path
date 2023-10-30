@@ -9,7 +9,7 @@ const IndividualPost: NextPage<{ params: { slug: string } }> = async ({
 }) => {
   const post = (await getAllPosts()).find((s) => s.en.slug === params.slug);
   if (!post) return notFound();
-  return <PostTemplate post={post} language="en" />;
+  return <PostTemplate post={post} language="es" />;
 };
 
 export default IndividualPost;

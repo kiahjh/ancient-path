@@ -21,9 +21,18 @@ import {
 } from "@heroicons/react/24/solid";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
+import { useGlobalState } from "@/state/hooks";
 
 const GlobalNav: React.FC = () => {
+  const {
+    state: { language },
+  } = useGlobalState();
   const path = usePathname();
+
+  function dual<T>(english: T, spanish: T): T {
+    return language === `en` ? english : spanish;
+  }
+
   return (
     <nav className="">
       <div className="mt-12 p-4">
@@ -34,59 +43,70 @@ const GlobalNav: React.FC = () => {
             DefaultIcon={HomeIconOutline}
             SelectedIcon={HomeIconSolid}
           >
-            Home
+            {dual(`Home`, `Inicio`)}
           </NavLink>
           <NavLink
-            href="/where-to-start"
-            selected={path === `/where-to-start`}
+            href={dual(`/where-to-start`, `/donde-empezar`)}
+            selected={dual(
+              path === `/where-to-start`,
+              path === `/donde-empezar`,
+            )}
             DefaultIcon={MapPinIconOutline}
             SelectedIcon={MapPinIconSolid}
           >
-            Where to start
+            {dual(`Where to start`, `Donde empezar`)}
           </NavLink>
           <NavLink
-            href="/about"
-            selected={path === `/about`}
+            href={dual(`/about`, `/sobre-mi`)}
+            selected={dual(path === `/about`, path === `/sobre-mi`)}
             DefaultIcon={QuestionMarkCircleIconOutline}
             SelectedIcon={QuestionMarkCircleIconSolid}
           >
-            About
+            {dual(`About`, `Sobre mi`)}
           </NavLink>
           <NavLink
-            href="/contact"
-            selected={path === `/contact`}
+            href={dual(`/contact`, `/contacto`)}
+            selected={dual(path === `/contact`, path === `/contacto`)}
             DefaultIcon={ChatBubbleOvalLeftIconOutline}
             SelectedIcon={ChatBubbleOvalLeftIconSolid}
           >
-            Contact me
+            {dual(`Contact me`, `Contacto`)}
           </NavLink>
         </div>
         <div className="mt-8">
-          <h4 className="ml-6 mb-1 font-medium text-sky-700/60">Resources</h4>
-          <div className="bg-sky-200/10 border border-dashed border-sky-300/50 p-2 rounded-3xl">
+          <h4 className="ml-6 mb-1 font-medium text-sky-700/60 dark:text-slate-600">
+            {dual(`Resources`, `Recursos`)}
+          </h4>
+          <div className="bg-sky-200/10 dark:bg-sky-800/5 border border-dashed border-sky-300/50 dark:border-sky-500/20 p-2 rounded-3xl">
             <NavLink
-              href="/teachings/page/1"
-              selected={path.includes(`/teachings`)}
+              href={dual(`/teachings/page/1`, `/ensenanzas/pagina/1`)}
+              selected={dual(
+                path.includes(`/teachings`),
+                path.includes(`/ensenanzas`),
+              )}
               DefaultIcon={ArchiveBoxIconOutline}
               SelectedIcon={ArchiveBoxIconSolid}
             >
-              Teachings
+              {dual(`Teachings`, `Enseñanzas`)}
             </NavLink>
             <NavLink
-              href="/posts/page/1"
-              selected={path.includes(`/posts`)}
+              href={dual(`/posts/page/1`, `/publicaciones/pagina/1`)}
+              selected={dual(
+                path.includes(`/posts`),
+                path.includes(`/publicaciones`),
+              )}
               DefaultIcon={ChatBubbleLeftIconOutline}
               SelectedIcon={ChatBubbleLeftIconSolid}
             >
-              Posts
+              {dual(`Posts`, `Publicaciones`)}
             </NavLink>
             <NavLink
-              href="/books"
-              selected={path.includes(`/books`)}
+              href={dual(`/books`, `/libros`)}
+              selected={dual(path.includes(`/books`), path.includes(`/libros`))}
               DefaultIcon={BookOpenIconOutline}
               SelectedIcon={BookOpenIconSolid}
             >
-              Books
+              {dual(`Books`, `Libros`)}
             </NavLink>
           </div>
         </div>

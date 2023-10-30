@@ -19,10 +19,13 @@ const SeriesPage: React.FC<{ params: { slug: string } }> = async ({
       <h1 className="text-4xl font-bold w-fit bg-gradient-to-r from-sky-700 to-sky-600 bg-clip-text text-transparent">
         {series.en.title}
       </h1>
-      <p className="mt-4 text-slate-500 max-w-5xl">{series.en.description}</p>
+      <p className="mt-2 text-slate-500 max-w-5xl text-lg">
+        {series.en.description}
+      </p>
       <div className="mt-8 gap-8 flex flex-col">
         {seriesPosts.map((post) => (
-          <PostPreview post={post} />
+          /* TODO: language */
+          <PostPreview post={post} language="en" />
         ))}
       </div>
     </div>

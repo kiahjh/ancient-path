@@ -1,5 +1,7 @@
 import type { ArrowRightIcon } from "@heroicons/react/24/solid";
 
+export type Language = "en" | "es";
+
 export type HeroIcon = typeof ArrowRightIcon;
 
 export interface ApiPost {

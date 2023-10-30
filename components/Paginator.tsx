@@ -15,7 +15,7 @@ const Paginator: React.FC<Props> = ({ numPages, currentPage, basePath }) => (
         <Link
           href={`${basePath}/${i + 1}`}
           className={cx(
-            `rounded-full w-8 h-8 flex justify-center items-center font-medium text-lg active:scale-95 transition-[background-color,transform] duration-200`,
+            `rounded-full w-8 h-8 flex justify-center items-center font-medium text-lg active:scale-90 transition-[background-color,transform] duration-200`,
             currentPage === i + 1
               ? `bg-sky-200 text-sky-800 hover:bg-sky-300 active:bg-sky-400`
               : `bg-white text-sky-500 hover:bg-sky-100 active:bg-sky-200`,
