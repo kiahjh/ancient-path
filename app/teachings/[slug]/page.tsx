@@ -16,11 +16,14 @@ const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
           <h1 className="text-4xl font-bold mb-8 text-slate-800">
             {teaching.en.title}
           </h1>
-          <PostPageAudioPrompt mp3Url={teaching.en.mp3Url} />
+          <PostPageAudioPrompt
+            title={teaching.en.title}
+            mp3Url={teaching.en.mp3Url}
+          />
           <div
             dangerouslySetInnerHTML={{ __html: teaching.en.content }}
-            className="prose max-w-2xl mt-8"
-          ></div>
+            className="prose-lg prose-slate max-w-3xl mt-8"
+          />
         </div>
       </div>
     </div>

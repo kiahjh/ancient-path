@@ -3,6 +3,7 @@ import type { Language } from "@/lib/types";
 export interface State {
   audio: {
     source: string | null;
+    title: string | null;
     isPlaying: boolean;
     currentTime: number;
     duration: number;
@@ -15,6 +16,7 @@ export interface State {
 export const initialState: State = {
   audio: {
     source: null,
+    title: null,
     isPlaying: false,
     currentTime: 0,
     duration: 0,
@@ -25,7 +27,7 @@ export const initialState: State = {
 };
 
 export type Action =
-  | { type: "setAudioSource"; source: string }
+  | { type: "setAudio"; source: string; title: string }
   | { type: "setAudioDuration"; duration: number }
   | { type: "toggleAudioPlaying" }
   | { type: "toggleAudioMuted" }
@@ -34,12 +36,13 @@ export type Action =
 
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case `setAudioSource`:
+    case `setAudio`:
       return {
         ...state,
         audio: {
           ...state.audio,
           source: action.source,
+          title: action.title,
         },
       };
     case `setAudioDuration`:

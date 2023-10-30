@@ -1,9 +1,11 @@
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 
 export function useAlternateLangageNavigation(): () => void {
   const path = usePathname();
   const router = useRouter();
+
+  // TODO: parse more complex paths like /posts/page/1 or /teachings/foo
+
   return () => {
     switch (path) {
       case `/where-to-start`:
