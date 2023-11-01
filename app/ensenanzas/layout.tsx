@@ -7,7 +7,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = async ({
 }) => {
   const series = await getAllSeries();
   return (
-    <TeachingsLayoutTemplate series={series} language="en">
+    <TeachingsLayoutTemplate series={series} language="es">
       {children}
     </TeachingsLayoutTemplate>
   );
