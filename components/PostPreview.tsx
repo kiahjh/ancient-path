@@ -21,7 +21,7 @@ const PostPreview: React.FC<Props> = ({ post, language }) => {
   return (
     <Link
       href={`${basePath}/${post[language].slug}`}
-      className="bg-white p-8 rounded-3xl hover:bg-sky-100 active:bg-sky-200 active:scale-[98%] transition-[background-color,transform] duration-300"
+      className="bg-white p-6 xs:p-8 rounded-3xl hover:bg-sky-100 active:bg-sky-200 active:scale-[98%] transition-[background-color,transform] duration-300"
     >
       <h4 className="text-sky-500 mb-1">
         {relativeTime(post.createdAt, `en`)}
@@ -29,7 +29,12 @@ const PostPreview: React.FC<Props> = ({ post, language }) => {
       <h3 className="text-xl font-bold text-slate-800">
         {post[language].title}
       </h3>
-      <p className="mt-2 text-slate-800/80">{post[language].description}</p>
+      <p className="mt-2 text-slate-500 hidden xs:block">
+        {post[language].description}
+      </p>
+      <p className="mt-2 text-slate-500 block xs:hidden">
+        {post[language].description.split(` `).slice(0, 30).join(` `) + `...`}
+      </p>
     </Link>
   );
 };

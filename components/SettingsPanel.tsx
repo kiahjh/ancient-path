@@ -4,15 +4,15 @@ import React, { useEffect, useState } from "react";
 import cx from "classnames";
 import { Cog6ToothIcon, PlusIcon } from "@heroicons/react/24/outline";
 import ToggleSwitch from "./ToggleSwitch";
-import { useGlobalState } from "@/state/hooks";
+import { useGlobalState } from "@/lib/hooks";
 import { setLanguageCookie } from "@/app/actions";
-import { useAlternateLangageNavigation } from "@/lib/navigation";
+import { useAlternateLanguageNavigation } from "@/lib/hooks";
 import { initializeLanguage } from "@/app/actions";
 
 const SettingsPanel: React.FC = () => {
   const [open, setOpen] = useState(false);
   const { state, dispatch } = useGlobalState();
-  const renavigate = useAlternateLangageNavigation();
+  const renavigate = useAlternateLanguageNavigation();
 
   useEffect(() => {
     initializeLanguage().then((lang) => {

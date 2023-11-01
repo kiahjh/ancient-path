@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import type { NextPage } from "next";
 import { getAllPosts } from "@/lib/get-data";
-import PostListTemplate from "@/components/page-templates/PostListTemplate";
+import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
 
 const PostsPage: NextPage<{ params: { number: string } }> = async ({
   params,
@@ -17,8 +17,9 @@ const PostsPage: NextPage<{ params: { number: string } }> = async ({
   if (pageNum < 1 || pageNum > numPages) return notFound();
 
   return (
-    <PostListTemplate
-      language={`en`}
+    <PostListPageTemplate
+      type="posts"
+      language="en"
       posts={posts}
       currentPage={pageNum}
       numPages={numPages}
