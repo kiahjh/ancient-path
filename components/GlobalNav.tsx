@@ -1,4 +1,4 @@
-"use client"; // TODO
+"use client";
 
 import React from "react";
 import {
@@ -21,7 +21,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
-import { useGlobalState } from "@/state/hooks";
+import { useGlobalState } from "@/lib/hooks";
 
 const GlobalNav: React.FC = () => {
   const {

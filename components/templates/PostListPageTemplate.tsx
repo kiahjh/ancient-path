@@ -23,7 +23,7 @@ const PostListPageTemplate: React.FC<Props> = ({
 
   return (
     <div className="flex flex-col">
-      <main className="flex-grow p-20">
+      <main className="flex-grow px-6 xs:px-8 md:px-12 lg:px-16 xl:px-20 pt-20 lg:pt-16 xl:pt-20 pb-4 lg:pb-16 xl:pb-20">
         <h1 className="text-4xl font-bold text-slate-800">
           {type === `posts` ? c.postsTitle : c.teachingsTitle}
         </h1>
@@ -35,13 +35,13 @@ const PostListPageTemplate: React.FC<Props> = ({
         <p className="text-lg mt-2 text-slate-500 max-w-4xl">
           {type === `posts` ? c.postsDescription : c.teachingsDescription}
         </p>
-        <div className="grid grid-cols-1 gap-4 mt-8">
+        <div className="grid grid-cols-1 gap-4 mt-8 -mx-6 xs:mx-0">
           {paginate(posts, currentPage, 8).map((teaching) => (
             <PostPreview post={teaching} language={language} />
           ))}
         </div>
       </main>
-      <footer className="p-4 border-t-2 border-sky-100 flex justify-center items-center">
+      <footer className="p-4 lg:border-t-2 border-sky-100 flex justify-center items-center">
         <Paginator
           numPages={numPages}
           currentPage={currentPage}

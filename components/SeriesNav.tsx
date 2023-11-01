@@ -14,7 +14,7 @@ interface Props {
 const SeriesNav: React.FC<Props> = ({ series, language }) => {
   const path = usePathname();
   return (
-    <nav className="w-72 flex flex-col py-4 shrink-0">
+    <nav className="w-72 flex-col py-4 shrink-0 hidden xl:flex">
       <h2 className="font-medium text-2xl text-slate-800 mx-8 mt-4 mb-2">
         Series
       </h2>
