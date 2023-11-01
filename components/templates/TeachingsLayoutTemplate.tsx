@@ -18,7 +18,7 @@ const TeachingsLayoutTemplate: React.FC<Props> = ({
     className="flex min-h-full"
     style={{ background: `#e0f2fe url(${NoiseBg.src})` }}
   >
-    <main className="flex-grow bg-sky-50 rounded-br-3xl h-[calc(100vh-96px)] overflow-scroll">
+    <main className="flex-grow bg-sky-50 xl:rounded-br-3xl h-[calc(100vh-96px)] overflow-scroll">
       {children}
     </main>
     <SeriesNav series={series} language={language} />

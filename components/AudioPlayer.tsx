@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import cx from "classnames";
 import styles from "@/styles/AudioPlayer.module.css";
-import { useGlobalState } from "@/state/hooks";
+import { useGlobalState } from "@/lib/hooks";
 import { formatTime } from "@/lib/dates";
 
 const AudioPlayer: React.FC<{ className?: string }> = ({ className }) => {

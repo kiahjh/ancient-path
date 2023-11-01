@@ -1,40 +1,25 @@
-import { usePathname, useRouter } from "next/navigation";
-
-export function useAlternateLangageNavigation(): () => void {
-  const path = usePathname();
-  const router = useRouter();
-
-  // TODO: parse more complex paths like /posts/page/1 or /teachings/foo
-
-  return () => {
-    switch (path) {
-      case `/where-to-start`:
-        router.push(`/donde-empezar`);
-        break;
-      case `/donde-empezar`:
-        router.push(`/where-to-start`);
-        break;
-      case `/about`:
-        router.push(`/acerca-de`);
-        break;
-      case `/acerca-de`:
-        router.push(`/about`);
-        break;
-      case `/contact`:
-        router.push(`/contacto`);
-        break;
-      case `/contacto`:
-        router.push(`/contact`);
-        break;
-      case `/books`:
-        router.push(`/libros`);
-        break;
-      case `/libros`:
-        router.push(`/books`);
-        break;
-      default:
-        router.push(`/`);
-        break;
-    }
-  };
+export function getAlternateLanguagePath(
+  path: string,
+  alternateSlug?: string,
+): string {
+  switch (path) {
+    case `/where-to-start`:
+      return `/donde-empezar`;
+    case `/donde-empezar`:
+      return `/where-to-start`;
+    case `/about`:
+      return `/acerca-de`;
+    case `/acerca-de`:
+      return `/about`;
+    case `/contact`:
+      return `/contacto`;
+    case `/contacto`:
+      return `/contact`;
+    case `/books`:
+      return `/libros`;
+    case `/libros`:
+      return `/books`;
+    default:
+      return `/`;
+  }
 }

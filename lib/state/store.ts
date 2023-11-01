@@ -4,6 +4,8 @@ export interface State {
   audio: {
     source: string | null;
     title: string | null;
+    slug: string | null;
+    postType: "post" | "teaching" | null;
     isPlaying: boolean;
     currentTime: number;
     duration: number;
@@ -17,6 +19,8 @@ export const initialState: State = {
   audio: {
     source: null,
     title: null,
+    slug: null,
+    postType: null,
     isPlaying: false,
     currentTime: 0,
     duration: 0,
@@ -27,7 +31,13 @@ export const initialState: State = {
 };
 
 export type Action =
-  | { type: "setAudio"; source: string; title: string }
+  | {
+      type: "setAudio";
+      source: string;
+      title: string;
+      slug: string;
+      postType: "post" | "teaching";
+    }
   | { type: "setAudioDuration"; duration: number }
   | { type: "toggleAudioPlaying" }
   | { type: "toggleAudioMuted" }
@@ -43,6 +53,8 @@ export function reducer(state: State, action: Action): State {
           ...state.audio,
           source: action.source,
           title: action.title,
+          slug: action.slug,
+          postType: action.postType,
         },
       };
     case `setAudioDuration`:
