@@ -7,9 +7,9 @@ import PostPageTemplate from "@/components/templates/PostPageTemplate";
 const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
   params,
 }) => {
-  const teaching = (await getAllPosts()).find((s) => s.en.slug === params.slug);
+  const teaching = (await getAllPosts()).find((s) => s.es.slug === params.slug);
   if (!teaching) return notFound();
-  return <PostPageTemplate post={teaching} language="en" />;
+  return <PostPageTemplate post={teaching} language="es" />;
 };
 
 export default IndividualTeaching;

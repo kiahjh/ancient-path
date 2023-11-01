@@ -6,13 +6,13 @@ import SeriesPageTemplate from "@/components/templates/SeriesPageTemplate";
 const SeriesPage: React.FC<{ params: { slug: string } }> = async ({
   params,
 }) => {
-  const series = (await getAllSeries()).find((s) => s.en.slug === params.slug);
+  const series = (await getAllSeries()).find((s) => s.es.slug === params.slug);
   if (!series) return notFound();
   const seriesPosts = (await getAllPosts()).filter(
     (post) => post.series === series.id,
   );
   return (
-    <SeriesPageTemplate series={series} language="en" posts={seriesPosts} />
+    <SeriesPageTemplate series={series} language="es" posts={seriesPosts} />
   );
 };
 
