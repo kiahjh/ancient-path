@@ -1,40 +1,66 @@
 import React from "react";
 import Link from "next/link";
-import type { Language, Post } from "@/lib/types";
+import type { Language, Post, Series } from "@/lib/types";
 import { relativeTime } from "@/lib/dates";
 
-interface Props {
-  post: Post;
-  language: Language;
-}
+type Props = (
+  | {
+      category: "post";
+      post: Post;
+    }
+  | {
+      category: "teaching";
+      teaching: Post;
+      series?: {
+        series: Series;
+        part: number;
+      };
+    }
+) & { language: Language };
 
-const PostPreview: React.FC<Props> = ({ post, language }) => {
+const PostPreview: React.FC<Props> = (props) => {
   let basePath = ``;
-  if (post.category === `teaching` && language === `en`)
+  if (props.category === `teaching` && props.language === `en`)
     basePath = `/teachings`;
-  else if (post.category === `teaching` && language === `es`)
+  else if (props.category === `teaching` && props.language === `es`)
     basePath = `/ensenanzas`;
-  else if (post.category === `post` && language === `en`) basePath = `/posts`;
-  else if (post.category === `post` && language === `es`)
+  else if (props.category === `post` && props.language === `en`)
+    basePath = `/posts`;
+  else if (props.category === `post` && props.language === `es`)
     basePath = `/publicaciones`;
+
+  const thisPost = props.category === `post` ? props.post : props.teaching;
 
   return (
     <Link
-      href={`${basePath}/${post[language].slug}`}
-      className="bg-white p-6 xs:p-8 rounded-3xl hover:bg-sky-100 active:bg-sky-200 active:scale-[98%] transition-[background-color,transform] duration-300"
+      href={`${basePath}/${thisPost[props.language].slug}`}
+      className="bg-white p-6 xs:p-8 rounded-3xl hover:bg-sky-100 active:bg-sky-200 active:scale-[98%] transition-[background-color,transform] duration-300 relative group"
     >
       <h4 className="text-sky-500 mb-1">
-        {relativeTime(post.createdAt, `en`)}
+        {relativeTime(thisPost.createdAt, `en`)}
       </h4>
       <h3 className="text-xl font-bold text-slate-800">
-        {post[language].title}
+        {thisPost[props.language].title}
       </h3>
       <p className="mt-2 text-slate-500 hidden xs:block">
-        {post[language].description}
+        {thisPost[props.language].description}
       </p>
       <p className="mt-2 text-slate-500 block xs:hidden">
-        {post[language].description.split(` `).slice(0, 30).join(` `) + `...`}
+        {thisPost[props.language].description
+          .split(` `)
+          .slice(0, 30)
+          .join(` `) + `...`}
       </p>
+      {props.category === `teaching` && props.series && (
+        <div className="flex items-center rounded-full w-fit mt-2 absolute right-4 top-4 p-1 pr-2 transition-colors duration-300 gap-3">
+          <div className="font-medium text-sky-800/70">
+            {props.series.series[props.language].title}
+          </div>
+          <div className="font-medium bg-sky-200/50 group-hover:bg-sky-300/50 rounded-full w-9 h-7 flex items-center justify-center text-sky-700 transition-colors duration-300">
+            {props.series.part}
+          </div>
+        </div>
+      )}
     </Link>
   );
 };

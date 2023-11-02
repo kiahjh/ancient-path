@@ -1,51 +1,86 @@
 import React from "react";
-import type { Language, Post } from "@/lib/types";
+import type { Language, Post, Series } from "@/lib/types";
 import { paginate } from "@/lib/helpers";
 import Paginator from "@/components/Paginator";
 import PostPreview from "@/components/PostPreview";
 
-interface Props {
+type Props = {
   language: Language;
-  posts: Post[];
   currentPage: number;
   numPages: number;
-  type: "posts" | "teachings";
-}
+  posts: Post[];
+} & ({ category: "posts" } | { category: "teachings"; series: Series[] });
 
-const PostListPageTemplate: React.FC<Props> = ({
-  language,
-  posts,
-  currentPage,
-  numPages,
-  type,
-}) => {
-  const c = content[language];
+const PostListPageTemplate: React.FC<Props> = (props) => {
+  const c = content[props.language];
 
   return (
     <div className="flex flex-col">
       <main className="flex-grow px-6 xs:px-8 md:px-12 lg:px-16 xl:px-20 pt-20 lg:pt-16 xl:pt-20 pb-4 lg:pb-16 xl:pb-20">
         <h1 className="text-4xl font-bold text-slate-800">
-          {type === `posts` ? c.postsTitle : c.teachingsTitle}
+          {props.category === `posts` ? c.postsTitle : c.teachingsTitle}
         </h1>
         <h2 className="text-lg font-medium text-slate-800">
-          {language === `en`
-            ? `Page ${currentPage} of ${Math.ceil(posts.length / 8)}`
-            : `Página ${currentPage} de ${Math.ceil(posts.length / 8)}`}
+          {props.language === `en`
+            ? `Page ${props.currentPage} of ${Math.ceil(
+                props.posts.length / 8,
+              )}`
+            : `Página ${props.currentPage} de ${Math.ceil(
+                props.posts.length / 8,
+              )}`}
         </h2>
         <p className="text-lg mt-2 text-slate-500 max-w-4xl">
-          {type === `posts` ? c.postsDescription : c.teachingsDescription}
+          {props.category === `posts`
+            ? c.postsDescription
+            : c.teachingsDescription}
         </p>
         <div className="grid grid-cols-1 gap-4 mt-8 -mx-6 xs:mx-0">
-          {paginate(posts, currentPage, 8).map((teaching) => (
-            <PostPreview post={teaching} language={language} />
-          ))}
+          {paginate(props.posts, props.currentPage, 8).map((post) => {
+            if (props.category === `posts`) {
+              return (
+                <PostPreview
+                  category="post"
+                  post={post}
+                  language={props.language}
+                />
+              );
+            } else {
+              const thisSeries = props.series.find((s) => s.id === post.series);
+              if (!thisSeries || !post.series) {
+                return (
+                  <PostPreview
+                    category="teaching"
+                    teaching={post}
+                    language={props.language}
+                  />
+                );
+              } else {
+                const postsInSeries = props.posts.filter(
+                  (p) => p.series === post.series,
+                );
+                return (
+                  <PostPreview
+                    category="teaching"
+                    teaching={post}
+                    language={props.language}
+                    series={{
+                      series: thisSeries,
+                      part: postsInSeries.length - postsInSeries.indexOf(post),
+                    }}
+                  />
+                );
+              }
+            }
+          })}
         </div>
       </main>
       <footer className="p-4 lg:border-t-2 border-sky-100 flex justify-center items-center">
         <Paginator
-          numPages={numPages}
-          currentPage={currentPage}
-          basePath={type === `posts` ? c.postsBasePath : c.teachingsBasePath}
+          numPages={props.numPages}
+          currentPage={props.currentPage}
+          basePath={
+            props.category === `posts` ? c.postsBasePath : c.teachingsBasePath
+          }
         />
       </footer>
     </div>
