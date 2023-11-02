@@ -26,7 +26,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             backgroundSize: `200px`,
           }}
           className={cx(
-            `flex flex-col min-h-screen bg-cover bg-center bg-sky-100 dark:bg-slate-900`,
+            `flex flex-col h-screen bg-cover bg-center bg-sky-100 dark:bg-slate-900`,
             roboto,
           )}
         >
