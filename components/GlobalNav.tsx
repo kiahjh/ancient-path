@@ -57,12 +57,12 @@ const GlobalNav: React.FC = () => {
             {dual(`Where to start`, `Donde empezar`)}
           </NavLink>
           <NavLink
-            href={dual(`/about`, `/sobre-mi`)}
-            selected={dual(path === `/about`, path === `/sobre-mi`)}
+            href={dual(`/about`, `/acerca-de-mi`)}
+            selected={dual(path === `/about`, path === `/acerca-de-mi`)}
             DefaultIcon={QuestionMarkCircleIconOutline}
             SelectedIcon={QuestionMarkCircleIconSolid}
           >
-            {dual(`About`, `Sobre mi`)}
+            {dual(`About`, `Acerca de mí`)}
           </NavLink>
           <NavLink
             href={dual(`/contact`, `/contacto`)}
