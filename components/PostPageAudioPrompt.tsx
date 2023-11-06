@@ -25,7 +25,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({
   const isPlaying = audio.isPlaying && audio.source === mp3Url;
 
   return (
-    <div className="flex items-center gap-2 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 pr-4 rounded-full">
+    <div className="flex items-center gap-3 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 pr-4 rounded-full">
       <button
         onClick={() => {
           if (audio.source !== mp3Url && audio.isPlaying) {

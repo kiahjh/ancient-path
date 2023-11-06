@@ -21,7 +21,7 @@ const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (
     </p>
     <div className="mt-8 gap-8 flex flex-col -mx-6 xs:mx-0">
       {posts.map((post) => (
-        <PostPreview post={post} language={language} />
+        <PostPreview teaching={post} language={language} category="teaching" />
       ))}
     </div>
   </div>

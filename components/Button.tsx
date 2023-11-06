@@ -35,7 +35,13 @@ const Button: React.FC<Props> = (props) => {
     return (
       <button onClick={props.onClick} className={cx(classes)}>
         <span>{props.children}</span>
-        {props.icon && <props.icon className="" />}
+        {props.icon && (
+          <props.icon
+            className={cx(
+              props.size === `lg` ? `w-6` : props.size === `md` ? `w-5` : `w-4`,
+            )}
+          />
+        )}
       </button>
     );
   }

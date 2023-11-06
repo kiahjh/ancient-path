@@ -35,8 +35,8 @@ const GlobalNav: React.FC = () => {
 
   return (
     <nav className="">
-      <div className="mt-12 p-4">
-        <div className="p-2">
+      <div className="mt-10 sm:mt-12 p-4">
+        <div className="sm:p-2">
           <NavLink
             href="/"
             selected={path === `/`}
@@ -57,12 +57,12 @@ const GlobalNav: React.FC = () => {
             {dual(`Where to start`, `Donde empezar`)}
           </NavLink>
           <NavLink
-            href={dual(`/about`, `/sobre-mi`)}
-            selected={dual(path === `/about`, path === `/sobre-mi`)}
+            href={dual(`/about`, `/acerca-de-mi`)}
+            selected={dual(path === `/about`, path === `/acerca-de-mi`)}
             DefaultIcon={QuestionMarkCircleIconOutline}
             SelectedIcon={QuestionMarkCircleIconSolid}
           >
-            {dual(`About`, `Sobre mi`)}
+            {dual(`About`, `Acerca de mí`)}
           </NavLink>
           <NavLink
             href={dual(`/contact`, `/contacto`)}
@@ -73,11 +73,11 @@ const GlobalNav: React.FC = () => {
             {dual(`Contact me`, `Contacto`)}
           </NavLink>
         </div>
-        <div className="mt-8">
+        <div className="mt-6 sm:mt-8">
           <h4 className="ml-6 mb-1 font-medium text-sky-700/60 dark:text-slate-600">
             {dual(`Resources`, `Recursos`)}
           </h4>
-          <div className="bg-sky-200/10 dark:bg-sky-800/5 border border-dashed border-sky-300/50 dark:border-sky-500/20 p-2 rounded-3xl">
+          <div className="bg-sky-200/10 dark:bg-sky-800/5 sm:border border-dashed border-sky-300/50 dark:border-sky-500/20 sm:p-2 rounded-3xl">
             <NavLink
               href={dual(`/teachings/page/1`, `/ensenanzas/pagina/1`)}
               selected={dual(

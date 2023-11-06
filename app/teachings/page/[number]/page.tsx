@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import type { NextPage } from "next";
-import { getAllPosts } from "@/lib/get-data";
+import { getAllPosts, getAllSeries } from "@/lib/get-data";
 import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
 
 const TeachingsPage: NextPage<{ params: { number: string } }> = async ({
@@ -10,6 +10,7 @@ const TeachingsPage: NextPage<{ params: { number: string } }> = async ({
   const teachings = (await getAllPosts()).filter(
     (post) => post.category === `teaching`,
   );
+  const series = await getAllSeries();
   const numPages = Math.ceil(teachings.length / 8);
   const pageNum = Number(params.number);
   if (isNaN(pageNum)) return notFound();
@@ -18,9 +19,10 @@ const TeachingsPage: NextPage<{ params: { number: string } }> = async ({
 
   return (
     <PostListPageTemplate
-      type="teachings"
+      category="teachings"
       language="en"
       posts={teachings}
+      series={series}
       currentPage={pageNum}
       numPages={numPages}
     />
