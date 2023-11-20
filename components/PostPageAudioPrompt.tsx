@@ -19,7 +19,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({
   type,
 }) => {
   const {
-    state: { audio },
+    state: { audio, language },
     dispatch,
   } = useGlobalState();
   const isPlaying = audio.isPlaying && audio.source === mp3Url;
@@ -84,7 +84,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({
             isPlaying && `translate-y-4 opacity-0 pointer-events-none`,
           )}
         >
-          Listen online
+          {language === `en` ? `Listen online` : `Escuchar en línea`}
         </span>
       </div>
     </div>

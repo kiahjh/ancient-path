@@ -13,6 +13,8 @@ export interface State {
     playbackRate: 1 | 1.25 | 1.5 | 2;
   };
   language: Language;
+  sidebarOpen: boolean;
+  isMobile: boolean;
 }
 
 export const initialState: State = {
@@ -28,6 +30,8 @@ export const initialState: State = {
     playbackRate: 1,
   },
   language: `en`,
+  sidebarOpen: true,
+  isMobile: false,
 };
 
 export type Action =
@@ -42,7 +46,9 @@ export type Action =
   | { type: "toggleAudioPlaying" }
   | { type: "toggleAudioMuted" }
   | { type: "setCurrentTime"; time: number }
-  | { type: "setLanguage"; language: Language };
+  | { type: "setLanguage"; language: Language }
+  | { type: `setIsMobile`; isMobile: boolean }
+  | { type: `toggleSidebarOpen` };
 
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -93,6 +99,16 @@ export function reducer(state: State, action: Action): State {
       return {
         ...state,
         language: action.language,
+      };
+    case `setIsMobile`:
+      return {
+        ...state,
+        isMobile: action.isMobile,
+      };
+    case `toggleSidebarOpen`:
+      return {
+        ...state,
+        sidebarOpen: !state.sidebarOpen,
       };
   }
 }
