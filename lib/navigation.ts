@@ -1,15 +1,12 @@
-export function getAlternateLanguagePath(
-  path: string,
-  alternateSlug?: string,
-): string {
+export function getAlternateLanguagePath(path: string): string {
   switch (path) {
     case `/where-to-start`:
       return `/donde-empezar`;
     case `/donde-empezar`:
       return `/where-to-start`;
     case `/about`:
-      return `/acerca-de`;
-    case `/acerca-de`:
+      return `/acerca-de-mi`;
+    case `/acerca-de-mi`:
       return `/about`;
     case `/contact`:
       return `/contacto`;

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import cx from "classnames";
 import { Bars2Icon, ChevronLeftIcon } from "@heroicons/react/24/solid";
@@ -13,7 +13,15 @@ import BottomBar from "@/components/BottomBar";
 import SettingsPanel from "@/components/SettingsPanel";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 1024) {
+      setIsMobile(true);
+      setSidebarOpen(false);
+    }
+  }, []);
 
   const dark = false;
 
@@ -54,7 +62,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               }}
             >
               <div>
-                <GlobalNav />
+                <GlobalNav
+                  isMobile={isMobile}
+                  setSidebarOpen={setSidebarOpen}
+                />
               </div>
               <SettingsPanel />
             </div>

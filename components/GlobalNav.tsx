@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ArchiveBoxIcon as ArchiveBoxIconOutline,
   BookOpenIcon as BookOpenIconOutline,
@@ -23,7 +23,10 @@ import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 import { useGlobalState } from "@/lib/hooks";
 
-const GlobalNav: React.FC = () => {
+const GlobalNav: React.FC<{
+  isMobile: boolean;
+  setOpen(open: boolean): void;
+}> = ({ isMobile, setOpen }) => {
   const {
     state: { language },
   } = useGlobalState();
@@ -39,6 +42,8 @@ const GlobalNav: React.FC = () => {
         <div className="sm:p-2">
           <NavLink
             href="/"
+            setOpen={setOpen}
+            isMobile={isMobile}
             selected={path === `/`}
             DefaultIcon={HomeIconOutline}
             SelectedIcon={HomeIconSolid}
@@ -47,6 +52,8 @@ const GlobalNav: React.FC = () => {
           </NavLink>
           <NavLink
             href={dual(`/where-to-start`, `/donde-empezar`)}
+            setOpen={setOpen}
+            isMobile={isMobile}
             selected={dual(
               path === `/where-to-start`,
               path === `/donde-empezar`,
@@ -58,6 +65,8 @@ const GlobalNav: React.FC = () => {
           </NavLink>
           <NavLink
             href={dual(`/about`, `/acerca-de-mi`)}
+            setOpen={setOpen}
+            isMobile={isMobile}
             selected={dual(path === `/about`, path === `/acerca-de-mi`)}
             DefaultIcon={QuestionMarkCircleIconOutline}
             SelectedIcon={QuestionMarkCircleIconSolid}
@@ -66,6 +75,8 @@ const GlobalNav: React.FC = () => {
           </NavLink>
           <NavLink
             href={dual(`/contact`, `/contacto`)}
+            setOpen={setOpen}
+            isMobile={isMobile}
             selected={dual(path === `/contact`, path === `/contacto`)}
             DefaultIcon={ChatBubbleOvalLeftIconOutline}
             SelectedIcon={ChatBubbleOvalLeftIconSolid}
@@ -80,6 +91,8 @@ const GlobalNav: React.FC = () => {
           <div className="bg-sky-200/10 dark:bg-sky-800/5 sm:border border-dashed border-sky-300/50 dark:border-sky-500/20 sm:p-2 rounded-3xl">
             <NavLink
               href={dual(`/teachings/page/1`, `/ensenanzas/pagina/1`)}
+              setOpen={setOpen}
+              isMobile={isMobile}
               selected={dual(
                 path.includes(`/teachings`),
                 path.includes(`/ensenanzas`),
@@ -91,6 +104,8 @@ const GlobalNav: React.FC = () => {
             </NavLink>
             <NavLink
               href={dual(`/posts/page/1`, `/publicaciones/pagina/1`)}
+              setOpen={setOpen}
+              isMobile={isMobile}
               selected={dual(
                 path.includes(`/posts`),
                 path.includes(`/publicaciones`),
@@ -102,6 +117,8 @@ const GlobalNav: React.FC = () => {
             </NavLink>
             <NavLink
               href={dual(`/books`, `/libros`)}
+              setOpen={setOpen}
+              isMobile={isMobile}
               selected={dual(path.includes(`/books`), path.includes(`/libros`))}
               DefaultIcon={BookOpenIconOutline}
               SelectedIcon={BookOpenIconSolid}
