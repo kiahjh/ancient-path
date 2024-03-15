@@ -16,6 +16,10 @@ export function getAlternateLanguagePath(path: string): string {
       return `/libros`;
     case `/libros`:
       return `/books`;
+    case `/podcast-en`:
+      return `/podcast-es`;
+    case `/podcast-es`:
+      return `/podcast-en`;
     default:
       return `/`;
   }
