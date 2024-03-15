@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { SendIcon } from "lucide-react";
 import type { Language } from "@/lib/types";
 import Button from "../Button";
 
@@ -67,7 +67,7 @@ const ContactPageTemplate: React.FC<{ language: Language }> = ({
           color="primary"
           className="self-end"
           size="lg"
-          icon={PaperAirplaneIcon}
+          icon={SendIcon}
         >
           {c.button}
         </Button>

@@ -1,12 +1,24 @@
 import React from "react";
-import { MapPinIcon } from "@heroicons/react/24/outline";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { MapPinIcon, ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import type { NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import { initializeLanguage } from "./actions";
 import Button from "@/components/Button";
 import { getAllPosts } from "@/lib/get-data";
 import { relativeTime } from "@/lib/dates";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const language = await initializeLanguage();
+  const c = content[language];
+  return {
+    title: c.title,
+    description: c.metaDescription,
+    openGraph: {
+      title: c.title,
+      description: c.metaDescription,
+    },
+  };
+}
 
 const Home: NextPage = async () => {
   const language = await initializeLanguage();
@@ -96,6 +108,7 @@ const content = {
   en: {
     title: `The Ancient Path`,
     subtitle: `Writings and teachings of Jason Henderson`,
+    metaDescription: `A blog and podcast containing the writings and teachings of Jason R. Henderson.`,
     recentPostsLabel: `Coming soon: recent posts`,
     buttons: {
       whereToStart: {
@@ -119,6 +132,7 @@ const content = {
   es: {
     title: `La Senda Antigua`,
     subtitle: `Un lugar para compartir mis pensamientos y experiencias sobre la forma en que Dios obra en el alma del hombre.`,
+    metaDescription: `Un blog y podcast que contiene los escritos y enseñanzas de Jason R. Henderson.`,
     recentPostsLabel: `Próximamente: publicaciones recientes`,
     buttons: {
       whereToStart: {

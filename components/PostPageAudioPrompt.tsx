@@ -2,7 +2,7 @@
 
 import React from "react";
 import cx from "classnames";
-import { PauseIcon, PlayIcon } from "@heroicons/react/24/solid";
+import { PauseIcon, PlayIcon } from "lucide-react";
 import { useGlobalState } from "@/lib/hooks";
 
 interface Props {
@@ -19,7 +19,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({
   type,
 }) => {
   const {
-    state: { audio },
+    state: { audio, language },
     dispatch,
   } = useGlobalState();
   const isPlaying = audio.isPlaying && audio.source === mp3Url;
@@ -54,9 +54,9 @@ const PostPageAudioPrompt: React.FC<Props> = ({
         className="w-10 xs:w-12 h-10 xs:h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center shrink-0"
       >
         {audio.isPlaying && audio.source === mp3Url ? (
-          <PauseIcon className="w-6 text-white" />
+          <PauseIcon fill="white" className="w-6 text-white" />
         ) : (
-          <PlayIcon className="w-6 text-white" />
+          <PlayIcon fill="white" className="w-6 text-white" />
         )}
       </button>
       <div className="flex-grow relative">
@@ -84,7 +84,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({
             isPlaying && `translate-y-4 opacity-0 pointer-events-none`,
           )}
         >
-          Listen online
+          {language === `en` ? `Listen online` : `Escuchar en línea`}
         </span>
       </div>
     </div>

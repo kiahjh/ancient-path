@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import cx from "classnames";
-import { Bars2Icon, ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { MenuIcon, ChevronLeftIcon } from "lucide-react";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
 import "./globals.css";
 import GlobalNav from "@/components/GlobalNav";
@@ -13,7 +13,15 @@ import BottomBar from "@/components/BottomBar";
 import SettingsPanel from "@/components/SettingsPanel";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 1024) {
+      setIsMobile(true);
+      setSidebarOpen(false);
+    }
+  }, []);
 
   const dark = false;
 
@@ -40,7 +48,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             )}
           >
             <ChevronLeftIcon className="w-6 text-sky-500 dark:text-sky-600 hidden lg:block" />
-            <Bars2Icon className="w-6 text-sky-500 dark:text-sky-600 block lg:hidden" />
+            <MenuIcon className="w-6 text-sky-500 dark:text-sky-600 block lg:hidden" />
           </button>
           <div className="flex-grow flex">
             <div
@@ -54,7 +62,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               }}
             >
               <div>
-                <GlobalNav />
+                <GlobalNav isMobile={isMobile} setOpen={setSidebarOpen} />
               </div>
               <SettingsPanel />
             </div>
@@ -78,7 +86,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
           <BottomBar />
         </body>
-        <Script src="https://kit.fontawesome.com/597740db7b.js" />
       </html>
     </GlobalStateProvider>
   );

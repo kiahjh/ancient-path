@@ -1,8 +1,8 @@
-import type { ArrowRightIcon } from "@heroicons/react/24/solid";
+import type { ArrowRightIcon } from "lucide-react";
 
 export type Language = "en" | "es";
 
-export type HeroIcon = typeof ArrowRightIcon;
+export type LucideIcon = typeof ArrowRightIcon;
 
 export interface ApiPost {
   id: string;

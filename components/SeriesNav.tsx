@@ -20,7 +20,7 @@ const SeriesNav: React.FC<Props> = ({ series, language }) => {
       </h2>
       <div className="flex flex-col">
         {series.map((s) => (
-          <div className="pr-4 gap-2.5 flex items-center">
+          <div className="pr-4 gap-2.5 flex items-center" key={s.id}>
             <div
               className={cx(
                 `bg-sky-500/50 w-1.5 h-5 rounded-r-full`,

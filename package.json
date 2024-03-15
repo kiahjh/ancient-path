@@ -10,8 +10,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.18",
     "@tailwindcss/typography": "^0.5.10",
+    "lucide-react": "^0.358.0",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18"
