@@ -11,7 +11,9 @@ interface Props {
 const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (
   <div className="px-6 xs:px-8 md:px-12 lg:px-16 xl:px-20 py-20">
     <h3 className="text-lg font-medium text-slate-600">
-      {posts.length} part series:
+      {language === `en`
+        ? `${posts.length} part series:`
+        : `Serie de ${posts.length} partes:`}
     </h3>
     <h1 className="text-3xl sm:text-4xl font-bold w-fit bg-gradient-to-r from-sky-700 to-sky-600 bg-clip-text text-transparent">
       {series[language].title}

@@ -1,8 +1,10 @@
 import React from "react";
+import type { Metadata } from "next";
 import type { Language, Post, Series } from "@/lib/types";
 import { paginate } from "@/lib/helpers";
 import Paginator from "@/components/Paginator";
 import PostPreview from "@/components/PostPreview";
+import { initializeLanguage } from "@/app/actions";
 
 type Props = {
   language: Language;
@@ -39,6 +41,7 @@ const PostListPageTemplate: React.FC<Props> = (props) => {
             if (props.category === `posts`) {
               return (
                 <PostPreview
+                  key={post.id}
                   category="post"
                   post={post}
                   language={props.language}
@@ -49,6 +52,7 @@ const PostListPageTemplate: React.FC<Props> = (props) => {
               if (!thisSeries || !post.series) {
                 return (
                   <PostPreview
+                    key={post.id}
                     category="teaching"
                     teaching={post}
                     language={props.language}
@@ -60,6 +64,7 @@ const PostListPageTemplate: React.FC<Props> = (props) => {
                 );
                 return (
                   <PostPreview
+                    key={post.id}
                     category="teaching"
                     teaching={post}
                     language={props.language}
@@ -94,7 +99,7 @@ const content = {
     postsTitle: `Posts`,
     postsDescription: `The majority of these posts are my replies to emails, text messages, or other questions brought up in various settings. Any names or personal information have of course been removed.`,
     teachingsTitle: `Teachings`,
-    teachingsDescription: `The teachings on this site are either stand-alone messages on various subjects, or series composed of several parts. I offer these teachings in a degree of “fear and trembling”, feeling it to be a serious thing to teach the Lord’s body, and knowing the imperfection of my understanding. But I find some encouragement to make these teachings available, sincerely believing the following two things: 1) that I speak my own experiences, and not the ideas and opinions of other men; and 2) that I desire not only to know the Truth, but to live it, and to be clothed in it when I stand before the Lord.`,
+    teachingsDescription: `The teachings on this site are either stand-alone messages on various subjects, or series composed of several parts.`,
     postsBasePath: `/posts/page`,
     teachingsBasePath: `/teachings/page`,
   },
@@ -102,7 +107,7 @@ const content = {
     postsTitle: `Publicaciones`,
     postsDescription: `La mayoría de estos mensajes son mis respuestas a correos electrónicos, mensajes de texto u otras preguntas planteadas en diversos contextos. Por supuesto, se ha eliminado cualquier nombre o información personal.`,
     teachingsTitle: `Enseñanzas`,
-    teachingsDescription: `Las enseñanzas de este sitio son mensajes independientes sobre diversos temas, o series compuestas de varias partes. Ofrezco estas enseñanzas con cierto “temor y temblor”, sintiendo que es algo serio enseñar al cuerpo del Señor, y conociendo la imperfección de mi entendimiento. Pero encuentro cierto ánimo para ofrecer estas enseñanzas, creyendo sinceramente las dos cosas siguientes: 1) que hablo de mis propias experiencias, y no de las ideas y opiniones de otros hombres; y 2) que deseo no sólo conocer la Verdad, sino vivirla, y estar revestido de ella cuando me presente ante el Señor.`,
+    teachingsDescription: `Las enseñanzas de este sitio son mensajes independientes sobre diversos temas, o series compuestas de varias partes.`,
     postsBasePath: `/publicaciones/pagina`,
     teachingsBasePath: `/ensenanzas/pagina`,
   },

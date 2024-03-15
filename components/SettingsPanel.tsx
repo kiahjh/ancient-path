@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import cx from "classnames";
-import { Cog6ToothIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { SettingsIcon, PlusIcon } from "lucide-react";
 import ToggleSwitch from "./ToggleSwitch";
 import { useGlobalState } from "@/lib/hooks";
 import { setLanguageCookie } from "@/app/actions";
@@ -35,7 +35,7 @@ const SettingsPanel: React.FC = () => {
         )}
       >
         <div className="flex items-center gap-2">
-          <Cog6ToothIcon className="w-6 h-6 text-sky-500 dark:text-sky-400" />
+          <SettingsIcon className="w-6 h-6 text-sky-500 dark:text-sky-400" />
           <span className="font-medium text-sky-800/80 dark:text-sky-400">
             Settings
           </span>

@@ -1,24 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-  ArchiveBoxIcon as ArchiveBoxIconOutline,
-  BookOpenIcon as BookOpenIconOutline,
-  ChatBubbleLeftIcon as ChatBubbleLeftIconOutline,
-  ChatBubbleOvalLeftIcon as ChatBubbleOvalLeftIconOutline,
-  HomeIcon as HomeIconOutline,
-  MapPinIcon as MapPinIconOutline,
-  QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
-} from "@heroicons/react/24/outline";
-import {
-  ArchiveBoxIcon as ArchiveBoxIconSolid,
-  BookOpenIcon as BookOpenIconSolid,
-  ChatBubbleLeftIcon as ChatBubbleLeftIconSolid,
-  ChatBubbleOvalLeftIcon as ChatBubbleOvalLeftIconSolid,
-  HomeIcon as HomeIconSolid,
-  MapPinIcon as MapPinIconSolid,
-  QuestionMarkCircleIcon as QuestionMarkCircleIconSolid,
-} from "@heroicons/react/24/solid";
+  ArchiveIcon,
+  BookOpenIcon,
+  MessageCircleIcon,
+  MessageSquareIcon,
+  HomeIcon,
+  MapPinIcon,
+  CircleHelpIcon,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 import { useGlobalState } from "@/lib/hooks";
@@ -45,8 +36,7 @@ const GlobalNav: React.FC<{
             setOpen={setOpen}
             isMobile={isMobile}
             selected={path === `/`}
-            DefaultIcon={HomeIconOutline}
-            SelectedIcon={HomeIconSolid}
+            icon={HomeIcon}
           >
             {dual(`Home`, `Inicio`)}
           </NavLink>
@@ -58,8 +48,7 @@ const GlobalNav: React.FC<{
               path === `/where-to-start`,
               path === `/donde-empezar`,
             )}
-            DefaultIcon={MapPinIconOutline}
-            SelectedIcon={MapPinIconSolid}
+            icon={MapPinIcon}
           >
             {dual(`Where to start`, `Donde empezar`)}
           </NavLink>
@@ -68,8 +57,7 @@ const GlobalNav: React.FC<{
             setOpen={setOpen}
             isMobile={isMobile}
             selected={dual(path === `/about`, path === `/acerca-de-mi`)}
-            DefaultIcon={QuestionMarkCircleIconOutline}
-            SelectedIcon={QuestionMarkCircleIconSolid}
+            icon={CircleHelpIcon}
           >
             {dual(`About`, `Acerca de mí`)}
           </NavLink>
@@ -78,8 +66,7 @@ const GlobalNav: React.FC<{
             setOpen={setOpen}
             isMobile={isMobile}
             selected={dual(path === `/contact`, path === `/contacto`)}
-            DefaultIcon={ChatBubbleOvalLeftIconOutline}
-            SelectedIcon={ChatBubbleOvalLeftIconSolid}
+            icon={MessageCircleIcon}
           >
             {dual(`Contact me`, `Contacto`)}
           </NavLink>
@@ -97,8 +84,7 @@ const GlobalNav: React.FC<{
                 path.includes(`/teachings`),
                 path.includes(`/ensenanzas`),
               )}
-              DefaultIcon={ArchiveBoxIconOutline}
-              SelectedIcon={ArchiveBoxIconSolid}
+              icon={ArchiveIcon}
             >
               {dual(`Teachings`, `Enseñanzas`)}
             </NavLink>
@@ -110,8 +96,7 @@ const GlobalNav: React.FC<{
                 path.includes(`/posts`),
                 path.includes(`/publicaciones`),
               )}
-              DefaultIcon={ChatBubbleLeftIconOutline}
-              SelectedIcon={ChatBubbleLeftIconSolid}
+              icon={MessageSquareIcon}
             >
               {dual(`Posts`, `Publicaciones`)}
             </NavLink>
@@ -120,8 +105,7 @@ const GlobalNav: React.FC<{
               setOpen={setOpen}
               isMobile={isMobile}
               selected={dual(path.includes(`/books`), path.includes(`/libros`))}
-              DefaultIcon={BookOpenIconOutline}
-              SelectedIcon={BookOpenIconSolid}
+              icon={BookOpenIcon}
             >
               {dual(`Books`, `Libros`)}
             </NavLink>
