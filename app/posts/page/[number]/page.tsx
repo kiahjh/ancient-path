@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata, NextPage } from "next";
 import { getAllPosts } from "@/lib/get-data";
 import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
+import { generatePodcastRss } from "@/lib/podcast";
 
 export async function generateMetadata(arg: {
   params: {
@@ -11,6 +12,9 @@ export async function generateMetadata(arg: {
 }): Promise<Metadata> {
   const title = `Posts - Page ${arg.params.number} | The Ancient Path`;
   const description = `Page ${arg.params.number} of the posts section of The Ancient Path`;
+
+  const allPosts = await getAllPosts();
+  generatePodcastRss(allPosts);
 
   return {
     title,
