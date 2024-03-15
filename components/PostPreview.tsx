@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon } from "lucide-react";
 import type { Language, Post, Series } from "@/lib/types";
 import Button from "./Button";
 import { relativeTime } from "@/lib/dates";

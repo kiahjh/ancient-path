@@ -1,7 +1,27 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { getAllPosts, getAllSeries } from "@/lib/get-data";
+import type { Metadata } from "next";
+import { getAllPosts, getAllSeries, getSeries } from "@/lib/get-data";
 import SeriesPageTemplate from "@/components/templates/SeriesPageTemplate";
+
+export async function generateMetadata(arg: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const series = await getSeries(`es`, arg.params.slug);
+  if (!series) return notFound();
+
+  const title = `Serie: ${series.es.title} | La Senda Antigua`;
+  const description = `Serie: ${series.es.title} - ${series.es.description}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+  };
+}
 
 const SeriesPage: React.FC<{ params: { slug: string } }> = async ({
   params,

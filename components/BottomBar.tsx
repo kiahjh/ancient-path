@@ -1,9 +1,4 @@
-import {
-  BackwardIcon,
-  ForwardIcon,
-  PauseIcon,
-  PlayIcon,
-} from "@heroicons/react/24/solid";
+import { FastForwardIcon, PauseIcon, PlayIcon } from "lucide-react";
 import React from "react";
 import cx from "classnames";
 import Link from "next/link";
@@ -12,7 +7,7 @@ import { useGlobalState } from "@/lib/hooks";
 
 const BottomBar: React.FC = () => {
   const { dispatch, state } = useGlobalState();
-  let audioLink = ``;
+  let audioLink = `#`;
   if (state.audio.postType === `post` && state.language === `en`)
     audioLink = `/posts/${state.audio.slug}`;
   else if (state.audio.postType === `post` && state.language === `es`)
@@ -31,8 +26,17 @@ const BottomBar: React.FC = () => {
             !state.audio.source &&
               `opacity-40 cursor-not-allowed pointer-events-none`,
           )}
+          onClick={() =>
+            dispatch({
+              type: `setCurrentTime`,
+              time: state.audio.currentTime - 15,
+            })
+          }
         >
-          <BackwardIcon className="w-7 sm:w-8 ml-0.5 text-sky-500" />
+          <FastForwardIcon
+            fill="#0ea5e9"
+            className="w-7 sm:w-8 ml-0.5 text-sky-500 rotate-180"
+          />
         </button>
         <button
           onClick={() =>
@@ -47,9 +51,9 @@ const BottomBar: React.FC = () => {
           )}
         >
           {state.audio.isPlaying ? (
-            <PauseIcon className="w-6 text-white" />
+            <PauseIcon fill="white" className="w-6 text-white" />
           ) : (
-            <PlayIcon className="w-6 text-white" />
+            <PlayIcon fill="white" className="w-6 text-white" />
           )}
         </button>
         <button
@@ -58,8 +62,17 @@ const BottomBar: React.FC = () => {
             !state.audio.source &&
               `opacity-40 cursor-not-allowed pointer-events-none`,
           )}
+          onClick={() =>
+            dispatch({
+              type: `setCurrentTime`,
+              time: state.audio.currentTime + 15,
+            })
+          }
         >
-          <ForwardIcon className="w-7 sm:w-8 ml-0.5 text-sky-500" />
+          <FastForwardIcon
+            fill="#0ea5e9"
+            className="w-7 sm:w-8 ml-0.5 text-sky-500"
+          />
         </button>
       </div>
       <div className="flex-grow h-full flex flex-col justify-center sm:py-4 self-stretch px-4 sm:px-0">

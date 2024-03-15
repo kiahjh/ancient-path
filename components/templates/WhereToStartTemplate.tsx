@@ -24,7 +24,7 @@ const WhereToStartTemplate: React.FC<{ language: Language }> = async ({
       </p>
       <div className="mt-12 gap-4 sm:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 lg+:grid-cols-2 2xl:grid-cols-3 -mx-8 xs:mx-0">
         {recommendedShorts.map((short) => (
-          <RecommendedPost post={short} language={language} />
+          <RecommendedPost post={short} language={language} key={short.id} />
         ))}
       </div>
       <div className="mt-20 px-0 xs:px-8 sm:px-10 py-10 border border-dashed rounded-3xl border-sky-400/60 flex justify-center relative gap-4 sm:gap-8 -mx-10 flex-wrap 2xl:flex-nowrap">
@@ -32,7 +32,7 @@ const WhereToStartTemplate: React.FC<{ language: Language }> = async ({
           {language === `en` ? `The Gospel` : `El Evangelio`}
         </h2>
         {recommendedSeries.map((series) => (
-          <RecommendedPost post={series} language={language} />
+          <RecommendedPost post={series} language={language} key={series.id} />
         ))}
       </div>
     </div>

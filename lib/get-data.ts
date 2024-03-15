@@ -1,4 +1,4 @@
-import type { ApiPost, ApiSeries, Post, Series } from "./types";
+import type { ApiPost, ApiSeries, Language, Post, Series } from "./types";
 import { toPost, toSeries } from "./data-conversion";
 
 const bucketSlug = process.env.COSMIC_BUCKET_SLUG;
@@ -16,6 +16,14 @@ export async function getAllPosts(): Promise<Post[]> {
     .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 }
 
+export async function getPost(
+  lang: Language,
+  slug: string,
+): Promise<Post | null> {
+  const posts = await getAllPosts();
+  return posts.find((post) => post[lang].slug === slug) ?? null;
+}
+
 export async function getAllSeries(): Promise<Series[]> {
   const endpoint = `http://api.cosmicjs.com/v3/buckets`;
   const query = encodeURIComponent(`{"type":"series"}`);
@@ -24,4 +32,12 @@ export async function getAllSeries(): Promise<Series[]> {
   const objs = await response.json();
   const allApiSeries: Array<ApiSeries> = objs.objects;
   return allApiSeries.map(toSeries);
+}
+
+export async function getSeries(
+  lang: Language,
+  slug: string,
+): Promise<Series | null> {
+  const series = await getAllSeries();
+  return series.find((s) => s[lang].slug === slug) ?? null;
 }

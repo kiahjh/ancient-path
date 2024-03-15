@@ -1,12 +1,12 @@
 import React from "react";
 import cx from "classnames";
 import Link from "next/link";
-import type { HeroIcon } from "@/lib/types";
+import type { LucideIcon } from "@/lib/types";
 
 type Props = {
   color: "primary" | "secondary" | "tertiary";
   size?: "lg" | "md" | "sm";
-  icon?: HeroIcon;
+  icon?: LucideIcon;
   className?: string;
   children?: React.ReactNode;
   shadow?: boolean;
@@ -27,8 +27,8 @@ const Button: React.FC<Props> = (props) => {
     props.size === `lg`
       ? `text-xl gap-3 px-6 py-3.5 rounded-3xl`
       : props.size === `sm`
-      ? `text-base gap-2 px-3 py-1.5 rounded-xl`
-      : `text-lg gap-2.5 px-5 py-2 rounded-2xl`,
+        ? `text-base gap-2 px-3 py-1.5 rounded-xl`
+        : `text-lg gap-2.5 px-5 py-2 rounded-2xl`,
     props.className,
   );
   if (props.type === `button`) {

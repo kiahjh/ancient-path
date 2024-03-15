@@ -1,8 +1,26 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import type { NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import { getAllPosts, getAllSeries } from "@/lib/get-data";
 import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
+
+export async function generateMetadata(arg: {
+  params: {
+    number: string;
+  };
+}): Promise<Metadata> {
+  const title = `Enseñanzas - Página ${arg.params.number} | El Camino Antiguo`;
+  const description = `Página ${arg.params.number} de la sección de enseñanzas de El Camino Antiguo`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+  };
+}
 
 const TeachingsPage: NextPage<{ params: { number: string } }> = async ({
   params,
