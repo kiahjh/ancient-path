@@ -81,6 +81,7 @@ const PostListPageTemplate: React.FC<Props> = (props) => {
       </main>
       <footer className="p-4 lg:border-t-2 border-sky-100 flex justify-center items-center">
         <Paginator
+          language={props.language}
           numPages={props.numPages}
           currentPage={props.currentPage}
           basePath={
