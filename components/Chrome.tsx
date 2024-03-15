@@ -104,6 +104,17 @@ const Chrome: React.FC<Props> = ({
         <div className="w-96 h-96 bg-sky-300 dark:bg-sky-400 rounded-2xl absolute right-8 -bottom-72 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
         <div className="w-96 h-96 bg-sky-500 rounded-2xl absolute -right-28 -bottom-96 rotate-45 bg-opacity-30 dark:bg-opacity-20"></div>
       </nav>
+      <Link
+        href="https://beta.hender.blog"
+        className="flex items-center justify-center p-2 bg-sky-100 dark:bg-sky-950"
+      >
+        <span className="text-sky-700 dark:text-sky-400 font-medium">
+          {language === `en`
+            ? `We're working on a new version of this blog. Want to check it out?`
+            : `Estamos trabajando en una nueva versión de este blog. ¿Quieres verlo?`}
+        </span>
+        <i className="fa-solid fa-arrow-right ml-2 text-sky-700 dark:text-sky-400" />
+      </Link>
       <header className="flex flex-row-reverse md-lg:flex-row justify-between items-center py-5 px-5 sm:px-10 top-0 bg-white bg-opacity-20 dark:bg-slate-900 z-20">
         <div className="lg:w-[191px]">
           <ThemeSwitcher theme={theme} setTheme={setTheme} language={language} />
