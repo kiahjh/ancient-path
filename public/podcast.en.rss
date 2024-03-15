@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <rss
+    version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+      <atom:link
+        href="http://localhost:3000/podcast.en.rss"
+        rel="self"
+        type="application/rss+xml"
+      />
+      <title>The Ancient Path</title>
+      <link>http://localhost:3000</link>
+      <language>en</language>
+      <itunes:author>Jason Henderson</itunes:author>
+      <itunes:subtitle>I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.</itunes:subtitle>
+      <description>I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.</description>
+      <itunes:summary>I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.</itunes:summary>
+      <itunes:explicit>clean</itunes:explicit>
+      <itunes:type>episodic</itunes:type>
+      <itunes:owner>
+        <itunes:name>Jared Henderson</itunes:name>
+        <itunes:email>jared.thomas.henderson@gmail.com</itunes:email>
+      </itunes:owner>
+      <itunes:image href="https://flp-assets.nyc3.digitaloceanspaces.com/ancient-path/podcast-en.png" />
+      <image>
+        <url>https://flp-assets.nyc3.digitaloceanspaces.com/ancient-path/podcast-en.png</url>
+        <title>The Ancient Path</title>
+        <link>http://localhost:3000</link>
+      </image>
+      <itunes:category text="Religion &amp; Spirituality">
+        <itunes:category text="Christianity" />
+      </itunes:category>
+      
+          <item>
+            <title>The Way pt. 4</title>
+          <enclosure url="https://cdn.cosmicjs.com/a9066290-c20f-11ee-af00-7f71fe157bbd-04-The-Way.mp3" length="22773173" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The reason why so few of us actually experience the benefits of the new covenant, is because we are not walking in the way that God has provided. We break the covenant of light and life. We go outside of the boundaries of this covenant with our minds, our hearts, our desires, plans, and deeds. We transgress the law of the Spirit of life in Christ Jesus, the law of living faith, and so experience little of the blessings and benefits that are only found in the covenant.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The reason why so few of us actually experience the benefits of the new covenant, is because we are not walking in the way that God has provided. We break the covenant of light and life. We go outside of the boundaries of this covenant with our minds, our hearts, our desires, plans, and deeds. We transgress the law of the Spirit of life in Christ Jesus, the law of living faith, and so experience little of the blessings and benefits that are only found in the covenant.]]></itunes:summary>
+          <description><![CDATA[The reason why so few of us actually experience the benefits of the new covenant, is because we are not walking in the way that God has provided. We break the covenant of light and life. We go outside of the boundaries of this covenant with our minds, our hearts, our desires, plans, and deeds. We transgress the law of the Spirit of life in Christ Jesus, the law of living faith, and so experience little of the blessings and benefits that are only found in the covenant.]]></description>
+          <link>http://localhost:3000/posts/the-way-pt-4</link>
+          <guid>http://localhost:3000/posts/the-way-pt-4</guid>
+          <pubDate>2024-02-02T21:43:20.85Z</pubDate>
+          <itunes:duration>2356</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Way pt. 3</title>
+          <enclosure url="https://cdn.cosmicjs.com/14586d30-b573-11ee-9be1-85f53db06a1d-03-The-Way.mp3" length="21621317" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[On the one hand, walking in Christ (the Way) involves a continual detecting and denying the motions, movements, desires, stirrings, lusts, passions, of one nature, so that it is given no place to live and grow and reign in us; and on the other hand, it involves a continual detecting, following, submitting, obeying, loving, and embracing the appearing of the Seed or grace of Christ in us, so that it finds good soil and produces its own increase, 30, 60, or 100 fold. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[On the one hand, walking in Christ (the Way) involves a continual detecting and denying the motions, movements, desires, stirrings, lusts, passions, of one nature, so that it is given no place to live and grow and reign in us; and on the other hand, it involves a continual detecting, following, submitting, obeying, loving, and embracing the appearing of the Seed or grace of Christ in us, so that it finds good soil and produces its own increase, 30, 60, or 100 fold. ]]></itunes:summary>
+          <description><![CDATA[On the one hand, walking in Christ (the Way) involves a continual detecting and denying the motions, movements, desires, stirrings, lusts, passions, of one nature, so that it is given no place to live and grow and reign in us; and on the other hand, it involves a continual detecting, following, submitting, obeying, loving, and embracing the appearing of the Seed or grace of Christ in us, so that it finds good soil and produces its own increase, 30, 60, or 100 fold. ]]></description>
+          <link>http://localhost:3000/posts/the-way-pt-3</link>
+          <guid>http://localhost:3000/posts/the-way-pt-3</guid>
+          <pubDate>2024-01-17T20:40:27.201Z</pubDate>
+          <itunes:duration>2137</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Way pt. 2</title>
+          <enclosure url="https://cdn.cosmicjs.com/f354a030-aa4c-11ee-b417-db331415685f-02-The-Way.mp3" length="20313677" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[There is a Seed of new life given to man, but there is also a new living WAY, created by God, opened by Jesus Christ, taught by the Spirit, whereby man can be changed by the life of that Seed, and so become something other than what he is. Christianity is a new life that is experienced by walking in a new and living way.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[There is a Seed of new life given to man, but there is also a new living WAY, created by God, opened by Jesus Christ, taught by the Spirit, whereby man can be changed by the life of that Seed, and so become something other than what he is. Christianity is a new life that is experienced by walking in a new and living way.]]></itunes:summary>
+          <description><![CDATA[There is a Seed of new life given to man, but there is also a new living WAY, created by God, opened by Jesus Christ, taught by the Spirit, whereby man can be changed by the life of that Seed, and so become something other than what he is. Christianity is a new life that is experienced by walking in a new and living way.]]></description>
+          <link>http://localhost:3000/posts/the-way-pt-2</link>
+          <guid>http://localhost:3000/posts/the-way-pt-2</guid>
+          <pubDate>2024-01-03T16:06:03.328Z</pubDate>
+          <itunes:duration>2086</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Way pt. 1</title>
+          <enclosure url="https://cdn.cosmicjs.com/12ee32c0-a4f4-11ee-b417-db331415685f-01-The-Way.mp3" length="23283269" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Following Christ means following Him OUT of something. It is not following Him aimlessly, wandering here and there. No, following Christ involves a very specific WAY, a very specific journey. In the beginning, man fell OUT of something, and he also fell INTO something. And it is for this reason that following Christ involves a very specific exodus, a following Christ OUT of what man fell into, in the new and living way that He has opened for us. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Following Christ means following Him OUT of something. It is not following Him aimlessly, wandering here and there. No, following Christ involves a very specific WAY, a very specific journey. In the beginning, man fell OUT of something, and he also fell INTO something. And it is for this reason that following Christ involves a very specific exodus, a following Christ OUT of what man fell into, in the new and living way that He has opened for us. ]]></itunes:summary>
+          <description><![CDATA[Following Christ means following Him OUT of something. It is not following Him aimlessly, wandering here and there. No, following Christ involves a very specific WAY, a very specific journey. In the beginning, man fell OUT of something, and he also fell INTO something. And it is for this reason that following Christ involves a very specific exodus, a following Christ OUT of what man fell into, in the new and living way that He has opened for us. ]]></description>
+          <link>http://localhost:3000/posts/the-way-pt-1</link>
+          <guid>http://localhost:3000/posts/the-way-pt-1</guid>
+          <pubDate>2023-12-27T20:14:58.675Z</pubDate>
+          <itunes:duration>2358</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Law and Grace pt. 5</title>
+          <enclosure url="https://cdn.cosmicjs.com/2cb424b0-7a80-11ee-962a-5d7b9c281fe2-Law-and-Grace-05.mp3" length="20214917" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Grace has a seed in man, a seed that is sown in the heart by the One who is “full of grace and truth.” And when our will unites to the teaching and working of grace, it then finds a place to grow, it gains power in us, gains inertia, finds a home in our hearts and minds, and its power increases until it “reigns through righteousness to eternal life through Jesus Christ our Lord.”]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Grace has a seed in man, a seed that is sown in the heart by the One who is “full of grace and truth.” And when our will unites to the teaching and working of grace, it then finds a place to grow, it gains power in us, gains inertia, finds a home in our hearts and minds, and its power increases until it “reigns through righteousness to eternal life through Jesus Christ our Lord.”]]></itunes:summary>
+          <description><![CDATA[Grace has a seed in man, a seed that is sown in the heart by the One who is “full of grace and truth.” And when our will unites to the teaching and working of grace, it then finds a place to grow, it gains power in us, gains inertia, finds a home in our hearts and minds, and its power increases until it “reigns through righteousness to eternal life through Jesus Christ our Lord.”]]></description>
+          <link>http://localhost:3000/posts/law-and-grace-pt-5</link>
+          <guid>http://localhost:3000/posts/law-and-grace-pt-5</guid>
+          <pubDate>2023-11-03T19:52:53.03Z</pubDate>
+          <itunes:duration>2019</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Law and Grace pt. 4</title>
+          <enclosure url="https://cdn.cosmicjs.com/ff6cb910-71c7-11ee-b27c-e13e14dddc51-Law-and-Grace-04.mp3" length="20150885" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Grace doesn’t come to man like an enormous army with banners, immediately destroying all resistance in its path. No, the gift of grace is like a King that God sets in the midst of His enemies (Psa. 110). He anoints His king, sets him in the land of our heart, and then gives everyone who feels the plague of his own heart the opportunity to join him in the day of His power. This is how grace is received, and how grace comes to have power over nature.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Grace doesn’t come to man like an enormous army with banners, immediately destroying all resistance in its path. No, the gift of grace is like a King that God sets in the midst of His enemies (Psa. 110). He anoints His king, sets him in the land of our heart, and then gives everyone who feels the plague of his own heart the opportunity to join him in the day of His power. This is how grace is received, and how grace comes to have power over nature.]]></itunes:summary>
+          <description><![CDATA[Grace doesn’t come to man like an enormous army with banners, immediately destroying all resistance in its path. No, the gift of grace is like a King that God sets in the midst of His enemies (Psa. 110). He anoints His king, sets him in the land of our heart, and then gives everyone who feels the plague of his own heart the opportunity to join him in the day of His power. This is how grace is received, and how grace comes to have power over nature.]]></description>
+          <link>http://localhost:3000/posts/law-and-grace-pt-4</link>
+          <guid>http://localhost:3000/posts/law-and-grace-pt-4</guid>
+          <pubDate>2023-10-23T17:41:42.349Z</pubDate>
+          <itunes:duration>1961</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Law and Grace pt. 3</title>
+          <enclosure url="https://cdn.cosmicjs.com/9390ebd0-5e35-11ee-b975-cb0cfadd93ad-Law-and-Grace-03.mp3" length="18511037" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[What is that gospel of grace? It is the truth, the reality, the miracle, that God has provided such a power, a living seed or gift of His own light, life, or Spirit, that can change man’s condition, and change man’s eternity, by changing his nature. It is a gift of the life of God that, when not resisted, can effectively bring about the birth, and growth, and the reign of the righteous life of God in the soul of man.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[What is that gospel of grace? It is the truth, the reality, the miracle, that God has provided such a power, a living seed or gift of His own light, life, or Spirit, that can change man’s condition, and change man’s eternity, by changing his nature. It is a gift of the life of God that, when not resisted, can effectively bring about the birth, and growth, and the reign of the righteous life of God in the soul of man.]]></itunes:summary>
+          <description><![CDATA[What is that gospel of grace? It is the truth, the reality, the miracle, that God has provided such a power, a living seed or gift of His own light, life, or Spirit, that can change man’s condition, and change man’s eternity, by changing his nature. It is a gift of the life of God that, when not resisted, can effectively bring about the birth, and growth, and the reign of the righteous life of God in the soul of man.]]></description>
+          <link>http://localhost:3000/posts/law-and-grace-pt-3</link>
+          <guid>http://localhost:3000/posts/law-and-grace-pt-3</guid>
+          <pubDate>2023-09-28T19:40:40.211Z</pubDate>
+          <itunes:duration>1862</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Law and Grace pt. 2</title>
+          <enclosure url="https://cdn.cosmicjs.com/4af17a90-51a4-11ee-a06d-a31b04d2d095-Law-and-Grace-02.mp3" length="17866373" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[We cannot throw off the law until we put off the nature that is condemned by the law. We cannot say that we are dead to the law until we are dead to the sin that is condemned by the law. So long as we are living in the flesh, finding our life and heart and home in the flesh, then we are still bound to the condemnation that corresponds to the flesh.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[We cannot throw off the law until we put off the nature that is condemned by the law. We cannot say that we are dead to the law until we are dead to the sin that is condemned by the law. So long as we are living in the flesh, finding our life and heart and home in the flesh, then we are still bound to the condemnation that corresponds to the flesh.]]></itunes:summary>
+          <description><![CDATA[We cannot throw off the law until we put off the nature that is condemned by the law. We cannot say that we are dead to the law until we are dead to the sin that is condemned by the law. So long as we are living in the flesh, finding our life and heart and home in the flesh, then we are still bound to the condemnation that corresponds to the flesh.]]></description>
+          <link>http://localhost:3000/posts/law-and-grace-pt-2</link>
+          <guid>http://localhost:3000/posts/law-and-grace-pt-2</guid>
+          <pubDate>2023-09-12T19:53:56.63Z</pubDate>
+          <itunes:duration>1794</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Law and Grace pt. 1</title>
+          <enclosure url="https://cdn.cosmicjs.com/1b876960-4383-11ee-82b2-d53af1858037-Law-and-Grace-01.mp3" length="18693653" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Law didn’t start with Moses. Law started with God, and it started as something good, perfect, and wonderful. Before the fall, God’s life and nature WAS the law that governed all created things. I’m not talking about written or spoken rules or commandments. I mean the very life of God—who He was, how He was, what He was, His very nature, life, and light—this was a living truth or reality that never changed, and that acted upon all of His creation, bringing it into a perfect conformity to Himself, a living state of glory.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Law didn’t start with Moses. Law started with God, and it started as something good, perfect, and wonderful. Before the fall, God’s life and nature WAS the law that governed all created things. I’m not talking about written or spoken rules or commandments. I mean the very life of God—who He was, how He was, what He was, His very nature, life, and light—this was a living truth or reality that never changed, and that acted upon all of His creation, bringing it into a perfect conformity to Himself, a living state of glory.]]></itunes:summary>
+          <description><![CDATA[Law didn’t start with Moses. Law started with God, and it started as something good, perfect, and wonderful. Before the fall, God’s life and nature WAS the law that governed all created things. I’m not talking about written or spoken rules or commandments. I mean the very life of God—who He was, how He was, what He was, His very nature, life, and light—this was a living truth or reality that never changed, and that acted upon all of His creation, bringing it into a perfect conformity to Himself, a living state of glory.]]></description>
+          <link>http://localhost:3000/posts/law-and-grace-pt-1</link>
+          <guid>http://localhost:3000/posts/law-and-grace-pt-1</guid>
+          <pubDate>2023-08-25T20:16:28.637Z</pubDate>
+          <itunes:duration>1877</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Gospel pt. 3</title>
+          <enclosure url="https://cdn.cosmicjs.com/165bd3b0-2d7e-11ee-a19d-717742939f83-03-The-Gospel.mp3" length="25700981" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The gospel comes in power, and that power begins with light. And it is because we do not love this light and turn at its rebukes, it is because we make excuses to follow our own will, and justify ourselves against our own secret convictions, that we know so little of its power. In this way we crush the mustard seed when it is just beginning to sprout. We are unfaithful with little, and so rarely experience more.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The gospel comes in power, and that power begins with light. And it is because we do not love this light and turn at its rebukes, it is because we make excuses to follow our own will, and justify ourselves against our own secret convictions, that we know so little of its power. In this way we crush the mustard seed when it is just beginning to sprout. We are unfaithful with little, and so rarely experience more.]]></itunes:summary>
+          <description><![CDATA[The gospel comes in power, and that power begins with light. And it is because we do not love this light and turn at its rebukes, it is because we make excuses to follow our own will, and justify ourselves against our own secret convictions, that we know so little of its power. In this way we crush the mustard seed when it is just beginning to sprout. We are unfaithful with little, and so rarely experience more.]]></description>
+          <link>http://localhost:3000/posts/the-gospel-pt-3</link>
+          <guid>http://localhost:3000/posts/the-gospel-pt-3</guid>
+          <pubDate>2023-07-28T19:40:26.663Z</pubDate>
+          <itunes:duration>2512</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Gospel pt. 2</title>
+          <enclosure url="https://cdn.cosmicjs.com/9ca45400-27d0-11ee-a19d-717742939f83-02-The-Gospel.mp3" length="14957957" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Almost every Christian is quick to say that their belief in the gospel will save them when they die. But why are we so sure that God will save us in the future, if we are refusing to let Him save us from our sin and pride and lust, RIGHT NOW? I mean, why should we expect God to save us in the next life, if we are not letting Him save us in this one?]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Almost every Christian is quick to say that their belief in the gospel will save them when they die. But why are we so sure that God will save us in the future, if we are refusing to let Him save us from our sin and pride and lust, RIGHT NOW? I mean, why should we expect God to save us in the next life, if we are not letting Him save us in this one?]]></itunes:summary>
+          <description><![CDATA[Almost every Christian is quick to say that their belief in the gospel will save them when they die. But why are we so sure that God will save us in the future, if we are refusing to let Him save us from our sin and pride and lust, RIGHT NOW? I mean, why should we expect God to save us in the next life, if we are not letting Him save us in this one?]]></description>
+          <link>http://localhost:3000/posts/the-gospel-pt-2</link>
+          <guid>http://localhost:3000/posts/the-gospel-pt-2</guid>
+          <pubDate>2023-07-21T14:32:29.654Z</pubDate>
+          <itunes:duration>1487</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Gospel pt. 1</title>
+          <enclosure url="https://cdn.cosmicjs.com/565d3e90-227a-11ee-a19d-717742939f83-01-The-Gospel.mp3" length="22121741" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The message of the gospel can be described in words and believed as words; but the thing described by these words is an experience of power. Paul says, “I am not ashamed of the gospel of Christ; for it is the POWER of God.” What do you really know about the “effectual working” of this powerful gospel? Has the gospel changed your heart, cleansed your soul, given you a new Spirit, with new desires, new understanding, and a new will? Is it restoring in you the image and likeness of God that man lost in the beginning?]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The message of the gospel can be described in words and believed as words; but the thing described by these words is an experience of power. Paul says, “I am not ashamed of the gospel of Christ; for it is the POWER of God.” What do you really know about the “effectual working” of this powerful gospel? Has the gospel changed your heart, cleansed your soul, given you a new Spirit, with new desires, new understanding, and a new will? Is it restoring in you the image and likeness of God that man lost in the beginning?]]></itunes:summary>
+          <description><![CDATA[The message of the gospel can be described in words and believed as words; but the thing described by these words is an experience of power. Paul says, “I am not ashamed of the gospel of Christ; for it is the POWER of God.” What do you really know about the “effectual working” of this powerful gospel? Has the gospel changed your heart, cleansed your soul, given you a new Spirit, with new desires, new understanding, and a new will? Is it restoring in you the image and likeness of God that man lost in the beginning?]]></description>
+          <link>http://localhost:3000/posts/the-gospel-pt-1</link>
+          <guid>http://localhost:3000/posts/the-gospel-pt-1</guid>
+          <pubDate>2023-07-14T19:19:55.625Z</pubDate>
+          <itunes:duration>2188</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Walk in the Spirit pt. 2</title>
+          <enclosure url="https://cdn.cosmicjs.com/adaa5c70-1c3d-11ee-a19d-717742939f83-Walk-in-the-Spirit-2.mp3" length="12631805" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[It is because the EXPERIENCE of inward transformation is so foreign to the Christianity of our day, that so many people become confused and discouraged when following Christ quickly leads them into the wilderness. I mentioned last time that the Spirit of God leads man somewhere that he generally does not want to go, and therefore many do not stay close to Him. What I meant was that, contrary to our desires and our expectations, the Lord leads all true followers into the wilderness, where they are made to see and feel what is really in their heart, and given an opportunity to surrender every bit of self and sin to the cross.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[It is because the EXPERIENCE of inward transformation is so foreign to the Christianity of our day, that so many people become confused and discouraged when following Christ quickly leads them into the wilderness. I mentioned last time that the Spirit of God leads man somewhere that he generally does not want to go, and therefore many do not stay close to Him. What I meant was that, contrary to our desires and our expectations, the Lord leads all true followers into the wilderness, where they are made to see and feel what is really in their heart, and given an opportunity to surrender every bit of self and sin to the cross.]]></itunes:summary>
+          <description><![CDATA[It is because the EXPERIENCE of inward transformation is so foreign to the Christianity of our day, that so many people become confused and discouraged when following Christ quickly leads them into the wilderness. I mentioned last time that the Spirit of God leads man somewhere that he generally does not want to go, and therefore many do not stay close to Him. What I meant was that, contrary to our desires and our expectations, the Lord leads all true followers into the wilderness, where they are made to see and feel what is really in their heart, and given an opportunity to surrender every bit of self and sin to the cross.]]></description>
+          <link>http://localhost:3000/posts/walk-in-the-spirit-pt-2</link>
+          <guid>http://localhost:3000/posts/walk-in-the-spirit-pt-2</guid>
+          <pubDate>2023-07-06T21:09:01.066Z</pubDate>
+          <itunes:duration>1236</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Walk in the Spirit pt. 1</title>
+          <enclosure url="https://cdn.cosmicjs.com/275c6750-03c2-11ee-aad5-eb2afe6580b1-Walk-in-the-Spirit-1.mp3" length="13660685" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[On the one hand, man finds in himself an incredible force of deceptive desire arising from his flesh and aiming at the world. But he ALSO finds in himself the stirring, moving, convicting, and calling of another desire or will that comes from a very different source. And just as walking in the flesh means following and obeying the will of the flesh that comes from self and does all for self; so walking in the Spirit means following and obeying the will of the Spirit, that comes from God and does all for God. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[On the one hand, man finds in himself an incredible force of deceptive desire arising from his flesh and aiming at the world. But he ALSO finds in himself the stirring, moving, convicting, and calling of another desire or will that comes from a very different source. And just as walking in the flesh means following and obeying the will of the flesh that comes from self and does all for self; so walking in the Spirit means following and obeying the will of the Spirit, that comes from God and does all for God. ]]></itunes:summary>
+          <description><![CDATA[On the one hand, man finds in himself an incredible force of deceptive desire arising from his flesh and aiming at the world. But he ALSO finds in himself the stirring, moving, convicting, and calling of another desire or will that comes from a very different source. And just as walking in the flesh means following and obeying the will of the flesh that comes from self and does all for self; so walking in the Spirit means following and obeying the will of the Spirit, that comes from God and does all for God. ]]></description>
+          <link>http://localhost:3000/posts/walk-in-the-spirit-pt-1</link>
+          <guid>http://localhost:3000/posts/walk-in-the-spirit-pt-1</guid>
+          <pubDate>2023-06-05T17:10:45.744Z</pubDate>
+          <itunes:duration>1352</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Obedience Must Keep Pace with Knowledge</title>
+          <enclosure url="https://cdn.cosmicjs.com/f75d1660-fb03-11ed-83e7-331fcf89cf63-Obedience-Keep-Pace-with-Knowledge.mp3" length="6553061" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Spiritual growth is indeed a work of the Spirit, but there are many ways that we can work against the Spirit, and perhaps the most common have to do with the HUNDREDS of “little ways” that our heart or will does not humbly and sincerely submit to and obey the measure of spiritual understanding that we already have. I mean, the various ways that our obedience does not keep pace with our knowledge.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Spiritual growth is indeed a work of the Spirit, but there are many ways that we can work against the Spirit, and perhaps the most common have to do with the HUNDREDS of “little ways” that our heart or will does not humbly and sincerely submit to and obey the measure of spiritual understanding that we already have. I mean, the various ways that our obedience does not keep pace with our knowledge.]]></itunes:summary>
+          <description><![CDATA[Spiritual growth is indeed a work of the Spirit, but there are many ways that we can work against the Spirit, and perhaps the most common have to do with the HUNDREDS of “little ways” that our heart or will does not humbly and sincerely submit to and obey the measure of spiritual understanding that we already have. I mean, the various ways that our obedience does not keep pace with our knowledge.]]></description>
+          <link>http://localhost:3000/posts/obedience-must-keep-pace-with-knowledge</link>
+          <guid>http://localhost:3000/posts/obedience-must-keep-pace-with-knowledge</guid>
+          <pubDate>2023-05-25T13:59:10.040Z</pubDate>
+          <itunes:duration>640</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Words and the Word</title>
+          <enclosure url="https://cdn.cosmicjs.com/496de420-e9e3-11ed-b991-c7e5712e3548-Words-and-the-Word.mp3" length="13434245" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[As strange as it sounds, one of the greatest hindrances to truly knowing the Lord can be our familiarity with biblical words and spiritual concepts. There was a time when the Lord had to show me that, though I was very acquainted with scriptural words, I was a stranger to the spiritual realities that these words described or pointed to.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[As strange as it sounds, one of the greatest hindrances to truly knowing the Lord can be our familiarity with biblical words and spiritual concepts. There was a time when the Lord had to show me that, though I was very acquainted with scriptural words, I was a stranger to the spiritual realities that these words described or pointed to.]]></itunes:summary>
+          <description><![CDATA[As strange as it sounds, one of the greatest hindrances to truly knowing the Lord can be our familiarity with biblical words and spiritual concepts. There was a time when the Lord had to show me that, though I was very acquainted with scriptural words, I was a stranger to the spiritual realities that these words described or pointed to.]]></description>
+          <link>http://localhost:3000/posts/words-and-the-word</link>
+          <guid>http://localhost:3000/posts/words-and-the-word</guid>
+          <pubDate>2023-05-03T19:12:07.871Z</pubDate>
+          <itunes:duration>1381</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Who Chooses Who?</title>
+          <enclosure url="https://cdn.cosmicjs.com/4d031a00-e51b-11ed-8001-1fe10720d3da-Who-Chooses-Who.mp3" length="8208677" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[There are only TWO BIRTHS in view in the whole reality of what is called predestination. And when men have not seen and felt these two births in themselves, then they always base the doctrine of predestination on something else. But there has always been only one birth that is rejected or reprobate, which is the first birth, the life or nature of the fallen fleshly man, who turned from and died to the life of God. And there has always been only one birth that is chosen or accepted, which is the new birth, or the birth of Christ’s life in the soul.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[There are only TWO BIRTHS in view in the whole reality of what is called predestination. And when men have not seen and felt these two births in themselves, then they always base the doctrine of predestination on something else. But there has always been only one birth that is rejected or reprobate, which is the first birth, the life or nature of the fallen fleshly man, who turned from and died to the life of God. And there has always been only one birth that is chosen or accepted, which is the new birth, or the birth of Christ’s life in the soul.]]></itunes:summary>
+          <description><![CDATA[There are only TWO BIRTHS in view in the whole reality of what is called predestination. And when men have not seen and felt these two births in themselves, then they always base the doctrine of predestination on something else. But there has always been only one birth that is rejected or reprobate, which is the first birth, the life or nature of the fallen fleshly man, who turned from and died to the life of God. And there has always been only one birth that is chosen or accepted, which is the new birth, or the birth of Christ’s life in the soul.]]></description>
+          <link>http://localhost:3000/posts/who-chooses-who</link>
+          <guid>http://localhost:3000/posts/who-chooses-who</guid>
+          <pubDate>2023-04-26T13:55:53.260Z</pubDate>
+          <itunes:duration>836</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Freedom from Sin</title>
+          <enclosure url="https://cdn.cosmicjs.com/825b3110-dd50-11ed-a522-5d99a4e99c98-Freedom-from-Sin.mp3" length="9665837" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[I’d like to ask you to stop for a minute and consider why it sounds so strange to you that God can overcome His enemies in man, and establish His kingdom of righteousness in the heart? I mean, what is the ground of your argument? Is it only that you haven’t yet experienced it in yourself? Is this a good reason not to believe in the possibility? I am not at all wanting to offend you, but I am wanting to expose in you the same thing that I have seen in myself, namely, an ugly desire for sinlessness to be impossible, so that the bar can stay low, and that I can justify and comfort myself in my present condition. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[I’d like to ask you to stop for a minute and consider why it sounds so strange to you that God can overcome His enemies in man, and establish His kingdom of righteousness in the heart? I mean, what is the ground of your argument? Is it only that you haven’t yet experienced it in yourself? Is this a good reason not to believe in the possibility? I am not at all wanting to offend you, but I am wanting to expose in you the same thing that I have seen in myself, namely, an ugly desire for sinlessness to be impossible, so that the bar can stay low, and that I can justify and comfort myself in my present condition. ]]></itunes:summary>
+          <description><![CDATA[I’d like to ask you to stop for a minute and consider why it sounds so strange to you that God can overcome His enemies in man, and establish His kingdom of righteousness in the heart? I mean, what is the ground of your argument? Is it only that you haven’t yet experienced it in yourself? Is this a good reason not to believe in the possibility? I am not at all wanting to offend you, but I am wanting to expose in you the same thing that I have seen in myself, namely, an ugly desire for sinlessness to be impossible, so that the bar can stay low, and that I can justify and comfort myself in my present condition. ]]></description>
+          <link>http://localhost:3000/posts/freedom-from-sin</link>
+          <guid>http://localhost:3000/posts/freedom-from-sin</guid>
+          <pubDate>2023-04-17T19:35:10.065Z</pubDate>
+          <itunes:duration>978</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Bruiser of the Serpent</title>
+          <enclosure url="https://cdn.cosmicjs.com/94ff5140-d56f-11ed-8dfd-25924f9a00e0-Bruiser-of-the-Serpent.mp3" length="8865749" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Scripture seems to clearly show that every man is offered a gift, measure or seed of light or grace in their soul, that testifies for God, testifies against all sin, worldliness, flesh, and evil, and invites them to be reconciled to God through the power and merit of Jesus Christ. I don't believe this is something that comes only to certain people from without, but rather something that (at times) testifies in all people from within, and is (like in the parables) a hidden treasure in a field, a lost pearl, or a seed sown and made available on every kind of soil, even on the hard road that doesn’t receive it. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Scripture seems to clearly show that every man is offered a gift, measure or seed of light or grace in their soul, that testifies for God, testifies against all sin, worldliness, flesh, and evil, and invites them to be reconciled to God through the power and merit of Jesus Christ. I don't believe this is something that comes only to certain people from without, but rather something that (at times) testifies in all people from within, and is (like in the parables) a hidden treasure in a field, a lost pearl, or a seed sown and made available on every kind of soil, even on the hard road that doesn’t receive it. ]]></itunes:summary>
+          <description><![CDATA[Scripture seems to clearly show that every man is offered a gift, measure or seed of light or grace in their soul, that testifies for God, testifies against all sin, worldliness, flesh, and evil, and invites them to be reconciled to God through the power and merit of Jesus Christ. I don't believe this is something that comes only to certain people from without, but rather something that (at times) testifies in all people from within, and is (like in the parables) a hidden treasure in a field, a lost pearl, or a seed sown and made available on every kind of soil, even on the hard road that doesn’t receive it. ]]></description>
+          <link>http://localhost:3000/posts/the-bruiser-of-the-serpent</link>
+          <guid>http://localhost:3000/posts/the-bruiser-of-the-serpent</guid>
+          <pubDate>2023-04-07T13:57:51.280Z</pubDate>
+          <itunes:duration>883</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Daily Cross</title>
+          <enclosure url="https://cdn.cosmicjs.com/262094b0-ce48-11ed-94ed-95257c20dd73-Daily-Cross.mp3" length="11954069" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The daily cross of Christ is the power of God made manifest in you to expose, to judge and to remove all that is fallen from His glory. It is not just self-denial, or ceasing to do evil. It is denial of self AND a complete subjection and resignation to the creating power, or the resurrecting power of Christ. And it is the lack of living in this way inwardly at all times before God, that keeps men and women from truly experiencing the benefit of all that Christ did outwardly for them.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The daily cross of Christ is the power of God made manifest in you to expose, to judge and to remove all that is fallen from His glory. It is not just self-denial, or ceasing to do evil. It is denial of self AND a complete subjection and resignation to the creating power, or the resurrecting power of Christ. And it is the lack of living in this way inwardly at all times before God, that keeps men and women from truly experiencing the benefit of all that Christ did outwardly for them.]]></itunes:summary>
+          <description><![CDATA[The daily cross of Christ is the power of God made manifest in you to expose, to judge and to remove all that is fallen from His glory. It is not just self-denial, or ceasing to do evil. It is denial of self AND a complete subjection and resignation to the creating power, or the resurrecting power of Christ. And it is the lack of living in this way inwardly at all times before God, that keeps men and women from truly experiencing the benefit of all that Christ did outwardly for them.]]></description>
+          <link>http://localhost:3000/posts/the-daily-cross</link>
+          <guid>http://localhost:3000/posts/the-daily-cross</guid>
+          <pubDate>2023-03-29T16:49:30.405Z</pubDate>
+          <itunes:duration>1231</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Christ died FOR us, not INSTEAD of us</title>
+          <enclosure url="https://cdn.cosmicjs.com/4757bfb0-c4d3-11ed-b620-593a056e791b-For-us-not-Instead-of-us.mp3" length="12483989" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Christ came TO us, and died FOR us, but He did not die INSTEAD of us. He did not die on the cross so that we didn’t have to die; but rather so that we also (by partaking of His Spirit, grace, and power) COULD die to everything that was contrary to Him. He came, obeyed the Father, suffered, died, rose, and ascended into heaven so that we could follow Him in the exact same way, in the exact same process, having received a gift of His overcoming Spirit as our light, life, and leader.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Christ came TO us, and died FOR us, but He did not die INSTEAD of us. He did not die on the cross so that we didn’t have to die; but rather so that we also (by partaking of His Spirit, grace, and power) COULD die to everything that was contrary to Him. He came, obeyed the Father, suffered, died, rose, and ascended into heaven so that we could follow Him in the exact same way, in the exact same process, having received a gift of His overcoming Spirit as our light, life, and leader.]]></itunes:summary>
+          <description><![CDATA[Christ came TO us, and died FOR us, but He did not die INSTEAD of us. He did not die on the cross so that we didn’t have to die; but rather so that we also (by partaking of His Spirit, grace, and power) COULD die to everything that was contrary to Him. He came, obeyed the Father, suffered, died, rose, and ascended into heaven so that we could follow Him in the exact same way, in the exact same process, having received a gift of His overcoming Spirit as our light, life, and leader.]]></description>
+          <link>http://localhost:3000/posts/christ-died-for-us-not-instead-of-us</link>
+          <guid>http://localhost:3000/posts/christ-died-for-us-not-instead-of-us</guid>
+          <pubDate>2023-03-17T14:57:41.285Z</pubDate>
+          <itunes:duration>1257</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Creating Ishmaels</title>
+          <enclosure url="https://cdn.cosmicjs.com/10803580-beb1-11ed-8d25-f939d70386f2-Creating-Ishmaels.mp3" length="11102333" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[It is so easy to create Ishmaels, and to call them the work of God, the miracle of God, the son of God, the blessing of God, the ministry of God, the promise of God. But if what we build is not built by God, if it is not the increase of His chosen Seed in us and through us, then we will sooner or later have to face the fact that we have labored in vain. If what we have created and loved and dedicated ourselves to did not spring up from the very life of the promised Son, then we have taken a true promise and applied it to the wrong birth.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[It is so easy to create Ishmaels, and to call them the work of God, the miracle of God, the son of God, the blessing of God, the ministry of God, the promise of God. But if what we build is not built by God, if it is not the increase of His chosen Seed in us and through us, then we will sooner or later have to face the fact that we have labored in vain. If what we have created and loved and dedicated ourselves to did not spring up from the very life of the promised Son, then we have taken a true promise and applied it to the wrong birth.]]></itunes:summary>
+          <description><![CDATA[It is so easy to create Ishmaels, and to call them the work of God, the miracle of God, the son of God, the blessing of God, the ministry of God, the promise of God. But if what we build is not built by God, if it is not the increase of His chosen Seed in us and through us, then we will sooner or later have to face the fact that we have labored in vain. If what we have created and loved and dedicated ourselves to did not spring up from the very life of the promised Son, then we have taken a true promise and applied it to the wrong birth.]]></description>
+          <link>http://localhost:3000/posts/creating-ishmaels</link>
+          <guid>http://localhost:3000/posts/creating-ishmaels</guid>
+          <pubDate>2023-03-09T19:15:02.827Z</pubDate>
+          <itunes:duration>1137</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Judge Nothing Before the Time, Until the Lord Comes</title>
+          <enclosure url="https://cdn.cosmicjs.com/42961f10-b6d4-11ed-ac22-eb594d52cfd7-Judge-Nothing-Before-the-Time.mp3" length="17680661" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[I know that Christians generally talk about the “comings” of Christ that are outside of us. I mean, they talk primarily about the coming of Christ in the past as a Man, or the coming of Christ in the future in judgment. And I have no desire to detract from either of these very important realities. But I can tell you that what you and I really need RIGHT NOW is a kind of “coming” that takes place in our own hearts, right where the disease is found, right where the breach has been made. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[I know that Christians generally talk about the “comings” of Christ that are outside of us. I mean, they talk primarily about the coming of Christ in the past as a Man, or the coming of Christ in the future in judgment. And I have no desire to detract from either of these very important realities. But I can tell you that what you and I really need RIGHT NOW is a kind of “coming” that takes place in our own hearts, right where the disease is found, right where the breach has been made. ]]></itunes:summary>
+          <description><![CDATA[I know that Christians generally talk about the “comings” of Christ that are outside of us. I mean, they talk primarily about the coming of Christ in the past as a Man, or the coming of Christ in the future in judgment. And I have no desire to detract from either of these very important realities. But I can tell you that what you and I really need RIGHT NOW is a kind of “coming” that takes place in our own hearts, right where the disease is found, right where the breach has been made. ]]></description>
+          <link>http://localhost:3000/posts/judge-nothing-before-the-time-until-the-lord-comes</link>
+          <guid>http://localhost:3000/posts/judge-nothing-before-the-time-until-the-lord-comes</guid>
+          <pubDate>2023-02-27T19:34:05.487Z</pubDate>
+          <itunes:duration>1787</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Work of Faith</title>
+          <enclosure url="https://cdn.cosmicjs.com/a2430c40-aeda-11ed-9b9f-ef34bcd1976c-The-Work-of-Faith.mp3" length="9474653" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[True faith is a gift of God. It is a kind of inward perceiving and receiving of the living Truth, and all the subsequent beliefs, hungers, responses, and actions (i.e. feeding, willing, adhering, following, and growing) that are empowered by it, which keep the soul in the path of redemption, in the light, under the cross, in the way of purification. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[True faith is a gift of God. It is a kind of inward perceiving and receiving of the living Truth, and all the subsequent beliefs, hungers, responses, and actions (i.e. feeding, willing, adhering, following, and growing) that are empowered by it, which keep the soul in the path of redemption, in the light, under the cross, in the way of purification. ]]></itunes:summary>
+          <description><![CDATA[True faith is a gift of God. It is a kind of inward perceiving and receiving of the living Truth, and all the subsequent beliefs, hungers, responses, and actions (i.e. feeding, willing, adhering, following, and growing) that are empowered by it, which keep the soul in the path of redemption, in the light, under the cross, in the way of purification. ]]></description>
+          <link>http://localhost:3000/posts/the-work-of-faith</link>
+          <guid>http://localhost:3000/posts/the-work-of-faith</guid>
+          <pubDate>2023-02-17T15:56:44.267Z</pubDate>
+          <itunes:duration>929</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Nature of the Finished Work of Christ</title>
+          <enclosure url="https://cdn.cosmicjs.com/c7bae380-abce-11ed-bf21-57490529ca77-Finished-Work.mp3" length="27153629" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Many have wrongly applied the outward work of Christ to themselves, even while their hearts and lives remained in a state of great enmity against Him. This has caused some to say “God has done all for me,” even while they have resisted and rejected what He desires to do in them. It has given room for the flesh to keep on living, reigning, thinking, willing, running, and loving the world, all under a cloak of the “finished work of Christ.”]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Many have wrongly applied the outward work of Christ to themselves, even while their hearts and lives remained in a state of great enmity against Him. This has caused some to say “God has done all for me,” even while they have resisted and rejected what He desires to do in them. It has given room for the flesh to keep on living, reigning, thinking, willing, running, and loving the world, all under a cloak of the “finished work of Christ.”]]></itunes:summary>
+          <description><![CDATA[Many have wrongly applied the outward work of Christ to themselves, even while their hearts and lives remained in a state of great enmity against Him. This has caused some to say “God has done all for me,” even while they have resisted and rejected what He desires to do in them. It has given room for the flesh to keep on living, reigning, thinking, willing, running, and loving the world, all under a cloak of the “finished work of Christ.”]]></description>
+          <link>http://localhost:3000/posts/the-nature-of-the-finished-work-of-christ</link>
+          <guid>http://localhost:3000/posts/the-nature-of-the-finished-work-of-christ</guid>
+          <pubDate>2023-02-13T18:57:18.843Z</pubDate>
+          <itunes:duration>2830</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Self-Love</title>
+          <enclosure url="https://cdn.cosmicjs.com/46456730-a417-11ed-8a38-79b4136ef998-self-love.mp3" length="15717965" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[After eating (and becoming) a lie, man severed himself, or broke himself off, from God's life and light, and then began to have a perspective, a desire, a will that was not from God, nor in God, nor for God, but rather from self, in self, and for self. Instead of loving things that he saw and experienced because they were various manifestations of God’s wonders, beauty, image, nature, truth, etc., man began loving things for personal and private and separate reasons. When man broke off from the will of God, everything he saw very quickly became a means to a personal end. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[After eating (and becoming) a lie, man severed himself, or broke himself off, from God's life and light, and then began to have a perspective, a desire, a will that was not from God, nor in God, nor for God, but rather from self, in self, and for self. Instead of loving things that he saw and experienced because they were various manifestations of God’s wonders, beauty, image, nature, truth, etc., man began loving things for personal and private and separate reasons. When man broke off from the will of God, everything he saw very quickly became a means to a personal end. ]]></itunes:summary>
+          <description><![CDATA[After eating (and becoming) a lie, man severed himself, or broke himself off, from God's life and light, and then began to have a perspective, a desire, a will that was not from God, nor in God, nor for God, but rather from self, in self, and for self. Instead of loving things that he saw and experienced because they were various manifestations of God’s wonders, beauty, image, nature, truth, etc., man began loving things for personal and private and separate reasons. When man broke off from the will of God, everything he saw very quickly became a means to a personal end. ]]></description>
+          <link>http://localhost:3000/posts/self-love</link>
+          <guid>http://localhost:3000/posts/self-love</guid>
+          <pubDate>2023-02-03T19:09:07.087Z</pubDate>
+          <itunes:duration>1519</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Leaving Egypt</title>
+          <enclosure url="https://cdn.cosmicjs.com/fbb51350-9741-11ed-93ee-cb9a2cd68754-Leaving-Egypt.mp3" length="25882277" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[This is a great problem in the church today. We have so many who have not even begun to leave the land of Egypt (I mean leave the flesh, the first birth, the natural man), and yet they talk and sing of and celebrate the blessings the Promised Land. They haven't begun to leave behind the dark, dead, enslaved, and contrary nature, but they consider themselves safe and secure just because the Lord has BEGUN to manifest Himself to them in Egypt, and to call them out.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[This is a great problem in the church today. We have so many who have not even begun to leave the land of Egypt (I mean leave the flesh, the first birth, the natural man), and yet they talk and sing of and celebrate the blessings the Promised Land. They haven't begun to leave behind the dark, dead, enslaved, and contrary nature, but they consider themselves safe and secure just because the Lord has BEGUN to manifest Himself to them in Egypt, and to call them out.]]></itunes:summary>
+          <description><![CDATA[This is a great problem in the church today. We have so many who have not even begun to leave the land of Egypt (I mean leave the flesh, the first birth, the natural man), and yet they talk and sing of and celebrate the blessings the Promised Land. They haven't begun to leave behind the dark, dead, enslaved, and contrary nature, but they consider themselves safe and secure just because the Lord has BEGUN to manifest Himself to them in Egypt, and to call them out.]]></description>
+          <link>http://localhost:3000/posts/leaving-egypt</link>
+          <guid>http://localhost:3000/posts/leaving-egypt</guid>
+          <pubDate>2023-01-18T15:17:32.609Z</pubDate>
+          <itunes:duration>2586</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Should We Fear Evil?</title>
+          <enclosure url="https://cdn.cosmicjs.com/c8e725e0-82fa-11ed-a98f-051589794d26-Should-We-Fear-Evil.mp3" length="7920797" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[To say that we don’t have to be fearful and cautious and watchful in our fallen condition about the seed of evil in man, about our natural inclination to evil, about our twisted love for the world, about the ease with which we are deceived and harmed by the work of the enemy in our heart, is a great error. This fearlessness may look like “confidence in God,” but it is really SELF-confidence. Confidence in God is a continual looking unto Him, leaning and depending upon Him, praying, as He taught us, that He will “keep us out of temptation and deliver us from the evil one.”]]></itunes:subtitle>
+          <itunes:summary><![CDATA[To say that we don’t have to be fearful and cautious and watchful in our fallen condition about the seed of evil in man, about our natural inclination to evil, about our twisted love for the world, about the ease with which we are deceived and harmed by the work of the enemy in our heart, is a great error. This fearlessness may look like “confidence in God,” but it is really SELF-confidence. Confidence in God is a continual looking unto Him, leaning and depending upon Him, praying, as He taught us, that He will “keep us out of temptation and deliver us from the evil one.”]]></itunes:summary>
+          <description><![CDATA[To say that we don’t have to be fearful and cautious and watchful in our fallen condition about the seed of evil in man, about our natural inclination to evil, about our twisted love for the world, about the ease with which we are deceived and harmed by the work of the enemy in our heart, is a great error. This fearlessness may look like “confidence in God,” but it is really SELF-confidence. Confidence in God is a continual looking unto Him, leaning and depending upon Him, praying, as He taught us, that He will “keep us out of temptation and deliver us from the evil one.”]]></description>
+          <link>http://localhost:3000/posts/should-we-fear-evil</link>
+          <guid>http://localhost:3000/posts/should-we-fear-evil</guid>
+          <pubDate>2022-12-22T21:17:59.170Z</pubDate>
+          <itunes:duration>797</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Grace Should Reign</title>
+          <enclosure url="https://cdn.cosmicjs.com/479d5c30-765b-11ed-8951-b39aeeb44ac4-Grace-Should-Reign.mp3" length="8965829" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Grace is a gift of God’s power, a measure of His life, light, and Spirit, a seed of His heavenly kingdom, that is given to men in order to grow in them, to work in them, to leaven them and change them entirely, removing every form of evil, sin, darkness, and death, and bringing their newborn, purified soul into a perfect union with its Creator.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Grace is a gift of God’s power, a measure of His life, light, and Spirit, a seed of His heavenly kingdom, that is given to men in order to grow in them, to work in them, to leaven them and change them entirely, removing every form of evil, sin, darkness, and death, and bringing their newborn, purified soul into a perfect union with its Creator.]]></itunes:summary>
+          <description><![CDATA[Grace is a gift of God’s power, a measure of His life, light, and Spirit, a seed of His heavenly kingdom, that is given to men in order to grow in them, to work in them, to leaven them and change them entirely, removing every form of evil, sin, darkness, and death, and bringing their newborn, purified soul into a perfect union with its Creator.]]></description>
+          <link>http://localhost:3000/posts/grace-should-reign</link>
+          <guid>http://localhost:3000/posts/grace-should-reign</guid>
+          <pubDate>2022-12-07T18:19:41.705Z</pubDate>
+          <itunes:duration>884</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Two Kinds of Believers</title>
+          <enclosure url="https://cdn.cosmicjs.com/7b91aa20-6b46-11ed-aff5-2d03dfec5c1f-Two-Kinds-of-Believers.mp3" length="7308629" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[There are those who bring their own version of God into their lives, and who (perhaps unknowingly) define Him and serve Him in a way that corresponds perfectly with their own perspective and will. And then there are those who bring their entire lives to the feet of God in order to be exposed, corrected and defined by Him. These have seen and felt that there is nothing more dangerous than following their own will; there is nothing more spiritually blind than natural sight; there is nothing more deceptive or disappointing than the desires of the flesh, and nothing more to be feared than to be found living a lie.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[There are those who bring their own version of God into their lives, and who (perhaps unknowingly) define Him and serve Him in a way that corresponds perfectly with their own perspective and will. And then there are those who bring their entire lives to the feet of God in order to be exposed, corrected and defined by Him. These have seen and felt that there is nothing more dangerous than following their own will; there is nothing more spiritually blind than natural sight; there is nothing more deceptive or disappointing than the desires of the flesh, and nothing more to be feared than to be found living a lie.]]></itunes:summary>
+          <description><![CDATA[There are those who bring their own version of God into their lives, and who (perhaps unknowingly) define Him and serve Him in a way that corresponds perfectly with their own perspective and will. And then there are those who bring their entire lives to the feet of God in order to be exposed, corrected and defined by Him. These have seen and felt that there is nothing more dangerous than following their own will; there is nothing more spiritually blind than natural sight; there is nothing more deceptive or disappointing than the desires of the flesh, and nothing more to be feared than to be found living a lie.]]></description>
+          <link>http://localhost:3000/posts/two-kinds-of-believers</link>
+          <guid>http://localhost:3000/posts/two-kinds-of-believers</guid>
+          <pubDate>2022-11-23T15:52:39.729Z</pubDate>
+          <itunes:duration>719</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Spiritual Light</title>
+          <enclosure url="https://cdn.cosmicjs.com/0993e460-61dc-11ed-9de3-6feefa268d22-Spiritual-Light.mp3" length="6559637" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Spiritual light manifests to our inward senses or perception what is SPIRITUALLY real. It is not a belief, opinion, idea, deduction, speculation, conclusion, or interpretation that originates in the brain. It is something of a spiritual view, or an inward sight, a God-given awareness or sense of eternal truth that arises in the soul as the gift of God. It is something of God’s view shining in man’s heart. It is Truth manifesting itself in a self-evident disclosure to the senses of the inward man. It is a measure of participation in what God sees and knows.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Spiritual light manifests to our inward senses or perception what is SPIRITUALLY real. It is not a belief, opinion, idea, deduction, speculation, conclusion, or interpretation that originates in the brain. It is something of a spiritual view, or an inward sight, a God-given awareness or sense of eternal truth that arises in the soul as the gift of God. It is something of God’s view shining in man’s heart. It is Truth manifesting itself in a self-evident disclosure to the senses of the inward man. It is a measure of participation in what God sees and knows.]]></itunes:summary>
+          <description><![CDATA[Spiritual light manifests to our inward senses or perception what is SPIRITUALLY real. It is not a belief, opinion, idea, deduction, speculation, conclusion, or interpretation that originates in the brain. It is something of a spiritual view, or an inward sight, a God-given awareness or sense of eternal truth that arises in the soul as the gift of God. It is something of God’s view shining in man’s heart. It is Truth manifesting itself in a self-evident disclosure to the senses of the inward man. It is a measure of participation in what God sees and knows.]]></description>
+          <link>http://localhost:3000/posts/spiritual-light</link>
+          <guid>http://localhost:3000/posts/spiritual-light</guid>
+          <pubDate>2022-11-10T21:20:51.576Z</pubDate>
+          <itunes:duration>615</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Biggest Lie</title>
+          <enclosure url="https://cdn.cosmicjs.com/c9e3d300-5945-11ed-8afa-8b63eb2096ce-The-Biggest-Lie.mp3" length="7057037" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[In a few words, the biggest lie is the belief that goodness exists apart from the life of God. In other words, it is the suggestion that man can be something, have something, do something, or know something that is GOOD, independent of the life of God. This lie is what changes the direction of man’s heart, causing it to turn, and to desire and to feed on something else. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[In a few words, the biggest lie is the belief that goodness exists apart from the life of God. In other words, it is the suggestion that man can be something, have something, do something, or know something that is GOOD, independent of the life of God. This lie is what changes the direction of man’s heart, causing it to turn, and to desire and to feed on something else. ]]></itunes:summary>
+          <description><![CDATA[In a few words, the biggest lie is the belief that goodness exists apart from the life of God. In other words, it is the suggestion that man can be something, have something, do something, or know something that is GOOD, independent of the life of God. This lie is what changes the direction of man’s heart, causing it to turn, and to desire and to feed on something else. ]]></description>
+          <link>http://localhost:3000/posts/the-biggest-lie</link>
+          <guid>http://localhost:3000/posts/the-biggest-lie</guid>
+          <pubDate>2022-10-27T20:07:50.654Z</pubDate>
+          <itunes:duration>691</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Coming unto Jesus</title>
+          <enclosure url="https://cdn.cosmicjs.com/27f5b860-53be-11ed-89d4-853fd6bb9a28-Coming-Unto-Jesus.mp3" length="7969157" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[When you read the Bible, or any other spiritual book, it should always be with the goal of having your HEART draw near to Him, to see, feel, experience Him, to let Him deal with you, correct you, convict you, touch you, teach you, or whatever else He might want to do. The words are not to be studied and grasped and categorized by the brain. They are to be read somewhat like a love-letter, where your real desire is to know the PERSON who wrote them. Or perhaps like reading a menu, where the only way you can understand the words and pictures is by EATING the thing that they describe. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[When you read the Bible, or any other spiritual book, it should always be with the goal of having your HEART draw near to Him, to see, feel, experience Him, to let Him deal with you, correct you, convict you, touch you, teach you, or whatever else He might want to do. The words are not to be studied and grasped and categorized by the brain. They are to be read somewhat like a love-letter, where your real desire is to know the PERSON who wrote them. Or perhaps like reading a menu, where the only way you can understand the words and pictures is by EATING the thing that they describe. ]]></itunes:summary>
+          <description><![CDATA[When you read the Bible, or any other spiritual book, it should always be with the goal of having your HEART draw near to Him, to see, feel, experience Him, to let Him deal with you, correct you, convict you, touch you, teach you, or whatever else He might want to do. The words are not to be studied and grasped and categorized by the brain. They are to be read somewhat like a love-letter, where your real desire is to know the PERSON who wrote them. Or perhaps like reading a menu, where the only way you can understand the words and pictures is by EATING the thing that they describe. ]]></description>
+          <link>http://localhost:3000/posts/coming-unto-jesus</link>
+          <guid>http://localhost:3000/posts/coming-unto-jesus</guid>
+          <pubDate>2022-10-24T17:12:34.419Z</pubDate>
+          <itunes:duration>770</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Self-Discipline</title>
+          <enclosure url="https://cdn.cosmicjs.com/1c19e910-4e25-11ed-b9f4-810dc6a26b05-Self-discipline.mp3" length="7978277" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Self-denial is not the means of salvation. Nevertheless, the experience of salvation will teach you that you must deny (and not feed!) the desires of the flesh. Self-denial isn’t a way to get something from God. Its only value is in protecting His work, His seed, cooperating with (and not hindering) that “grace which brings salvation.” It is an undeniable truth that, if you are not denying self, then you are feeding self, loving self, and being increasingly governed by it. Wherever self is increasing (that is, wherever man is living in and for the nature and will of the flesh) there he is grieving, quenching, and resisting his own salvation by clinging to the nature that God is seeking to save him from.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Self-denial is not the means of salvation. Nevertheless, the experience of salvation will teach you that you must deny (and not feed!) the desires of the flesh. Self-denial isn’t a way to get something from God. Its only value is in protecting His work, His seed, cooperating with (and not hindering) that “grace which brings salvation.” It is an undeniable truth that, if you are not denying self, then you are feeding self, loving self, and being increasingly governed by it. Wherever self is increasing (that is, wherever man is living in and for the nature and will of the flesh) there he is grieving, quenching, and resisting his own salvation by clinging to the nature that God is seeking to save him from.]]></itunes:summary>
+          <description><![CDATA[Self-denial is not the means of salvation. Nevertheless, the experience of salvation will teach you that you must deny (and not feed!) the desires of the flesh. Self-denial isn’t a way to get something from God. Its only value is in protecting His work, His seed, cooperating with (and not hindering) that “grace which brings salvation.” It is an undeniable truth that, if you are not denying self, then you are feeding self, loving self, and being increasingly governed by it. Wherever self is increasing (that is, wherever man is living in and for the nature and will of the flesh) there he is grieving, quenching, and resisting his own salvation by clinging to the nature that God is seeking to save him from.]]></description>
+          <link>http://localhost:3000/posts/self-discipline</link>
+          <guid>http://localhost:3000/posts/self-discipline</guid>
+          <pubDate>2022-10-17T14:14:26.936Z</pubDate>
+          <itunes:duration>813</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Appearings of Christ</title>
+          <enclosure url="https://cdn.cosmicjs.com/cb250490-4357-11ed-8c64-7d07ad237bd8-The-Appearings-of-Christ.mp3" length="11138045" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The Lord appears in a flash of inward light, which, for at least a moment, forces us to see something of His truth, and something of our lie; something of His life, and something our death; something of His purity, and something of our vileness; something of His will, and something of our own that is totally conflicting. And this is His love, because nothing can be done to help man until we are willing to see what we are, and where we are going. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The Lord appears in a flash of inward light, which, for at least a moment, forces us to see something of His truth, and something of our lie; something of His life, and something our death; something of His purity, and something of our vileness; something of His will, and something of our own that is totally conflicting. And this is His love, because nothing can be done to help man until we are willing to see what we are, and where we are going. ]]></itunes:summary>
+          <description><![CDATA[The Lord appears in a flash of inward light, which, for at least a moment, forces us to see something of His truth, and something of our lie; something of His life, and something our death; something of His purity, and something of our vileness; something of His will, and something of our own that is totally conflicting. And this is His love, because nothing can be done to help man until we are willing to see what we are, and where we are going. ]]></description>
+          <link>http://localhost:3000/posts/the-appearings-of-christ</link>
+          <guid>http://localhost:3000/posts/the-appearings-of-christ</guid>
+          <pubDate>2022-10-03T20:21:58.067Z</pubDate>
+          <itunes:duration>1128</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Spiritual Discernment</title>
+          <enclosure url="https://cdn.cosmicjs.com/63903a70-3da8-11ed-90bf-c1749bd2c993-Spiritual-Discernment.mp3" length="4645973" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Most Christians wake up every morning and begin to pursue their own desires, live in their own wills, try to fill their day and their mind with the things that they think are interesting, valuable, entertaining, pleasing. They are not really living for Christ, unto Him, looking unto Him, carefully walking in His presence, and seeking to be led and governed by His Spirit in all that they do, say, and think. And because of this—that is, because they are just living THEIR OWN LIVES in their OWN WILL, all the time—they have no idea what to call a blessing, or a curse. They don’t know what to call discipline from God, or just earthly disappointment.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Most Christians wake up every morning and begin to pursue their own desires, live in their own wills, try to fill their day and their mind with the things that they think are interesting, valuable, entertaining, pleasing. They are not really living for Christ, unto Him, looking unto Him, carefully walking in His presence, and seeking to be led and governed by His Spirit in all that they do, say, and think. And because of this—that is, because they are just living THEIR OWN LIVES in their OWN WILL, all the time—they have no idea what to call a blessing, or a curse. They don’t know what to call discipline from God, or just earthly disappointment.]]></itunes:summary>
+          <description><![CDATA[Most Christians wake up every morning and begin to pursue their own desires, live in their own wills, try to fill their day and their mind with the things that they think are interesting, valuable, entertaining, pleasing. They are not really living for Christ, unto Him, looking unto Him, carefully walking in His presence, and seeking to be led and governed by His Spirit in all that they do, say, and think. And because of this—that is, because they are just living THEIR OWN LIVES in their OWN WILL, all the time—they have no idea what to call a blessing, or a curse. They don’t know what to call discipline from God, or just earthly disappointment.]]></description>
+          <link>http://localhost:3000/posts/spiritual-discernment</link>
+          <guid>http://localhost:3000/posts/spiritual-discernment</guid>
+          <pubDate>2022-09-26T14:38:40.734Z</pubDate>
+          <itunes:duration>445</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>After New Birth</title>
+          <enclosure url="https://cdn.cosmicjs.com/fbf92eb0-2eea-11ed-9dcf-4f97d8f41281-After-New-Birth.mp3" length="4486829" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[One of the great errors that almost all new believers fall into comes from a failure to discern these two seeds in the beginning of their journey, and to learn which of these to follow and which to deny. Very few people talk about these things, and even fewer are willing and patient enough to let the cross “separate the precious from the vile” before they run off in the strength, wisdom, and zeal of the flesh, expecting great things, great ministries, great wisdom, great manifestations of power, love, and righteousness, but all in and from the wrong man. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[One of the great errors that almost all new believers fall into comes from a failure to discern these two seeds in the beginning of their journey, and to learn which of these to follow and which to deny. Very few people talk about these things, and even fewer are willing and patient enough to let the cross “separate the precious from the vile” before they run off in the strength, wisdom, and zeal of the flesh, expecting great things, great ministries, great wisdom, great manifestations of power, love, and righteousness, but all in and from the wrong man. ]]></itunes:summary>
+          <description><![CDATA[One of the great errors that almost all new believers fall into comes from a failure to discern these two seeds in the beginning of their journey, and to learn which of these to follow and which to deny. Very few people talk about these things, and even fewer are willing and patient enough to let the cross “separate the precious from the vile” before they run off in the strength, wisdom, and zeal of the flesh, expecting great things, great ministries, great wisdom, great manifestations of power, love, and righteousness, but all in and from the wrong man. ]]></description>
+          <link>http://localhost:3000/posts/after-new-birth</link>
+          <guid>http://localhost:3000/posts/after-new-birth</guid>
+          <pubDate>2022-09-08T13:45:40.075Z</pubDate>
+          <itunes:duration>441</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Justification and Condemnation</title>
+          <enclosure url="https://cdn.cosmicjs.com/9e34d250-2eba-11ed-9dcf-4f97d8f41281-Justification-and-Condemnation.mp3" length="6277229" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[In the course of our Christians lives, experiencing judgment and recognizing what God condemns in man, is so far from being a bad thing, that it can truly be called an incredible gift of God’s love. The reason for the many misunderstandings and wrong views on this point is quite simply because man wants to be free from condemnation without experiencing a freedom from the nature that is condemned.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[In the course of our Christians lives, experiencing judgment and recognizing what God condemns in man, is so far from being a bad thing, that it can truly be called an incredible gift of God’s love. The reason for the many misunderstandings and wrong views on this point is quite simply because man wants to be free from condemnation without experiencing a freedom from the nature that is condemned.]]></itunes:summary>
+          <description><![CDATA[In the course of our Christians lives, experiencing judgment and recognizing what God condemns in man, is so far from being a bad thing, that it can truly be called an incredible gift of God’s love. The reason for the many misunderstandings and wrong views on this point is quite simply because man wants to be free from condemnation without experiencing a freedom from the nature that is condemned.]]></description>
+          <link>http://localhost:3000/posts/justification-and-condemnation-l7dq47x9</link>
+          <guid>http://localhost:3000/posts/justification-and-condemnation-l7dq47x9</guid>
+          <pubDate>2022-08-28T19:27:29.565Z</pubDate>
+          <itunes:duration>589</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Why Christians Don't Change</title>
+          <enclosure url="https://cdn.cosmicjs.com/a15461d0-2eba-11ed-9dcf-4f97d8f41281-Why-Christians-Dont-Change.mp3" length="7737533" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[One of the primary reasons that Christians don't experience true inward change is because they simply do not love and submit to the Light of Christ in its first and smallest manifestations. Expecting something bigger or grander, they overlook the convictions of Christ's light that expose the true current condition of their heart.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[One of the primary reasons that Christians don't experience true inward change is because they simply do not love and submit to the Light of Christ in its first and smallest manifestations. Expecting something bigger or grander, they overlook the convictions of Christ's light that expose the true current condition of their heart.]]></itunes:summary>
+          <description><![CDATA[One of the primary reasons that Christians don't experience true inward change is because they simply do not love and submit to the Light of Christ in its first and smallest manifestations. Expecting something bigger or grander, they overlook the convictions of Christ's light that expose the true current condition of their heart.]]></description>
+          <link>http://localhost:3000/posts/why-christians-dont-change-0e283880-20c0-11ed-abde-29fdedf3cb84</link>
+          <guid>http://localhost:3000/posts/why-christians-dont-change-0e283880-20c0-11ed-abde-29fdedf3cb84</guid>
+          <pubDate>2022-08-20T19:41:16.093Z</pubDate>
+          <itunes:duration>787</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Nature of Man's Freedom</title>
+          <enclosure url="https://cdn.cosmicjs.com/e5fcf570-3821-11ed-adfd-ddb1795c6ac6-The-Nature-of-Mans-Freedom.mp3" length="8200685" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Man has NO power in himself to leave his fallen condition. BUT, man has total freedom to join his heart and his will (in love and submission) to the power that comes from God, or to the power that comes from Satan. Again I say, man is NOT the source of this power, life, or righteousness. He can no more produce it than he can create the moon. But when the power of God appears, stirs, and reveals a measure of truth in him, then man is entirely free to “love His appearing,” (2 Tim 4:8) love the light, agree with what is made manifest, and so RECEIVE power to be made a new creation.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Man has NO power in himself to leave his fallen condition. BUT, man has total freedom to join his heart and his will (in love and submission) to the power that comes from God, or to the power that comes from Satan. Again I say, man is NOT the source of this power, life, or righteousness. He can no more produce it than he can create the moon. But when the power of God appears, stirs, and reveals a measure of truth in him, then man is entirely free to “love His appearing,” (2 Tim 4:8) love the light, agree with what is made manifest, and so RECEIVE power to be made a new creation.]]></itunes:summary>
+          <description><![CDATA[Man has NO power in himself to leave his fallen condition. BUT, man has total freedom to join his heart and his will (in love and submission) to the power that comes from God, or to the power that comes from Satan. Again I say, man is NOT the source of this power, life, or righteousness. He can no more produce it than he can create the moon. But when the power of God appears, stirs, and reveals a measure of truth in him, then man is entirely free to “love His appearing,” (2 Tim 4:8) love the light, agree with what is made manifest, and so RECEIVE power to be made a new creation.]]></description>
+          <link>http://localhost:3000/posts/the-nature-of-mans-freedom</link>
+          <guid>http://localhost:3000/posts/the-nature-of-mans-freedom</guid>
+          <pubDate>2022-08-13T17:14:19.608Z</pubDate>
+          <itunes:duration>841</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Conscience vs. the Light of Christ</title>
+          <enclosure url="https://cdn.cosmicjs.com/4a9fa500-48cf-11ed-a07b-05c6717a9348-220622Conscience-vs-Light-of-Christ.mp3" length="3927293" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Man has a conscience, an inward faculty of feeling or finding good and evil, and this can be influenced either by God’s Spirit, or by a number of other things—like how we are raised, what we see and experience when we are young, what our society thinks is appropriate or taboo, etc. But the light of Christ (the living Truth or Perspective of God) that shines IN the conscience, gives us a sense or sight of TRUE righteousness and wickedness. It breaks through our opinions and cultural norms, and often gives us to feel things that are directly against what we have been taught or have wanted to believe.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Man has a conscience, an inward faculty of feeling or finding good and evil, and this can be influenced either by God’s Spirit, or by a number of other things—like how we are raised, what we see and experience when we are young, what our society thinks is appropriate or taboo, etc. But the light of Christ (the living Truth or Perspective of God) that shines IN the conscience, gives us a sense or sight of TRUE righteousness and wickedness. It breaks through our opinions and cultural norms, and often gives us to feel things that are directly against what we have been taught or have wanted to believe.]]></itunes:summary>
+          <description><![CDATA[Man has a conscience, an inward faculty of feeling or finding good and evil, and this can be influenced either by God’s Spirit, or by a number of other things—like how we are raised, what we see and experience when we are young, what our society thinks is appropriate or taboo, etc. But the light of Christ (the living Truth or Perspective of God) that shines IN the conscience, gives us a sense or sight of TRUE righteousness and wickedness. It breaks through our opinions and cultural norms, and often gives us to feel things that are directly against what we have been taught or have wanted to believe.]]></description>
+          <link>http://localhost:3000/posts/the-conscience-vs-the-light-of-christ</link>
+          <guid>http://localhost:3000/posts/the-conscience-vs-the-light-of-christ</guid>
+          <pubDate>2022-08-13T17:07:07.595Z</pubDate>
+          <itunes:duration>382</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>WHAT IS Your Relationship with God?</title>
+          <enclosure url="https://cdn.cosmicjs.com/c369b770-2ebf-11ed-9dcf-4f97d8f41281-Our-Relationship-wth-God.mp3" length="7031789" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Your relationship with God is the reality of God living in you. It is the very life of God—a seed of His nature, light, power—planted in the soul of fallen man, given in order to grow, and fill, and reign in your fallen soul, transforming it into a clean temple for His presence and glory.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Your relationship with God is the reality of God living in you. It is the very life of God—a seed of His nature, light, power—planted in the soul of fallen man, given in order to grow, and fill, and reign in your fallen soul, transforming it into a clean temple for His presence and glory.]]></itunes:summary>
+          <description><![CDATA[Your relationship with God is the reality of God living in you. It is the very life of God—a seed of His nature, light, power—planted in the soul of fallen man, given in order to grow, and fill, and reign in your fallen soul, transforming it into a clean temple for His presence and glory.]]></description>
+          <link>http://localhost:3000/posts/relationship-with-god</link>
+          <guid>http://localhost:3000/posts/relationship-with-god</guid>
+          <pubDate>2022-08-13T16:57:33.160Z</pubDate>
+          <itunes:duration>690</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>The Implanted Word</title>
+          <enclosure url="https://cdn.cosmicjs.com/8d102860-3439-11ed-984d-15ac5c458dc7-220530Implanted-Word.mp3" length="3296021" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[It's one thing to know that Christ is the Word of God, it's another thing to experience the implanted Word of God (that is to say, the living communication and manifestation of God) actually putting off from us everything in our heart, mind, and thoughts that is contrary to Him, and clothing us with an entirely new nature. Christians often fall very short here, satisfying themselves by confessing and professing what they do not really possess. ]]></itunes:subtitle>
+          <itunes:summary><![CDATA[It's one thing to know that Christ is the Word of God, it's another thing to experience the implanted Word of God (that is to say, the living communication and manifestation of God) actually putting off from us everything in our heart, mind, and thoughts that is contrary to Him, and clothing us with an entirely new nature. Christians often fall very short here, satisfying themselves by confessing and professing what they do not really possess. ]]></itunes:summary>
+          <description><![CDATA[It's one thing to know that Christ is the Word of God, it's another thing to experience the implanted Word of God (that is to say, the living communication and manifestation of God) actually putting off from us everything in our heart, mind, and thoughts that is contrary to Him, and clothing us with an entirely new nature. Christians often fall very short here, satisfying themselves by confessing and professing what they do not really possess. ]]></description>
+          <link>http://localhost:3000/posts/the-implanted-word</link>
+          <guid>http://localhost:3000/posts/the-implanted-word</guid>
+          <pubDate>2022-08-13T16:43:42.806Z</pubDate>
+          <itunes:duration>328</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Losing Sight of Your Guide</title>
+          <enclosure url="https://cdn.cosmicjs.com/95a24d70-2eba-11ed-9dcf-4f97d8f41281-Losing-Your-Guide.mp3" length="4055237" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Christ comes to transform you, not to inform you. Many people adore His words, but hate His nature when it appears (little by little) as a judge and teacher in their hearts. They love what He said, but they crucify who He IS when His light demands a conformity to His image. And when we won't love, follow and submit to His light, then it moves on without us, always heading to the Promised Land, and we are left behind, doing circles in the wilderness, arguing about His words.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Christ comes to transform you, not to inform you. Many people adore His words, but hate His nature when it appears (little by little) as a judge and teacher in their hearts. They love what He said, but they crucify who He IS when His light demands a conformity to His image. And when we won't love, follow and submit to His light, then it moves on without us, always heading to the Promised Land, and we are left behind, doing circles in the wilderness, arguing about His words.]]></itunes:summary>
+          <description><![CDATA[Christ comes to transform you, not to inform you. Many people adore His words, but hate His nature when it appears (little by little) as a judge and teacher in their hearts. They love what He said, but they crucify who He IS when His light demands a conformity to His image. And when we won't love, follow and submit to His light, then it moves on without us, always heading to the Promised Land, and we are left behind, doing circles in the wilderness, arguing about His words.]]></description>
+          <link>http://localhost:3000/posts/losing-your-guide</link>
+          <guid>http://localhost:3000/posts/losing-your-guide</guid>
+          <pubDate>2022-08-13T16:16:35.875Z</pubDate>
+          <itunes:duration>409</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Two Births in Man</title>
+          <enclosure url="https://cdn.cosmicjs.com/a0b5b0d0-2eba-11ed-9dcf-4f97d8f41281-Two-Births-in-Man.mp3" length="7376549" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Here is your condition. This is what you currently feel, and what everyone can feel if they are willing to turn to the Voice that reproves them. You feel something stirring and moving in you that is good, and pure, and living, and is excited to know and really find and follow Christ. And yet you feel something else in you that is very different, very contrary, big, and well-fed. What are these two things? And why are they wrestling within you?]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Here is your condition. This is what you currently feel, and what everyone can feel if they are willing to turn to the Voice that reproves them. You feel something stirring and moving in you that is good, and pure, and living, and is excited to know and really find and follow Christ. And yet you feel something else in you that is very different, very contrary, big, and well-fed. What are these two things? And why are they wrestling within you?]]></itunes:summary>
+          <description><![CDATA[Here is your condition. This is what you currently feel, and what everyone can feel if they are willing to turn to the Voice that reproves them. You feel something stirring and moving in you that is good, and pure, and living, and is excited to know and really find and follow Christ. And yet you feel something else in you that is very different, very contrary, big, and well-fed. What are these two things? And why are they wrestling within you?]]></description>
+          <link>http://localhost:3000/posts/two-births-in-man</link>
+          <guid>http://localhost:3000/posts/two-births-in-man</guid>
+          <pubDate>2022-08-13T15:44:56.798Z</pubDate>
+          <itunes:duration>721</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
+            <title>Striving and Diligence</title>
+          <enclosure url="https://cdn.cosmicjs.com/9c5515d0-2eba-11ed-9dcf-4f97d8f41281-Striving-and-Diligence.mp3" length="5776805" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[There is a great difference between a diligence or striving to carefully submit to and cooperate with the work of God, and a striving to produce a work of our own. The effort involved on our part is never to produce life, light, righteousness, or spiritual growth, but rather to diligently submit to that which comes from God and works by His power, and to carefully live in such a way that our lives in the body, and our time in this world, do not wage war against His purpose for our souls.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[There is a great difference between a diligence or striving to carefully submit to and cooperate with the work of God, and a striving to produce a work of our own. The effort involved on our part is never to produce life, light, righteousness, or spiritual growth, but rather to diligently submit to that which comes from God and works by His power, and to carefully live in such a way that our lives in the body, and our time in this world, do not wage war against His purpose for our souls.]]></itunes:summary>
+          <description><![CDATA[There is a great difference between a diligence or striving to carefully submit to and cooperate with the work of God, and a striving to produce a work of our own. The effort involved on our part is never to produce life, light, righteousness, or spiritual growth, but rather to diligently submit to that which comes from God and works by His power, and to carefully live in such a way that our lives in the body, and our time in this world, do not wage war against His purpose for our souls.]]></description>
+          <link>http://localhost:3000/posts/striving-and-diligence</link>
+          <guid>http://localhost:3000/posts/striving-and-diligence</guid>
+          <pubDate>2022-08-13T15:34:48.349Z</pubDate>
+          <itunes:duration>575</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+    </channel>
+  </rss>
