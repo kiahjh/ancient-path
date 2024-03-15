@@ -33,6 +33,8 @@ const PostPreview: React.FC<Props> = (props) => {
 
   const thisPost = props.category === `post` ? props.post : props.teaching;
 
+  const isPartOfSeries = props.category === `teaching` && props.series;
+
   return (
     <div className="bg-white rounded-3xl relative group">
       <div className="pb-0 xs:pb-2 p-6 xs:p-8">
@@ -40,8 +42,15 @@ const PostPreview: React.FC<Props> = (props) => {
           {relativeTime(thisPost.createdAt, `en`)}
         </h4>
         <h3 className="text-xl font-bold text-slate-800">
-          {thisPost[props.language].title}
+          {isPartOfSeries
+            ? `${props.series?.series[props.language].title} pt. ${props.series?.part}`
+            : thisPost[props.language].title}
         </h3>
+        {isPartOfSeries && (
+          <h4 className="font-medium text-slate-500">
+            {thisPost[props.language].title}
+          </h4>
+        )}
         <p className="mt-2 text-slate-500 hidden xs:block">
           {thisPost[props.language].description}
         </p>
@@ -62,21 +71,6 @@ const PostPreview: React.FC<Props> = (props) => {
           {props.language === `en` ? `View post` : `Ver publicación`}
         </Button>
       </div>
-      {props.category === `teaching` && props.series && (
-        <Link
-          href={`/${
-            props.language === `en` ? `teachings` : `ensenanzas`
-          }/series/${props.series.series[props.language].slug}`}
-          className="flex items-center rounded-full w-fit mt-2 absolute right-4 top-4 p-1 pr-2 duration-300 gap-3 pl-4 hover:bg-sky-50 transition-[background-color,transform] active:bg-sky-100 active:scale-95 select-none cursor-pointer"
-        >
-          <div className="font-medium text-sky-800/70">
-            {props.series.series[props.language].title}
-          </div>
-          <div className="font-medium bg-sky-200/50 group-hover:bg-sky-300/50 rounded-full w-9 h-7 flex items-center justify-center text-sky-700 transition-colors duration-300">
-            {props.series.part}
-          </div>
-        </Link>
-      )}
     </div>
   );
 };

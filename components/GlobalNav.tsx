@@ -9,6 +9,7 @@ import {
   HomeIcon,
   MapPinIcon,
   CircleHelpIcon,
+  PodcastIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
@@ -51,6 +52,15 @@ const GlobalNav: React.FC<{
             icon={MapPinIcon}
           >
             {dual(`Where to start`, `Donde empezar`)}
+          </NavLink>
+          <NavLink
+            href={dual(`/podcast-en`, `/podcast-es`)}
+            setOpen={setOpen}
+            isMobile={isMobile}
+            selected={dual(path === `/podcast-en`, path === `/podcast-es`)}
+            icon={PodcastIcon}
+          >
+            Podcast
           </NavLink>
           <NavLink
             href={dual(`/about`, `/acerca-de-mi`)}

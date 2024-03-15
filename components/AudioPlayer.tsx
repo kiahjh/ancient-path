@@ -67,7 +67,7 @@ const AudioPlayer: React.FC<{ className?: string }> = ({ className }) => {
           type="range"
           className={cx(styles.progressBar, `w-full`)}
           min={0}
-          max={audio.duration}
+          max={String(audio.duration)}
           value={audio.currentTime}
           onChange={(event) => {
             dispatch({
