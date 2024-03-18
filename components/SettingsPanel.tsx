@@ -44,7 +44,7 @@ const SettingsPanel: React.FC = () => {
         <div className="flex items-center gap-2">
           <SettingsIcon className="w-6 h-6 text-sky-500 dark:text-sky-400" />
           <span className="font-medium text-sky-800/80 dark:text-sky-400">
-            Settings
+            {state.language === `en` ? `Settings` : `Ajustes`}
           </span>
         </div>
         <PlusIcon
