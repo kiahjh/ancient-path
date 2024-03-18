@@ -61,8 +61,11 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
         <h2 className="text-2xl font-medium text-slate-900">
           {c.otherWritings.title}
         </h2>
+        <p className="text-slate-500 text-lg mt-1">
+          {c.otherWritings.description}
+        </p>
         <div className="border-2 border-dashed p-20 rounded-2xl mt-4 border-sky-200 bg-sky-50/50 flex justify-center items-center text-3xl font-medium text-sky-800 text-center">
-          <span>{c.otherWritings.description}</span>
+          <span>{c.otherWritings.comingSoon}</span>
         </div>
       </div>
     </div>
@@ -95,11 +98,11 @@ const content = {
   en: {
     title: "Recommended reading",
     description:
-      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+      "Below are some of the books that have had the greatest impact on my life and my knowledge of Jesus Christ.",
     earlyFriends: {
-      title: "Early Friends' Writings",
+      title: "Writings of the Early Society of Friends",
       description:
-        "Great stuff, really like them, etc. We have over 180 books available for free, but here are some I recommend starting with:",
+        "I sincerely believe that there is no other collection of Christian writings that more accurately communicates and powerfully illustrates the soul-transforming power of the gospel of Jesus Christ. Here are a few that I recommend starting with:",
       button: {
         text: "See 180+ more",
         href: "https://friendslibrary.com",
@@ -109,45 +112,47 @@ const content = {
           title: "Truth in the Inward Parts",
           author: "Compilation",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "Incredible stories of ten men and women who knew the transforming work of “Truth in the inward parts.”",
           href: "https://www.friendslibrary.com/compilations/truth-in-the-inward-parts-v1",
         },
         {
           title: "The Writings of Isaac Penington",
           author: "Isaac Penington",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "Some of the most deeply reaching and truly helpful writings that have ever been penned by a follower of Jesus Christ.",
           href: "https://www.friendslibrary.com/isaac-penington/writings-volume-1",
         },
         {
           title: "Walk in the Spirit",
           author: "Hugh Turford",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "A practical explanation of Galatians 5:16 — “Walk in the Spirit, and you shall not fulfill the lust of the flesh.”",
           href: "https://www.friendslibrary.com/hugh-turford/walk-in-the-spirit",
         },
         {
           title: "No Cross, No Crown",
           author: "William Penn",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "A Christian classic, describing the nature, power, and experience of the daily cross of Christ, explaining what it is, where and how it is carried.",
           href: "https://www.friendslibrary.com/william-penn/no-cross-no-crown",
         },
       ],
     },
     otherWritings: {
       title: "Other writings",
-      description: "Coming soon",
+      description:
+        "Below are other exceptional books or selections of from books that were written by authors of other Christian denominations.",
+      comingSoon: "Coming soon",
     },
   },
   es: {
     title: "Lectura recomendada",
     description:
-      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+      "A continuación figuran algunos de los libros que más han influido en mi vida y en mi conocimiento de Jesucristo.",
     earlyFriends: {
-      title: "Early Friends' Writings (spanish, todo)",
+      title: "Escritos de la primitiva Sociedad de los Amigos",
       description:
-        "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        "Creo sinceramente que no hay otra colección de escritos cristianos que comunique con mayor precisión, o que ilustre con más pureza, el poder del evangelio de Jesucristo que transforma el alma. Recomiendo empezar por los siguientes.",
       button: {
         text: "Ver 50+ más",
         href: "https://bibliotecadelosamigos.org",
@@ -157,35 +162,37 @@ const content = {
           title: "La Verdad en Lo Íntimo",
           author: "Compilación",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "Historias increíbles de diez hombres y mujeres que conocieron la obra transformadora de “la Verdad en lo íntimo”.",
           href: "https://www.bibliotecadelosamigos.org/compilaciones/verdad-en-lo-intimo-v1",
         },
         {
           title: "Los Escritos de Isaac Penington",
           author: "Isaac Penington",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "Algunos de los escritos más profundos y verdaderamente útiles que jamás hayan sido escritos por un seguidor de Jesucristo.",
           href: "https://www.bibliotecadelosamigos.org/isaac-penington/escritos-volumen-1",
         },
         {
           title: "Andad en el Espíritu",
           author: "Hugh Turford",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "Una explicación muy práctica de Gálatas 5:16 — “Andad por el Espíritu, y no cumpliréis el deseo de la carne.”",
           href: "https://www.bibliotecadelosamigos.org/hugh-turford/andar-en-el-espiritu",
         },
         {
           title: "No Cruz, No Corona",
           author: "William Penn",
           description:
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "Un clásico cristiano, que describe la naturaleza, el poder y la experiencia de la cruz diaria de Cristo, explicando qué es, y dónde y cómo tomarla.",
           href: "https://www.bibliotecadelosamigos.org/william-penn/no-cruz-no-corona",
         },
       ],
     },
     otherWritings: {
       title: "Otros escritos",
-      description: "Próximamente",
+      description:
+        "A continuación ofrezco otros libros o selecciones de libros extraordinarios que fueron escritos por autores de otras denominaciones cristianas.",
+      comingSoon: "Próximamente",
     },
   },
 };
