@@ -17,6 +17,10 @@
   height: 6px;
   background: #0ea5e954;
   border-radius: 50px;
+  transition: background 0.2s;
+}
+.progressBar::-webkit-slider-runnable-track:hover {
+  background: #0ea5e974;
 }
 .progressBar::-webkit-slider-thumb {
   height: 16px;
@@ -45,8 +49,12 @@
 .progressBar::-moz-range-track {
   width: 100%;
   height: 6px;
-  background: #e2e8f0;
+  background: #0ea5e954;
   border-radius: 50px;
+  transition: background 0.2s;
+}
+.progressBar::-moz-range-track:hover {
+  background: #0ea5e974;
 }
 .progressBar::-moz-range-thumb {
   height: 16px;

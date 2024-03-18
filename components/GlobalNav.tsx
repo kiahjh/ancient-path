@@ -19,13 +19,11 @@ const GlobalNav: React.FC<{
   isMobile: boolean;
   setOpen(open: boolean): void;
 }> = ({ isMobile, setOpen }) => {
-  const {
-    state: { language },
-  } = useGlobalState();
+  const { state } = useGlobalState();
   const path = usePathname();
 
   function dual<T>(english: T, spanish: T): T {
-    return language === `en` ? english : spanish;
+    return state.language === `en` ? english : spanish;
   }
 
   return (

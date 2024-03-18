@@ -2,58 +2,60 @@
 
 import React from "react";
 import cx from "classnames";
-import { PauseIcon, PlayIcon } from "lucide-react";
+import { Loader2Icon, PauseIcon, PlayIcon } from "lucide-react";
 import { useGlobalState } from "@/lib/hooks";
 
-interface Props {
-  mp3Url: string;
-  title: string;
-  slug: string;
-  type: "post" | "teaching";
-}
-
-const PostPageAudioPrompt: React.FC<Props> = ({
-  mp3Url,
-  title,
-  slug,
-  type,
-}) => {
+const PostPageAudioPrompt: React.FC = () => {
   const {
-    state: { audio, language },
+    state: { audio, language, cachedPost },
     dispatch,
   } = useGlobalState();
-  const isPlaying = audio.isPlaying && audio.source === mp3Url;
+
+  if (!cachedPost) {
+    return (
+      <div className="h-20 bg-sky-50 rounded-full flex justify-start items-center animate-pulse pl-6">
+        <Loader2Icon className="animate-spin text-sky-400" size={30} />
+        <span className="ml-6 text-xl text-sky-600 font-medium">
+          Loading audio...
+        </span>
+      </div>
+    );
+  }
+
+  const currentlyPlayingMp3 = audio?.post[language].mp3Url;
+  const thisMp3Url = cachedPost[language].mp3Url;
+  const isPlaying = audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url;
 
   return (
     <div className="flex items-center gap-3 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 pr-4 rounded-full">
       <button
         onClick={() => {
-          if (audio.source !== mp3Url && audio.isPlaying) {
-            dispatch({ type: `setCurrentTime`, time: 0 });
+          if (currentlyPlayingMp3 !== thisMp3Url) {
             dispatch({
-              type: `setAudio`,
-              source: mp3Url,
-              title,
-              slug,
-              postType: type,
+              type: "playButtonClicked",
+              audio: {
+                isPlaying: true,
+                currentTime: 0,
+                post: cachedPost,
+              },
+              from: {
+                component: `PostPageAudioPrompt`,
+                context: `play button onClick()`,
+              },
             });
-          } else if (audio.source !== mp3Url && !audio.isPlaying) {
-            dispatch({ type: `setCurrentTime`, time: 0 });
-            dispatch({
-              type: `setAudio`,
-              source: mp3Url,
-              title,
-              slug,
-              postType: type,
-            });
-            dispatch({ type: `toggleAudioPlaying` });
           } else {
-            dispatch({ type: `toggleAudioPlaying` });
+            dispatch({
+              type: "playButtonClicked",
+              from: {
+                component: `PostPageAudioPrompt`,
+                context: `play button onClick()`,
+              },
+            });
           }
         }}
         className="w-10 xs:w-12 h-10 xs:h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center shrink-0"
       >
-        {audio.isPlaying && audio.source === mp3Url ? (
+        {audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url ? (
           <PauseIcon fill="white" className="w-6 text-white" />
         ) : (
           <PlayIcon fill="white" className="w-6 text-white" />
@@ -80,7 +82,7 @@ const PostPageAudioPrompt: React.FC<Props> = ({
         </div>
         <span
           className={cx(
-            `relative text-xl xs:text-2xl font-medium text-slate-600 transition-[opacity,transform] duration-500 block`,
+            `relative text-xl xs:text-2xl font-medium text-sky-900/90 transition-[opacity,transform] duration-500 block`,
             isPlaying && `translate-y-4 opacity-0 pointer-events-none`,
           )}
         >

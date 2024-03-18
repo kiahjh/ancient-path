@@ -1,11 +1,9 @@
-import React from "react";
-import { MapPinIcon, ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
+import React, { Suspense } from "react";
+import { MapPinIcon } from "lucide-react";
 import type { Metadata, NextPage } from "next";
 import { initializeLanguage } from "./actions";
 import Button from "@/components/Button";
-import { getAllPosts } from "@/lib/get-data";
-import { relativeTime } from "@/lib/dates";
+import LatestPostLink from "@/components/LatestPostLink";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await initializeLanguage();
@@ -23,36 +21,17 @@ export async function generateMetadata(): Promise<Metadata> {
 const Home: NextPage = async () => {
   const language = await initializeLanguage();
   const c = content[language];
-  const latestPost = (await getAllPosts())[0];
-  let latestPostLink = `/`;
-  if (latestPost.category === `post` && language === `en`) {
-    latestPostLink = `/posts/${latestPost[language].slug}`;
-  } else if (latestPost.category === `post` && language === `es`) {
-    latestPostLink = `/publicaciones/${latestPost[language].slug}`;
-  } else if (latestPost.category === `teaching` && language === `en`) {
-    latestPostLink = `/teachings/${latestPost[language].slug}`;
-  } else if (latestPost.category === `teaching` && language === `es`) {
-    latestPostLink = `/ensenanzas/${latestPost[language].slug}`;
-  }
 
   return (
     <div className="py-16 px-8 sm:px-12 flex flex-col items-center justify-center min-h-full">
-      <Link
-        href={latestPostLink}
-        className="flex items-center justify-between gap-16 bg-sky-200/70 hover:bg-sky-200 transition-colors duration-300 rounded-full p-1 mb-12 group"
+      <Suspense
+        fallback={
+          <div className="w-[330px] h-[36px] bg-sky-200/70 rounded-full mb-12 animate-pulse" />
+        }
       >
-        <div className="gap-3 flex items-center">
-          <span className="capitalize text-sky-800 bg-sky-300/50 rounded-full px-4 py-0.5 font-medium hidden xs:block">
-            {relativeTime(latestPost.createdAt, language)}:
-          </span>
-          <span className="font-semibold text-sky-800 pl-4 xs:pl-0">
-            {latestPost[language].title}
-          </span>
-        </div>
-        <div className="w-7 h-7 rounded-full bg-white/50 flex items-center justify-center text-sky-600">
-          <ArrowRightIcon className="w-5 group-hover:translate-x-1 transition-transform duration-300" />
-        </div>
-      </Link>
+        <LatestPostLink />
+      </Suspense>
+
       <h1 className="font-black text-4xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-slate-800 text-center">
         {c.title}
       </h1>

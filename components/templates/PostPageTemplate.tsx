@@ -1,6 +1,7 @@
 import React from "react";
 import type { Language, Post } from "@/lib/types";
 import PostPageAudioPrompt from "@/components/PostPageAudioPrompt";
+import CachePost from "@/lib/CachePost";
 
 const PostPageTemplate: React.FC<{ post: Post; language: Language }> = ({
   post,
@@ -12,18 +13,14 @@ const PostPageTemplate: React.FC<{ post: Post; language: Language }> = ({
         <h1 className="text-2xl xs:text-3xl lg:text-4xl font-bold mb-8 text-slate-800 max-w-3xl">
           {post[language].title}
         </h1>
-        <PostPageAudioPrompt
-          title={post[language].title}
-          slug={post[language].slug}
-          mp3Url={post[language].mp3Url}
-          type={post.category}
-        />
+        <PostPageAudioPrompt />
         <div
           dangerouslySetInnerHTML={{ __html: post[language].content }}
           className="prose-base sm:prose-lg text-justify prose-slate mt-8"
         />
       </div>
     </div>
+    <CachePost post={post} />
   </div>
 );
 
