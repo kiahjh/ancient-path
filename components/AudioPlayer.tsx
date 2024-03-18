@@ -164,7 +164,11 @@ const AudioPlayer: React.FC = () => {
             />
           </div>
           <span className="text-slate-800/50">
-            {formatTime(audio?.duration ?? 0)}
+            {formatTime(
+              isNaN(audio?.duration ?? 0) || !audio?.duration
+                ? 0
+                : audio.duration,
+            )}
           </span>
         </div>
       </div>

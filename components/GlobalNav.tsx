@@ -10,6 +10,15 @@ import {
   MapPinIcon,
   CircleHelpIcon,
   PodcastIcon,
+  AudioLinesIcon,
+  LightbulbIcon,
+  StickyNoteIcon,
+  FeatherIcon,
+  PencilIcon,
+  FilePen,
+  LightbulbOffIcon,
+  DogIcon,
+  MilestoneIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
@@ -92,7 +101,7 @@ const GlobalNav: React.FC<{
                 path.includes(`/teachings`),
                 path.includes(`/ensenanzas`),
               )}
-              icon={ArchiveIcon}
+              icon={FilePen}
             >
               {dual(`Teachings`, `Enseñanzas`)}
             </NavLink>
@@ -104,15 +113,24 @@ const GlobalNav: React.FC<{
                 path.includes(`/posts`),
                 path.includes(`/publicaciones`),
               )}
-              icon={MessageSquareIcon}
+              icon={MilestoneIcon}
             >
               {dual(`Posts`, `Publicaciones`)}
+            </NavLink>
+            <NavLink
+              href={dual(`/meetings`, `/reuniones`)}
+              setOpen={setOpen}
+              isMobile={isMobile}
+              selected={dual(path === `/meetings`, path === `/reuniones`)}
+              icon={AudioLinesIcon}
+            >
+              {dual(`Meetings`, `Reuniones`)}
             </NavLink>
             <NavLink
               href={dual(`/books`, `/libros`)}
               setOpen={setOpen}
               isMobile={isMobile}
-              selected={dual(path.includes(`/books`), path.includes(`/libros`))}
+              selected={dual(path === `/books`, path === `/libros`)}
               icon={BookOpenIcon}
             >
               {dual(`Books`, `Libros`)}

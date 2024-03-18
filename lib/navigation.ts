@@ -26,6 +26,14 @@ export function getAlternateLanguagePath(
       return `/podcast-es`;
     case path === `/podcast-es`:
       return `/podcast-en`;
+    case path === `/books`:
+      return `/libros`;
+    case path === `/libros`:
+      return `/books`;
+    case path === `/meetings`:
+      return `/reuniones`;
+    case path === `/reuniones`:
+      return `/meetings`;
 
     // pages of teachings
     case path.startsWith(`/teachings/page/`):
