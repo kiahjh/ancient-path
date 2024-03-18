@@ -1,31 +1,43 @@
-import Link from 'next/link';
-import React from 'react';
+"use client";
+
+import Link from "next/link";
+import cx from "classnames";
+import type { LucideIcon } from "@/lib/types";
 
 interface Props {
-  to: string;
-  selected?: boolean;
-  isNew?: boolean;
+  href: string;
+  isMobile: boolean;
+  setOpen(open: boolean): void;
+  selected: boolean;
   children: React.ReactNode;
+  icon: LucideIcon;
 }
 
-const NavLink: React.FC<Props> = ({ to, selected, isNew, children }) => {
-  return (
-    <Link
-      href={to}
-      className={`${
-        selected
-          ? 'text-slate-600 dark:text-slate-200'
-          : 'text-slate-400 dark:text-slate-500'
-      } hover:text-sky-400 dark:hover:text-sky-400 transition duration-100 select-none mx-3 my-1 flex items-center`}
+const NavLink: React.FC<Props> = ({
+  href,
+  isMobile,
+  setOpen,
+  selected,
+  children,
+  icon: Icon,
+}) => (
+  <Link
+    href={href}
+    className={cx(
+      `flex items-center gap-4 hover:bg-sky-200/70 active:bg-sky-300/50 dark:hover:bg-sky-500/5 dark:active:bg-sky-500/10 active:scale-[98%] transition-[background-color,transform] duration-200 px-4 sm:px-6 py-3 sm:py-4 rounded-3xl select-none`,
+      selected && `bg-sky-200/50 dark:bg-sky-500/10`,
+    )}
+    onClick={() => {
+      if (isMobile) setOpen(false);
+    }}
+  >
+    <Icon className="w-6 text-sky-600 dark:text-sky-500" />
+    <span
+      className={cx(`text-xl font-medium text-sky-800 dark:text-slate-400`)}
     >
       {children}
-      {isNew && (
-        <span className="text-xs uppercase bg-sky-300 text-white rounded-full px-1 py-0.5 ml-1.5">
-          new
-        </span>
-      )}
-    </Link>
-  );
-};
+    </span>
+  </Link>
+);
 
 export default NavLink;

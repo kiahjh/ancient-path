@@ -1,8 +1,33 @@
-import { description } from './helpers';
-import type { Lang, Post } from './types';
+import { writeFile } from "fs";
+import type { Language, Post } from "./types";
 
-export function podcastXml(posts: Array<Post<Lang>>): string {
-  const lang = posts[0]?.lang ?? `en`;
+export function generatePodcastRss(posts: Array<Post>) {
+  console.log(`🫛 Generating podcast rss feeds...`);
+  const enXml = podcastXml(`en`, posts);
+  const esXml = podcastXml(`es`, posts);
+  writeFile(`public/podcast.en.rss`, enXml, (err) => {
+    if (err) {
+      console.error(
+        `💥 Failed to generate english rss feed for podcast, with error:`,
+        err,
+      );
+    } else {
+      console.log(`✅ Successfully generated english rss feed for podcast`);
+    }
+  });
+  writeFile(`public/podcast.es.rss`, esXml, (err) => {
+    if (err) {
+      console.error(
+        `💥 Failed to generate spanish rss feed for podcast, with error:`,
+        err,
+      );
+    } else {
+      console.log(`✅ Successfully generated spanish rss feed for podcast`);
+    }
+  });
+}
+
+function podcastXml(lang: Language, posts: Array<Post>): string {
   const description =
     lang === `en`
       ? `I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.`
@@ -46,7 +71,7 @@ export function podcastXml(posts: Array<Post<Lang>>): string {
         .map(
           (post) => `
           <item>
-      ${audioItemData(post)}
+      ${audioItemData(lang, post)}
           </item>
         `,
         )
@@ -76,19 +101,19 @@ function cdata(text: string): string {
   return `<![CDATA[${encoded}]]>`;
 }
 
-function audioItemData(post: Post<Lang>): string {
-  const summary = description(post);
+function audioItemData(lang: Language, post: Post): string {
+  const thisPost = post[lang];
   return [
-    `<title>${post.title}</title>`,
-    `<enclosure url="${post.mp3Url}" length="${post.audioSize}" type="audio/mpeg" />`,
+    `<title>${thisPost.title}</title>`,
+    `<enclosure url="${thisPost.mp3Url}" length="${thisPost.audioSize}" type="audio/mpeg" />`,
     `<itunes:author>Jason Henderson</itunes:author>`,
-    `<itunes:subtitle>${cdata(summary)}</itunes:subtitle>`,
-    `<itunes:summary>${cdata(summary)}</itunes:summary>`,
-    `<description>${cdata(summary)}</description>`,
-    `<link>${url()}/posts/${post.slug}</link>`,
-    `<guid>${url()}/posts/${post.slug}</guid>`,
+    `<itunes:subtitle>${cdata(thisPost.description)}</itunes:subtitle>`,
+    `<itunes:summary>${cdata(thisPost.description)}</itunes:summary>`,
+    `<description>${cdata(thisPost.description)}</description>`,
+    `<link>${url()}/posts/${thisPost.slug}</link>`,
+    `<guid>${url()}/posts/${thisPost.slug}</guid>`,
     `<pubDate>${post.createdAt}</pubDate>`,
-    `<itunes:duration>${post.audioDuration}</itunes:duration>`,
+    `<itunes:duration>${thisPost.audioDuration}</itunes:duration>`,
     `<itunes:explicit>clean</itunes:explicit>`,
     `<itunes:episodeType>full</itunes:episodeType>`,
   ]

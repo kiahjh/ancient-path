@@ -1,39 +1,12 @@
-import { Lang } from './types';
-
-export const englishMonths = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-export const spanishMonths = [
-  'Enero',
-  'Febrero',
-  'Marzo',
-  'Abril',
-  'Mayo',
-  'Junio',
-  'Julio',
-  'Agosto',
-  'Septiembre',
-  'Octubre',
-  'Noviembre',
-  'Diciembre',
-];
+import type { Language } from "./types";
 
 const rtf_en = new Intl.RelativeTimeFormat(`en`, { numeric: `auto` });
 const rtf_es = new Intl.RelativeTimeFormat(`es`, { numeric: `auto` });
 
-export function relativeTime(isoOrDate: Date | string, language: Lang): string {
+export function relativeTime(
+  isoOrDate: Date | string,
+  language: Language,
+): string {
   const date = typeof isoOrDate === `string` ? new Date(isoOrDate) : isoOrDate;
   const now = new Date();
   const diff = now.getTime() - date.getTime();
@@ -48,10 +21,19 @@ export function relativeTime(isoOrDate: Date | string, language: Lang): string {
   } as const;
   for (const [unit, num] of Object.entries(UNITS)) {
     if (Math.abs(diff) > num || unit === `second`) {
-      return language === 'en'
+      return language === `en`
         ? rtf_en.format(-Math.round(diff / num), unit as any) // eslint-disable-line
         : rtf_es.format(-Math.round(diff / num), unit as any); // eslint-disable-line
     }
   }
   return `just now`;
+}
+
+export function formatTime(seconds: number): string {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${hours ? `${hours}:` : ``}${
+    minutes < 10 ? `0${minutes}` : minutes
+  }:${secs < 10 ? `0${secs}` : secs}`;
 }
