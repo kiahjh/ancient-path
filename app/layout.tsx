@@ -9,7 +9,7 @@ import "./globals.css";
 import GlobalNav from "@/components/GlobalNav";
 import { roboto } from "@/lib/fonts";
 import GlobalStateProvider from "@/lib/state/GlobalStateProvider";
-import BottomBar from "@/components/BottomBar";
+import BottomBar from "@/components/AudioPlayer";
 import SettingsPanel from "@/components/SettingsPanel";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

@@ -16,7 +16,14 @@ const SettingsPanel: React.FC = () => {
 
   useEffect(() => {
     initializeLanguage().then((lang) => {
-      dispatch({ type: `setLanguage`, language: lang });
+      dispatch({
+        type: `initialLanguageLoaded`,
+        language: lang,
+        from: {
+          component: `SettingsPanel`,
+          context: `useEffect()`,
+        },
+      });
     });
   }, [dispatch]);
 
@@ -56,8 +63,12 @@ const SettingsPanel: React.FC = () => {
               await setLanguageCookie(state.language === `en` ? `es` : `en`);
               renavigate();
               dispatch({
-                type: `setLanguage`,
+                type: `languageToggleClicked`,
                 language: state.language === `en` ? `es` : `en`,
+                from: {
+                  component: "SettingsPanel",
+                  context: "ToggleSwitch onClick()",
+                },
               });
             }}
           />

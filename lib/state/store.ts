@@ -1,77 +1,76 @@
-import type { Language } from "@/lib/types";
+import type { Language, Post } from "@/lib/types";
 
 export interface State {
   audio: {
-    source: string | null;
-    title: string | null;
-    slug: string | null;
-    postType: "post" | "teaching" | null;
     isPlaying: boolean;
     currentTime: number;
-    duration: number;
-    muted: boolean;
-    playbackRate: 1 | 1.25 | 1.5 | 2;
-  };
+    post: Post;
+  } | null;
+  cachedPost: Post | null;
   language: Language;
   sidebarOpen: boolean;
   isMobile: boolean;
 }
 
 export const initialState: State = {
-  audio: {
-    source: null,
-    title: null,
-    slug: null,
-    postType: null,
-    isPlaying: false,
-    currentTime: 0,
-    duration: 0,
-    muted: false,
-    playbackRate: 1,
-  },
+  audio: null,
+  cachedPost: null,
   language: `en`,
   sidebarOpen: true,
   isMobile: false,
 };
 
-export type Action =
-  | {
-      type: "setAudio";
-      source: string;
-      title: string;
-      slug: string;
-      postType: "post" | "teaching";
-    }
-  | { type: "setAudioDuration"; duration: number }
-  | { type: "toggleAudioPlaying" }
-  | { type: "toggleAudioMuted" }
-  | { type: "setCurrentTime"; time: number }
-  | { type: "setLanguage"; language: Language }
-  | { type: `setIsMobile`; isMobile: boolean }
-  | { type: `toggleSidebarOpen` };
+export type ActionType =
+  | { type: `playButtonClicked`; audio?: State[`audio`] } // specify audio if it's changing
+  | { type: `audioTimeUpdated`; time: number }
+  | { type: `skip15sClicked` }
+  | { type: `skip15sBackClicked` }
+  | { type: `initialLanguageLoaded`; language: Language }
+  | { type: `languageToggleClicked`; language: Language }
+  | { type: `sidebarToggled` }
+  | { type: `cachePost`; post: Post };
+
+export type Action = ActionType & {
+  from: {
+    component: string;
+    context: string;
+  };
+};
 
 export function reducer(state: State, action: Action): State {
+  log(
+    `💥 "${action.type}" from ${action.from.context} in <${action.from.component}/>`,
+  );
   switch (action.type) {
-    case `setAudio`:
+    case `playButtonClicked`:
+      return handlePlayButtonClick(state, action.audio);
+    case `audioTimeUpdated`:
+      return updateAudioTime(state, action.time);
+    case `skip15sClicked`:
+      return skip15sClicked(state, `forwards`);
+    case `skip15sBackClicked`:
+      return skip15sClicked(state, `backwards`);
+    case `initialLanguageLoaded`:
+      return setLanguage(state, action.language);
+    case `languageToggleClicked`:
+      return setLanguage(state, action.language);
+    case `sidebarToggled`:
+      return toggleSidebar(state);
+    case `cachePost`:
+      return cachePost(state, action.post);
+  }
+}
+
+// handlers
+
+function handlePlayButtonClick(state: State, audio?: State[`audio`]): State {
+  if (state.audio) {
+    if (audio) {
       return {
         ...state,
-        audio: {
-          ...state.audio,
-          source: action.source,
-          title: action.title,
-          slug: action.slug,
-          postType: action.postType,
-        },
+        audio,
       };
-    case `setAudioDuration`:
-      return {
-        ...state,
-        audio: {
-          ...state.audio,
-          duration: action.duration,
-        },
-      };
-    case `toggleAudioPlaying`:
+    } else {
       return {
         ...state,
         audio: {
@@ -79,36 +78,75 @@ export function reducer(state: State, action: Action): State {
           isPlaying: !state.audio.isPlaying,
         },
       };
-    case `toggleAudioMuted`:
+    }
+  } else {
+    if (audio) {
       return {
         ...state,
-        audio: {
-          ...state.audio,
-          muted: !state.audio.muted,
-        },
+        audio,
       };
-    case `setCurrentTime`:
-      return {
-        ...state,
-        audio: {
-          ...state.audio,
-          currentTime: action.time,
-        },
-      };
-    case `setLanguage`:
-      return {
-        ...state,
-        language: action.language,
-      };
-    case `setIsMobile`:
-      return {
-        ...state,
-        isMobile: action.isMobile,
-      };
-    case `toggleSidebarOpen`:
-      return {
-        ...state,
-        sidebarOpen: !state.sidebarOpen,
-      };
+    } else {
+      return state;
+    }
+  }
+}
+
+function updateAudioTime(state: State, time: number): State {
+  if (state.audio === null) return state;
+  return {
+    ...state,
+    audio: {
+      ...state.audio,
+      currentTime: time,
+    },
+  };
+}
+
+function skip15sClicked(
+  state: State,
+  direction: "forwards" | "backwards",
+): State {
+  if (state.audio === null) return state;
+  return {
+    ...state,
+    audio: {
+      ...state.audio,
+      currentTime:
+        direction === `forwards`
+          ? state.audio.currentTime + 15
+          : state.audio.currentTime - 15,
+    },
+  };
+}
+
+function setLanguage(state: State, language: Language): State {
+  return {
+    ...state,
+    language,
+  };
+}
+
+function toggleSidebar(state: State): State {
+  return {
+    ...state,
+    sidebarOpen: !state.sidebarOpen,
+  };
+}
+
+function cachePost(state: State, post: Post): State {
+  return {
+    ...state,
+    cachedPost: post,
+  };
+}
+
+// helpers
+
+function log(text: string): void {
+  if (process.env.NODE_ENV === `development`) {
+    console.log(
+      `%c${text}`,
+      `color:white;background:#383838;border-radius:8px;padding:8px`,
+    );
   }
 }
