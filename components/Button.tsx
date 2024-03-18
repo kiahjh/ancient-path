@@ -10,7 +10,11 @@ type Props = {
   className?: string;
   children?: React.ReactNode;
   shadow?: boolean;
-} & ({ type: "button"; onClick(): void } | { type: "link"; to: string });
+} & (
+  | { type: "button"; onClick(): void }
+  | { type: "link"; to: string }
+  | { type: "submit" }
+);
 
 const Button: React.FC<Props> = (props) => {
   const classes = cx(
@@ -34,6 +38,20 @@ const Button: React.FC<Props> = (props) => {
   if (props.type === `button`) {
     return (
       <button onClick={props.onClick} className={cx(classes)}>
+        <span>{props.children}</span>
+        {props.icon && (
+          <props.icon
+            className={cx(
+              props.size === `lg` ? `w-6` : props.size === `md` ? `w-5` : `w-4`,
+            )}
+          />
+        )}
+      </button>
+    );
+  }
+  if (props.type === `submit`) {
+    return (
+      <button type="submit" className={cx(classes)}>
         <span>{props.children}</span>
         {props.icon && (
           <props.icon

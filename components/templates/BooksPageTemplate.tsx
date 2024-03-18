@@ -141,7 +141,7 @@ const content = {
     otherWritings: {
       title: "Other writings",
       description:
-        "Below are other exceptional books or selections of from books that were written by authors of other Christian denominations.",
+        "Below are other exceptional books or selections from books that were written by authors of other Christian denominations.",
       comingSoon: "Coming soon",
     },
   },

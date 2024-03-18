@@ -1,21 +1,28 @@
 "use client";
 
 import React from "react";
-import { SendIcon } from "lucide-react";
+import { CheckIcon, Loader2Icon, SendIcon } from "lucide-react";
 import type { Language } from "@/lib/types";
 import Button from "../Button";
+import { useForm } from "@formspree/react";
 
 const ContactPageTemplate: React.FC<{ language: Language }> = ({
   language,
 }) => {
   const c = content[language];
+  const [state, handleSubmit] = useForm(
+    process.env.NEXT_PUBLIC_FORMSPREE_ID ?? ``,
+  );
   return (
     <div className="min-h-full flex flex-col 2xl:flex-row justify-center items-center gap-12 2xl:gap-20 px-0 xs:px-8 sm:px-12 md:px-20 pt-20 pb-12 sm:pb-20">
       <div className="px-6 xs:px-0">
         <h1 className="text-4xl font-bold text-slate-800">{c.title}</h1>
         <p className="mt-4 max-w-xl text-lg text-slate-500">{c.subheading}</p>
       </div>
-      <form className="rounded-3xl bg-sky-100/70 p-6 xs:p-8 sm:p-12 flex flex-col gap-8 w-full md:w-152 2xl:shrink-0">
+      <form
+        onSubmit={handleSubmit}
+        className="rounded-3xl bg-sky-100/70 p-6 xs:p-8 sm:p-12 flex flex-col gap-8 w-full md:w-152 2xl:shrink-0"
+      >
         <div className="flex flex-col gap-1 w-full">
           <label
             className="text-lg font-medium text-sky-800/70 ml-6"
@@ -27,6 +34,7 @@ const ContactPageTemplate: React.FC<{ language: Language }> = ({
             type="text"
             name="name"
             id="name"
+            required
             placeholder={c.name.placeholder}
             className="px-6 py-4 rounded-full text-lg placeholder:text-slate-300 text-slate-800 hover:bg-white/80 transition-[background-color,border-color] duration-300 outline-none border-white border-2 focus:border-sky-300 focus:bg-white"
           />
@@ -42,6 +50,7 @@ const ContactPageTemplate: React.FC<{ language: Language }> = ({
             type="email"
             name="email"
             id="email"
+            required
             placeholder={c.email.placeholder}
             className="px-6 py-4 rounded-full text-lg placeholder:text-slate-300 text-slate-800 hover:bg-white/80 transition-[background-color,border-color] duration-300 outline-none border-white border-2 focus:border-sky-300 focus:bg-white"
           />
@@ -58,19 +67,28 @@ const ContactPageTemplate: React.FC<{ language: Language }> = ({
             id="message"
             placeholder={c.message.placeholder}
             rows={5}
+            required
             className="px-6 py-4 rounded-[36px] text-lg placeholder:text-slate-300 text-slate-800 hover:bg-white/80 transition-[background-color,border-color] duration-300 outline-none border-white border-2 focus:border-sky-300 focus:bg-white"
           />
         </div>
-        <Button
-          type="button"
-          onClick={() => {}}
-          color="primary"
-          className="self-end"
-          size="lg"
-          icon={SendIcon}
-        >
-          {c.button}
-        </Button>
+        <div className="flex justify-end items-center gap-4">
+          {state.submitting && (
+            <Loader2Icon className="animate-spin text-sky-400" size={30} />
+          )}
+          {state.succeeded && (
+            <CheckIcon className="text-green-500" size={30} />
+          )}
+          {state.errors && (
+            <span className="text-red-600 leading-5">
+              Hmm, something went wrong.
+              <br />
+              Please try again.
+            </span>
+          )}
+          <Button type="submit" color="primary" size="lg" icon={SendIcon}>
+            {c.button}
+          </Button>
+        </div>
       </form>
     </div>
   );
