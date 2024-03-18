@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Script from "next/script";
 import cx from "classnames";
 import { MenuIcon, ChevronLeftIcon } from "lucide-react";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
@@ -11,6 +10,7 @@ import { roboto } from "@/lib/fonts";
 import GlobalStateProvider from "@/lib/state/GlobalStateProvider";
 import BottomBar from "@/components/AudioPlayer";
 import SettingsPanel from "@/components/SettingsPanel";
+import Html from "@/components/Html";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -23,14 +23,12 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
   }, []);
 
-  const dark = false;
-
   return (
     <GlobalStateProvider>
-      <html lang="TODO" className={dark ? `dark` : `light`}>
+      <Html>
         <body
           style={{
-            backgroundImage: !dark ? `url(${NoiseBg.src})` : ``,
+            backgroundImage: `url(${NoiseBg.src})`,
             backgroundSize: `200px`,
           }}
           className={cx(
@@ -57,7 +55,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 !sidebarOpen && `-ml-72`,
               )}
               style={{
-                backgroundImage: !dark ? `url(${NoiseBg.src})` : ``,
+                backgroundImage: `url(${NoiseBg.src})`,
                 backgroundSize: `200px`,
               }}
             >
@@ -86,7 +84,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
           <BottomBar />
         </body>
-      </html>
+      </Html>
     </GlobalStateProvider>
   );
 };
