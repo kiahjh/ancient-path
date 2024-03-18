@@ -83,7 +83,7 @@ const AppOption: React.FC<AppOptionProps> = ({ name, image, href }) => (
 const content = {
   en: {
     title: `Listen as a podcast`,
-    description: `Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.`,
+    description: `To subscribe to a podcast of the audio versions of posts from this blog, click one of the links below:`,
     spotify: {
       title: `Spotify`,
       link: `https://open.spotify.com/show/3JDQmzp0D4FNXeE7NC5D5S`,
@@ -107,7 +107,7 @@ const content = {
   },
   es: {
     title: `Escucha como podcast`,
-    description: `Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.`,
+    description: `Para suscribirte a un podcast de los audios de las publicaciones de este blog, haz clic en uno de los enlaces siguientes:`,
     spotify: {
       title: `Spotify`,
       link: `https://open.spotify.com/show/3T32aJ757tMg2kyzG2kANh`,
