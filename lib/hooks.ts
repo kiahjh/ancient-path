@@ -15,5 +15,8 @@ export function useGlobalState(): {
 export function useAlternateLanguageNavigation(): () => void {
   const path = usePathname();
   const router = useRouter();
-  return () => router.push(getAlternateLanguagePath(path));
+  const {
+    state: { cachedPost },
+  } = useGlobalState();
+  return () => router.push(getAlternateLanguagePath(path, cachedPost));
 }
