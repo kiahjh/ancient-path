@@ -66,7 +66,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
             <main
               className={cx(
-                `flex-grow transition-[border-radius] duration-300 bg-sky-50 dark:bg-slate-950/70 h-[calc(100vh-96px)] overflow-scroll relative`,
+                `flex-grow transition-[border-radius] duration-300 bg-sky-50 dark:bg-slate-950/70 h-[calc(100vh-96px)] overflow-y-scroll relative`,
                 sidebarOpen && `lg:rounded-bl-3xl`,
               )}
             >
