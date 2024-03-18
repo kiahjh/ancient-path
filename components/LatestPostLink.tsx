@@ -9,6 +9,11 @@ const LatestPostLink: React.FC = async () => {
   const language = await initializeLanguage();
 
   const latestPost = (await getAllPosts())[0];
+
+  if (!latestPost) {
+    return null;
+  }
+
   let latestPostLink = `/`;
   if (latestPost.category === `post` && language === `en`) {
     latestPostLink = `/posts/${latestPost[language].slug}`;
