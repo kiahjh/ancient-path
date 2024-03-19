@@ -9,7 +9,7 @@ import GlobalNav from "@/components/GlobalNav";
 import { roboto } from "@/lib/fonts";
 import GlobalStateProvider from "@/lib/state/GlobalStateProvider";
 import BottomBar from "@/components/AudioPlayer";
-import SettingsPanel from "@/components/SettingsPanel";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Html from "@/components/Html";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -51,7 +51,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex-grow flex">
             <div
               className={cx(
-                `w-72 flex absolute lg:relative flex-col justify-between shrink-0 transition-[margin-left] duration-300 bg-sky-100 dark:bg-slate-900 z-20 h-[calc(100vh-96px)]`,
+                `w-72 flex absolute lg:relative flex-col shrink-0 transition-[margin-left] duration-300 bg-sky-100 dark:bg-slate-900 z-20 h-[calc(100vh-96px)]`,
                 !sidebarOpen && `-ml-72`,
               )}
               style={{
@@ -62,7 +62,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <div>
                 <GlobalNav isMobile={isMobile} setOpen={setSidebarOpen} />
               </div>
-              <SettingsPanel />
+              <LanguageSwitcher />
             </div>
             <main
               className={cx(
