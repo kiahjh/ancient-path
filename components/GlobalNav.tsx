@@ -2,22 +2,14 @@
 
 import React from "react";
 import {
-  ArchiveIcon,
   BookOpenIcon,
   MessageCircleIcon,
-  MessageSquareIcon,
   HomeIcon,
   MapPinIcon,
   CircleHelpIcon,
   PodcastIcon,
   AudioLinesIcon,
-  LightbulbIcon,
-  StickyNoteIcon,
-  FeatherIcon,
-  PencilIcon,
   FilePen,
-  LightbulbOffIcon,
-  DogIcon,
   MilestoneIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -36,7 +28,7 @@ const GlobalNav: React.FC<{
   }
 
   return (
-    <nav className="">
+    <nav>
       <div className="mt-10 sm:mt-12 p-4">
         <div className="sm:p-2">
           <NavLink
