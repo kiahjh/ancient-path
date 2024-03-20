@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import cx from "classnames";
-import { Loader2Icon, PauseIcon, PlayIcon } from "lucide-react";
+import { DownloadIcon, Loader2Icon, PauseIcon, PlayIcon } from "lucide-react";
 import { useGlobalState } from "@/lib/hooks";
 
 const PostPageAudioPrompt: React.FC = () => {
@@ -10,6 +10,7 @@ const PostPageAudioPrompt: React.FC = () => {
     state: { audio, language, cachedPost },
     dispatch,
   } = useGlobalState();
+  const [downloading, setDownloading] = useState(false);
 
   if (!cachedPost) {
     return (
@@ -27,12 +28,12 @@ const PostPageAudioPrompt: React.FC = () => {
   const isPlaying = audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url;
 
   return (
-    <div className="flex items-center gap-3 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 pr-4 rounded-full">
+    <div className="flex items-center gap-3 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 rounded-full">
       <button
         onClick={() => {
           if (currentlyPlayingMp3 !== thisMp3Url) {
             dispatch({
-              type: "playButtonClicked",
+              type: `playButtonClicked`,
               audio: {
                 isPlaying: true,
                 currentTime: 0,
@@ -45,7 +46,7 @@ const PostPageAudioPrompt: React.FC = () => {
             });
           } else {
             dispatch({
-              type: "playButtonClicked",
+              type: `playButtonClicked`,
               from: {
                 component: `PostPageAudioPrompt`,
                 context: `play button onClick()`,
@@ -68,10 +69,12 @@ const PostPageAudioPrompt: React.FC = () => {
             !isPlaying && `opacity-0`,
           )}
         >
-          {new Array(40).fill(0).map((_, i) => (
+          {new Array(36).fill(0).map((_, i) => (
             <div
               key={i}
-              className={cx(`w-1 sm:w-1.5 lg:w-2 bg-sky-200 rounded-full`)}
+              className={cx(
+                `w-[3px] xs:w-1 sm:w-1.5 lg:w-2 bg-sky-200 rounded-full`,
+              )}
               style={{
                 animation: `audio-playing 1.5s ${
                   i * 150
@@ -89,6 +92,33 @@ const PostPageAudioPrompt: React.FC = () => {
           {language === `en` ? `Listen online` : `Escuchar en línea`}
         </span>
       </div>
+      <button
+        onClick={async () => {
+          setDownloading(true);
+          const res = await fetch(
+            `/api/download-audio/${encodeURIComponent(thisMp3Url)}`,
+          );
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement(`a`);
+          link.href = url;
+          link.download = `${cachedPost[language].title}.mp3`;
+          link.click();
+          URL.revokeObjectURL(url);
+          link.remove();
+          setDownloading(false);
+        }}
+        className="w-10 xs:w-12 h-10 xs:h-12 rounded-full bg-sky-200/70 hover:bg-sky-200 active:bg-sky-300 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center shrink-0"
+      >
+        {downloading ? (
+          <Loader2Icon
+            className="text-sky-400 animate-spin"
+            strokeWidth={2.5}
+          />
+        ) : (
+          <DownloadIcon className="text-sky-600" strokeWidth={2.5} />
+        )}
+      </button>
     </div>
   );
 };

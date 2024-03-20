@@ -4,7 +4,7 @@ import type { Language, Post, Series } from "@/lib/types";
 import { paginate } from "@/lib/helpers";
 import Paginator from "@/components/Paginator";
 import PostPreview from "@/components/PostPreview";
-import { initializeLanguage } from "@/app/actions";
+import { initializeLanguage } from "@/lib/actions";
 
 type Props = {
   language: Language;

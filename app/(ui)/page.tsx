@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { MapPinIcon } from "lucide-react";
 import type { Metadata, NextPage } from "next";
-import { initializeLanguage } from "./actions";
+import { initializeLanguage } from "../../lib/actions";
 import Button from "@/components/Button";
 import LatestPostLink from "@/components/LatestPostLink";
 

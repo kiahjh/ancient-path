@@ -3,9 +3,9 @@
 import React, { useEffect } from "react";
 import ToggleSwitch from "./ToggleSwitch";
 import { useGlobalState } from "@/lib/hooks";
-import { setLanguageCookie } from "@/app/actions";
+import { setLanguageCookie } from "@/lib/actions";
 import { useAlternateLanguageNavigation } from "@/lib/hooks";
-import { initializeLanguage } from "@/app/actions";
+import { initializeLanguage } from "@/lib/actions";
 
 const LanguageSwitcher: React.FC = () => {
   const { state, dispatch } = useGlobalState();
@@ -36,8 +36,8 @@ const LanguageSwitcher: React.FC = () => {
             type: `languageToggleClicked`,
             language: state.language === `en` ? `es` : `en`,
             from: {
-              component: "SettingsPanel",
-              context: "ToggleSwitch onClick()",
+              component: `SettingsPanel`,
+              context: `ToggleSwitch onClick()`,
             },
           });
         }}

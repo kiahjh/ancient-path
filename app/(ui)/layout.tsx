@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import cx from "classnames";
 import { MenuIcon, ChevronLeftIcon } from "lucide-react";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
-import "./globals.css";
+import "@/styles/globals.css";
 import GlobalNav from "@/components/GlobalNav";
 import { roboto } from "@/lib/fonts";
 import GlobalStateProvider from "@/lib/state/GlobalStateProvider";
