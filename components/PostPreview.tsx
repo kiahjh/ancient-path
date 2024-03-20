@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import type { Language, Post, Series } from "@/lib/types";
 import Button from "./Button";

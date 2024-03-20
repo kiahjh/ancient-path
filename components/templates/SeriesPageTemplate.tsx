@@ -22,8 +22,13 @@ const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (
       {series[language].description}
     </p>
     <div className="mt-8 gap-8 flex flex-col -mx-6 xs:mx-0">
-      {posts.map((post) => (
-        <PostPreview teaching={post} language={language} category="teaching" />
+      {posts.map((post, i) => (
+        <PostPreview
+          teaching={post}
+          language={language}
+          series={{ series, part: posts.length - i }}
+          category="teaching"
+        />
       ))}
     </div>
   </div>
