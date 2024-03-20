@@ -2,9 +2,9 @@ import { FastForwardIcon, PauseIcon, PlayIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import Link from "next/link";
+import type { State } from "@/lib/state/store";
 import { useGlobalState } from "@/lib/hooks";
 import styles from "@/styles/AudioPlayer.module.css";
-import { State } from "@/lib/state/store";
 import { formatTime } from "@/lib/dates";
 
 const AudioPlayer: React.FC = () => {
@@ -29,7 +29,7 @@ const AudioPlayer: React.FC = () => {
     if (audio) {
       audio.addEventListener(`timeupdate`, () => {
         dispatch({
-          type: "audioTimeUpdated",
+          type: `audioTimeUpdated`,
           time: audio.currentTime,
           from: {
             component: `AudioPlayer`,
@@ -41,7 +41,7 @@ const AudioPlayer: React.FC = () => {
   }, [audio]);
 
   return (
-    <div className="h-24 flex flex-col sm:flex-row items-center sm:pr-8">
+    <div className="h-24 flex flex-col sm:flex-row items-center sm:pr-8 relative z-50">
       <div className="h-full sm:w-72 flex items-center justify-center gap-4 translate-y-3 sm:translate-y-0 z-10 sm:shrink-0">
         <button
           className={cx(
@@ -50,7 +50,7 @@ const AudioPlayer: React.FC = () => {
           )}
           onClick={() => {
             dispatch({
-              type: "skip15sBackClicked",
+              type: `skip15sBackClicked`,
               from: {
                 component: `AudioPlayer`,
                 context: `skip backwards button onClick()`,
@@ -92,7 +92,7 @@ const AudioPlayer: React.FC = () => {
           )}
           onClick={() => {
             dispatch({
-              type: "skip15sClicked",
+              type: `skip15sClicked`,
               from: {
                 component: `AudioPlayer`,
                 context: `skip forwards button onClick()`,
