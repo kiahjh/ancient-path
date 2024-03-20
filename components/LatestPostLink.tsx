@@ -28,13 +28,14 @@ const LatestPostLink: React.FC = async () => {
   return (
     <Link
       href={latestPostLink}
-      className="flex items-center justify-between gap-16 bg-sky-200/70 hover:bg-sky-200 transition-colors duration-300 rounded-full p-1 mb-12 group"
+      className="flex items-center justify-between bg-sky-200/70 hover:bg-sky-200 transition-colors duration-300 rounded-full p-1 mb-12 group"
     >
-      <div className="gap-3 flex items-center">
+      <div className="gap-3 flex items-center relative overflow-hidden flex-grow mr-8 xs:mr-0 xs:pr-16">
+        <div className="absolute top-0 right-0 w-12 h-full rounded-l-full bg-gradient-to-r from-transparent to-[#CBEBFE]"></div>
         <span className="capitalize text-sky-800 bg-sky-300/50 rounded-full px-4 py-0.5 font-medium hidden xs:block">
           {relativeTime(latestPost.createdAt, language)}:
         </span>
-        <span className="font-semibold text-sky-800 pl-4 xs:pl-0">
+        <span className="font-semibold leading-5 whitespace-nowrap max-w-[200px] text-sky-800 pl-4 xs:pl-0">
           {latestPost[language].title}
         </span>
       </div>

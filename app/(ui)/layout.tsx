@@ -8,7 +8,7 @@ import "@/styles/globals.css";
 import GlobalNav from "@/components/GlobalNav";
 import { roboto } from "@/lib/fonts";
 import GlobalStateProvider from "@/lib/state/GlobalStateProvider";
-import BottomBar from "@/components/AudioPlayer";
+import AudioPlayer from "@/components/AudioPlayer";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Html from "@/components/Html";
 
@@ -51,7 +51,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex-grow flex">
             <div
               className={cx(
-                `w-72 flex absolute lg:relative flex-col shrink-0 transition-[margin-left] duration-300 bg-sky-100 z-20 h-[calc(100vh-96px)]`,
+                `w-72 flex absolute lg:relative flex-col shrink-0 transition-[margin-left] duration-300 bg-sky-100 z-20 h-[calc(100dvh-96px)]`,
                 !sidebarOpen && `-ml-72`,
               )}
               style={{
@@ -64,14 +64,14 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
             <main
               className={cx(
-                `flex-grow transition-[border-radius] duration-300 bg-sky-50 h-[calc(100vh-96px)] overflow-y-scroll relative`,
+                `flex-grow transition-[border-radius] duration-300 bg-sky-50 h-[calc(100dvh-96px)] overflow-y-scroll relative`,
                 sidebarOpen && `lg:rounded-bl-3xl`,
               )}
             >
               <div
                 onClick={() => setSidebarOpen(false)}
                 className={cx(
-                  `lg:hidden w-full h-[calc(100vh-96px)] top-0 left-0 bg-white/70 z-10 transition-[opacity,backdrop-filter] duration-300 fixed`,
+                  `lg:hidden w-full h-[calc(100dvh-96px)] top-0 left-0 bg-white/70 z-10 transition-[opacity,backdrop-filter] duration-300 fixed`,
                   sidebarOpen
                     ? `opacity-100 backdrop-blur`
                     : `opacity-0 pointer-events-none`,
@@ -80,7 +80,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               {children}
             </main>
           </div>
-          <BottomBar />
+          <AudioPlayer />
         </body>
       </Html>
     </GlobalStateProvider>
