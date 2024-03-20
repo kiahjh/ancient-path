@@ -1,9 +1,9 @@
-import { initializeLanguage } from "@/app/actions";
-import { relativeTime } from "@/lib/dates";
-import { getAllPosts } from "@/lib/get-data";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { initializeLanguage } from "@/lib/actions";
+import { relativeTime } from "@/lib/dates";
+import { getAllPosts } from "@/lib/get-data";
 
 const LatestPostLink: React.FC = async () => {
   const language = await initializeLanguage();
