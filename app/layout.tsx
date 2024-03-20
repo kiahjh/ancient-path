@@ -32,26 +32,26 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             backgroundSize: `200px`,
           }}
           className={cx(
-            `flex flex-col h-screen bg-cover bg-center bg-sky-100 dark:bg-slate-900`,
+            `flex flex-col h-dvh bg-cover bg-center bg-sky-100`,
             roboto,
           )}
         >
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className={cx(
-              `w-10 h-10 rounded-full flex justify-center items-center absolute top-2 transition-[left,transform,background-color] duration-300 hover:bg-white dark:hover:bg-slate-950 z-30 backdrop-blur`,
+              `w-10 h-10 rounded-full flex justify-center items-center absolute top-2 transition-[left,transform,background-color] duration-300 hover:bg-white z-30 backdrop-blur`,
               sidebarOpen
-                ? `left-60 bg-sky-50 dark:bg-slate-800`
-                : `left-2 rotate-180 bg-sky-200/50 dark:bg-slate-900`,
+                ? `sm:left-60 left-[300px] bg-sky-100 sm:bg-sky-50`
+                : `left-2 lg:rotate-180 bg-sky-200/50`,
             )}
           >
-            <ChevronLeftIcon className="w-6 text-sky-500 dark:text-sky-600 hidden lg:block" />
-            <MenuIcon className="w-6 text-sky-500 dark:text-sky-600 block lg:hidden" />
+            <ChevronLeftIcon className="w-6 text-sky-500 hidden lg:block" />
+            <MenuIcon className="w-6 text-sky-500 block lg:hidden" />
           </button>
           <div className="flex-grow flex">
             <div
               className={cx(
-                `w-72 flex absolute lg:relative flex-col shrink-0 transition-[margin-left] duration-300 bg-sky-100 dark:bg-slate-900 z-20 h-[calc(100vh-96px)]`,
+                `w-72 flex absolute lg:relative flex-col shrink-0 transition-[margin-left] duration-300 bg-sky-100 z-20 h-[calc(100vh-96px)]`,
                 !sidebarOpen && `-ml-72`,
               )}
               style={{
@@ -59,14 +59,12 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 backgroundSize: `200px`,
               }}
             >
-              <div>
-                <GlobalNav isMobile={isMobile} setOpen={setSidebarOpen} />
-              </div>
+              <GlobalNav isMobile={isMobile} setOpen={setSidebarOpen} />
               <LanguageSwitcher />
             </div>
             <main
               className={cx(
-                `flex-grow transition-[border-radius] duration-300 bg-sky-50 dark:bg-slate-950/70 h-[calc(100vh-96px)] overflow-y-scroll relative`,
+                `flex-grow transition-[border-radius] duration-300 bg-sky-50 h-[calc(100vh-96px)] overflow-y-scroll relative`,
                 sidebarOpen && `lg:rounded-bl-3xl`,
               )}
             >

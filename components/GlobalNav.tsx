@@ -29,7 +29,7 @@ const GlobalNav: React.FC<{
 
   return (
     <nav>
-      <div className="mt-10 sm:mt-12 p-4">
+      <div className="mt-0 xs:mt-10 sm:mt-12 p-4">
         <div className="sm:p-2">
           <NavLink
             href="/"
