@@ -41,7 +41,12 @@ const AudioPlayer: React.FC = () => {
   }, [audio]);
 
   return (
-    <div className="h-24 flex flex-col sm:flex-row items-center sm:pr-8 relative z-50">
+    <div
+      className={cx(
+        `h-24 flex flex-col sm:flex-row items-center sm:pr-8 relative z-50 transition-[margin-bottom] duration-500`,
+        !state.audio ? `-mb-24` : `mb-0`,
+      )}
+    >
       <div className="h-full sm:w-72 flex items-center justify-center gap-4 translate-y-3 sm:translate-y-0 z-10 sm:shrink-0">
         <button
           className={cx(
