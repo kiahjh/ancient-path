@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import cx from "classnames";
 import type { Language, Series } from "@/lib/types";
@@ -27,8 +29,8 @@ const TeachingsLayoutTemplate: React.FC<Props> = ({
     >
       <main
         className={cx(
-          `flex-grow bg-sky-50 xl:rounded-br-3xl overflow-scroll`,
-          audio?.isPlaying ? `h-[calc(100vh-96px)]` : `h-[calc(100vh-96px)]`,
+          `flex-grow bg-sky-50 xl:rounded-br-3xl overflow-scroll transition-[height] duration-500`,
+          audio?.isPlaying ? `h-[calc(100dvh-96px)]` : `h-dvh`,
         )}
       >
         {children}
