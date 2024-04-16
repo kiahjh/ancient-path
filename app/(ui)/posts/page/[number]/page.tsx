@@ -5,6 +5,8 @@ import { getAllPosts } from "@/lib/get-data";
 import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
 import { generatePodcastRss } from "@/lib/podcast";
 
+export const revalidate = 0;
+
 export async function generateMetadata(arg: {
   params: {
     number: string;

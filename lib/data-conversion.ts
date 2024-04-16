@@ -1,4 +1,11 @@
-import type { ApiPost, ApiSeries, Post, Series } from "./types";
+import type {
+  ApiMeetingAudio,
+  ApiPost,
+  ApiSeries,
+  MeetingAudio,
+  Post,
+  Series,
+} from "./types";
 
 export function toPost(apiPost: ApiPost): Post {
   return {
@@ -46,5 +53,19 @@ export function toSeries(apiSeries: ApiSeries): Series {
       slug: apiSeries.metadata.spanish_slug,
       description: apiSeries.metadata.spanish_description,
     },
+  };
+}
+
+export function toMeetingAudio(apiMeetingAudio: ApiMeetingAudio): MeetingAudio {
+  return {
+    id: apiMeetingAudio.id,
+    title: apiMeetingAudio.title,
+    slug: apiMeetingAudio.slug,
+    createdAt: apiMeetingAudio.created_at,
+    modifiedAt: apiMeetingAudio.modified_at,
+    publishedAt: apiMeetingAudio.published_at,
+    mp3Url: apiMeetingAudio.metadata.mp3_url,
+    language: apiMeetingAudio.metadata.language.key,
+    transcription: apiMeetingAudio.metadata.transcription,
   };
 }

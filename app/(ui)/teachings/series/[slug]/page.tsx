@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { getAllPosts, getAllSeries, getSeries } from "@/lib/get-data";
 import SeriesPageTemplate from "@/components/templates/SeriesPageTemplate";
 
+export const revalidate = 0;
+
 export async function generateMetadata(arg: {
   params: { slug: string };
 }): Promise<Metadata> {
