@@ -4,6 +4,8 @@ import type { Metadata, NextPage } from "next";
 import { getAllPosts, getPost } from "@/lib/get-data";
 import PostPageTemplate from "@/components/templates/PostPageTemplate";
 
+export const revalidate = 0;
+
 export async function generateMetadata(arg: {
   params: {
     slug: string;

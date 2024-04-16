@@ -1,5 +1,13 @@
-import type { ApiPost, ApiSeries, Language, Post, Series } from "./types";
-import { toPost, toSeries } from "./data-conversion";
+import type {
+  ApiMeetingAudio,
+  ApiPost,
+  ApiSeries,
+  Language,
+  MeetingAudio,
+  Post,
+  Series,
+} from "./types";
+import { toMeetingAudio, toPost, toSeries } from "./data-conversion";
 
 const bucketSlug = process.env.COSMIC_BUCKET_SLUG;
 const readKey = process.env.COSMIC_READ_KEY;
@@ -40,4 +48,19 @@ export async function getSeries(
 ): Promise<Series | null> {
   const series = await getAllSeries();
   return series.find((s) => s[lang].slug === slug) ?? null;
+}
+
+export async function getAllMeetingAudios(): Promise<MeetingAudio[]> {
+  const endpoint = `http://api.cosmicjs.com/v3/buckets`;
+  const query = encodeURIComponent(`{"type":"audio"}`);
+  const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
+  const response = await fetch(url);
+  const objs = await response.json();
+  const allApiAudios: Array<ApiMeetingAudio> = objs.objects;
+  return allApiAudios.map(toMeetingAudio);
+}
+
+export async function getMeetingAudio(slug: string): Promise<any> {
+  const audios = await getAllMeetingAudios();
+  return audios.find((audio) => audio.slug === slug) ?? null;
 }

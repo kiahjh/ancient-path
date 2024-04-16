@@ -1,4 +1,9 @@
 import React from "react";
+import type { NextPage } from "next";
+import { getAllMeetingAudios } from "@/lib/get-data";
+import MeetingAudio from "@/components/MeetingAudio";
+
+export const revalidate = 0;
 
 export const metadata = {
   title: `Meetings | The Ancient Path`,
@@ -9,10 +14,23 @@ export const metadata = {
   },
 };
 
-const Meetings: React.FC = () => {
+const Meetings: NextPage = async () => {
+  const audios = await getAllMeetingAudios();
+
+  console.log(audios);
+
   return (
-    <div className="min-h-full flex justify-center items-center text-2xl font-medium">
-      Coming soon
+    <div className="p-20">
+      <h1 className="text-4xl font-bold text-slate-900">Meeting audios</h1>
+      <p className="text-lg text-sky-900/80 mt-2">
+        Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
+        cillum sint consectetur cupidatat.
+      </p>
+      <main className="mt-8 flex flex-col gap-8">
+        {audios.map((audio) => (
+          <MeetingAudio audio={audio} key={audio.id} />
+        ))}
+      </main>
     </div>
   );
 };
