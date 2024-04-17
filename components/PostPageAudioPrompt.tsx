@@ -23,7 +23,8 @@ const PostPageAudioPrompt: React.FC = () => {
     );
   }
 
-  const currentlyPlayingMp3 = audio?.post[language].mp3Url;
+  const currentlyPlayingMp3 =
+    audio?.type === `post` ? audio.post[language].mp3Url : null;
   const thisMp3Url = cachedPost[language].mp3Url;
   const isPlaying = audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url;
 
@@ -32,12 +33,14 @@ const PostPageAudioPrompt: React.FC = () => {
       <button
         onClick={() => {
           if (currentlyPlayingMp3 !== thisMp3Url) {
+            console.log(`new audio`);
             dispatch({
               type: `playButtonClicked`,
               audio: {
                 isPlaying: true,
                 currentTime: 0,
                 post: cachedPost,
+                type: `post`,
               },
               from: {
                 component: `PostPageAudioPrompt`,
@@ -45,6 +48,7 @@ const PostPageAudioPrompt: React.FC = () => {
               },
             });
           } else {
+            console.log(`same audio`);
             dispatch({
               type: `playButtonClicked`,
               from: {

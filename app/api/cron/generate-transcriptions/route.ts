@@ -13,6 +13,11 @@ export async function GET() {
     `Found ${meetingAudiosWithoutTranscription.length} meeting audio(s) without a transcription.`,
   );
 
+  if (meetingAudiosWithoutTranscription.length === 0) {
+    console.log(`All meeting audios have already been transcribed.`);
+    return NextResponse.json({ ok: true });
+  }
+
   meetingAudiosWithoutTranscription.forEach((audio) => {
     console.log(`Transcribing meeting audio: ${audio.title}`);
 

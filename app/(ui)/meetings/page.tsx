@@ -17,8 +17,6 @@ export const metadata = {
 const Meetings: NextPage = async () => {
   const audios = await getAllMeetingAudios();
 
-  console.log(audios);
-
   return (
     <div className="p-20">
       <h1 className="text-4xl font-bold text-slate-900">Meeting audios</h1>

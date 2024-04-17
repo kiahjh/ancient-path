@@ -17,6 +17,7 @@ const Chrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const {
     state: { audio },
+    dispatch,
   } = useGlobalState();
 
   useEffect(() => {
@@ -24,6 +25,24 @@ const Chrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       setIsMobile(true);
       setSidebarOpen(false);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === ` `) {
+        e.preventDefault();
+        dispatch({
+          type: `playButtonClicked`,
+          from: {
+            component: `Chrome`,
+            context: `spacebar keydown`,
+          },
+        });
+      }
+    };
+
+    window.addEventListener(`keydown`, handleKeyDown);
+    return () => window.removeEventListener(`keydown`, handleKeyDown);
   }, []);
 
   return (
