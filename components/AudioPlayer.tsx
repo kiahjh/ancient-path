@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import Link from "next/link";
 import type { State } from "@/lib/state/store";
+import PlayButton from "./PlayButton";
 import { useGlobalState } from "@/lib/hooks";
 import styles from "@/styles/AudioPlayer.module.css";
 import { formatTime } from "@/lib/dates";
@@ -75,7 +76,8 @@ const AudioPlayer: React.FC = () => {
                 className="w-7 sm:w-8 ml-0.5 text-sky-500 rotate-180"
               />
             </button>
-            <button
+            <PlayButton
+              playing={state.audio.isPlaying}
               onClick={() => {
                 dispatch({
                   type: `playButtonClicked`,
@@ -85,16 +87,7 @@ const AudioPlayer: React.FC = () => {
                   },
                 });
               }}
-              className={cx(
-                `w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform,opacity] duration-200 flex justify-center items-center`,
-              )}
-            >
-              {state.audio.isPlaying ? (
-                <PauseIcon fill="white" className="w-6 text-white" />
-              ) : (
-                <PlayIcon fill="white" className="w-6 text-white" />
-              )}
-            </button>
+            />
             <button
               className={cx(
                 `w-14 h-10 rounded-2xl hover:bg-sky-200/60 flex justify-center items-center transition-[background-color,transform,opacity] duration-200 active:bg-sky-300/70 active:scale-95`,
