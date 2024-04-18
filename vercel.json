@@ -1,6 +1,6 @@
 {
   "crons": [{
     "path": "/api/cron/generate-transcriptions",
-    "schedule": "*/2 * * * *"
+    "schedule": "0 20 * * *"
   }]
 }

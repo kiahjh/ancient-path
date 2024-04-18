@@ -1,3 +1,5 @@
+// at the end of every day, check all meeting audios for a transcription. if any don't have one, that means that they were just added that day. for those audios, download the mp3, feed it to whisper to get a transcription, and then update the entity on cosmic with the transcription.
+
 import fs from "fs";
 import * as stream from "stream";
 import { promisify } from "util";
@@ -5,6 +7,7 @@ import OpenAI from "openai";
 import axios from "axios";
 import { NextResponse } from "next/server";
 import { createBucketClient } from "@cosmicjs/sdk";
+import type { NextRequest } from "next/server";
 import { getAllMeetingAudios } from "@/lib/get-data";
 
 const finished = promisify(stream.finished);
@@ -21,7 +24,14 @@ const openai = new OpenAI({
 
 export const revalidate = 0;
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (
+    req.headers.get(`Authorization`) !== `Bearer ${process.env.CRON_SECRET}`
+  ) {
+    console.log(`attempted unauthorized access to cron job`);
+    return new Response(`Unauthorized`, { status: 401 });
+  }
+
   console.log(`Checking for meeting audios that need a transcription...`);
 
   const meetingAudios = await getAllMeetingAudios();
@@ -57,7 +67,7 @@ export async function GET() {
           file: fs.createReadStream(fileName),
           model: `whisper-1`,
           response_format: `verbose_json`,
-          timestamp_granularities: [`word`],
+          timestamp_granularities: [`word`, `segment`],
         });
       })
       .then((transcription) => {

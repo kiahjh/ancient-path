@@ -67,5 +67,6 @@ export function toMeetingAudio(apiMeetingAudio: ApiMeetingAudio): MeetingAudio {
     mp3Url: apiMeetingAudio.metadata.mp3_url,
     language: apiMeetingAudio.metadata.language.key,
     transcription: apiMeetingAudio.metadata.transcription,
+    dateOfMeeting: apiMeetingAudio.metadata.date_of_meeting,
   };
 }

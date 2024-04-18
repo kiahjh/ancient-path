@@ -1,4 +1,4 @@
-import { FastForwardIcon, PauseIcon, PlayIcon } from "lucide-react";
+import { FastForwardIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import Link from "next/link";
@@ -40,11 +40,6 @@ const AudioPlayer: React.FC = () => {
       });
     }
   }, [audio]);
-
-  useEffect(() => {
-    console.log(state.audio);
-    console.log(state.audio?.isPlaying);
-  }, [state]);
 
   return (
     <div
@@ -123,6 +118,7 @@ const AudioPlayer: React.FC = () => {
                 {state.audio.type === `post`
                   ? state.audio.post[state.language].title
                   : state.audio.meetingAudio.title}
+                <span className="font-normal text-sky-900/50 capitalize">{` • ${state.audio.type === `post` ? state.audio.post.category : `Meeting`}`}</span>
               </Link>
               <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-transparent via-transparent to-sky-100 pointer-events-none" />
             </div>
@@ -203,8 +199,9 @@ function hrefToPlayingPost(state: State): string {
     )
       audioLink = `/ensenanzas/${state.audio.post[state.language].slug}`;
   } else if (state.audio?.type === `meetingAudio`) {
-    if (state.language === `en`) audioLink = `/meetings`;
-    else audioLink = `/reuniones`;
+    if (state.language === `en`)
+      audioLink = `/meetings#${state.audio.meetingAudio.id}`;
+    else audioLink = `/reuniones#${state.audio.meetingAudio.id}`;
   }
   return audioLink;
 }

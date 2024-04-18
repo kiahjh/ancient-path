@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import cx from "classnames";
-import { DownloadIcon, Loader2Icon, PauseIcon, PlayIcon } from "lucide-react";
+import { DownloadIcon, Loader2Icon } from "lucide-react";
 import PlayButton from "./PlayButton";
 import { useGlobalState } from "@/lib/hooks";
 
@@ -32,7 +32,10 @@ const PostPageAudioPrompt: React.FC = () => {
   return (
     <div className="flex items-center gap-3 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 rounded-full">
       <PlayButton
-        playing={Boolean(audio?.isPlaying && currentlyPlayingMp3)}
+        shrinkOnSmallScreens
+        playing={Boolean(
+          audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url,
+        )}
         onClick={() => {
           if (currentlyPlayingMp3 !== thisMp3Url) {
             console.log(`new audio`);
@@ -76,7 +79,7 @@ const PostPageAudioPrompt: React.FC = () => {
               )}
               style={{
                 animation: `audio-playing 1.5s ${
-                  i * 150
+                  i * 150 - 5000
                 }ms ease-in-out infinite`,
               }}
             />

@@ -57,7 +57,13 @@ export async function getAllMeetingAudios(): Promise<MeetingAudio[]> {
   const response = await fetch(url);
   const objs = await response.json();
   const allApiAudios: Array<ApiMeetingAudio> = objs.objects;
-  return allApiAudios.map(toMeetingAudio);
+  return allApiAudios
+    .map(toMeetingAudio)
+    .sort(
+      (a, b) =>
+        new Date(b.dateOfMeeting).getTime() -
+        new Date(a.dateOfMeeting).getTime(),
+    );
 }
 
 export async function getMeetingAudio(slug: string): Promise<any> {
