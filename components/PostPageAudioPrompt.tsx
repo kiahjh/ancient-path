@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import cx from "classnames";
-import { DownloadIcon, Loader2Icon, PauseIcon, PlayIcon } from "lucide-react";
+import { DownloadIcon, Loader2Icon } from "lucide-react";
+import PlayButton from "./PlayButton";
 import { useGlobalState } from "@/lib/hooks";
 
 const PostPageAudioPrompt: React.FC = () => {
@@ -23,21 +24,28 @@ const PostPageAudioPrompt: React.FC = () => {
     );
   }
 
-  const currentlyPlayingMp3 = audio?.post[language].mp3Url;
+  const currentlyPlayingMp3 =
+    audio?.type === `post` ? audio.post[language].mp3Url : null;
   const thisMp3Url = cachedPost[language].mp3Url;
   const isPlaying = audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url;
 
   return (
     <div className="flex items-center gap-3 xs:gap-4 bg-sky-50 p-2.5 xs:p-4 rounded-full">
-      <button
+      <PlayButton
+        shrinkOnSmallScreens
+        playing={Boolean(
+          audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url,
+        )}
         onClick={() => {
           if (currentlyPlayingMp3 !== thisMp3Url) {
+            console.log(`new audio`);
             dispatch({
               type: `playButtonClicked`,
               audio: {
                 isPlaying: true,
                 currentTime: 0,
                 post: cachedPost,
+                type: `post`,
               },
               from: {
                 component: `PostPageAudioPrompt`,
@@ -45,6 +53,7 @@ const PostPageAudioPrompt: React.FC = () => {
               },
             });
           } else {
+            console.log(`same audio`);
             dispatch({
               type: `playButtonClicked`,
               from: {
@@ -54,14 +63,7 @@ const PostPageAudioPrompt: React.FC = () => {
             });
           }
         }}
-        className="w-10 xs:w-12 h-10 xs:h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center shrink-0"
-      >
-        {audio?.isPlaying && currentlyPlayingMp3 === thisMp3Url ? (
-          <PauseIcon fill="white" className="w-6 text-white" />
-        ) : (
-          <PlayIcon fill="white" className="w-6 text-white" />
-        )}
-      </button>
+      />
       <div className="flex-grow relative">
         <div
           className={cx(
@@ -77,7 +79,7 @@ const PostPageAudioPrompt: React.FC = () => {
               )}
               style={{
                 animation: `audio-playing 1.5s ${
-                  i * 150
+                  i * 150 - 5000
                 }ms ease-in-out infinite`,
               }}
             />

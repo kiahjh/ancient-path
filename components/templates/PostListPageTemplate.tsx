@@ -1,10 +1,8 @@
 import React from "react";
-import type { Metadata } from "next";
 import type { Language, Post, Series } from "@/lib/types";
 import { paginate } from "@/lib/helpers";
 import Paginator from "@/components/Paginator";
 import PostPreview from "@/components/PostPreview";
-import { initializeLanguage } from "@/lib/actions";
 
 type Props = {
   language: Language;

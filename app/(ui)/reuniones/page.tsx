@@ -1,4 +1,5 @@
 import React from "react";
+import MeetingAudiosPageTemplate from "@/components/templates/MeetingAudiosPageTemplate";
 
 export const metadata = {
   title: `Reuniones | La Senda Antigua`,
@@ -9,12 +10,6 @@ export const metadata = {
   },
 };
 
-const Reuniones: React.FC = () => {
-  return (
-    <div className="min-h-full flex justify-center items-center text-2xl font-medium">
-      Próximamente
-    </div>
-  );
-};
+const Reuniones: React.FC = () => <MeetingAudiosPageTemplate language="es" />;
 
 export default Reuniones;

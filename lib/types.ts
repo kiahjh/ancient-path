@@ -47,6 +47,24 @@ export interface ApiSeries {
   };
 }
 
+export interface ApiMeetingAudio {
+  id: string;
+  title: string;
+  slug: string;
+  created_at: string;
+  modified_at: string;
+  published_at: string;
+  metadata: {
+    mp3_url: string;
+    language: {
+      key: Language;
+      value: "English" | "Spanish";
+    };
+    transcription: Transcription | null;
+    date_of_meeting: string;
+  };
+}
+
 export interface Post {
   id: string;
   createdAt: string;
@@ -89,4 +107,41 @@ export interface Series {
     slug: string;
     description: string;
   };
+}
+
+export interface MeetingAudio {
+  id: string;
+  title: string;
+  slug: string;
+  createdAt: string;
+  modifiedAt: string;
+  publishedAt: string;
+  mp3Url: string;
+  language: Language;
+  transcription: Transcription | null;
+  dateOfMeeting: string;
+}
+
+export interface Transcription {
+  task: "transcribe";
+  language: "english" | "spanish";
+  duration: number;
+  text: string;
+  words: Array<{
+    word: string;
+    start: number;
+    end: number;
+  }>;
+  segments: Array<{
+    id: number;
+    seek: number;
+    start: number;
+    end: number;
+    text: string;
+    tokens: number[];
+    temperature: number;
+    avg_logprob: number;
+    compression_ratio: number;
+    no_speech_prob: number;
+  }>;
 }

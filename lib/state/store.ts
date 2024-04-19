@@ -1,11 +1,15 @@
-import type { Language, Post } from "@/lib/types";
+import type { Language, MeetingAudio, Post } from "@/lib/types";
 
 export interface State {
-  audio: {
-    isPlaying: boolean;
-    currentTime: number;
-    post: Post;
-  } | null;
+  audio:
+    | ({
+        isPlaying: boolean;
+        currentTime: number;
+      } & (
+        | { type: "post"; post: Post }
+        | { type: "meetingAudio"; meetingAudio: MeetingAudio }
+      ))
+    | null;
   cachedPost: Post | null;
   language: Language;
   sidebarOpen: boolean;
