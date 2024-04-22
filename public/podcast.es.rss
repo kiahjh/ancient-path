@@ -34,6 +34,21 @@
       </itunes:category>
       
           <item>
+            <title>El Reino de Dios Se Ha Acercado</title>
+          <enclosure url="https://cdn.cosmicjs.com/4065a7b0-00b1-11ef-bec5-7f9403a32f29-01-Reino-de-Dios.mp3" length="25925261" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[El tiempo se cumplió, y el reino de Dios se acercó. Llegó como el cumplimiento de toda promesa, la sustancia de toda sombra. Llegó en la persona de un gran rey que establecería su trono en el corazón del hombre y pondría a todo enemigo bajo sus pies. Y sin embargo, a pesar de todos las señales y milagros que demostraban que había llegado, y a pesar de todas las profecías que se habían cumplido, la mayoría de los judíos no vieron el reino, porque sus corazones querían otra cosa. ¿Estamos haciendo lo mismo?]]></itunes:subtitle>
+          <itunes:summary><![CDATA[El tiempo se cumplió, y el reino de Dios se acercó. Llegó como el cumplimiento de toda promesa, la sustancia de toda sombra. Llegó en la persona de un gran rey que establecería su trono en el corazón del hombre y pondría a todo enemigo bajo sus pies. Y sin embargo, a pesar de todos las señales y milagros que demostraban que había llegado, y a pesar de todas las profecías que se habían cumplido, la mayoría de los judíos no vieron el reino, porque sus corazones querían otra cosa. ¿Estamos haciendo lo mismo?]]></itunes:summary>
+          <description><![CDATA[El tiempo se cumplió, y el reino de Dios se acercó. Llegó como el cumplimiento de toda promesa, la sustancia de toda sombra. Llegó en la persona de un gran rey que establecería su trono en el corazón del hombre y pondría a todo enemigo bajo sus pies. Y sin embargo, a pesar de todos las señales y milagros que demostraban que había llegado, y a pesar de todas las profecías que se habían cumplido, la mayoría de los judíos no vieron el reino, porque sus corazones querían otra cosa. ¿Estamos haciendo lo mismo?]]></description>
+          <link>http://localhost:3000/posts/el-reino-de-dios-se-ha-acercado</link>
+          <guid>http://localhost:3000/posts/el-reino-de-dios-se-ha-acercado</guid>
+          <pubDate>2024-04-22T14:42:08.036Z</pubDate>
+          <itunes:duration>2673</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
             <title>Debemos Guardar el Pacto</title>
           <enclosure url="https://cdn.cosmicjs.com/a93cb4d0-c20f-11ee-af00-7f71fe157bbd-04-El-Camino.mp3" length="25651325" type="audio/mpeg" />
           <itunes:author>Jason Henderson</itunes:author>

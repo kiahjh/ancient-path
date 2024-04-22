@@ -83,14 +83,17 @@ const MeetingAudio: React.FC<{ audio: MeetingAudio }> = ({ audio }) => {
         ref={transcriptionContainer}
       >
         {!audio.transcription && (
-          <div className="flex flex-col items-center -mt-8">
+          <div className="flex flex-col items-center -mt-8 px-4">
             <div className="w-16 h-16 bg-sky-200 rounded-full flex justify-center items-center">
               <SparklesIcon size={35} className="text-sky-700" />
             </div>
-            <div className="flex items-center mt-8 mb-4">
+            <div className="flex items-center mt-6 xs:mt-8 mb-2 xs:mb-4">
+              <span className="block xs:hidden text-2xl text-sky-800 font-medium text-center">
+                Generating transcription...
+              </span>
               {`Generating transcription...`.split(``).map((char, i) => (
                 <span
-                  className="text-3xl font-medium text-sky-800 animate-pulse mx-[1px]"
+                  className="text-3xl font-medium text-sky-800 animate-pulse mx-[1px] hidden xs:block"
                   style={{
                     animation: `shimmer 2s ${
                       i * 100 - 4000
@@ -101,7 +104,7 @@ const MeetingAudio: React.FC<{ audio: MeetingAudio }> = ({ audio }) => {
                 </span>
               ))}
             </div>
-            <p className="text-lg text-sky-900/70">
+            <p className="text-lg text-sky-900/70 text-center">
               Check back later and it should be ready for you.
             </p>
           </div>

@@ -34,6 +34,21 @@
       </itunes:category>
       
           <item>
+            <title>The Kingdom of God Has Drawn Near</title>
+          <enclosure url="https://cdn.cosmicjs.com/3efec4b0-00b1-11ef-bec5-7f9403a32f29-01-Kingdom-of-God.mp3" length="22579733" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The time was fulfilled, and the kingdom of God drew near. It came as the fulfillment of every promise, the substance of every shadow. It came in the Person of a great king who would set up his throne in the heart of man and put every enemy under his feet. And yet, despite all of the signs and miracles that proved that it had come, and despite all of the prophecies that had been fulfilled, the majority of the Jews missed the kingdom because their hearts wanted something else. Are we doing the same thing?]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The time was fulfilled, and the kingdom of God drew near. It came as the fulfillment of every promise, the substance of every shadow. It came in the Person of a great king who would set up his throne in the heart of man and put every enemy under his feet. And yet, despite all of the signs and miracles that proved that it had come, and despite all of the prophecies that had been fulfilled, the majority of the Jews missed the kingdom because their hearts wanted something else. Are we doing the same thing?]]></itunes:summary>
+          <description><![CDATA[The time was fulfilled, and the kingdom of God drew near. It came as the fulfillment of every promise, the substance of every shadow. It came in the Person of a great king who would set up his throne in the heart of man and put every enemy under his feet. And yet, despite all of the signs and miracles that proved that it had come, and despite all of the prophecies that had been fulfilled, the majority of the Jews missed the kingdom because their hearts wanted something else. Are we doing the same thing?]]></description>
+          <link>http://localhost:3000/posts/the-kingdom-of-god-has-drawn-near</link>
+          <guid>http://localhost:3000/posts/the-kingdom-of-god-has-drawn-near</guid>
+          <pubDate>2024-04-22T14:42:08.036Z</pubDate>
+          <itunes:duration>2336</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
             <title>We Must Keep the Covenant</title>
           <enclosure url="https://cdn.cosmicjs.com/a9066290-c20f-11ee-af00-7f71fe157bbd-04-The-Way.mp3" length="22773173" type="audio/mpeg" />
           <itunes:author>Jason Henderson</itunes:author>
