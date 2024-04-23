@@ -34,6 +34,21 @@
       </itunes:category>
       
           <item>
+            <title>La Venida del Rey</title>
+          <enclosure url="https://cdn.cosmicjs.com/0e7f4800-072d-11ef-9eca-7d347081a9fb-02-Reino-de-Dios.mp3" length="24372629" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[La salvación del hombre ES el reino de Dios. Es una tierra interna que ha sido sometida, conquistada, cambiada, limpiada y llena del reino del Rey. Es un ambiente que no tiene nada contrario, ninguna enemistad, hostilidad, o enemigos. Es un alma totalmente sometida, totalmente habitada y totalmente viva con la voluntad, la naturaleza y la gloria del Rey.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[La salvación del hombre ES el reino de Dios. Es una tierra interna que ha sido sometida, conquistada, cambiada, limpiada y llena del reino del Rey. Es un ambiente que no tiene nada contrario, ninguna enemistad, hostilidad, o enemigos. Es un alma totalmente sometida, totalmente habitada y totalmente viva con la voluntad, la naturaleza y la gloria del Rey.]]></itunes:summary>
+          <description><![CDATA[La salvación del hombre ES el reino de Dios. Es una tierra interna que ha sido sometida, conquistada, cambiada, limpiada y llena del reino del Rey. Es un ambiente que no tiene nada contrario, ninguna enemistad, hostilidad, o enemigos. Es un alma totalmente sometida, totalmente habitada y totalmente viva con la voluntad, la naturaleza y la gloria del Rey.]]></description>
+          <link>http://localhost:3000/posts/la-venida-del-rey</link>
+          <guid>http://localhost:3000/posts/la-venida-del-rey</guid>
+          <pubDate>2024-04-30T20:15:50.706Z</pubDate>
+          <itunes:duration>2439</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
             <title>El Reino de Dios Se Ha Acercado</title>
           <enclosure url="https://cdn.cosmicjs.com/4065a7b0-00b1-11ef-bec5-7f9403a32f29-01-Reino-de-Dios.mp3" length="25925261" type="audio/mpeg" />
           <itunes:author>Jason Henderson</itunes:author>

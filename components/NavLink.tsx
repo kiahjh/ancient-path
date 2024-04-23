@@ -24,7 +24,7 @@ const NavLink: React.FC<Props> = ({
   <Link
     href={href}
     className={cx(
-      `flex items-center gap-4 hover:bg-sky-200/70 active:bg-sky-300/50 dark:hover:bg-sky-500/5 dark:active:bg-sky-500/10 active:scale-[98%] transition-[background-color,transform] duration-200 px-4 sm:px-6 py-2 xs:py-3 sm:py-4 rounded-2xl xs:rounded-3xl select-none`,
+      `flex items-center gap-4 hover:bg-sky-200/70 active:bg-sky-300/50 dark:hover:bg-sky-500/5 dark:active:bg-sky-500/10 active:scale-[98%] transition-[background-color,transform] duration-200 rounded-2xl xs:rounded-3xl select-none NavLink`, // padding styles in globals.css
       selected && `bg-sky-200/50 dark:bg-sky-500/10`,
     )}
     onClick={() => {

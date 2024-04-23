@@ -34,6 +34,21 @@
       </itunes:category>
       
           <item>
+            <title>The Return of the King</title>
+          <enclosure url="https://cdn.cosmicjs.com/0bee63f0-072d-11ef-9eca-7d347081a9fb-02-The-Kingdom.mp3" length="19805309" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[The salvation of man IS the kingdom of God. It is an inward land that has been subdued, conquered, changed, cleansed, and filled with the reign of the King. It is an environment that has nothing contrary, no enmity, hostility, or enemies. It’s a soul totally subdued, totally inhabited, and totally alive with the will, nature, and glory of the King.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[The salvation of man IS the kingdom of God. It is an inward land that has been subdued, conquered, changed, cleansed, and filled with the reign of the King. It is an environment that has nothing contrary, no enmity, hostility, or enemies. It’s a soul totally subdued, totally inhabited, and totally alive with the will, nature, and glory of the King.]]></itunes:summary>
+          <description><![CDATA[The salvation of man IS the kingdom of God. It is an inward land that has been subdued, conquered, changed, cleansed, and filled with the reign of the King. It is an environment that has nothing contrary, no enmity, hostility, or enemies. It’s a soul totally subdued, totally inhabited, and totally alive with the will, nature, and glory of the King.]]></description>
+          <link>http://localhost:3000/posts/the-return-of-the-king</link>
+          <guid>http://localhost:3000/posts/the-return-of-the-king</guid>
+          <pubDate>2024-04-30T20:15:50.706Z</pubDate>
+          <itunes:duration>2022</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
             <title>The Kingdom of God Has Drawn Near</title>
           <enclosure url="https://cdn.cosmicjs.com/3efec4b0-00b1-11ef-bec5-7f9403a32f29-01-Kingdom-of-God.mp3" length="22579733" type="audio/mpeg" />
           <itunes:author>Jason Henderson</itunes:author>
