@@ -61,8 +61,8 @@ const Chrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         className={cx(
           `w-10 h-10 rounded-full flex justify-center items-center absolute top-2 transition-[left,transform,background-color] duration-300 hover:bg-white z-30 backdrop-blur`,
           sidebarOpen
-            ? `sm:left-60 left-[300px] bg-sky-100 sm:bg-sky-50`
-            : `left-2 lg:rotate-180 bg-sky-200/50`,
+            ? `SidebarButtonOpen lg:left-60 left-[300px] bg-sky-100 sm:bg-sky-50`
+            : `SidebarButtonClosed left-2 lg:rotate-180 bg-sky-200/50`,
         )}
       >
         <ChevronLeftIcon className="w-6 text-sky-500 hidden lg:block" />

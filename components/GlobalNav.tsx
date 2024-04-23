@@ -29,8 +29,8 @@ const GlobalNav: React.FC<{
 
   return (
     <nav>
-      <div className="mt-0 xs:mt-10 sm:mt-12 p-4">
-        <div className="sm:p-2">
+      <div className="NavContainer">
+        <div className="TopPart">
           <NavLink
             href="/"
             setOpen={setOpen}
@@ -80,11 +80,11 @@ const GlobalNav: React.FC<{
             {dual(`Contact me`, `Contacto`)}
           </NavLink>
         </div>
-        <div className="mt-6 sm:mt-8">
+        <div className="BottomPart">
           <h4 className="ml-6 mb-1 font-medium text-sky-700/60 dark:text-slate-600">
             {dual(`Resources`, `Recursos`)}
           </h4>
-          <div className="bg-sky-200/10 dark:bg-sky-800/5 sm:border border-dashed border-sky-300/50 dark:border-sky-500/20 sm:p-2 rounded-3xl">
+          <div className="bg-sky-200/10 dark:bg-sky-800/5 border-dashed border-sky-300/50 dark:border-sky-500/20 rounded-3xl Inside">
             <NavLink
               href={dual(`/teachings/page/1`, `/ensenanzas/pagina/1`)}
               setOpen={setOpen}

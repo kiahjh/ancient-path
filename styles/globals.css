@@ -25,3 +25,73 @@
     opacity: 0.5;
   }
 }
+
+/* Custom styles for nav sidebar */
+
+.NavContainer {
+  margin-top: 0rem;
+  padding: 0rem;
+}
+
+.NavContainer .TopPart {
+  padding: 0.5rem 0.75rem;
+}
+
+.NavContainer .BottomPart {
+  margin-top: 0.5rem;
+}
+
+.NavContainer .BottomPart .Inside {
+  padding: 0rem 0.75rem 1rem 0.75rem;
+}
+
+.NavLink {
+  padding: 0.6rem 1rem;
+}
+
+@media (min-height: 760px) {
+  .NavContainer {
+    margin-top: 1.5rem;
+    padding: 0rem;
+  }
+
+  .NavContainer .TopPart {
+    padding: 0.5rem 1rem;
+  }
+
+  .NavContainer .BottomPart {
+    margin-top: 1rem;
+  }
+
+  .NavContainer .BottomPart .Inside {
+    padding: 0rem 1rem 1rem 1rem;
+  }
+
+  .NavLink {
+    padding: 0.9rem 1rem;
+  }
+}
+
+@media (min-height: 880px) {
+  .NavContainer {
+    margin-top: 3rem;
+    padding: 1rem;
+  }
+
+  .NavContainer .TopPart {
+    padding: 0.5rem;
+  }
+
+  .NavContainer .BottomPart {
+    margin-top: 2rem;
+  }
+
+  .NavContainer .BottomPart .Inside {
+    padding: 0.5rem;
+    @apply border;
+  }
+
+  .NavLink {
+    padding: 1rem 1.5rem;
+  }
+}

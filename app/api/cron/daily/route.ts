@@ -1,4 +1,4 @@
-// at the end of every day, check all meeting audios for a transcription. if any don't have one, that means that they were just added that day. for those audios, download the mp3, feed it to whisper to get a transcription, and then update the entity on cosmic with the transcription.
+// at the end of every day, generate podcast rss feed, then check all meeting audios for a transcription. if any don't have one, that means that they were just added that day. for those audios, download the mp3, feed it to whisper to get a transcription, and then update the entity on cosmic with the transcription.
 
 import fs from "fs";
 import * as stream from "stream";
@@ -8,7 +8,8 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import { createBucketClient } from "@cosmicjs/sdk";
 import type { NextRequest } from "next/server";
-import { getAllMeetingAudios } from "@/lib/get-data";
+import { getAllMeetingAudios, getAllPosts } from "@/lib/get-data";
+import { generatePodcastRss } from "@/lib/podcast";
 
 const finished = promisify(stream.finished);
 
@@ -32,6 +33,9 @@ export async function GET(req: NextRequest) {
     return new Response(`Unauthorized`, { status: 401 });
   }
 
+  const posts = await getAllPosts();
+  generatePodcastRss(posts);
+
   console.log(`Checking for meeting audios that need a transcription...`);
 
   const meetingAudios = await getAllMeetingAudios();
@@ -54,7 +58,7 @@ export async function GET(req: NextRequest) {
   meetingAudiosWithoutTranscription.forEach((audio) => {
     console.log(`Starting transcription for "${audio.title}"...`);
 
-    const fileName = `./app/api/cron/generate-transcriptions/tmp/${audio.slug}.mp3`;
+    const fileName = `./app/api/cron/daily/tmp/${audio.slug}.mp3`;
 
     // create empty file
     fs.writeFileSync(fileName, ``);
