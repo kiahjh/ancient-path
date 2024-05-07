@@ -34,6 +34,21 @@
       </itunes:category>
       
           <item>
+            <title>Find and Follow the King</title>
+          <enclosure url="https://cdn.cosmicjs.com/07b7f090-0beb-11ef-9eca-7d347081a9fb-03-The-Kingdom.mp3" length="22012541" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[One could ask, “How do I recognize the voice of the King? With so many people saying ‘Lo here is the kingdom, and Lo there is the kingdom’; with so many doctrines and teachers and YouTube preachers, so many divided churches, divided leaders, contradicting theologies… how do I know His voice?” Let me offer you this answer: He is the one (like David 3000 years ago) saying in your heart “What is this uncircumcised giant doing in the land that God has purchased for His glory?” The King is the one testifying against the Philistine nature within you.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[One could ask, “How do I recognize the voice of the King? With so many people saying ‘Lo here is the kingdom, and Lo there is the kingdom’; with so many doctrines and teachers and YouTube preachers, so many divided churches, divided leaders, contradicting theologies… how do I know His voice?” Let me offer you this answer: He is the one (like David 3000 years ago) saying in your heart “What is this uncircumcised giant doing in the land that God has purchased for His glory?” The King is the one testifying against the Philistine nature within you.]]></itunes:summary>
+          <description><![CDATA[One could ask, “How do I recognize the voice of the King? With so many people saying ‘Lo here is the kingdom, and Lo there is the kingdom’; with so many doctrines and teachers and YouTube preachers, so many divided churches, divided leaders, contradicting theologies… how do I know His voice?” Let me offer you this answer: He is the one (like David 3000 years ago) saying in your heart “What is this uncircumcised giant doing in the land that God has purchased for His glory?” The King is the one testifying against the Philistine nature within you.]]></description>
+          <link>http://localhost:3000/posts/find-and-follow-the-king</link>
+          <guid>http://localhost:3000/posts/find-and-follow-the-king</guid>
+          <pubDate>2024-05-06T20:59:32.774Z</pubDate>
+          <itunes:duration>2229</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
             <title>The Return of the King</title>
           <enclosure url="https://cdn.cosmicjs.com/0bee63f0-072d-11ef-9eca-7d347081a9fb-02-The-Kingdom.mp3" length="19805309" type="audio/mpeg" />
           <itunes:author>Jason Henderson</itunes:author>

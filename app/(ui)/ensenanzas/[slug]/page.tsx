@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata, NextPage } from "next";
-import { getAllPosts, getPost } from "@/lib/get-data";
+import { getAllPosts, getAllSeries, getPost } from "@/lib/get-data";
 import PostPageTemplate from "@/components/templates/PostPageTemplate";
 
 export const revalidate = 0;
@@ -30,9 +30,40 @@ export async function generateMetadata(arg: {
 const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
   params,
 }) => {
-  const teaching = (await getAllPosts()).find((s) => s.es.slug === params.slug);
-  if (!teaching) return notFound();
-  return <PostPageTemplate post={teaching} language="es" />;
+  const allTeachings = (await getAllPosts()).filter(
+    (p) => p.category === `teaching`,
+  );
+  const thisTeaching = allTeachings.find((s) => s.es.slug === params.slug);
+  const thisSeriesId = thisTeaching?.series;
+  let seriesProp:
+    | {
+        name: string;
+        number: number;
+        slug: string;
+      }
+    | undefined = undefined;
+  if (thisSeriesId) {
+    const allSeries = await getAllSeries();
+    const thisSeries = allSeries.find((s) => s.id === thisSeriesId);
+    if (thisSeries) {
+      const teachingsFromThisSeries = allTeachings.filter(
+        (t) => t.series === thisSeriesId,
+      );
+      seriesProp = {
+        name: thisSeries.es.title,
+        number:
+          teachingsFromThisSeries.length -
+          teachingsFromThisSeries.findIndex((p) => p.id === thisTeaching?.id),
+        slug: thisSeries.es.slug,
+      };
+    }
+  }
+
+  if (!thisTeaching) return notFound();
+
+  return (
+    <PostPageTemplate post={thisTeaching} language="es" series={seriesProp} />
+  );
 };
 
 export default IndividualTeaching;

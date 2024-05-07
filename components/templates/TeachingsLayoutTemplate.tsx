@@ -2,7 +2,7 @@
 
 import React from "react";
 import cx from "classnames";
-import type { Language, Series } from "@/lib/types";
+import type { Language, Post, Series } from "@/lib/types";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
 import SeriesNav from "@/components/SeriesNav";
 import { useGlobalState } from "@/lib/hooks";
@@ -10,6 +10,7 @@ import { useGlobalState } from "@/lib/hooks";
 interface Props {
   children: React.ReactNode;
   series: Series[];
+  allTeachings: Post[];
   language: Language;
 }
 
@@ -17,6 +18,7 @@ const TeachingsLayoutTemplate: React.FC<Props> = ({
   children,
   language,
   series,
+  allTeachings,
 }) => {
   const {
     state: { audio },
@@ -29,13 +31,17 @@ const TeachingsLayoutTemplate: React.FC<Props> = ({
     >
       <main
         className={cx(
-          `flex-grow bg-sky-50 xl:rounded-br-3xl overflow-scroll transition-[height] duration-500`,
-          audio?.isPlaying ? `h-[calc(100dvh-96px)]` : `h-dvh`,
+          `flex-grow bg-sky-50 overflow-scroll transition-[height,border-radius] duration-500`,
+          audio ? `h-[calc(100dvh-96px)] xl:rounded-br-3xl` : `h-dvh`,
         )}
       >
         {children}
       </main>
-      <SeriesNav series={series} language={language} />
+      <SeriesNav
+        allTeachings={allTeachings}
+        series={series}
+        language={language}
+      />
     </div>
   );
 };
