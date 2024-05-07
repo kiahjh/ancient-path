@@ -34,6 +34,21 @@
       </itunes:category>
       
           <item>
+            <title>Encontrar y Seguir al Rey</title>
+          <enclosure url="https://cdn.cosmicjs.com/09fe1000-0beb-11ef-9eca-7d347081a9fb-03-Reino-de-Dios.mp3" length="25847261" type="audio/mpeg" />
+          <itunes:author>Jason Henderson</itunes:author>
+          <itunes:subtitle><![CDATA[Uno podría preguntarse: "¿Cómo reconozco la voz del Rey? Con tanta gente diciendo 'Helo aquí está el reino, y Helo allí está el reino'; con tantas doctrinas y maestros y predicadores de YouTube, tantas iglesias divididas, líderes divididos, teologías contradictorias... ¿cómo reconozco Su voz?". Permíteme ofrecerte esta respuesta: Su voz es la que (como David hace 3000 años) está diciendo en tu corazón "¿Qué está haciendo este gigante incircunciso en la tierra que Dios ha comprado para Su gloria?" El Rey es el que testifica contra la naturaleza filistea dentro de ti.]]></itunes:subtitle>
+          <itunes:summary><![CDATA[Uno podría preguntarse: "¿Cómo reconozco la voz del Rey? Con tanta gente diciendo 'Helo aquí está el reino, y Helo allí está el reino'; con tantas doctrinas y maestros y predicadores de YouTube, tantas iglesias divididas, líderes divididos, teologías contradictorias... ¿cómo reconozco Su voz?". Permíteme ofrecerte esta respuesta: Su voz es la que (como David hace 3000 años) está diciendo en tu corazón "¿Qué está haciendo este gigante incircunciso en la tierra que Dios ha comprado para Su gloria?" El Rey es el que testifica contra la naturaleza filistea dentro de ti.]]></itunes:summary>
+          <description><![CDATA[Uno podría preguntarse: "¿Cómo reconozco la voz del Rey? Con tanta gente diciendo 'Helo aquí está el reino, y Helo allí está el reino'; con tantas doctrinas y maestros y predicadores de YouTube, tantas iglesias divididas, líderes divididos, teologías contradictorias... ¿cómo reconozco Su voz?". Permíteme ofrecerte esta respuesta: Su voz es la que (como David hace 3000 años) está diciendo en tu corazón "¿Qué está haciendo este gigante incircunciso en la tierra que Dios ha comprado para Su gloria?" El Rey es el que testifica contra la naturaleza filistea dentro de ti.]]></description>
+          <link>http://localhost:3000/posts/encontrar-y-seguir-al-rey</link>
+          <guid>http://localhost:3000/posts/encontrar-y-seguir-al-rey</guid>
+          <pubDate>2024-05-06T20:59:32.774Z</pubDate>
+          <itunes:duration>2480</itunes:duration>
+          <itunes:explicit>clean</itunes:explicit>
+          <itunes:episodeType>full</itunes:episodeType>
+          </item>
+        
+          <item>
             <title>La Venida del Rey</title>
           <enclosure url="https://cdn.cosmicjs.com/0e7f4800-072d-11ef-9eca-7d347081a9fb-02-Reino-de-Dios.mp3" length="24372629" type="audio/mpeg" />
           <itunes:author>Jason Henderson</itunes:author>

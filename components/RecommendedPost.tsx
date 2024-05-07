@@ -6,11 +6,17 @@ import { relativeTime } from "@/lib/dates";
 
 interface Props {
   post: Post;
+  mainTitle?: string;
   language: Language;
   className?: string;
 }
 
-const RecommendedPost: React.FC<Props> = ({ post, language, className }) => {
+const RecommendedPost: React.FC<Props> = ({
+  post,
+  language,
+  className,
+  mainTitle,
+}) => {
   let linkHref = ``;
   if (language === `en` && post.category === `post`)
     linkHref = `/posts/${post[language].slug}`;
@@ -33,8 +39,11 @@ const RecommendedPost: React.FC<Props> = ({ post, language, className }) => {
           {relativeTime(post.createdAt, language)}
         </h4>
         <h3 className="text-xl font-bold text-slate-800">
-          {post[language].title}
+          {mainTitle ?? post[language].title}
         </h3>
+        {mainTitle && (
+          <h4 className="font-medium text-slate-500">{post[language].title}</h4>
+        )}
         <p className="text-slate-500 mt-2">
           {post[language].description.split(` `).slice(0, 40).join(` `).trim() +
             `...`}

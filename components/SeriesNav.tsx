@@ -4,15 +4,19 @@ import React from "react";
 import Link from "next/link";
 import cx from "classnames";
 import { usePathname } from "next/navigation";
-import type { Language, Series } from "@/lib/types";
+import type { Language, Post, Series } from "@/lib/types";
+import { useGlobalState } from "@/lib/hooks";
 
 interface Props {
   series: Series[];
   language: Language;
+  allTeachings: Post[];
 }
 
-const SeriesNav: React.FC<Props> = ({ series, language }) => {
+const SeriesNav: React.FC<Props> = ({ series, language, allTeachings }) => {
   const path = usePathname();
+  const { state } = useGlobalState();
+
   return (
     <nav className="w-72 flex-col py-4 shrink-0 hidden xl:flex">
       <h2 className="font-medium text-2xl text-slate-800 mx-8 mt-4 mb-2">
@@ -24,7 +28,13 @@ const SeriesNav: React.FC<Props> = ({ series, language }) => {
             <div
               className={cx(
                 `bg-sky-500/50 w-1.5 h-5 rounded-r-full`,
-                path.endsWith(s[language].slug) ? `opacity-100` : `opacity-0`,
+                path.endsWith(s[language].slug) ||
+                  (state.cachedPost?.series === s.id &&
+                    path.includes(`teachings`) &&
+                    !path.includes(`series`) &&
+                    !path.includes(`page`))
+                  ? `opacity-100`
+                  : `opacity-0`,
               )}
             />
             <Link
@@ -32,13 +42,16 @@ const SeriesNav: React.FC<Props> = ({ series, language }) => {
                 language === `en` ? `teachings` : `ensenanzas`
               }/series/${s[language].slug}`}
               className={cx(
-                `text-lg active:scale-[98%] transition-[background-color,transform] px-4 py-2 rounded-2xl text-sky-700 font-medium flex-grow`,
+                `text-lg active:scale-[98%] transition-[background-color,transform] px-4 py-2 rounded-2xl text-sky-700 font-medium flex-grow flex justify-between items-center gap-2.5`,
                 path.endsWith(s[language].slug)
                   ? `bg-sky-200/50 hover:bg-sky-200/70 active:bg-sky-200`
                   : `hover:bg-sky-200/50 active:bg-sky-200`,
               )}
             >
-              {s[language].title}
+              <span>{s[language].title}</span>
+              <div className="w-5 h-5 rounded-full bg-sky-200 flex justify-center items-center text-sm font-medium text-sky-500">
+                {allTeachings.filter((t) => t.series === s.id).length}
+              </div>
             </Link>
           </div>
         ))}

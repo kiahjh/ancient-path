@@ -14,6 +14,7 @@ const WhereToStartTemplate: React.FC<{ language: Language }> = async ({
   const recommendedSeries = allPosts
     .filter((p) => c.recommended.series.includes(p[language].slug))
     .reverse();
+
   return (
     <div className="min-h-full px-8 md:px-12 xl:px-20 py-20 flex flex-col items-center">
       <h1 className="text-3xl xs:text-4xl md:text-5xl font-bold text-slate-800 text-center">
@@ -29,10 +30,15 @@ const WhereToStartTemplate: React.FC<{ language: Language }> = async ({
       </div>
       <div className="mt-20 px-0 xs:px-8 sm:px-10 py-10 border border-dashed rounded-3xl border-sky-400/60 flex justify-center relative gap-4 sm:gap-8 -mx-10 flex-wrap 2xl:flex-nowrap">
         <h2 className="absolute -top-3 text-xl bg-sky-50 px-4 font-medium text-sky-500">
-          {language === `en` ? `The Gospel` : `El Evangelio`}
+          {c.recommended.seriesName}
         </h2>
-        {recommendedSeries.map((series) => (
-          <RecommendedPost post={series} language={language} key={series.id} />
+        {recommendedSeries.map((post, i) => (
+          <RecommendedPost
+            post={post}
+            language={language}
+            key={post.id}
+            mainTitle={`${c.recommended.seriesName} pt. ${i + 1}`}
+          />
         ))}
       </div>
     </div>
@@ -54,6 +60,7 @@ const content = {
         `two-births-in-man`,
       ],
       series: [`the-gospel-pt-1`, `the-gospel-pt-2`, `the-gospel-pt-3`],
+      seriesName: `The Gospel`,
     },
   },
   es: {
@@ -68,6 +75,7 @@ const content = {
         `dos-nacimientos-en-el-hombre`,
       ],
       series: [`el-evangelio-pt-1`, `el-evangelio-pt-2`, `el-evangelio-pt-3`],
+      seriesName: `El Evangelio`,
     },
   },
 };
