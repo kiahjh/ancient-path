@@ -5,10 +5,10 @@ import Link from "next/link";
 import type { StaticImageData } from "next/image";
 import type { Language } from "@/lib/types";
 
-import Spotify from "../../public/apps/spotify.png";
-import ApplePodcasts from "../../public/apps/apple-podcasts.png";
-import GooglePodcasts from "../../public/apps/google-podcasts.png";
-import Overcast from "../../public/apps/overcast.jpg";
+import ApplePodcasts from "@/public/apps/apple-podcasts.png";
+import GooglePodcasts from "@/public/apps/google-podcasts.png";
+import Overcast from "@/public/apps/overcast.jpg";
+import Spotify from "@/public/apps/spotify.png";
 
 const PodcastPageTemplate: React.FC<{ language: Language }> = ({
   language,

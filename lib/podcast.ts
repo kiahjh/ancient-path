@@ -5,7 +5,7 @@ export function generatePodcastRss(posts: Array<Post>) {
   console.log(`🫛 Generating podcast rss feeds...`);
   const enXml = podcastXml(`en`, posts);
   const esXml = podcastXml(`es`, posts);
-  writeFile(`public/podcast.en.rss`, enXml, (err) => {
+  writeFile(`/podcast.en.rss`, enXml, (err) => {
     if (err) {
       console.error(
         `💥 Failed to generate english rss feed for podcast, with error:`,
@@ -15,7 +15,7 @@ export function generatePodcastRss(posts: Array<Post>) {
       console.log(`✅ Successfully generated english rss feed for podcast`);
     }
   });
-  writeFile(`public/podcast.es.rss`, esXml, (err) => {
+  writeFile(`/podcast.es.rss`, esXml, (err) => {
     if (err) {
       console.error(
         `💥 Failed to generate spanish rss feed for podcast, with error:`,
