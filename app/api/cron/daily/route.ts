@@ -8,8 +8,9 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import { createBucketClient } from "@cosmicjs/sdk";
 import type { NextRequest } from "next/server";
-import { getAllMeetingAudios, getAllPosts } from "@/lib/get-data";
-import { generatePodcastRss } from "@/lib/podcast";
+import type { Post } from "@/lib/types";
+import { getAllMeetingAudios, getAllPosts, getRssFeed } from "@/lib/get-data";
+import { podcastXml } from "@/lib/podcast";
 
 const finished = promisify(stream.finished);
 
@@ -88,6 +89,35 @@ export async function GET(req: NextRequest) {
   });
 
   return NextResponse.json({ ok: true });
+}
+
+async function generatePodcastRss(posts: Array<Post>) {
+  console.log(`🫛 Generating podcast rss feeds...`);
+  const enXml = podcastXml(`en`, posts);
+  const esXml = podcastXml(`es`, posts);
+  const englishRSS = await getRssFeed(`english-rss`);
+  const spanishRSS = await getRssFeed(`spanish-rss`);
+
+  if (!englishRSS || !spanishRSS) {
+    console.error(`💥 Failed to get rss feeds from cosmic`);
+    return;
+  }
+
+  try {
+    cosmic.objects.updateOne(englishRSS.id, {
+      metadata: {
+        rss: enXml,
+      },
+    });
+    cosmic.objects.updateOne(spanishRSS.id, {
+      metadata: {
+        rss: esXml,
+      },
+    });
+  } catch (err) {
+    console.error(`💥 Failed to update rss feeds on cosmic with error:`, err);
+    return;
+  }
 }
 
 async function downloadFile(

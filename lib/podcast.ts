@@ -1,33 +1,6 @@
-import { writeFile } from "fs";
 import type { Language, Post } from "./types";
 
-export function generatePodcastRss(posts: Array<Post>) {
-  console.log(`🫛 Generating podcast rss feeds...`);
-  const enXml = podcastXml(`en`, posts);
-  const esXml = podcastXml(`es`, posts);
-  writeFile(`/podcast.en.rss`, enXml, (err) => {
-    if (err) {
-      console.error(
-        `💥 Failed to generate english rss feed for podcast, with error:`,
-        err,
-      );
-    } else {
-      console.log(`✅ Successfully generated english rss feed for podcast`);
-    }
-  });
-  writeFile(`/podcast.es.rss`, esXml, (err) => {
-    if (err) {
-      console.error(
-        `💥 Failed to generate spanish rss feed for podcast, with error:`,
-        err,
-      );
-    } else {
-      console.log(`✅ Successfully generated spanish rss feed for podcast`);
-    }
-  });
-}
-
-function podcastXml(lang: Language, posts: Array<Post>): string {
+export function podcastXml(lang: Language, posts: Array<Post>): string {
   const description =
     lang === `en`
       ? `I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.`

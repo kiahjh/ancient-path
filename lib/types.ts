@@ -65,6 +65,18 @@ export interface ApiMeetingAudio {
   };
 }
 
+export interface ApiRSSFeed {
+  id: string;
+  title: string;
+  slug: string;
+  created_at: string;
+  modified_at: string;
+  published_at: string;
+  metadata: {
+    rss: string;
+  };
+}
+
 export interface Post {
   id: string;
   createdAt: string;
@@ -144,4 +156,11 @@ export interface Transcription {
     compression_ratio: number;
     no_speech_prob: number;
   }>;
+}
+
+export interface RSSFeed {
+  id: string;
+  title: string;
+  slug: string;
+  rss: string;
 }

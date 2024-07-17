@@ -1,13 +1,15 @@
 import type {
   ApiMeetingAudio,
   ApiPost,
+  ApiRSSFeed,
   ApiSeries,
   Language,
   MeetingAudio,
   Post,
+  RSSFeed,
   Series,
 } from "./types";
-import { toMeetingAudio, toPost, toSeries } from "./data-conversion";
+import { toMeetingAudio, toPost, toRSSFeed, toSeries } from "./data-conversion";
 
 const bucketSlug = process.env.COSMIC_BUCKET_SLUG;
 const readKey = process.env.COSMIC_READ_KEY;
@@ -66,7 +68,19 @@ export async function getAllMeetingAudios(): Promise<MeetingAudio[]> {
     );
 }
 
-export async function getMeetingAudio(slug: string): Promise<any> {
+export async function getMeetingAudio(
+  slug: string,
+): Promise<MeetingAudio | null> {
   const audios = await getAllMeetingAudios();
   return audios.find((audio) => audio.slug === slug) ?? null;
+}
+
+export async function getRssFeed(slug: string): Promise<RSSFeed | null> {
+  const endpoint = `http://api.cosmicjs.com/v3/buckets`;
+  const query = encodeURIComponent(`{"type":"rss-feeds"}`);
+  const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
+  const response = await fetch(url);
+  const objs = await response.json();
+  const allApiFeeds: Array<ApiRSSFeed> = objs.objects;
+  return allApiFeeds.map(toRSSFeed).find((feed) => feed.slug === slug) ?? null;
 }

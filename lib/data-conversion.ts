@@ -1,9 +1,11 @@
 import type {
   ApiMeetingAudio,
   ApiPost,
+  ApiRSSFeed,
   ApiSeries,
   MeetingAudio,
   Post,
+  RSSFeed,
   Series,
 } from "./types";
 
@@ -68,5 +70,14 @@ export function toMeetingAudio(apiMeetingAudio: ApiMeetingAudio): MeetingAudio {
     language: apiMeetingAudio.metadata.language.key,
     transcription: apiMeetingAudio.metadata.transcription,
     dateOfMeeting: apiMeetingAudio.metadata.date_of_meeting,
+  };
+}
+
+export function toRSSFeed(apiRssFeed: ApiRSSFeed): RSSFeed {
+  return {
+    id: apiRssFeed.id,
+    title: apiRssFeed.title,
+    slug: apiRssFeed.slug,
+    rss: apiRssFeed.metadata.rss,
   };
 }
