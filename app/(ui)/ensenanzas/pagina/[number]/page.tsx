@@ -11,8 +11,8 @@ export async function generateMetadata(arg: {
     number: string;
   };
 }): Promise<Metadata> {
-  const title = `Enseñanzas - Página ${arg.params.number} | El Camino Antiguo`;
-  const description = `Página ${arg.params.number} de la sección de enseñanzas de El Camino Antiguo`;
+  const title = `Enseñanzas - Página ${arg.params.number} | La Senda Antigua`;
+  const description = `Página ${arg.params.number} de la sección de enseñanzas de La Senda Antigua`;
 
   return {
     title,

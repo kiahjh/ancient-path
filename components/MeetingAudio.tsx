@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import { SparklesIcon } from "lucide-react";
 import PlayButton from "./PlayButton";
-import { MeetingAudio } from "@/lib/types";
+import { type MeetingAudio } from "@/lib/types";
 import { useGlobalState } from "@/lib/hooks";
 import { relativeTime } from "@/lib/dates";
 

@@ -1,6 +1,10 @@
-import type { Language, Post } from "./types";
+import type { Language, Post, Series } from "./types";
 
-export function podcastXml(lang: Language, posts: Array<Post>): string {
+export function podcastXml(
+  lang: Language,
+  posts: Array<Post>,
+  series: Array<Series>,
+): string {
   const description =
     lang === `en`
       ? `I write because I feel, and in order to be felt, and not for amusement. Remember, life is short, its business arduous, the prize immortal glory, the failure eternal misery.`
@@ -44,7 +48,7 @@ export function podcastXml(lang: Language, posts: Array<Post>): string {
         .map(
           (post) => `
           <item>
-      ${audioItemData(lang, post)}
+      ${audioItemData(lang, post, series, posts)}
           </item>
         `,
         )
@@ -74,17 +78,37 @@ function cdata(text: string): string {
   return `<![CDATA[${encoded}]]>`;
 }
 
-function audioItemData(lang: Language, post: Post): string {
+function audioItemData(
+  lang: Language,
+  post: Post,
+  series: Series[],
+  allPosts: Post[],
+): string {
   const thisPost = post[lang];
+  const postOrTeachingSegment =
+    post.category === `post` ? `posts` : `teachings`;
+  let seriesIndex = 1;
+  const thisSeries = series.find((s) => s.id === post.series);
+  if (thisSeries) {
+    const postsInThisSeries = allPosts.filter((p) => p.series === post.series);
+    seriesIndex =
+      postsInThisSeries.length -
+      postsInThisSeries.findIndex((p) => p.id === post.id);
+  }
+
+  const title = thisSeries
+    ? `${thisSeries[lang].title} pt. ${seriesIndex}: ${thisPost.title}`
+    : thisPost.title;
+
   return [
-    `<title>${thisPost.title}</title>`,
+    `<title>${title}</title>`,
     `<enclosure url="${thisPost.mp3Url}" length="${thisPost.audioSize}" type="audio/mpeg" />`,
     `<itunes:author>Jason Henderson</itunes:author>`,
     `<itunes:subtitle>${cdata(thisPost.description)}</itunes:subtitle>`,
     `<itunes:summary>${cdata(thisPost.description)}</itunes:summary>`,
     `<description>${cdata(thisPost.description)}</description>`,
-    `<link>${url()}/posts/${thisPost.slug}</link>`,
-    `<guid>${url()}/posts/${thisPost.slug}</guid>`,
+    `<link>${url()}/${postOrTeachingSegment}/${thisPost.slug}</link>`,
+    `<guid>${url()}/${postOrTeachingSegment}/${thisPost.slug}</guid>`,
     `<pubDate>${post.createdAt}</pubDate>`,
     `<itunes:duration>${thisPost.audioDuration}</itunes:duration>`,
     `<itunes:explicit>clean</itunes:explicit>`,

@@ -8,8 +8,13 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import { createBucketClient } from "@cosmicjs/sdk";
 import type { NextRequest } from "next/server";
-import type { Post } from "@/lib/types";
-import { getAllMeetingAudios, getAllPosts, getRssFeed } from "@/lib/get-data";
+import type { Post, Series } from "@/lib/types";
+import {
+  getAllMeetingAudios,
+  getAllPosts,
+  getAllSeries,
+  getRssFeed,
+} from "@/lib/get-data";
 import { podcastXml } from "@/lib/podcast";
 
 const finished = promisify(stream.finished);
@@ -35,7 +40,8 @@ export async function GET(req: NextRequest) {
   }
 
   const posts = await getAllPosts();
-  generatePodcastRss(posts);
+  const series = await getAllSeries();
+  generatePodcastRss(posts, series);
 
   console.log(`Checking for meeting audios that need a transcription...`);
 
@@ -91,10 +97,10 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ ok: true });
 }
 
-async function generatePodcastRss(posts: Array<Post>) {
+async function generatePodcastRss(posts: Array<Post>, series: Array<Series>) {
   console.log(`🫛 Generating podcast rss feeds...`);
-  const enXml = podcastXml(`en`, posts);
-  const esXml = podcastXml(`es`, posts);
+  const enXml = podcastXml(`en`, posts, series);
+  const esXml = podcastXml(`es`, posts, series);
   const englishRSS = await getRssFeed(`english-rss`);
   const spanishRSS = await getRssFeed(`spanish-rss`);
 
