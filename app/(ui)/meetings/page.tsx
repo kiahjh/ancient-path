@@ -13,8 +13,6 @@ export const metadata = {
   },
 };
 
-const Meetings: NextPage = async () => (
-  <MeetingAudiosPageTemplate language="en" />
-);
+const Meetings: NextPage = () => <MeetingAudiosPageTemplate language="en" />;
 
 export default Meetings;

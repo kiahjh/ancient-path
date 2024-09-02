@@ -11,6 +11,7 @@ import {
   AudioLinesIcon,
   FilePen,
   MilestoneIcon,
+  BabyIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
@@ -126,6 +127,15 @@ const GlobalNav: React.FC<{
               icon={BookOpenIcon}
             >
               {dual(`Books`, `Libros`)}
+            </NavLink>
+            <NavLink
+              href={dual(`/parenting`, `/crianza`)}
+              setOpen={setOpen}
+              isMobile={isMobile}
+              selected={dual(path === `/parenting`, path === `/crianza`)}
+              icon={BabyIcon}
+            >
+              {dual(`Parenting`, `Crianza`)}
             </NavLink>
           </div>
         </div>

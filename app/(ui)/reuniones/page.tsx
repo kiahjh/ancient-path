@@ -1,5 +1,8 @@
 import React from "react";
+import type { NextPage } from "next";
 import MeetingAudiosPageTemplate from "@/components/templates/MeetingAudiosPageTemplate";
+
+export const revalidate = 0;
 
 export const metadata = {
   title: `Reuniones | La Senda Antigua`,
@@ -10,6 +13,6 @@ export const metadata = {
   },
 };
 
-const Reuniones: React.FC = () => <MeetingAudiosPageTemplate language="es" />;
+const Reuniones: NextPage = () => <MeetingAudiosPageTemplate language="es" />;
 
 export default Reuniones;

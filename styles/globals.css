@@ -38,7 +38,7 @@
 }
 
 .NavContainer .BottomPart {
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
 }
 
 .NavContainer .BottomPart .Inside {
@@ -46,10 +46,33 @@
 }
 
 .NavLink {
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
-@media (min-height: 760px) {
+@media (min-height: 700px) {
+  .NavContainer {
+    margin-top: 0rem;
+    padding: 0rem;
+  }
+
+  .NavContainer .TopPart {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .NavContainer .BottomPart {
+    margin-top: 0.5rem;
+  }
+
+  .NavContainer .BottomPart .Inside {
+    padding: 0rem 0.75rem 1rem 0.75rem;
+  }
+
+  .NavLink {
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (min-height: 810px) {
   .NavContainer {
     margin-top: 1.5rem;
     padding: 0rem;
@@ -72,7 +95,7 @@
   }
 }
 
-@media (min-height: 880px) {
+@media (min-height: 920px) {
   .NavContainer {
     margin-top: 3rem;
     padding: 1rem;

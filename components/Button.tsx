@@ -10,6 +10,7 @@ type Props = {
   className?: string;
   children?: React.ReactNode;
   shadow?: boolean;
+  iconOnLeft?: boolean;
 } & (
   | { type: "button"; onClick(): void }
   | { type: "link"; to: string }
@@ -19,6 +20,7 @@ type Props = {
 const Button: React.FC<Props> = (props) => {
   const classes = cx(
     `font-medium tracking-wider flex items-center transition-[background-color,color,transform,border-radius] duration-200 justify-center active:scale-95 active:rounded-[28px] select-none`,
+    props.iconOnLeft ? `flex-row-reverse` : `flex-row`,
     props.shadow && `shadow-md`,
     {
       "bg-sky-500 text-white hover:bg-sky-600 shadow-sky-600/40 dark:shadow-500/50 active:bg-sky-700":

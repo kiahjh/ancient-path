@@ -1,4 +1,4 @@
-import { Post } from "./types";
+import type { Post } from "./types";
 
 export function getAlternateLanguagePath(
   path: string,
@@ -34,6 +34,10 @@ export function getAlternateLanguagePath(
       return `/reuniones`;
     case path === `/reuniones`:
       return `/meetings`;
+    case path === `/parenting`:
+      return `/crianza`;
+    case path === `/crianza`:
+      return `/parenting`;
 
     // pages of teachings
     case path.startsWith(`/teachings/page/`):
