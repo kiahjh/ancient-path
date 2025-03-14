@@ -14,7 +14,7 @@
     "@formspree/react": "^2.5.1",
     "@tailwindcss/typography": "^0.5.10",
     "axios": "^1.6.8",
-    "lucide-react": "^0.358.0",
+    "lucide-react": "^0.481.0",
     "next": "13.5.4",
     "openai": "^4.35.0",
     "react": "^18",

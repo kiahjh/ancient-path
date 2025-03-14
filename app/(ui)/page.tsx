@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { MapPinIcon } from "lucide-react";
+import { MapPinIcon, MapPinHouseIcon, ArrowRightIcon } from "lucide-react";
 import type { Metadata, NextPage } from "next";
 import { initializeLanguage } from "../../lib/actions";
 import Button from "@/components/Button";
@@ -23,59 +23,85 @@ const Home: NextPage = async () => {
   const c = content[language];
 
   return (
-    <div className="py-16 px-8 sm:px-12 flex flex-col items-center justify-center min-h-full">
-      <Suspense
-        fallback={
-          <div className="w-[330px] h-[36px] bg-sky-200/70 rounded-full mb-12 animate-pulse" />
-        }
-      >
-        <LatestPostLink />
-      </Suspense>
-
-      <h1 className="font-black text-4xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-slate-800 text-center">
-        {c.title}
-      </h1>
-      <h2 className="mt-4 md:mt-6 text-xl md:text-2xl max-w-2xl text-center text-slate-800/70">
-        {c.subtitle}
-      </h2>
-      <div className="mt-12 w-full xs:w-96 md:w-auto flex flex-col md:flex-row gap-4">
-        <Button
-          type="link"
-          to={c.buttons.whereToStart.to}
-          color="primary"
-          size="lg"
-          icon={MapPinIcon}
-        >
-          {c.buttons.whereToStart.text}
-        </Button>
-        <div className="flex flex-col xs:flex-row gap-4">
+    <div className="flex flex-col min-h-screen">
+      {language === "en" && (
+        <div className="flex flex-col sm:flex-row items-center gap-4 p-8 bg-sky-100 justify-between rounded-2xl m-4 sm:m-8 mt-16 sm:mt-16">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="size-12 flex justify-center items-center bg-sky-200 rounded-full">
+              <MapPinHouseIcon className="size-7 text-sky-700" />
+            </div>
+            <div className="flex flex-col items-center sm:items-start">
+              <h3 className="text-xl font-semibold text-sky-700">
+                Upcoming conference
+              </h3>
+              <h4 className="text-sky-700/60">May 23-25</h4>
+            </div>
+          </div>
           <Button
             type="link"
-            to={c.buttons.posts.to}
+            to="/conference"
             color="secondary"
-            size="lg"
-            className="flex-grow"
+            icon={ArrowRightIcon}
+            size="md"
           >
-            {c.buttons.posts.text}
-          </Button>
-          <Button
-            type="link"
-            to={c.buttons.teachings.to}
-            color="secondary"
-            size="lg"
-            className="flex-grow"
-          >
-            {c.buttons.teachings.text}
+            View details
           </Button>
         </div>
-      </div>
-      <div className="max-w-3xl mt-12 xs:mt-16 sm:mt-24 bg-sky-100/50 p-8 sm:p-12 rounded-3xl flex flex-col items-center gap-2">
-        <p className="text-lg xs:text-xl text-sky-800 text-center">
-          {c.verse.text}
-        </p>
-        <span className="font-bold text-xl text-sky-900">
-          {c.verse.reference}
-        </span>
+      )}
+      <div className="py-16 px-8 sm:px-12 flex flex-col items-center justify-center min-h-full flex-grow">
+        <Suspense
+          fallback={
+            <div className="w-[330px] h-[36px] bg-sky-200/70 rounded-full mb-12 animate-pulse" />
+          }
+        >
+          <LatestPostLink />
+        </Suspense>
+
+        <h1 className="font-black text-4xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-slate-800 text-center">
+          {c.title}
+        </h1>
+        <h2 className="mt-4 md:mt-6 text-xl md:text-2xl max-w-2xl text-center text-slate-800/70">
+          {c.subtitle}
+        </h2>
+        <div className="mt-12 w-full xs:w-96 md:w-auto flex flex-col md:flex-row gap-4">
+          <Button
+            type="link"
+            to={c.buttons.whereToStart.to}
+            color="primary"
+            size="lg"
+            icon={MapPinIcon}
+          >
+            {c.buttons.whereToStart.text}
+          </Button>
+          <div className="flex flex-col xs:flex-row gap-4">
+            <Button
+              type="link"
+              to={c.buttons.posts.to}
+              color="secondary"
+              size="lg"
+              className="flex-grow"
+            >
+              {c.buttons.posts.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.teachings.to}
+              color="secondary"
+              size="lg"
+              className="flex-grow"
+            >
+              {c.buttons.teachings.text}
+            </Button>
+          </div>
+        </div>
+        <div className="max-w-3xl mt-12 xs:mt-16 sm:mt-24 bg-sky-100/50 p-8 sm:p-12 rounded-3xl flex flex-col items-center gap-2">
+          <p className="text-lg xs:text-xl text-sky-800 text-center">
+            {c.verse.text}
+          </p>
+          <span className="font-bold text-xl text-sky-900">
+            {c.verse.reference}
+          </span>
+        </div>
       </div>
     </div>
   );
