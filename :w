@@ -4,7 +4,6 @@ import {
   BookIcon,
   BookOpenIcon,
   FileTextIcon,
-  SmartphoneIcon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -77,18 +76,25 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
             <span>{c.otherWritings.comingSoon}</span>
           </div>
         ) : (
-          <div className="rounded-3xl p-6 xs:p-8 sm:p-12 mt-12 overflow-hidden relative -mx-6 xs:mx-0 bg-sky-50">
-            <div className="relative flex flex-col xl:flex-row">
+          <div className="bg-white rounded-3xl p-6 xs:p-8 sm:p-12 mt-12 overflow-hidden relative -mx-6 xs:mx-0">
+            <Image
+              src={TersteegenCover}
+              alt=""
+              className="absolute right-0 -top-[275px] w-[600px] [transform:rotateY(180deg)] hidden sm:block"
+            />
+            <div className="absolute right-0 top-0 h-full w-[600px] bg-gradient-to-r from-white via-white/90 to-white/50" />
+            <div className="relative flex flex-col md:flex-row">
               <Image
                 src={TersteegenCover}
                 alt=""
-                className="h-32 xl:h-52 w-fit shadow-lg shadow-slate-400/40 border border-slate-300 xl:mr-12 rounded-xl mb-8 xl:mb-0"
+                className="h-32 md:h-52 w-fit shadow-lg shadow-slate-400/40 border border-slate-300 md:mr-12 rounded-md mb-8 md:mb-0"
               />
               <div>
                 <h2 className="font-semibold text-2xl xs:text-3xl">
                   La Vida de Gerhard Tersteegen
                 </h2>
-                <p className="mt-4 text-sky-900/90 xs:text-lg">
+                <h3 className="text-sky-800/70 mt-1">by Gerhard Tersteegen</h3>
+                <p className="max-w-xl mt-4 text-sky-900/90 xs:text-lg">
                   Gerhard Tersteegen (1697–1769) fue un autor, predicador y
                   escritor de himnos alemán, cuya vida y obras dejaron un
                   poderoso testimonio de la realidad de un cristianismo interno,
@@ -103,10 +109,6 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
                   obra de la luz y la gracia de Cristo en el corazón, la
                   necesidad de una completa entrega a la voluntad de Dios, y el
                   misterio de la cruz interna y externa.
-                  <br />
-                  <br />
-                  Descarga un archivo EPUB o PDF, o contáctame para solicitar un
-                  libro impreso.
                 </p>
                 <div className="mt-6 flex gap-2 flex-wrap">
                   <Button
@@ -116,7 +118,7 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
                     icon={BookOpenIcon}
                     iconOnLeft
                   >
-                    Libro impreso
+                    lorem
                   </Button>
                   <Button
                     type="link"
@@ -129,12 +131,12 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
                   </Button>
                   <Button
                     type="link"
-                    to="/vida-de-tersteegen/vida-de-tersteegen.epub"
+                    to={c.thatTheyMightKnowHim.buttons.epub.link}
                     color="secondary"
                     icon={SmartphoneIcon}
                     iconOnLeft
                   >
-                    EPUB
+                    {c.thatTheyMightKnowHim.buttons.epub.text}
                   </Button>
                 </div>
               </div>
