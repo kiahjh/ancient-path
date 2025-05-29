@@ -24,30 +24,6 @@ const Home: NextPage = async () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {language === "en" && (
-        <div className="flex flex-col sm:flex-row items-center gap-4 p-8 bg-sky-100 justify-between rounded-2xl m-4 sm:m-8 mt-16 sm:mt-16">
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="size-12 flex justify-center items-center bg-sky-200 rounded-full">
-              <MapPinHouseIcon className="size-7 text-sky-700" />
-            </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <h3 className="text-xl font-semibold text-sky-700">
-                Upcoming conference
-              </h3>
-              <h4 className="text-sky-700/60">May 23-25</h4>
-            </div>
-          </div>
-          <Button
-            type="link"
-            to="/conference"
-            color="secondary"
-            icon={ArrowRightIcon}
-            size="md"
-          >
-            View details
-          </Button>
-        </div>
-      )}
       <div className="py-16 px-8 sm:px-12 flex flex-col items-center justify-center min-h-full flex-grow">
         <Suspense
           fallback={
