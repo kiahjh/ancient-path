@@ -101,54 +101,79 @@ const content = {
 function orderFromSlug(slug: string): number {
   switch (slug) {
     case "two-kinds-of-believers":
+    case "dos-tipos-de-creyentes":
       return 0;
     case "two-births-in-man":
+    case "dos-nacimientos-en-el-hombre":
       return 1;
     case "grace-should-reign":
+    case "la-gracia-debe-reinar":
       return 2;
     case "coming-unto-jesus":
+    case "ir-a-jesus":
       return 3;
     case "the-appearings-of-christ":
+    case "las-apariciones-de-cristo":
       return 4;
     case "self-discipline":
+    case "auto-disciplina":
       return 5;
     case "freedom-from-sin":
+    case "libertad-del-pecado":
       return 6;
     case "creating-ishmaels":
+    case "creando-ismaeles":
       return 7;
     case "the-nature-of-mans-freedom":
+    case "la-naturaleza-de-la-libertad-del-hombre":
       return 8;
     case "who-chooses-who":
+    case "quien-escoge-a-quien":
       return 9;
     case "losing-your-guide":
+    case "perder-a-tu-guia":
       return 10;
     case "striving-and-diligence":
+    case "esfuerzo-y-diligencia":
       return 11;
     case "why-christians-dont-change-0e283880-20c0-11ed-abde-29fdedf3cb84":
+    case "por-que-los-cristianos-no-cambian":
       return 12;
     case "justification-and-condemnation-l7dq47x9":
+    case "justificacion-y-condenacion":
       return 13;
     case "after-new-birth":
+    case "despues-del-nuevo-nacimiento":
       return 14;
     case "the-conscience-vs-the-light-of-christ":
+    case "la-conciencia-vs-la-luz-de-cristo":
       return 15;
     case "relationship-with-god":
+    case "relacion-con-dios":
       return 16;
     case "spiritual-light":
+    case "luz-espiritual":
       return 17;
     case "the-biggest-lie":
+    case "la-gran-mentira":
       return 18;
     case "obedience-must-keep-pace-with-knowledge":
+    case "la-obediencia-tiene-que-ir-de-la-mano-con-el-conocimiento":
       return 19;
     case "the-implanted-word":
+    case "la-palabra-implantada":
       return 20;
     case "spiritual-discernment":
+    case "discernimiento-espiritual":
       return 21;
     case "the-bruiser-of-the-serpent":
+    case "la-semilla-que-hiere-a-la-serpiente":
       return 22;
     case "the-work-of-faith":
+    case "la-obra-de-la-fe":
       return 23;
     case "self-love":
+    case "el-amor-al-yo":
       return 24;
     default:
       return 1000;
