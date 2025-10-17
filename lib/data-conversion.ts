@@ -22,7 +22,6 @@ export function toPost(apiPost: ApiPost): Post {
       title: apiPost.title,
       slug: apiPost.slug,
       content: apiPost.content,
-      description: apiPost.metadata.description,
       mp3Url: apiPost.metadata.mp3_url,
       audioSize: apiPost.metadata.audio_size,
       audioDuration: apiPost.metadata.audio_duration,
@@ -31,7 +30,6 @@ export function toPost(apiPost: ApiPost): Post {
       title: apiPost.metadata.spanish_title,
       slug: apiPost.metadata.spanish_slug,
       content: apiPost.metadata.spanish_content,
-      description: apiPost.metadata.spanish_description,
       mp3Url: apiPost.metadata.spanish_mp3_url,
       audioSize: apiPost.metadata.spanish_audio_size,
       audioDuration: apiPost.metadata.spanish_audio_duration,
@@ -68,7 +66,6 @@ export function toMeetingAudio(apiMeetingAudio: ApiMeetingAudio): MeetingAudio {
     publishedAt: apiMeetingAudio.published_at,
     mp3Url: apiMeetingAudio.metadata.mp3_url,
     language: apiMeetingAudio.metadata.language.key,
-    transcription: apiMeetingAudio.metadata.transcription,
     dateOfMeeting: apiMeetingAudio.metadata.date_of_meeting,
   };
 }

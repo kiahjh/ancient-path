@@ -35,32 +35,20 @@ const PostPreview: React.FC<Props> = (props) => {
   const isPartOfSeries = props.category === `teaching` && props.series;
 
   return (
-    <div className="bg-white rounded-3xl relative group">
-      <div className="pb-0 xs:pb-2 p-6 xs:p-8">
-        <h4 className="text-sky-500 mb-1">
-          {relativeTime(thisPost.createdAt, `en`)}
-        </h4>
-        <h3 className="text-xl font-bold text-slate-800">
+    <div className="flex flex-col bg-white/50 rounded-3xl border-[0.5px] border-sky-200">
+      <div className="px-6 pt-4 pb-3">
+        <h3 className="text-xl font-bold text-sky-950">
           {isPartOfSeries
             ? `${props.series?.series[props.language].title} pt. ${props.series?.part}`
             : thisPost[props.language].title}
         </h3>
         {isPartOfSeries && (
-          <h4 className="font-medium text-slate-500">
+          <h4 className="font-medium text-sky-800/80">
             {thisPost[props.language].title}
           </h4>
         )}
-        <p className="mt-2 text-slate-500 hidden xs:block">
-          {thisPost[props.language].description}
-        </p>
-        <p className="mt-2 text-slate-500 block xs:hidden">
-          {thisPost[props.language].description
-            .split(` `)
-            .slice(0, 30)
-            .join(` `) + `...`}
-        </p>
       </div>
-      <div className="flex justify-end mt-4 p-4 pt-0">
+      <div className="flex justify-end p-2 bg-white rounded-[18px] border-[0.5px] border-sky-200 mx-1.5 mb-1.5">
         <Button
           type="link"
           to={`${basePath}/${thisPost[props.language].slug}`}

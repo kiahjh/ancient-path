@@ -40,30 +40,28 @@ export function getAlternateLanguagePath(
       return `/parenting`;
 
     // pages of teachings
-    case path.startsWith(`/teachings/page/`):
-      return path.replace(`/teachings/page/`, `/ensenanzas/pagina/`);
-    case path.startsWith(`/ensenanzas/pagina/`):
-      return path.replace(`/ensenanzas/pagina/`, `/teachings/page/`);
+    case path.startsWith(`/teachings`):
+      return path.replace(`/teachings`, `/ensenanzas`);
+    case path.startsWith(`/ensenanzas`):
+      return path.replace(`/ensenanzas`, `/teachings`);
 
     // pages of posts
-    case path.startsWith(`/posts/page/`):
-      return path.replace(`/posts/page/`, `/publicaciones/pagina/`);
-    case path.startsWith(`/publicaciones/pagina/`):
-      return path.replace(`/publicaciones/pagina/`, `/posts/page/`);
+    case path.startsWith(`/posts`):
+      return path.replace(`/posts`, `/publicaciones`);
+    case path.startsWith(`/publicaciones`):
+      return path.replace(`/publicaciones`, `/posts`);
 
     // individual teachings
     case path.startsWith(`/teachings/`):
-      return post ? `/ensenanzas/${post.es.slug}` : `/ensenanzas/pagina/1`;
+      return post ? `/ensenanzas/${post.es.slug}` : `/ensenanzas`;
     case path.startsWith(`/ensenanzas/`):
-      return post ? `/teachings/${post.en.slug}` : `/teachings/page/1`;
+      return post ? `/teachings/${post.en.slug}` : `/teachings`;
 
     // individual posts
     case path.startsWith(`/posts/`):
-      return post
-        ? `/publicaciones/${post.es.slug}`
-        : `/publicaciones/pagina/1`;
+      return post ? `/publicaciones/${post.es.slug}` : `/publicaciones`;
     case path.startsWith(`/publicaciones/`):
-      return post ? `/posts/${post.en.slug}` : `/posts/page/1`;
+      return post ? `/posts/${post.en.slug}` : `/posts`;
 
     default:
       return `/`;

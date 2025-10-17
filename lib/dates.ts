@@ -37,3 +37,12 @@ export function formatTime(seconds: number): string {
     minutes < 10 ? `0${minutes}` : minutes
   }:${secs < 10 ? `0${secs}` : secs}`;
 }
+
+export function formatShort(iso: string, language: Language): string {
+  const date = new Date(iso);
+  if (language === `en`) {
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  } else {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  }
+}

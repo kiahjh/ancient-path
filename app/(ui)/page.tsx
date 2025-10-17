@@ -1,9 +1,7 @@
-import React, { Suspense } from "react";
-import { MapPinIcon, MapPinHouseIcon, ArrowRightIcon } from "lucide-react";
+import React from "react";
 import type { Metadata, NextPage } from "next";
 import { initializeLanguage } from "../../lib/actions";
 import Button from "@/components/Button";
-import LatestPostLink from "@/components/LatestPostLink";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await initializeLanguage();
@@ -25,14 +23,6 @@ const Home: NextPage = async () => {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="py-16 px-8 sm:px-12 flex flex-col items-center justify-center min-h-full flex-grow">
-        <Suspense
-          fallback={
-            <div className="w-[330px] h-[36px] bg-sky-200/70 rounded-full mb-12 animate-pulse" />
-          }
-        >
-          <LatestPostLink />
-        </Suspense>
-
         <h1 className="font-black text-4xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-slate-800 text-center">
           {c.title}
         </h1>
@@ -40,33 +30,62 @@ const Home: NextPage = async () => {
           {c.subtitle}
         </h2>
         <div className="mt-12 w-full xs:w-96 md:w-auto flex flex-col md:flex-row gap-4">
-          <Button
-            type="link"
-            to={c.buttons.whereToStart.to}
-            color="primary"
-            size="lg"
-            icon={MapPinIcon}
-          >
-            {c.buttons.whereToStart.text}
-          </Button>
-          <div className="flex flex-col xs:flex-row gap-4">
-            <Button
-              type="link"
-              to={c.buttons.posts.to}
-              color="secondary"
-              size="lg"
-              className="flex-grow"
-            >
-              {c.buttons.posts.text}
-            </Button>
+          <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-4 max-w-2xl">
             <Button
               type="link"
               to={c.buttons.teachings.to}
               color="secondary"
               size="lg"
-              className="flex-grow"
             >
               {c.buttons.teachings.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.posts.to}
+              color="secondary"
+              size="lg"
+            >
+              {c.buttons.posts.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.meetings.to}
+              color="secondary"
+              size="lg"
+            >
+              {c.buttons.meetings.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.books.to}
+              color="secondary"
+              size="lg"
+            >
+              {c.buttons.books.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.parenting.to}
+              color="secondary"
+              size="lg"
+            >
+              {c.buttons.parenting.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.aboutMe.to}
+              color="secondary"
+              size="lg"
+            >
+              {c.buttons.aboutMe.text}
+            </Button>
+            <Button
+              type="link"
+              to={c.buttons.contact.to}
+              color="secondary"
+              size="lg"
+            >
+              {c.buttons.contact.text}
             </Button>
           </div>
         </div>
@@ -88,21 +107,37 @@ export default Home;
 const content = {
   en: {
     title: `The Ancient Path`,
-    subtitle: `Writings and teachings of Jason Henderson`,
+    subtitle: `Writings, teachings, and recommended resources from Jason Henderson`,
     metaDescription: `A blog and podcast containing the writings and teachings of Jason R. Henderson.`,
     recentPostsLabel: `Coming soon: recent posts`,
     buttons: {
-      whereToStart: {
-        text: `Where to start`,
-        to: `/where-to-start`,
+      teachings: {
+        text: `Teachings`,
+        to: `/teachings`,
       },
       posts: {
         text: `Posts`,
-        to: `/posts/page/1`,
+        to: `/posts`,
       },
-      teachings: {
-        text: `Teachings`,
-        to: `/teachings/page/1`,
+      meetings: {
+        text: `Live meetings`,
+        to: `/meetings`,
+      },
+      books: {
+        text: `Books`,
+        to: `/books`,
+      },
+      parenting: {
+        text: `Parenting`,
+        to: `/parenting`,
+      },
+      aboutMe: {
+        text: `About me`,
+        to: `/about`,
+      },
+      contact: {
+        text: `Contact`,
+        to: `/contact`,
       },
     },
     verse: {
@@ -112,21 +147,37 @@ const content = {
   },
   es: {
     title: `La Senda Antigua`,
-    subtitle: `Un lugar para compartir mis pensamientos y experiencias sobre la forma en que Dios obra en el alma del hombre.`,
+    subtitle: `Escritos, enseñanzas y recursos recomendados de Jason Henderson.`,
     metaDescription: `Un blog y podcast que contiene los escritos y enseñanzas de Jason R. Henderson.`,
     recentPostsLabel: `Próximamente: publicaciones recientes`,
     buttons: {
-      whereToStart: {
-        text: `Dónde empezar`,
-        to: `/donde-empezar`,
+      teachings: {
+        text: `Enseñanzas`,
+        to: `/ensenanzas`,
       },
       posts: {
         text: `Publicaciones`,
-        to: `/publicaciones/pagina/1`,
+        to: `/publicaciones`,
       },
-      teachings: {
-        text: `Enseñanzas`,
-        to: `/ensenanzas/pagina/1`,
+      meetings: {
+        text: `Reuniones`,
+        to: `/reuniones`,
+      },
+      books: {
+        text: `Libros`,
+        to: `/libros`,
+      },
+      parenting: {
+        text: `Parenting`,
+        to: `/crianza`,
+      },
+      aboutMe: {
+        text: `Acerca de mi`,
+        to: `/acerca-de-mi`,
+      },
+      contact: {
+        text: `Contacto`,
+        to: `/contacto`,
       },
     },
     verse: {

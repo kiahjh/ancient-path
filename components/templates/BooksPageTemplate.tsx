@@ -10,7 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Button from "../Button";
-import TersteegenCover from "@/public/vida-de-tersteegen/vida-de-tersteegen-cover.png";
+import SpanishTersteegenCover from "@/public/vida-de-tersteegen/vida-de-tersteegen-cover.png";
+import EnglishTersteegenCover from "@/public/life-of-tersteegen/life-of-tersteegen-cover.jpg";
 
 const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
   const c = content[language];
@@ -73,14 +74,73 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
           {c.otherWritings.description}
         </p>
         {language === "en" ? (
-          <div className="border-2 border-dashed p-20 rounded-2xl mt-4 border-sky-200 bg-sky-50/50 flex justify-center items-center text-3xl font-medium text-sky-800 text-center">
-            <span>{c.otherWritings.comingSoon}</span>
+          <div className="rounded-3xl p-6 xs:p-8 sm:p-12 mt-12 overflow-hidden relative -mx-6 xs:mx-0 bg-sky-50">
+            <div className="relative flex flex-col xl:flex-row">
+              <Image
+                src={EnglishTersteegenCover}
+                alt=""
+                className="h-32 xl:h-52 w-fit shadow-lg shadow-slate-400/40 border border-slate-300 xl:mr-12 rounded-xl mb-8 xl:mb-0"
+              />
+              <div>
+                <h2 className="font-semibold text-2xl xs:text-3xl">
+                  The Life of Gerhard Tersteegen
+                </h2>
+                <p className="mt-4 text-sky-900/90 xs:text-lg">
+                  <b>Gerhard Tersteegen (1697-1769)</b> was a German author,
+                  preacher, and hymn writer whose life and works left a powerful
+                  testimony to the reality of inward, spiritual, and substantial
+                  Christianity. Tersteegen never affiliated with any particular
+                  Christian group or denomination, nor did he ever seek an
+                  audience, but he was sought out by thousands of hungry souls
+                  who came from far and wide to hear him speak about the “the
+                  sure, essential, and precious truths of internal religion.”
+                  His sermons, letters and writings are filled with experiential
+                  truths concerning subjects like the narrow way of inward
+                  prayer and self-denial, the work of Christ’s light and grace
+                  in the heart, the necessity of complete resignation to the
+                  will of God, and the mystery of the inward and outward cross.
+                  <br />
+                  <br />
+                  Download an EPUB or PDF file, or contact me to request a
+                  printed book.
+                </p>
+                <div className="mt-6 flex gap-2 flex-wrap">
+                  <Button
+                    type="link"
+                    to="/contact"
+                    color="secondary"
+                    icon={BookOpenIcon}
+                    iconOnLeft
+                  >
+                    Paperback
+                  </Button>
+                  <Button
+                    type="link"
+                    to="/life-of-tersteegen/life-of-tersteegen.pdf"
+                    color="secondary"
+                    icon={FileTextIcon}
+                    iconOnLeft
+                  >
+                    PDF
+                  </Button>
+                  <Button
+                    type="link"
+                    to="/life-of-tersteegen/life-of-tersteegen.epub"
+                    color="secondary"
+                    icon={SmartphoneIcon}
+                    iconOnLeft
+                  >
+                    EPUB
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="rounded-3xl p-6 xs:p-8 sm:p-12 mt-12 overflow-hidden relative -mx-6 xs:mx-0 bg-sky-50">
             <div className="relative flex flex-col xl:flex-row">
               <Image
-                src={TersteegenCover}
+                src={SpanishTersteegenCover}
                 alt=""
                 className="h-32 xl:h-52 w-fit shadow-lg shadow-slate-400/40 border border-slate-300 xl:mr-12 rounded-xl mb-8 xl:mb-0"
               />
@@ -89,8 +149,8 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
                   La Vida de Gerhard Tersteegen
                 </h2>
                 <p className="mt-4 text-sky-900/90 xs:text-lg">
-                  Gerhard Tersteegen (1697–1769) fue un autor, predicador y
-                  escritor de himnos alemán, cuya vida y obras dejaron un
+                  <b>Gerhard Tersteegen (1697–1769)</b> fue un autor, predicador
+                  y escritor de himnos alemán, cuya vida y obras dejaron un
                   poderoso testimonio de la realidad de un cristianismo interno,
                   espiritual y sustancial. Tersteegen nunca se afilió a ningún
                   grupo o denominación cristiana en particular, ni tampoco buscó

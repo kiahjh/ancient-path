@@ -1,5 +1,7 @@
 import React from "react";
 import type { Language } from "@/lib/types";
+import JasonImg from "@/public/jason.jpg";
+import Image from "next/image";
 
 const AboutPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
   const c = content[language];
@@ -7,15 +9,24 @@ const AboutPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
     <div className="min-h-full px-0 md:px-12 xl:px-20 py-16 lg:py-12 lg+:py-20 flex justify-center">
       <div className="bg-white px-6 xs:px-8 sm:px-12 lg+:px-20 py-12 md:py-20 rounded-3xl flex flex-col max-w-4xl">
         <h1 className="text-3xl sm:text-4xl font-semibold">{c.heading}</h1>
-        <p className="text-base sm:text-lg mt-8 text-slate-600 text-justify">
-          {c.paragraph1}
-        </p>
-        <p className="text-base sm:text-lg mt-4 text-slate-600 text-justify">
-          {c.paragraph2}
-        </p>
-        <p className="text-base sm:text-lg mt-4 text-slate-600 text-justify">
-          {c.paragraph3}
-        </p>
+        <div className="mt-8">
+          <div className="float-left w-1/2 mr-6 mb-4">
+            <Image
+              src={JasonImg}
+              alt="Jason Henderson"
+              className="w-full rounded-lg"
+            />
+          </div>
+          <p className="text-base sm:text-lg text-slate-600 text-justify">
+            {c.paragraph1}
+          </p>
+          <p className="text-base sm:text-lg mt-4 text-slate-600 text-justify">
+            {c.paragraph2}
+          </p>
+          <p className="text-base sm:text-lg mt-4 text-slate-600 text-justify">
+            {c.paragraph3}
+          </p>
+        </div>
         <span className="text-base sm:text-lg font-medium text-slate-700 mt-8 self-end">
           {c.signature}
         </span>

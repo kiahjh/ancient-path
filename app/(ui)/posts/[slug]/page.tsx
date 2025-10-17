@@ -15,7 +15,7 @@ export async function generateMetadata(arg: {
   if (!post) return notFound();
 
   const title = `${post.en.title} | The Ancient Path`;
-  const description = `${post.en.title} - ${post.en.description}`;
+  const description = `From The Ancient Path by Jason Henderson: ${post.en.title}`;
 
   return {
     title,

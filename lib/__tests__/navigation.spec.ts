@@ -14,7 +14,6 @@ describe(`useAlternateLanguageNavigation`, () => {
       title: `Test Post`,
       slug: `test-post`,
       content: `Test content`,
-      description: `Test description`,
       mp3Url: `test.mp3`,
       audioSize: 1,
       audioDuration: 1,
@@ -23,7 +22,6 @@ describe(`useAlternateLanguageNavigation`, () => {
       title: `Publicación de prueba`,
       slug: `publicacion-de-prueba`,
       content: `Contenido de prueba`,
-      description: `Descripción de prueba`,
       mp3Url: `prueba.mp3`,
       audioSize: 1,
       audioDuration: 1,
@@ -47,17 +45,13 @@ describe(`useAlternateLanguageNavigation`, () => {
   });
 
   it(`works for more advanced cases`, () => {
-    expect(getAlternateLanguagePath(`/posts/page/1`, testPost)).toBe(
-      `/publicaciones/pagina/1`,
+    expect(getAlternateLanguagePath(`/posts`, testPost)).toBe(`/publicaciones`);
+    expect(getAlternateLanguagePath(`/publicaciones`, testPost)).toBe(`/posts`);
+    expect(getAlternateLanguagePath(`/teachings`, testPost)).toBe(
+      `/ensenanzas`,
     );
-    expect(getAlternateLanguagePath(`/publicaciones/pagina/7`, testPost)).toBe(
-      `/posts/page/7`,
-    );
-    expect(getAlternateLanguagePath(`/teachings/page/4`, testPost)).toBe(
-      `/ensenanzas/pagina/4`,
-    );
-    expect(getAlternateLanguagePath(`/ensenanzas/pagina/2`, testPost)).toBe(
-      `/teachings/page/2`,
+    expect(getAlternateLanguagePath(`/ensenanzas`, testPost)).toBe(
+      `/teachings`,
     );
 
     expect(getAlternateLanguagePath(`/teachings/test-post`, testPost)).toBe(

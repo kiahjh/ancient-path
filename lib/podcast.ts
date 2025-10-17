@@ -100,13 +100,18 @@ function audioItemData(
     ? `${thisSeries[lang].title} pt. ${seriesIndex}: ${thisPost.title}`
     : thisPost.title;
 
+  const description =
+    lang === `en`
+      ? `Some thoughts from Jason Henderson`
+      : `Un par de pensamientos de Jason Henderson`;
+
   return [
     `<title>${title}</title>`,
     `<enclosure url="${thisPost.mp3Url}" length="${thisPost.audioSize}" type="audio/mpeg" />`,
     `<itunes:author>Jason Henderson</itunes:author>`,
-    `<itunes:subtitle>${cdata(thisPost.description)}</itunes:subtitle>`,
-    `<itunes:summary>${cdata(thisPost.description)}</itunes:summary>`,
-    `<description>${cdata(thisPost.description)}</description>`,
+    `<itunes:subtitle>${description}</itunes:subtitle>`,
+    `<itunes:summary>${description}</itunes:summary>`,
+    `<description>${description}</description>`,
     `<link>${url()}/${postOrTeachingSegment}/${thisPost.slug}</link>`,
     `<guid>${url()}/${postOrTeachingSegment}/${thisPost.slug}</guid>`,
     `<pubDate>${post.createdAt}</pubDate>`,

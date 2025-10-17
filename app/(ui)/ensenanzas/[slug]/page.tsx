@@ -15,7 +15,7 @@ export async function generateMetadata(arg: {
   if (!post) return notFound();
 
   const title = `${post.es.title} | La Senda Antigua`;
-  const description = `${post.es.title} - ${post.es.description}`;
+  const description = `From The Ancient Path by Jason Henderson: ${post.es.title}`;
 
   return {
     title,

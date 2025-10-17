@@ -42,18 +42,6 @@ const GlobalNav: React.FC<{
             {dual(`Home`, `Inicio`)}
           </NavLink>
           <NavLink
-            href={dual(`/where-to-start`, `/donde-empezar`)}
-            setOpen={setOpen}
-            isMobile={isMobile}
-            selected={dual(
-              path === `/where-to-start`,
-              path === `/donde-empezar`,
-            )}
-            icon={MapPinIcon}
-          >
-            {dual(`Where to start`, `Donde empezar`)}
-          </NavLink>
-          <NavLink
             href={dual(`/podcast-en`, `/podcast-es`)}
             setOpen={setOpen}
             isMobile={isMobile}
@@ -87,7 +75,7 @@ const GlobalNav: React.FC<{
           </h4>
           <div className="bg-sky-200/10 dark:bg-sky-800/5 border-dashed border-sky-300/50 dark:border-sky-500/20 rounded-3xl Inside">
             <NavLink
-              href={dual(`/teachings/page/1`, `/ensenanzas/pagina/1`)}
+              href={dual(`/teachings`, `/ensenanzas`)}
               setOpen={setOpen}
               isMobile={isMobile}
               selected={dual(
@@ -99,7 +87,7 @@ const GlobalNav: React.FC<{
               {dual(`Teachings`, `Enseñanzas`)}
             </NavLink>
             <NavLink
-              href={dual(`/posts/page/1`, `/publicaciones/pagina/1`)}
+              href={dual(`/posts`, `/publicaciones`)}
               setOpen={setOpen}
               isMobile={isMobile}
               selected={dual(
