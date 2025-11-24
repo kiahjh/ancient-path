@@ -4,9 +4,10 @@ export async function GET(
 ): Promise<Response> {
   const { url } = params;
   const res = await fetch(url);
+  const status = res.status;
   const blob = await res.blob();
   return new Response(blob, {
-    status: res.status,
+    status,
     headers: {
       "Content-Type": `audio/mpeg`,
     },
