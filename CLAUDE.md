@@ -40,9 +40,8 @@ This platform solves the need for:
 
 - **Cosmic CMS** (@cosmicjs/sdk) - Headless CMS for all content
 - **Formspree** (@formspree/react) - Contact form handling
-- **OpenAI API** - AI integration (v4.35.0)
 - **Digital Ocean Spaces** - Asset hosting for podcast images
-- **Vercel** - Deployment platform with cron jobs
+- **Vercel** - Deployment platform
 
 ### Architecture Patterns
 
@@ -59,7 +58,6 @@ This platform solves the need for:
 /
 ├── app/                          # Next.js App Router
 │   ├── api/
-│   │   ├── cron/daily/          # Daily RSS generation cron job
 │   │   └── download-audio/      # Audio proxy endpoint
 │   └── (ui)/                    # UI route group (23 pages)
 │       ├── page.tsx             # Home page
@@ -126,26 +124,27 @@ The site supports English and Spanish with:
 
 All content is fetched from Cosmic CMS:
 
-- `getAllPosts(language, limit?)` - Fetch blog posts
+- `getAllPosts()` - Fetch all blog posts
 - `getPost(slug, language)` - Get single post
-- `getAllSeries(language)` - Fetch teaching series
+- `getAllSeries()` - Fetch all teaching series
 - `getSeries(slug, language)` - Get single series with related posts
-- `getMeetingAudios(language)` - Fetch meeting recordings
-- `getRssFeed(language)` - Get podcast feed data
+- `getAllMeetingAudios()` - Fetch meeting recordings
 
-**Caching Strategy**: No-store caching (always fetch fresh) with React `cache()` for
+**Caching Strategy**: Always fetches fresh data from Cosmic CMS with React `cache()` for
 request deduplication within a render cycle.
 
 ### Podcast System
 
-Dual-language podcast feeds are generated daily:
+Dual-language podcast feeds are generated on-demand:
 
-1. **Cron Job**: Vercel cron runs daily at 23:00 UTC (`/api/cron/daily`)
-2. **RSS Generation**: Fetches posts and converts to iTunes-compatible XML
+1. **On-Demand Generation**: RSS feeds are generated when requested
+2. **RSS Generation**: Fetches posts and series from Cosmic CMS, converts to iTunes-compatible XML
 3. **Feed Endpoints**:
    - `/podcast.en.rss/route.ts` - English feed
    - `/podcast.es.rss/route.ts` - Spanish feed
-4. **Metadata**: Supports iTunes podcast tags, enclosures, series info
+4. **Caching**: Route responses cached for 60 minutes - generated RSS XML is served from cache
+5. **Fresh Data**: When cache expires, feeds regenerate with fresh data from Cosmic CMS
+6. **Metadata**: Supports iTunes podcast tags, enclosures, series info
 
 ### Series Support
 
@@ -166,7 +165,6 @@ COSMIC_READ_KEY=your-read-key
 COSMIC_WRITE_KEY=your-write-key
 VERCEL_ENV=development|preview|production
 VERCEL_URL=your-deployment-url
-CRON_SECRET=bearer-token-for-cron
 ```
 
 ## Development Workflow
@@ -243,8 +241,9 @@ npm test
 
 ### API Routes
 
-- `app/api/cron/daily/route.ts` - Daily RSS generation cron
 - `app/api/download-audio/[url]/route.ts` - Audio proxy
+- `app/(ui)/podcast.en.rss/route.ts` - English podcast RSS feed
+- `app/(ui)/podcast.es.rss/route.ts` - Spanish podcast RSS feed
 
 ### Utilities
 
@@ -299,13 +298,7 @@ Content is managed in Cosmic CMS dashboard. No code changes needed for:
 - Adding/editing meeting audios
 - Updating series information
 
-### Generate RSS Feed Manually
-
-```bash
-# Make authenticated request to cron endpoint
-curl -X GET "https://hender.blog/api/cron/daily" \
-  -H "Authorization: Bearer YOUR_CRON_SECRET"
-```
+Podcast RSS feeds are generated automatically on-demand with 60-minute caching.
 
 ## Deployment
 
@@ -317,15 +310,6 @@ The site auto-deploys on push to master:
 2. Vercel detects changes
 3. Runs `npm run build`
 4. Deploys to production
-
-### Cron Jobs
-
-Vercel cron jobs are configured in `vercel.json`:
-
-- Runs daily at 23:00 UTC
-- Hits `/api/cron/daily` endpoint
-- Requires `CRON_SECRET` bearer token
-- Regenerates podcast RSS feeds
 
 ### Environment Variables
 

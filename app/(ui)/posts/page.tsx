@@ -3,7 +3,7 @@ import type { Metadata, NextPage } from "next";
 import { getAllPosts } from "@/lib/get-data";
 import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Posts | The Ancient Path`;

@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
-import { getRssFeed } from "@/lib/get-data";
+import { getAllPosts, getAllSeries } from "@/lib/get-data";
+import { podcastXml } from "@/lib/podcast";
 
 export const revalidate = 3600;
 
-export async function GET() {
-  const rss = await getRssFeed(`english-rss`);
-  return new NextResponse(rss?.rss);
+export async function GET(): Promise<NextResponse> {
+  const posts = await getAllPosts();
+  const series = await getAllSeries();
+  const xml = podcastXml(`en`, posts, series);
+  return new NextResponse(xml, {
+    headers: {
+      "Content-Type": `application/rss+xml`,
+    },
+  });
 }
