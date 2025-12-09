@@ -1,7 +1,7 @@
-import type { ArrowRightIcon } from "lucide-react";
+import type { ArrowRightIcon } from 'lucide-react';
 export type LucideIcon = typeof ArrowRightIcon;
 
-export type Language = "en" | "es";
+export type Language = 'en' | 'es';
 
 export interface ApiPost {
   id: string;
@@ -10,6 +10,7 @@ export interface ApiPost {
   content: string;
   created_at: string;
   modified_at: string;
+  override_published_at: string | null;
   published_at: string;
   metadata: {
     mp3_url: string;
@@ -23,8 +24,8 @@ export interface ApiPost {
     spanish_audio_duration: number;
     category:
       | undefined
-      | { key: "teaching"; value: "Teaching" }
-      | { key: "post"; value: "Post" };
+      | { key: 'teaching'; value: 'Teaching' }
+      | { key: 'post'; value: 'Post' };
     series: string | null;
   };
 }
@@ -55,7 +56,7 @@ export interface ApiMeetingAudio {
     mp3_url: string;
     language: {
       key: Language;
-      value: "English" | "Spanish";
+      value: 'English' | 'Spanish';
     };
     date_of_meeting: string;
   };
@@ -79,7 +80,7 @@ export interface Post {
   modifiedAt: string;
   publishedAt: string;
   series: string | null;
-  category: "teaching" | "post";
+  category: 'teaching' | 'post';
   en: {
     title: string;
     slug: string;

@@ -7,17 +7,16 @@ import type {
   Post,
   RSSFeed,
   Series,
-} from "./types";
+} from './types';
 
 export function toPost(apiPost: ApiPost): Post {
   return {
     id: apiPost.id,
     createdAt: apiPost.created_at,
     modifiedAt: apiPost.modified_at,
-    publishedAt: apiPost.published_at,
+    publishedAt: apiPost.override_published_at ?? apiPost.published_at,
     series: apiPost.metadata.series,
-    category:
-      apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,
+    category: apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,
     en: {
       title: apiPost.title,
       slug: apiPost.slug,
