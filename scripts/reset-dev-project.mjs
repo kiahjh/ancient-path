@@ -18,8 +18,8 @@
  * - DEV_COSMIC_BUCKET_SLUG, DEV_COSMIC_READ_KEY, DEV_COSMIC_WRITE_KEY
  */
 
-import { createBucketClient } from '@cosmicjs/sdk';
-import * as dotenv from 'dotenv';
+import { createBucketClient } from "@cosmicjs/sdk";
+import * as dotenv from "dotenv";
 
 // Load environment variables
 dotenv.config({ path: `.env.local` });
@@ -116,7 +116,8 @@ function cleanObjectTypeForImport(sourceObjectType) {
         cleaned.minlength = metafield.minlength;
       if (metafield.maxlength && metafield.maxlength !== ``)
         cleaned.maxlength = metafield.maxlength;
-      if (metafield.regex && metafield.regex !== ``) cleaned.regex = metafield.regex;
+      if (metafield.regex && metafield.regex !== ``)
+        cleaned.regex = metafield.regex;
       if (metafield.regex_message && metafield.regex_message !== ``)
         cleaned.regex_message = metafield.regex_message;
 
@@ -157,7 +158,8 @@ function cleanObjectTypeForImport(sourceObjectType) {
   }
 
   // Add optional fields if they exist
-  if (sourceObjectType.preview_link) payload.preview_link = sourceObjectType.preview_link;
+  if (sourceObjectType.preview_link)
+    payload.preview_link = sourceObjectType.preview_link;
   if (sourceObjectType.priority_locale)
     payload.priority_locale = sourceObjectType.priority_locale;
   if (sourceObjectType.locales && sourceObjectType.locales.length > 0)
@@ -278,7 +280,9 @@ async function deleteObjectType(client, slug, label) {
       console.log(`   ${label} object type not found (already deleted)`);
       return true;
     }
-    console.error(`   ❌ Failed to delete ${label} object type: ${err.message}`);
+    console.error(
+      `   ❌ Failed to delete ${label} object type: ${err.message}`,
+    );
     return false;
   }
 }
@@ -298,7 +302,9 @@ async function copyObjectType(sourceClient, destClient, slug, label) {
   console.log(`   ✅ Fetched from production`);
 
   // Clean and prepare
-  const cleanedObjectType = cleanObjectTypeForImport(sourceObjectType.object_type);
+  const cleanedObjectType = cleanObjectTypeForImport(
+    sourceObjectType.object_type,
+  );
 
   // Create in destination
   const result = await destClient.objectTypes.insertOne(cleanedObjectType);
@@ -310,7 +316,13 @@ async function copyObjectType(sourceClient, destClient, slug, label) {
 /**
  * Copy objects from source to destination
  */
-async function copyObjects(sourceClient, destClient, type, label, seriesIdMap = null) {
+async function copyObjects(
+  sourceClient,
+  destClient,
+  type,
+  label,
+  seriesIdMap = null,
+) {
   console.log(`\nCopying ${label} objects...`);
 
   // Fetch from source
@@ -428,11 +440,21 @@ async function resetDevProject() {
 
     // STEP 4: Copy audio objects
     console.log(`\nSTEP 4: Copy audio objects from prod to dev`);
-    const audioStats = await copyObjects(prodClient, devClient, `audio`, `audio`);
+    const audioStats = await copyObjects(
+      prodClient,
+      devClient,
+      `audio`,
+      `audio`,
+    );
 
     // STEP 5: Copy series objects
     console.log(`\nSTEP 5: Copy series objects from prod to dev`);
-    const seriesStats = await copyObjects(prodClient, devClient, `series`, `series`);
+    const seriesStats = await copyObjects(
+      prodClient,
+      devClient,
+      `series`,
+      `series`,
+    );
 
     // STEP 6: Copy posts with series mapping
     console.log(`\nSTEP 6: Copy posts from prod to dev (with series mapping)`);
@@ -473,7 +495,9 @@ async function resetDevProject() {
     );
 
     if (countsMatch) {
-      console.log(`\n✅ Dev project successfully reset and mirrored from production!\n`);
+      console.log(
+        `\n✅ Dev project successfully reset and mirrored from production!\n`,
+      );
     } else {
       console.log(
         `\n❌ Dev project reset complete but counts do not match. Please review.\n`,
@@ -483,7 +507,10 @@ async function resetDevProject() {
     console.error(`\n❌ FATAL ERROR:`, error.message);
     if (error.response) {
       console.error(`Response status:`, error.response.status);
-      console.error(`Response data:`, JSON.stringify(error.response.data, null, 2));
+      console.error(
+        `Response data:`,
+        JSON.stringify(error.response.data, null, 2),
+      );
     }
     console.error(
       `\n❌ Reset process failed. Dev project may be in an inconsistent state.\n`,

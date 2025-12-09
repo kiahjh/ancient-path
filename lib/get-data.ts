@@ -19,7 +19,7 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
   const endpoint = `http://api.cosmicjs.com/v3/buckets`;
   const query = encodeURIComponent(`{"type":"posts"}`);
   const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
-  const response = await fetch(url, { cache: 'no-store' });
+  const response = await fetch(url, { cache: "no-store" });
   const objs = await response.json();
   const allApiPosts: Array<ApiPost> = objs.objects;
   return allApiPosts
@@ -39,7 +39,7 @@ export const getAllSeries = cache(async (): Promise<Series[]> => {
   const endpoint = `http://api.cosmicjs.com/v3/buckets`;
   const query = encodeURIComponent(`{"type":"series"}`);
   const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
-  const response = await fetch(url, { cache: 'no-store' });
+  const response = await fetch(url, { cache: "no-store" });
   const objs = await response.json();
   const allApiSeries: Array<ApiSeries> = objs.objects;
   return allApiSeries.map(toSeries);
@@ -57,7 +57,7 @@ export const getAllMeetingAudios = cache(async (): Promise<MeetingAudio[]> => {
   const endpoint = `http://api.cosmicjs.com/v3/buckets`;
   const query = encodeURIComponent(`{"type":"audio"}`);
   const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
-  const response = await fetch(url, { cache: 'no-store' });
+  const response = await fetch(url, { cache: "no-store" });
   const objs = await response.json();
   const allApiAudios: Array<ApiMeetingAudio> = objs.objects;
   return allApiAudios
@@ -76,12 +76,16 @@ export async function getMeetingAudio(
   return audios.find((audio) => audio.slug === slug) ?? null;
 }
 
-export const getRssFeed = cache(async (slug: string): Promise<RSSFeed | null> => {
-  const endpoint = `http://api.cosmicjs.com/v3/buckets`;
-  const query = encodeURIComponent(`{"type":"rss-feeds"}`);
-  const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
-  const response = await fetch(url, { cache: 'no-store' });
-  const objs = await response.json();
-  const allApiFeeds: Array<ApiRSSFeed> = objs.objects;
-  return allApiFeeds.map(toRSSFeed).find((feed) => feed.slug === slug) ?? null;
-});
+export const getRssFeed = cache(
+  async (slug: string): Promise<RSSFeed | null> => {
+    const endpoint = `http://api.cosmicjs.com/v3/buckets`;
+    const query = encodeURIComponent(`{"type":"rss-feeds"}`);
+    const url = `${endpoint}/${bucketSlug}/objects?&query=${query}&read_key=${readKey}`;
+    const response = await fetch(url, { cache: "no-store" });
+    const objs = await response.json();
+    const allApiFeeds: Array<ApiRSSFeed> = objs.objects;
+    return (
+      allApiFeeds.map(toRSSFeed).find((feed) => feed.slug === slug) ?? null
+    );
+  },
+);

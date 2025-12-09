@@ -196,21 +196,18 @@ npm test
 ### Making Changes
 
 1. **Adding a New Page**
-
    - Create file in `app/(ui)/your-route/page.tsx`
    - Add corresponding Spanish route if needed
    - Update navigation in `GlobalNav.tsx`
    - Add language path mapping in `navigation.ts`
 
 2. **Adding Content Types**
-
    - Define TypeScript types in `lib/types.ts`
    - Add fetcher function in `lib/get-data.ts`
    - Create conversion function in `lib/data-conversion.ts`
    - Update relevant templates
 
 3. **Styling Components**
-
    - Use Tailwind utility classes first
    - Create CSS module for complex scoped styles
    - Add custom Tailwind classes in `styles/globals.css`

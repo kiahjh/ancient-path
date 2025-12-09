@@ -78,9 +78,7 @@ const PostPageAudioPrompt: React.FC = () => {
                 `w-[3px] xs:w-1 sm:w-1.5 lg:w-2 bg-sky-200 rounded-full`,
               )}
               style={{
-                animation: `audio-playing 1.5s ${
-                  i * 150 - 5000
-                }ms ease-in-out infinite`,
+                animation: `audio-playing 1.5s ${i * 150 - 5000}ms ease-in-out infinite`,
               }}
             />
           ))}
