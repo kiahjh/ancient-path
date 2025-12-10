@@ -181,3 +181,13 @@ npm run typecheck  # Type check
 
 Auto-deploys to Vercel on push to master. Environment variables set in Vercel
 dashboard.
+
+## Testing with Playwright MCP
+
+When using the Playwright MCP server to test the site:
+
+### Language Toggle
+
+The language toggle appears in accessibility snapshots as a `switch` element.
+Click the switch directly - not the "English" or "Español" text labels (they're
+just labels). The switch shows `[checked]` when Spanish is active.

@@ -8,8 +8,17 @@ interface Props {
 
 const ToggleSwitch: React.FC<Props> = ({ checked, onClick }) => (
   <div
+    role="switch"
+    aria-checked={checked}
+    tabIndex={0}
     className="h-6 w-10 bg-sky-300 dark:bg-sky-600 rounded-full relative hover:bg-sky-400 dark:hover:bg-sky-700 cursor-pointer transition-colors duration-200"
     onClick={onClick}
+    onKeyDown={(e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        onClick();
+      }
+    }}
   >
     <div
       className={cx(
