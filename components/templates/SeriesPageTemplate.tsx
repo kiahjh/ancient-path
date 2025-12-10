@@ -29,6 +29,7 @@ const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (
         )
         .map((post, i) => (
           <PostPreview
+            key={post.id}
             teaching={post}
             language={language}
             series={{ series, part: i + 1 }}
