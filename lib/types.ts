@@ -3,6 +3,24 @@ export type LucideIcon = typeof ArrowRightIcon;
 
 export type Language = "en" | "es";
 
+export interface ApiPostListItem {
+  id: string;
+  title: string;
+  slug: string;
+  published_at: string;
+  override_published_at: string | null;
+  created_at: string;
+  metadata: {
+    spanish_title: string;
+    spanish_slug: string;
+    category:
+      | undefined
+      | { key: "teaching"; value: "Teaching" }
+      | { key: "post"; value: "Post" };
+    series: string | null;
+  };
+}
+
 export interface ApiPost {
   id: string;
   title: string;
@@ -49,9 +67,6 @@ export interface ApiMeetingAudio {
   id: string;
   title: string;
   slug: string;
-  created_at: string;
-  modified_at: string;
-  published_at: string;
   metadata: {
     mp3_url: string;
     language: {
@@ -87,11 +102,27 @@ export interface Post {
   };
 }
 
+export interface PostListItem {
+  id: string;
+  publishedAt: string;
+  createdAt: string;
+  category: "teaching" | "post";
+  series: string | null;
+  en: {
+    title: string;
+    slug: string;
+  };
+  es: {
+    title: string;
+    slug: string;
+  };
+}
+
 export interface Series {
   id: string;
-  createdAt: string;
-  modifiedAt: string;
-  publishedAt: string;
+  createdAt?: string;
+  modifiedAt?: string;
+  publishedAt?: string;
   en: {
     title: string;
     slug: string;
@@ -108,9 +139,6 @@ export interface MeetingAudio {
   id: string;
   title: string;
   slug: string;
-  createdAt: string;
-  modifiedAt: string;
-  publishedAt: string;
   mp3Url: string;
   language: Language;
   dateOfMeeting: string;

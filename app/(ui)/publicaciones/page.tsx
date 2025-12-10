@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata, NextPage } from "next";
-import { getAllPosts } from "@/lib/get-data";
+import * as cosmic from "@/lib/get-data";
 import PostListPageTemplate from "@/components/templates/PostListPageTemplate";
 
 export const revalidate = 3600;
@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const PostsPage: NextPage = async () => {
-  const posts = (await getAllPosts()).filter(
+  const posts = (await cosmic.getPostsForList()).filter(
     (post) => post.category === `post`,
   );
 

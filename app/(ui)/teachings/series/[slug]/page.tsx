@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllPosts, getAllSeries, getSeries } from "@/lib/get-data";
+import * as cosmic from "@/lib/get-data";
 import SeriesPageTemplate from "@/components/templates/SeriesPageTemplate";
 
 export const revalidate = 3600;
@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export async function generateMetadata(arg: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const series = await getSeries(`en`, arg.params.slug);
+  const series = await cosmic.getSeriesBySlug(`en`, arg.params.slug);
   if (!series) return notFound();
 
   const title = `Series: ${series.en.title} | The Ancient Path`;
@@ -28,11 +28,9 @@ export async function generateMetadata(arg: {
 const SeriesPage: React.FC<{ params: { slug: string } }> = async ({
   params,
 }) => {
-  const series = (await getAllSeries()).find((s) => s.en.slug === params.slug);
+  const series = await cosmic.getSeriesBySlug(`en`, params.slug);
   if (!series) return notFound();
-  const seriesPosts = (await getAllPosts()).filter(
-    (post) => post.series === series.id,
-  );
+  const seriesPosts = await cosmic.getPostsBySeriesId(series.id);
   return (
     <SeriesPageTemplate series={series} language="en" posts={seriesPosts} />
   );

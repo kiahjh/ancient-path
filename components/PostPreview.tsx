@@ -1,17 +1,16 @@
 import React from "react";
 import { ArrowRightIcon } from "lucide-react";
-import type { Language, Post, Series } from "@/lib/types";
+import type { Language, PostListItem, Series } from "@/lib/types";
 import Button from "./Button";
-import { relativeTime } from "@/lib/dates";
 
 type Props = (
   | {
       category: "post";
-      post: Post;
+      post: PostListItem;
     }
   | {
       category: "teaching";
-      teaching: Post;
+      teaching: PostListItem;
       series?: {
         series: Series;
         part: number;

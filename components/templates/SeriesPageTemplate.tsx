@@ -1,11 +1,11 @@
 import React from "react";
-import type { Language, Post, Series } from "@/lib/types";
+import type { Language, Series, PostListItem } from "@/lib/types";
 import PostPreview from "../PostPreview";
 
 interface Props {
   series: Series;
   language: Language;
-  posts: Post[];
+  posts: PostListItem[];
 }
 
 const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (

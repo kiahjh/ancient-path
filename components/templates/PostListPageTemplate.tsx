@@ -1,11 +1,13 @@
 import React from "react";
-import type { Language, Post, Series } from "@/lib/types";
+import type { Language, PostListItem, Series } from "@/lib/types";
 import PostPreview from "@/components/PostPreview";
 
 type Props = {
   language: Language;
-  posts: Post[];
-} & ({ category: "posts" } | { category: "teachings"; series: Series[] });
+} & (
+  | { category: "posts"; posts: PostListItem[] }
+  | { category: "teachings"; posts: PostListItem[]; series: Series[] }
+);
 
 const PostListPageTemplate: React.FC<Props> = (props) => {
   const c = content[props.language];

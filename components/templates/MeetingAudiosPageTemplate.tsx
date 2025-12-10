@@ -1,12 +1,12 @@
 import React from "react";
 import type { Language } from "@/lib/types";
 import MeetingAudio from "../MeetingAudio";
-import { getAllMeetingAudios } from "@/lib/get-data";
+import * as cosmic from "@/lib/get-data";
 
 const MeetingAudiosPageTemplate: React.FC<{ language: Language }> = async ({
   language,
 }) => {
-  const audios = (await getAllMeetingAudios()).filter(
+  const audios = (await cosmic.getAllMeetingAudios()).filter(
     (audio) => audio.language === language,
   );
   const c = content[language];

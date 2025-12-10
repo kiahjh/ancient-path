@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata, NextPage } from "next";
-import { getAllPosts, getAllSeries, getPost } from "@/lib/get-data";
+import * as cosmic from "@/lib/get-data";
 import PostPageTemplate from "@/components/templates/PostPageTemplate";
 
 export const revalidate = 3600;
@@ -11,7 +11,7 @@ export async function generateMetadata(arg: {
     slug: string;
   };
 }): Promise<Metadata> {
-  const post = await getPost(`en`, arg.params.slug);
+  const post = await cosmic.getPostBySlug(`en`, arg.params.slug);
   if (!post) return notFound();
 
   const title = `${post.en.title} | The Ancient Path`;
@@ -30,11 +30,10 @@ export async function generateMetadata(arg: {
 const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
   params,
 }) => {
-  const allTeachings = (await getAllPosts()).filter(
-    (p) => p.category === `teaching`,
-  );
-  const thisTeaching = allTeachings.find((s) => s.en.slug === params.slug);
-  const thisSeriesId = thisTeaching?.series;
+  const thisTeaching = await cosmic.getPostBySlug(`en`, params.slug);
+  if (!thisTeaching) return notFound();
+
+  const thisSeriesId = thisTeaching.series;
   let seriesProp:
     | {
         name: string;
@@ -42,10 +41,14 @@ const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
         slug: string;
       }
     | undefined = undefined;
+
   if (thisSeriesId) {
-    const allSeries = await getAllSeries();
+    const allSeries = await cosmic.getAllSeries();
     const thisSeries = allSeries.find((s) => s.id === thisSeriesId);
     if (thisSeries) {
+      const allTeachings = (await cosmic.getTeachingsForList()).filter(
+        (t) => t.category === `teaching`,
+      );
       const teachingsFromThisSeries = allTeachings.filter(
         (t) => t.series === thisSeriesId,
       );
@@ -53,13 +56,11 @@ const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
         name: thisSeries.en.title,
         number:
           teachingsFromThisSeries.length -
-          teachingsFromThisSeries.findIndex((p) => p.id === thisTeaching?.id),
+          teachingsFromThisSeries.findIndex((p) => p.id === thisTeaching.id),
         slug: thisSeries.en.slug,
       };
     }
   }
-
-  if (!thisTeaching) return notFound();
 
   return (
     <PostPageTemplate post={thisTeaching} language="en" series={seriesProp} />

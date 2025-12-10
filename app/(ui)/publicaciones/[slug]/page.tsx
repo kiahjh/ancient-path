@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata, NextPage } from "next";
-import { getAllPosts, getPost } from "@/lib/get-data";
+import * as cosmic from "@/lib/get-data";
 import PostPageTemplate from "@/components/templates/PostPageTemplate";
 
 export const revalidate = 3600;
@@ -11,7 +11,7 @@ export async function generateMetadata(arg: {
     slug: string;
   };
 }): Promise<Metadata> {
-  const post = await getPost(`es`, arg.params.slug);
+  const post = await cosmic.getPostBySlug(`es`, arg.params.slug);
   if (!post) return notFound();
 
   const title = `${post.es.title} | La Senda Antigua`;
@@ -30,7 +30,7 @@ export async function generateMetadata(arg: {
 const IndividualPost: NextPage<{ params: { slug: string } }> = async ({
   params,
 }) => {
-  const post = (await getAllPosts()).find((s) => s.es.slug === params.slug);
+  const post = await cosmic.getPostBySlug(`es`, params.slug);
   if (!post) return notFound();
   return <PostPageTemplate post={post} language="es" />;
 };

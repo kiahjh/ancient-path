@@ -2,7 +2,7 @@
 
 import React from "react";
 import cx from "classnames";
-import type { Language, Post, Series } from "@/lib/types";
+import type { Language, Series, PostListItem } from "@/lib/types";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
 import SeriesNav from "@/components/SeriesNav";
 import { useGlobalState } from "@/lib/hooks";
@@ -10,7 +10,7 @@ import { useGlobalState } from "@/lib/hooks";
 interface Props {
   children: React.ReactNode;
   series: Series[];
-  allTeachings: Post[];
+  allTeachings: PostListItem[];
   language: Language;
 }
 
