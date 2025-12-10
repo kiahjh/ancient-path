@@ -181,7 +181,11 @@ function formatBytes(bytes: number): string {
 
 function log(fnName: string, count: number, size: number, extra?: string) {
   const paddedName = fnName.padEnd(20);
-  const prefix = `   \x1b[90mCosmic fetch: \x1b[36m${paddedName}\x1b[0m`;
+  const useColors = !process.env.VERCEL;
+  const gray = useColors ? `\x1b[90m` : ``;
+  const cyan = useColors ? `\x1b[36m` : ``;
+  const reset = useColors ? `\x1b[0m` : ``;
+  const prefix = `   ${gray}Cosmic fetch: ${cyan}${paddedName}${reset}`;
   const sizeStr = formatBytes(size).padStart(8);
   const countStr = count.toString().padStart(2, ` `);
   const message = extra
