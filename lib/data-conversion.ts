@@ -1,20 +1,39 @@
 import type {
   ApiMeetingAudio,
   ApiPost,
-  ApiRSSFeed,
+  ApiPostListItem,
   ApiSeries,
   MeetingAudio,
   Post,
-  RSSFeed,
+  PostListItem,
   Series,
 } from "./types";
+
+export function toPostListItem(apiPost: ApiPostListItem): PostListItem {
+  return {
+    id: apiPost.id,
+    publishedAt: apiPost.override_published_at ?? apiPost.published_at,
+    createdAt: apiPost.created_at,
+    category:
+      apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,
+    series: apiPost.metadata.series,
+    en: {
+      title: apiPost.title,
+      slug: apiPost.slug,
+    },
+    es: {
+      title: apiPost.metadata.spanish_title,
+      slug: apiPost.metadata.spanish_slug,
+    },
+  };
+}
 
 export function toPost(apiPost: ApiPost): Post {
   return {
     id: apiPost.id,
     createdAt: apiPost.created_at,
     modifiedAt: apiPost.modified_at,
-    publishedAt: apiPost.published_at,
+    publishedAt: apiPost.override_published_at ?? apiPost.published_at,
     series: apiPost.metadata.series,
     category:
       apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,
@@ -61,20 +80,8 @@ export function toMeetingAudio(apiMeetingAudio: ApiMeetingAudio): MeetingAudio {
     id: apiMeetingAudio.id,
     title: apiMeetingAudio.title,
     slug: apiMeetingAudio.slug,
-    createdAt: apiMeetingAudio.created_at,
-    modifiedAt: apiMeetingAudio.modified_at,
-    publishedAt: apiMeetingAudio.published_at,
     mp3Url: apiMeetingAudio.metadata.mp3_url,
     language: apiMeetingAudio.metadata.language.key,
     dateOfMeeting: apiMeetingAudio.metadata.date_of_meeting,
-  };
-}
-
-export function toRSSFeed(apiRssFeed: ApiRSSFeed): RSSFeed {
-  return {
-    id: apiRssFeed.id,
-    title: apiRssFeed.title,
-    slug: apiRssFeed.slug,
-    rss: apiRssFeed.metadata.rss,
   };
 }

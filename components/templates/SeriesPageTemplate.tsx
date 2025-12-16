@@ -1,11 +1,11 @@
 import React from "react";
-import type { Language, Post, Series } from "@/lib/types";
+import type { Language, Series, PostListItem } from "@/lib/types";
 import PostPreview from "../PostPreview";
 
 interface Props {
   series: Series;
   language: Language;
-  posts: Post[];
+  posts: PostListItem[];
 }
 
 const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (
@@ -29,6 +29,7 @@ const SeriesPageTemplate: React.FC<Props> = ({ series, language, posts }) => (
         )
         .map((post, i) => (
           <PostPreview
+            key={post.id}
             teaching={post}
             language={language}
             series={{ series, part: i + 1 }}

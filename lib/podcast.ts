@@ -114,7 +114,7 @@ function audioItemData(
     `<description>${description}</description>`,
     `<link>${url()}/${postOrTeachingSegment}/${thisPost.slug}</link>`,
     `<guid>${url()}/${postOrTeachingSegment}/${thisPost.slug}</guid>`,
-    `<pubDate>${post.createdAt}</pubDate>`,
+    `<pubDate>${post.publishedAt}</pubDate>`,
     `<itunes:duration>${thisPost.audioDuration}</itunes:duration>`,
     `<itunes:explicit>clean</itunes:explicit>`,
     `<itunes:episodeType>full</itunes:episodeType>`,

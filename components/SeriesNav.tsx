@@ -4,13 +4,13 @@ import React from "react";
 import Link from "next/link";
 import cx from "classnames";
 import { usePathname } from "next/navigation";
-import type { Language, Post, Series } from "@/lib/types";
+import type { Language, Series, PostListItem } from "@/lib/types";
 import { useGlobalState } from "@/lib/hooks";
 
 interface Props {
   series: Series[];
   language: Language;
-  allTeachings: Post[];
+  allTeachings: PostListItem[];
 }
 
 const SeriesNav: React.FC<Props> = ({ series, language, allTeachings }) => {

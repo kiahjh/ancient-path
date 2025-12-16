@@ -2,7 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import MeetingAudiosPageTemplate from "@/components/templates/MeetingAudiosPageTemplate";
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export const metadata = {
   title: `Meetings | The Ancient Path`,

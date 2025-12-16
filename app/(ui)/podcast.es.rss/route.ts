@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
-import { getRssFeed } from "@/lib/get-data";
+import * as cosmic from "@/lib/get-data";
+import { podcastXml } from "@/lib/podcast";
 
 export const revalidate = 3600;
 
-export async function GET() {
-  const rss = await getRssFeed(`spanish-rss`);
-  return new NextResponse(rss?.rss);
+export async function GET(): Promise<NextResponse> {
+  const posts = await cosmic.getPostsForRSS();
+  const series = await cosmic.getAllSeries();
+  const xml = podcastXml(`es`, posts, series);
+  return new NextResponse(xml, {
+    headers: {
+      "Content-Type": `application/rss+xml`,
+    },
+  });
 }
