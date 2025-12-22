@@ -8,11 +8,11 @@ export interface ApiPostListItem {
   title: string;
   slug: string;
   published_at: string;
-  override_published_at: string | null;
   created_at: string;
   metadata: {
     spanish_title: string;
     spanish_slug: string;
+    override_published_at: string | null;
     category:
       | undefined
       | { key: "teaching"; value: "Teaching" }
@@ -28,7 +28,6 @@ export interface ApiPost {
   content: string;
   created_at: string;
   modified_at: string;
-  override_published_at: string | null;
   published_at: string;
   metadata: {
     mp3_url: string;
@@ -40,6 +39,7 @@ export interface ApiPost {
     spanish_mp3_url: string;
     spanish_audio_size: number;
     spanish_audio_duration: number;
+    override_published_at: string | null;
     category:
       | undefined
       | { key: "teaching"; value: "Teaching" }

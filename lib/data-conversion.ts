@@ -12,7 +12,7 @@ import type {
 export function toPostListItem(apiPost: ApiPostListItem): PostListItem {
   return {
     id: apiPost.id,
-    publishedAt: apiPost.override_published_at ?? apiPost.published_at,
+    publishedAt: apiPost.metadata.override_published_at || apiPost.published_at,
     createdAt: apiPost.created_at,
     category:
       apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,
@@ -33,7 +33,7 @@ export function toPost(apiPost: ApiPost): Post {
     id: apiPost.id,
     createdAt: apiPost.created_at,
     modifiedAt: apiPost.modified_at,
-    publishedAt: apiPost.override_published_at ?? apiPost.published_at,
+    publishedAt: apiPost.metadata.override_published_at || apiPost.published_at,
     series: apiPost.metadata.series,
     category:
       apiPost.metadata.category?.key === `teaching` ? `teaching` : `post`,

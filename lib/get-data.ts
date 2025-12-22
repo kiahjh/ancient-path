@@ -17,7 +17,7 @@ const readKey = process.env.COSMIC_READ_KEY;
 
 export const getPostsForList = cache(async (): Promise<PostListItem[]> => {
   const query = encodeURIComponent(`{"type":"posts"}`);
-  const props = `id,title,slug,published_at,override_published_at,created_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series`;
+  const props = `id,title,slug,published_at,created_at,metadata.override_published_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series`;
   const [objects, size] = await cosmicFetch<ApiPostListItem>(
     `?&query=${query}&props=${props}`,
   );
@@ -29,19 +29,19 @@ export const getPostsForList = cache(async (): Promise<PostListItem[]> => {
 
 export const getPostsForRSS = cache(async (): Promise<Post[]> => {
   const query = encodeURIComponent(`{"type":"posts"}`);
-  const props = `id,title,slug,published_at,override_published_at,created_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series,metadata.mp3_url,metadata.audio_size,metadata.audio_duration,metadata.spanish_mp3_url,metadata.spanish_audio_size,metadata.spanish_audio_duration`;
+  const props = `id,title,slug,published_at,created_at,metadata.override_published_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series,metadata.mp3_url,metadata.audio_size,metadata.audio_duration,metadata.spanish_mp3_url,metadata.spanish_audio_size,metadata.spanish_audio_duration`;
   const [objects, size] = await cosmicFetch<ApiPost>(
     `?&query=${query}&props=${props}&depth=0`,
   );
   log(`getPostsForRSS`, objects.length, size);
   return objects
     .map(convert.toPost)
-    .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+    .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 });
 
 export const getTeachingsForList = cache(async (): Promise<PostListItem[]> => {
   const query = encodeURIComponent(`{"type":"posts"}`);
-  const props = `id,title,slug,published_at,override_published_at,created_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series`;
+  const props = `id,title,slug,published_at,created_at,metadata.override_published_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series`;
   const [objects, size] = await cosmicFetch<ApiPostListItem>(
     `?&query=${query}&props=${props}&depth=0`,
   );
@@ -56,7 +56,7 @@ export const getPostsBySeriesId = cache(
     const query = encodeURIComponent(
       `{"type":"posts","metadata.series":"${seriesId}"}`,
     );
-    const props = `id,title,slug,published_at,override_published_at,created_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series`;
+    const props = `id,title,slug,published_at,created_at,metadata.override_published_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series`;
     const [objects, size] = await cosmicFetch<ApiPostListItem>(
       `?&query=${query}&props=${props}&depth=0`,
     );
@@ -68,7 +68,7 @@ export const getPostsBySeriesId = cache(
 export const getPostBySlug = cache(
   async (lang: Language, slug: string): Promise<Post | null> => {
     const contentField = lang === `en` ? `content` : `metadata.spanish_content`;
-    const fullProps = `id,title,slug,${contentField},metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series,metadata.mp3_url,metadata.audio_size,metadata.audio_duration,metadata.spanish_mp3_url,metadata.spanish_audio_size,metadata.spanish_audio_duration`;
+    const fullProps = `id,title,slug,published_at,${contentField},metadata.override_published_at,metadata.spanish_title,metadata.spanish_slug,metadata.category,metadata.series,metadata.mp3_url,metadata.audio_size,metadata.audio_duration,metadata.spanish_mp3_url,metadata.spanish_audio_size,metadata.spanish_audio_duration`;
 
     if (lang === `en`) {
       // for English, we can query directly by slug
