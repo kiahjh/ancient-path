@@ -46,3 +46,34 @@ export function formatShort(iso: string, language: Language): string {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   }
 }
+
+// cosmic dates come as full ISO8601 for created_at, published_at, etc,
+// but our override_published_at fields are just YYYY-MM-DD, so we handle both
+export function toRfc822Date(dateStr: string): string {
+  const date = new Date(
+    dateStr.length === 10 ? dateStr + `T12:00:00Z` : dateStr,
+  );
+  const days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
+  const months = [
+    `Jan`,
+    `Feb`,
+    `Mar`,
+    `Apr`,
+    `May`,
+    `Jun`,
+    `Jul`,
+    `Aug`,
+    `Sep`,
+    `Oct`,
+    `Nov`,
+    `Dec`,
+  ];
+  const day = days[date.getUTCDay()];
+  const dayNum = String(date.getUTCDate()).padStart(2, `0`);
+  const month = months[date.getUTCMonth()];
+  const year = date.getUTCFullYear();
+  const hours = String(date.getUTCHours()).padStart(2, `0`);
+  const minutes = String(date.getUTCMinutes()).padStart(2, `0`);
+  const seconds = String(date.getUTCSeconds()).padStart(2, `0`);
+  return `${day}, ${dayNum} ${month} ${year} ${hours}:${minutes}:${seconds} GMT`;
+}
