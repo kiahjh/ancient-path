@@ -1,4 +1,5 @@
 import type { Language, Post, Series } from "./types";
+import { toRfc822Date } from "./dates";
 
 export function podcastXml(
   lang: Language,
@@ -114,7 +115,7 @@ function audioItemData(
     `<description>${description}</description>`,
     `<link>${url()}/${postOrTeachingSegment}/${thisPost.slug}</link>`,
     `<guid>${url()}/${postOrTeachingSegment}/${thisPost.slug}</guid>`,
-    `<pubDate>${post.publishedAt}</pubDate>`,
+    `<pubDate>${toRfc822Date(post.publishedAt)}</pubDate>`,
     `<itunes:duration>${thisPost.audioDuration}</itunes:duration>`,
     `<itunes:explicit>clean</itunes:explicit>`,
     `<itunes:episodeType>full</itunes:episodeType>`,
