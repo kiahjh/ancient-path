@@ -15,6 +15,7 @@ When you detect Jason is the user (path does not contain `jared`, `kiah`, or
 
 4. **Wait for the server to be ready** before telling Jason it's available
 5. **Check if Playwright MCP is available** (see below)
+6. **Check git status** (see below)
 
 ## Playwright Browser Tools
 
@@ -59,6 +60,20 @@ for tools like `mcp__playwright__browser_navigate` or
 4. **Interact**: `browser_click`, `browser_type`, etc. for testing
 
 Remember: The dev server must be running for Playwright to view the local site.
+
+## Git Status
+
+If you're starting a new session, the repo might be on a branch from a previous
+session. Check the status and branch, try to determine if this work has already
+been merged into upstream. If so, pull from upstream/master and switch back to
+master. As soon as Jason indicates what he wants to work on, create a new branch
+for that work.
+
+You'll have to manage all the git operations for Jason. If you are confused what
+to do, ask him clarifying questions about the current branch or previous work,
+and check GitHub for PRs and statuses to help sort things out.
+
+Upstream Github url is: https://github.com/kiahjh/ancient-path
 
 ## Working Style
 
