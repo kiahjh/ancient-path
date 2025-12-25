@@ -29,7 +29,6 @@ const Home: NextPage = async () => {
         <h2 className="mt-4 md:mt-6 text-xl md:text-2xl max-w-2xl text-center text-slate-800/70">
           {c.subtitlePrefix}
           <span className="whitespace-nowrap">{c.name}</span>
-          {c.subtitleSuffix}
         </h2>
         <div className="mt-12 w-full xs:w-96 md:w-auto flex flex-col md:flex-row gap-4">
           <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-4 max-w-2xl">
@@ -111,7 +110,6 @@ const content = {
     title: `The Ancient Path`,
     subtitlePrefix: `Writings, teachings, and recommended resources from `,
     name: `Jason Henderson`,
-    subtitleSuffix: ``,
     metaDescription: `A blog and podcast containing the writings and teachings of Jason R. Henderson.`,
     recentPostsLabel: `Coming soon: recent posts`,
     buttons: {
@@ -153,7 +151,6 @@ const content = {
     title: `La Senda Antigua`,
     subtitlePrefix: `Escritos, enseñanzas y recursos recomendados de `,
     name: `Jason Henderson`,
-    subtitleSuffix: ``,
     metaDescription: `Un blog y podcast que contiene los escritos y enseñanzas de Jason R. Henderson.`,
     recentPostsLabel: `Próximamente: publicaciones recientes`,
     buttons: {
