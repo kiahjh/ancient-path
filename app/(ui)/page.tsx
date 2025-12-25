@@ -153,7 +153,7 @@ const content = {
     title: `La Senda Antigua`,
     subtitlePrefix: `Escritos, enseñanzas y recursos recomendados de `,
     name: `Jason Henderson`,
-    subtitleSuffix: `.`,
+    subtitleSuffix: ``,
     metaDescription: `Un blog y podcast que contiene los escritos y enseñanzas de Jason R. Henderson.`,
     recentPostsLabel: `Próximamente: publicaciones recientes`,
     buttons: {
