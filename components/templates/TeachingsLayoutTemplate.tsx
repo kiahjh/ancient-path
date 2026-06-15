@@ -2,7 +2,7 @@
 
 import React from "react";
 import cx from "classnames";
-import type { Language, Series, PostListItem } from "@/lib/types";
+import type { Language, Series } from "@/lib/types";
 import NoiseBg from "@/public/chrome-bg-noise.svg";
 import SeriesNav from "@/components/SeriesNav";
 import { useGlobalState } from "@/lib/hooks";
@@ -10,7 +10,7 @@ import { useGlobalState } from "@/lib/hooks";
 interface Props {
   children: React.ReactNode;
   series: Series[];
-  allTeachings: PostListItem[];
+  seriesPostCounts: Record<string, number>;
   language: Language;
 }
 
@@ -18,7 +18,7 @@ const TeachingsLayoutTemplate: React.FC<Props> = ({
   children,
   language,
   series,
-  allTeachings,
+  seriesPostCounts,
 }) => {
   const {
     state: { audio },
@@ -38,7 +38,7 @@ const TeachingsLayoutTemplate: React.FC<Props> = ({
         {children}
       </main>
       <SeriesNav
-        allTeachings={allTeachings}
+        seriesPostCounts={seriesPostCounts}
         series={series}
         language={language}
       />

@@ -1,6 +1,10 @@
 import React from "react";
 import type { Language, PostListItem, Series } from "@/lib/types";
 import PostPreview from "@/components/PostPreview";
+import {
+  getSeriesPartNumbers,
+  groupSeriesPostsForList,
+} from "@/lib/post-ordering";
 
 type Props = {
   language: Language;
@@ -11,6 +15,18 @@ type Props = {
 
 const PostListPageTemplate: React.FC<Props> = (props) => {
   const c = content[props.language];
+  const posts =
+    props.category === `teachings`
+      ? groupSeriesPostsForList(props.posts, props.language, orderFromSlug)
+      : [...props.posts].sort(
+          (a, b) =>
+            orderFromSlug(a[props.language].slug) -
+            orderFromSlug(b[props.language].slug),
+        );
+  const seriesPartNumbers =
+    props.category === `teachings`
+      ? getSeriesPartNumbers(props.posts)
+      : new Map<string, number>();
 
   return (
     <div className="flex flex-col">
@@ -24,55 +40,43 @@ const PostListPageTemplate: React.FC<Props> = (props) => {
             : c.teachingsDescription}
         </p>
         <div className="grid grid-cols-1 gap-4 mt-8 -mx-6 xs:mx-0">
-          {props.posts
-            .sort(
-              (a, b) =>
-                orderFromSlug(a[props.language].slug) -
-                orderFromSlug(b[props.language].slug),
-            )
-            .map((post) => {
-              if (props.category === `posts`) {
+          {posts.map((post) => {
+            if (props.category === `posts`) {
+              return (
+                <PostPreview
+                  key={post.id}
+                  category="post"
+                  post={post}
+                  language={props.language}
+                />
+              );
+            } else {
+              const thisSeries = props.series.find((s) => s.id === post.series);
+              if (!thisSeries || !post.series) {
                 return (
                   <PostPreview
                     key={post.id}
-                    category="post"
-                    post={post}
+                    category="teaching"
+                    teaching={post}
                     language={props.language}
                   />
                 );
               } else {
-                const thisSeries = props.series.find(
-                  (s) => s.id === post.series,
+                return (
+                  <PostPreview
+                    key={post.id}
+                    category="teaching"
+                    teaching={post}
+                    language={props.language}
+                    series={{
+                      series: thisSeries,
+                      part: seriesPartNumbers.get(post.id) ?? 0,
+                    }}
+                  />
                 );
-                if (!thisSeries || !post.series) {
-                  return (
-                    <PostPreview
-                      key={post.id}
-                      category="teaching"
-                      teaching={post}
-                      language={props.language}
-                    />
-                  );
-                } else {
-                  const postsInSeries = props.posts.filter(
-                    (p) => p.series === post.series,
-                  );
-                  return (
-                    <PostPreview
-                      key={post.id}
-                      category="teaching"
-                      teaching={post}
-                      language={props.language}
-                      series={{
-                        series: thisSeries,
-                        part:
-                          postsInSeries.length - postsInSeries.indexOf(post),
-                      }}
-                    />
-                  );
-                }
               }
-            })}
+            }
+          })}
         </div>
       </main>
     </div>

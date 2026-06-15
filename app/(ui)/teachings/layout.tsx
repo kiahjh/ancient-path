@@ -1,6 +1,9 @@
 import React from "react";
 import * as cosmic from "@/lib/get-data";
 import TeachingsLayoutTemplate from "@/components/templates/TeachingsLayoutTemplate";
+import { getSeriesPostCounts } from "@/lib/post-ordering";
+
+export const dynamic = `force-dynamic`;
 
 const Layout: React.FC<{ children: React.ReactNode }> = async ({
   children,
@@ -12,7 +15,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = async ({
 
   return (
     <TeachingsLayoutTemplate
-      allTeachings={allTeachings}
+      seriesPostCounts={getSeriesPostCounts(allTeachings)}
       series={series}
       language="en"
     >

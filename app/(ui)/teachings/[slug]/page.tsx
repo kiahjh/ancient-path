@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata, NextPage } from "next";
 import * as cosmic from "@/lib/get-data";
 import PostPageTemplate from "@/components/templates/PostPageTemplate";
+import { getSeriesPartNumber } from "@/lib/post-ordering";
 
 export const revalidate = 3600;
 
@@ -54,9 +55,7 @@ const IndividualTeaching: NextPage<{ params: { slug: string } }> = async ({
       );
       seriesProp = {
         name: thisSeries.en.title,
-        number:
-          teachingsFromThisSeries.length -
-          teachingsFromThisSeries.findIndex((p) => p.id === thisTeaching.id),
+        number: getSeriesPartNumber(teachingsFromThisSeries, thisTeaching.id),
         slug: thisSeries.en.slug,
       };
     }

@@ -4,16 +4,16 @@ import React from "react";
 import Link from "next/link";
 import cx from "classnames";
 import { usePathname } from "next/navigation";
-import type { Language, Series, PostListItem } from "@/lib/types";
+import type { Language, Series } from "@/lib/types";
 import { useGlobalState } from "@/lib/hooks";
 
 interface Props {
   series: Series[];
   language: Language;
-  allTeachings: PostListItem[];
+  seriesPostCounts: Record<string, number>;
 }
 
-const SeriesNav: React.FC<Props> = ({ series, language, allTeachings }) => {
+const SeriesNav: React.FC<Props> = ({ series, language, seriesPostCounts }) => {
   const path = usePathname();
   const { state } = useGlobalState();
 
@@ -23,7 +23,7 @@ const SeriesNav: React.FC<Props> = ({ series, language, allTeachings }) => {
         Series
       </h2>
       <div className="flex flex-col">
-        {series
+        {[...series]
           .sort(
             (a, b) =>
               orderFromSlug(a[language].slug) - orderFromSlug(b[language].slug),
@@ -55,7 +55,7 @@ const SeriesNav: React.FC<Props> = ({ series, language, allTeachings }) => {
               >
                 <span>{s[language].title}</span>
                 <div className="w-5 h-5 rounded-full bg-sky-200 flex justify-center items-center text-sm font-medium text-sky-500">
-                  {allTeachings.filter((t) => t.series === s.id).length}
+                  {seriesPostCounts[s.id] ?? 0}
                 </div>
               </Link>
             </div>
