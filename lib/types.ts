@@ -52,15 +52,15 @@ export interface ApiSeries {
   id: string;
   slug: string;
   title: string;
-  created_at: string;
-  modified_at: string;
-  published_at: string;
+  created_at?: string;
+  modified_at?: string;
+  published_at?: string;
   metadata: {
-    spanish_title: string;
-    spanish_slug: string;
-    english_description: string;
-    spanish_description: string;
-  };
+    spanish_title?: string | null;
+    spanish_slug?: string | null;
+    english_description?: string | null;
+    spanish_description?: string | null;
+  } | null;
 }
 
 export interface ApiMeetingAudio {

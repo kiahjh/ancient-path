@@ -109,7 +109,7 @@ export const getPostBySlug = cache(
 
 export const getAllSeries = cache(async (): Promise<Series[]> => {
   const query = encodeURIComponent(`{"type":"series"}`);
-  const props = `id,title,slug,metadata.spanish_title,metadata.spanish_slug`;
+  const props = `id,title,slug,metadata.spanish_title,metadata.spanish_slug,metadata.english_description,metadata.spanish_description`;
   const [objects, size] = await cosmicFetch<ApiSeries>(
     `?&query=${query}&props=${props}`,
   );
@@ -135,9 +135,9 @@ export const getSeriesBySlug = cache(
       const minimalProps = `id,metadata.spanish_slug`;
       const [minimal] = await cosmicFetch<{
         id: string;
-        metadata: { spanish_slug: string };
+        metadata: { spanish_slug?: string | null } | null;
       }>(`?&query=${query}&props=${minimalProps}`);
-      const matched = minimal.find((s) => s.metadata.spanish_slug === slug);
+      const matched = minimal.find((s) => s.metadata?.spanish_slug === slug);
 
       if (!matched) {
         log(`getSeriesBySlug`, 0, 0, `${lang}: ${slug}`);

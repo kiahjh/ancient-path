@@ -57,6 +57,8 @@ export function toPost(apiPost: ApiPost): Post {
 }
 
 export function toSeries(apiSeries: ApiSeries): Series {
+  const metadata = apiSeries.metadata ?? {};
+
   return {
     id: apiSeries.id,
     createdAt: apiSeries.created_at,
@@ -65,12 +67,12 @@ export function toSeries(apiSeries: ApiSeries): Series {
     en: {
       title: apiSeries.title,
       slug: apiSeries.slug,
-      description: apiSeries.metadata.english_description,
+      description: metadata.english_description ?? ``,
     },
     es: {
-      title: apiSeries.metadata.spanish_title,
-      slug: apiSeries.metadata.spanish_slug,
-      description: apiSeries.metadata.spanish_description,
+      title: metadata.spanish_title ?? apiSeries.title,
+      slug: metadata.spanish_slug ?? apiSeries.slug,
+      description: metadata.spanish_description ?? ``,
     },
   };
 }
