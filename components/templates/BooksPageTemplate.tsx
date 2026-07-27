@@ -1,4 +1,3 @@
-import { Language } from "@/lib/types";
 import {
   ArrowRightIcon,
   BookIcon,
@@ -9,7 +8,14 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import type { Language } from "@/lib/types";
 import Button from "../Button";
+import {
+  authoredBooks,
+  booksPageAuthoredBookOrder,
+  type AuthoredBookId,
+  type AuthoredBookTranslation,
+} from "@/lib/authored-books";
 import SpanishTersteegenCover from "@/public/vida-de-tersteegen/vida-de-tersteegen-cover.png";
 import EnglishTersteegenCover from "@/public/life-of-tersteegen/life-of-tersteegen-cover.jpg";
 
@@ -21,8 +27,25 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
         <BookIcon size={24} />
       </div>
       <h1 className="text-4xl md:text-5xl font-bold mt-6">{c.title}</h1>
-      <p className="mt-4 text-xl text-sky-900/60 max-w-2xl">{c.description}</p>
-      <div className="mt-8 -mx-6 xs:-mx-8 sm:mx-0 p-6 xs:p-8 lg:p-12 bg-white rounded-3xl">
+      <p className="mt-4 max-w-2xl text-xl text-sky-900/60">{c.description}</p>
+      <div className="-mx-6 mt-8 rounded-3xl bg-white p-6 xs:-mx-8 xs:p-8 sm:mx-0 lg:p-12">
+        <h2 className="text-2xl font-medium text-slate-900">
+          {c.myBooks.title}
+        </h2>
+        <div className="mt-8 flex flex-col gap-6">
+          {booksPageAuthoredBookOrder.map((id) => (
+            <AuthoredBookCard
+              key={id}
+              id={id}
+              book={authoredBooks[id].translations[language]}
+              coverAltPrefix={c.myBooks.coverAltPrefix}
+              downloadDescription={c.myBooks.downloadDescription}
+              printedButtonText={c.myBooks.printedButtonText}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="-mx-6 mt-8 rounded-3xl bg-white p-6 xs:-mx-8 xs:p-8 sm:mx-0 lg:p-12">
         <h2 className="text-2xl font-medium text-slate-900">
           {c.earlyFriends.title}
         </h2>
@@ -208,6 +231,73 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
 
 export default BooksPageTemplate;
 
+interface AuthoredBookCardProps {
+  id: AuthoredBookId;
+  book: AuthoredBookTranslation;
+  coverAltPrefix: string;
+  downloadDescription: string;
+  printedButtonText: string;
+}
+
+const AuthoredBookCard: React.FC<AuthoredBookCardProps> = ({
+  id,
+  book,
+  coverAltPrefix,
+  downloadDescription,
+  printedButtonText,
+}) => (
+  <article
+    id={id}
+    className="scroll-mt-6 rounded-3xl bg-sky-50 p-6 xs:p-8 sm:p-10"
+  >
+    <div className="flex flex-col xl:flex-row">
+      <Image
+        src={book.cover}
+        alt={`${coverAltPrefix} ${book.title}`}
+        className="mb-8 h-52 w-auto max-w-full self-center drop-shadow-xl xs:h-60 xl:mb-0 xl:mr-12 xl:h-72 xl:self-start"
+      />
+      <div className="min-w-0">
+        <h3 className="text-2xl font-semibold text-slate-900 xs:text-3xl">
+          {book.title}
+        </h3>
+        <p className="mt-4 leading-relaxed text-sky-900/90 xs:text-lg">
+          {book.blurb}
+        </p>
+        <p className="mt-6 text-sky-900/90 xs:text-lg">{downloadDescription}</p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          <Button
+            type="link"
+            to={book.printedHref}
+            color="secondary"
+            icon={BookOpenIcon}
+            iconOnLeft
+          >
+            {printedButtonText}
+          </Button>
+          <Button
+            type="link"
+            to={book.pdfHref}
+            color="secondary"
+            icon={FileTextIcon}
+            iconOnLeft
+          >
+            PDF
+          </Button>
+          <Button
+            type="link"
+            to={book.epubHref}
+            color="secondary"
+            icon={SmartphoneIcon}
+            iconOnLeft
+          >
+            EPUB
+          </Button>
+        </div>
+      </div>
+    </div>
+  </article>
+);
+
 interface BookProps {
   title: string;
   author: string;
@@ -233,6 +323,12 @@ const content = {
     title: "Recommended reading",
     description:
       "Below are some of the books that have had the greatest impact on my life and my knowledge of Jesus Christ.",
+    myBooks: {
+      title: `My Books`,
+      coverAltPrefix: `Cover of`,
+      downloadDescription: `Download an EPUB or PDF file, or get a printed copy from Amazon.`,
+      printedButtonText: `Paperback`,
+    },
     earlyFriends: {
       title: "Writings of the Early Society of Friends",
       description:
@@ -283,6 +379,12 @@ const content = {
     title: "Lectura recomendada",
     description:
       "A continuación figuran algunos de los libros que más han influido en mi vida y en mi conocimiento de Jesucristo.",
+    myBooks: {
+      title: `Mis libros`,
+      coverAltPrefix: `Portada de`,
+      downloadDescription: `Descarga un archivo EPUB o PDF, o contáctame para solicitar un libro impreso.`,
+      printedButtonText: `Libro impreso`,
+    },
     earlyFriends: {
       title: "Escritos de la primitiva Sociedad de los Amigos",
       description:

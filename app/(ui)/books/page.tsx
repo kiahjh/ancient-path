@@ -4,10 +4,10 @@ import BooksPageTemplate from "@/components/templates/BooksPageTemplate";
 
 export const metadata = {
   title: "Books | The Ancient Path",
-  description: `Books from other writers and authers that I highly recommend.`,
+  description: `Books by Jason Henderson and other Christian writings he recommends.`,
   openGraph: {
     title: "Books | The Ancient Path",
-    description: `Books from other writers and authers that I highly recommend.`,
+    description: `Books by Jason Henderson and other Christian writings he recommends.`,
   },
 };
 

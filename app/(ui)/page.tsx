@@ -1,7 +1,11 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { BookOpenIcon } from "lucide-react";
 import type { Metadata, NextPage } from "next";
 import { initializeLanguage } from "../../lib/actions";
 import Button from "@/components/Button";
+import { authoredBooks, homeAuthoredBookOrder } from "@/lib/authored-books";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await initializeLanguage();
@@ -21,8 +25,8 @@ const Home: NextPage = async () => {
   const c = content[language];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="py-16 px-8 sm:px-12 flex flex-col items-center justify-center min-h-full flex-grow">
+    <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-full flex-grow flex-col items-center px-6 pb-12 pt-20 xs:px-8 sm:px-12 sm:pb-16 sm:pt-28">
         <h1 className="font-black text-4xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-slate-800 text-center">
           {c.title}
         </h1>
@@ -30,8 +34,8 @@ const Home: NextPage = async () => {
           {c.subtitlePrefix}
           <span className="whitespace-nowrap">{c.name}</span>
         </h2>
-        <div className="mt-12 w-full xs:w-96 md:w-auto flex flex-col md:flex-row gap-4">
-          <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-4 max-w-2xl">
+        <div className="mt-12 flex w-full flex-col gap-4 xs:w-96 md:w-auto md:flex-row">
+          <div className="flex max-w-2xl flex-col flex-wrap justify-center gap-4 xs:flex-row">
             <Button
               type="link"
               to={c.buttons.teachings.to}
@@ -90,7 +94,35 @@ const Home: NextPage = async () => {
             </Button>
           </div>
         </div>
-        <div className="max-w-3xl mt-12 xs:mt-16 sm:mt-24 bg-sky-100/50 p-8 sm:p-12 rounded-3xl flex flex-col items-center gap-2">
+        <section
+          aria-label={c.authoredBooks.ariaLabel}
+          className="mt-12 grid grid-cols-2 gap-4 xs:gap-8 sm:mt-16 sm:gap-14"
+        >
+          {homeAuthoredBookOrder.map((id) => {
+            const book = authoredBooks[id].translations[language];
+            return (
+              <Link
+                key={id}
+                href={`${c.buttons.books.to}#${id}`}
+                className="group flex min-w-0 flex-col items-center rounded-2xl px-1 py-2 text-center outline-none focus-visible:ring-4 focus-visible:ring-sky-300/60"
+              >
+                <Image
+                  src={book.cover}
+                  alt={`${c.authoredBooks.coverAltPrefix} ${book.title}`}
+                  className="h-40 w-auto drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transform-none xs:h-52 sm:h-60 md:h-64"
+                />
+                <span className="mt-4 flex items-center justify-center gap-2 whitespace-nowrap text-base font-semibold tracking-wide text-sky-600 transition-colors group-hover:text-sky-700 xs:text-lg">
+                  <BookOpenIcon
+                    aria-hidden="true"
+                    className="h-5 w-5 shrink-0"
+                  />
+                  {c.authoredBooks.cta}
+                </span>
+              </Link>
+            );
+          })}
+        </section>
+        <div className="mt-12 flex max-w-3xl flex-col items-center gap-2 rounded-3xl bg-sky-100/50 p-8 xs:mt-16 sm:mt-20 sm:p-12">
           <p className="text-lg xs:text-xl text-sky-800 text-center">
             {c.verse.text}
           </p>
@@ -112,6 +144,11 @@ const content = {
     name: `Jason Henderson`,
     metaDescription: `A blog and podcast containing the writings and teachings of Jason R. Henderson.`,
     recentPostsLabel: `Coming soon: recent posts`,
+    authoredBooks: {
+      ariaLabel: `Books by Jason Henderson`,
+      coverAltPrefix: `Cover of`,
+      cta: `Get this book`,
+    },
     buttons: {
       teachings: {
         text: `Teachings`,
@@ -153,6 +190,11 @@ const content = {
     name: `Jason Henderson`,
     metaDescription: `Un blog y podcast que contiene los escritos y enseñanzas de Jason R. Henderson.`,
     recentPostsLabel: `Próximamente: publicaciones recientes`,
+    authoredBooks: {
+      ariaLabel: `Libros de Jason Henderson`,
+      coverAltPrefix: `Portada de`,
+      cta: `Obtener libro`,
+    },
     buttons: {
       teachings: {
         text: `Enseñanzas`,

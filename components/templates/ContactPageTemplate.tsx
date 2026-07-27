@@ -2,9 +2,9 @@
 
 import React from "react";
 import { CheckIcon, Loader2Icon, SendIcon } from "lucide-react";
+import { useForm } from "@formspree/react";
 import type { Language } from "@/lib/types";
 import Button from "../Button";
-import { useForm } from "@formspree/react";
 
 const ContactPageTemplate: React.FC<{ language: Language }> = ({
   language,
@@ -18,6 +18,15 @@ const ContactPageTemplate: React.FC<{ language: Language }> = ({
       <div className="px-6 xs:px-0">
         <h1 className="text-4xl font-bold text-slate-800">{c.title}</h1>
         <p className="mt-4 max-w-xl text-lg text-slate-500">{c.subheading}</p>
+        {c.printedBookNotice && (
+          <p className="mt-8 max-w-xl text-lg text-slate-500">
+            {c.printedBookNotice.prefix}
+            <strong className="font-bold text-slate-700">
+              {c.printedBookNotice.emphasis}
+            </strong>
+            {c.printedBookNotice.suffix}
+          </p>
+        )}
       </div>
       <form
         onSubmit={handleSubmit}
@@ -98,6 +107,7 @@ const content = {
   en: {
     title: `Contact me`,
     subheading: `Feel free to contact me using the form with any questions or comments. I'll respond to you as soon as possible.`,
+    printedBookNotice: null,
     button: `Submit`,
     name: {
       title: `Name`,
@@ -115,6 +125,11 @@ const content = {
   es: {
     title: `Contacto`,
     subheading: `No dudes en ponerte en contacto conmigo a través del siguiente formulario si tienes alguna pregunta o comentario. Te responderé lo antes posible.`,
+    printedBookNotice: {
+      prefix: `Si, debido a recursos limitados, deseas `,
+      emphasis: `solicitar un ejemplar impreso gratuito`,
+      suffix: ` de alguno de los libros ofrecidos en este sitio, por favor envíame un mensaje usando el formulario que aparece abajo. Cuéntame un poco acerca de ti y por qué te gustaría recibir una copia física.`,
+    },
     button: `Enviar`,
     name: {
       title: `Nombre`,
