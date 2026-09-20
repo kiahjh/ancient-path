@@ -1,4 +1,4 @@
-import type { Language, MeetingAudio, Post } from "@/lib/types";
+import type { AudiobookTrack, Language, MeetingAudio, Post } from "@/lib/types";
 
 export interface State {
   audio:
@@ -8,6 +8,7 @@ export interface State {
       } & (
         | { type: "post"; post: Post }
         | { type: "meetingAudio"; meetingAudio: MeetingAudio }
+        | { type: "audiobook"; audiobook: AudiobookTrack }
       ))
     | null;
   cachedPost: Post | null;

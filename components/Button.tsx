@@ -13,7 +13,7 @@ type Props = {
   iconOnLeft?: boolean;
 } & (
   | { type: "button"; onClick(): void }
-  | { type: "link"; to: string }
+  | { type: "link"; to: string; download?: string }
   | { type: "submit" }
 );
 
@@ -66,7 +66,12 @@ const Button: React.FC<Props> = (props) => {
     );
   }
   return (
-    <Link href={props.to} className={cx(classes, props.className)}>
+    <Link
+      href={props.to}
+      className={cx(classes, props.className)}
+      download={props.download}
+      prefetch={props.download ? false : undefined}
+    >
       <span>{props.children}</span>
       {props.icon && (
         <props.icon

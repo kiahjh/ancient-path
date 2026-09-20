@@ -3,6 +3,15 @@ export type LucideIcon = typeof ArrowRightIcon;
 
 export type Language = "en" | "es";
 
+export interface AudiobookTrack {
+  id: string;
+  title: string;
+  mp3Url: string;
+  duration: number;
+  language: Language;
+  href: string;
+}
+
 export interface ApiPostListItem {
   id: string;
   title: string;

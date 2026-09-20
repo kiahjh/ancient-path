@@ -7,12 +7,20 @@ import PlayButton from "./PlayButton";
 import { useGlobalState } from "@/lib/hooks";
 import styles from "@/styles/AudioPlayer.module.css";
 import { formatTime } from "@/lib/dates";
+import { saveAudiobookProgress } from "@/lib/audiobook-progress";
 
 const AudioPlayer: React.FC = () => {
   const { dispatch, state } = useGlobalState();
 
   const audioRef = useRef<HTMLAudioElement>(null);
+  const activeAudioRef = useRef(state.audio);
+  const lastSavedAudiobookTime = useRef(0);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const source = audioSource(state);
+
+  useEffect(() => {
+    activeAudioRef.current = state.audio;
+  }, [state.audio]);
 
   useEffect(() => {
     setAudio(audioRef.current);
@@ -20,26 +28,63 @@ const AudioPlayer: React.FC = () => {
 
   useEffect(() => {
     if (state.audio?.isPlaying) {
-      audio?.play();
+      void audio?.play();
     } else {
       audio?.pause();
     }
   }, [state.audio?.isPlaying, audio]);
 
   useEffect(() => {
-    if (audio) {
-      audio.addEventListener(`timeupdate`, () => {
-        dispatch({
-          type: `audioTimeUpdated`,
-          time: audio.currentTime,
-          from: {
-            component: `AudioPlayer`,
-            context: `third useEffect()`,
-          },
-        });
+    if (!audio) return;
+
+    const handleTimeUpdate = (): void => {
+      dispatch({
+        type: `audioTimeUpdated`,
+        time: audio.currentTime,
+        from: {
+          component: `AudioPlayer`,
+          context: `timeupdate event`,
+        },
       });
+
+      const activeAudio = activeAudioRef.current;
+      if (
+        activeAudio?.type === `audiobook` &&
+        Math.abs(audio.currentTime - lastSavedAudiobookTime.current) >= 5
+      ) {
+        saveAudiobookProgress(activeAudio.audiobook, audio.currentTime);
+        lastSavedAudiobookTime.current = audio.currentTime;
+      }
+    };
+
+    audio.addEventListener(`timeupdate`, handleTimeUpdate);
+    return () => audio.removeEventListener(`timeupdate`, handleTimeUpdate);
+  }, [audio, dispatch]);
+
+  useEffect(() => {
+    if (!audio || !activeAudioRef.current) return;
+
+    const restoreCurrentTime = (): void => {
+      const currentTime = activeAudioRef.current?.currentTime ?? 0;
+      if (currentTime > 0) audio.currentTime = currentTime;
+    };
+
+    audio.addEventListener(`loadedmetadata`, restoreCurrentTime, {
+      once: true,
+    });
+
+    if (
+      audio.readyState >= HTMLMediaElement.HAVE_METADATA &&
+      audio.currentSrc === source
+    ) {
+      audio.removeEventListener(`loadedmetadata`, restoreCurrentTime);
+      restoreCurrentTime();
+      return;
     }
-  }, [audio]);
+
+    return () =>
+      audio.removeEventListener(`loadedmetadata`, restoreCurrentTime);
+  }, [audio, source]);
 
   return (
     <div
@@ -112,13 +157,11 @@ const AudioPlayer: React.FC = () => {
               )}
             >
               <Link
-                href={hrefToPlayingPost(state)}
+                href={playingAudioDetails(state).href}
                 className="absolute left-0 top-0 text-sky-900"
               >
-                {state.audio.type === `post`
-                  ? state.audio.post[state.language].title
-                  : state.audio.meetingAudio.title}
-                <span className="font-normal text-sky-900/50 capitalize">{` • ${state.audio.type === `post` ? state.audio.post.category : `Meeting`}`}</span>
+                {playingAudioDetails(state).title}
+                <span className="font-normal text-sky-900/50 capitalize">{` • ${playingAudioDetails(state).category}`}</span>
               </Link>
               <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-transparent via-transparent to-sky-100 pointer-events-none" />
             </div>
@@ -127,14 +170,7 @@ const AudioPlayer: React.FC = () => {
                 `relative flex-grow flex items-center gap-4 transition-opacity`,
               )}
             >
-              <audio
-                ref={audioRef}
-                src={
-                  state.audio.type === `post`
-                    ? state.audio.post[state.language].mp3Url
-                    : state.audio.meetingAudio.mp3Url
-                }
-              />
+              <audio ref={audioRef} src={source} />
               <span className="text-sky-700">
                 {formatTime(state.audio.currentTime ?? 0)}
               </span>
@@ -143,7 +179,7 @@ const AudioPlayer: React.FC = () => {
                   type="range"
                   className={cx(styles.progressBar, `w-full`)}
                   min={0}
-                  max={isNaN(Number(audio?.duration)) ? 0 : audio?.duration}
+                  max={audioDuration(audio, state)}
                   value={state.audio.currentTime ?? 0}
                   onChange={(event) => {
                     dispatch({
@@ -160,16 +196,12 @@ const AudioPlayer: React.FC = () => {
                 <div
                   className="bg-sky-500 h-[6px] z-10 rounded-l-full pointer-events-none"
                   style={{
-                    width: `${((state.audio.currentTime ?? 0) / (audio?.duration ?? 1)) * 100}%`,
+                    width: `${((state.audio.currentTime ?? 0) / (audioDuration(audio, state) || 1)) * 100}%`,
                   }}
                 />
               </div>
               <span className="text-slate-800/50">
-                {formatTime(
-                  isNaN(audio?.duration ?? 0) || !audio?.duration
-                    ? 0
-                    : audio.duration,
-                )}
+                {formatTime(audioDuration(audio, state))}
               </span>
             </div>
           </div>
@@ -181,27 +213,62 @@ const AudioPlayer: React.FC = () => {
 
 export default AudioPlayer;
 
-function hrefToPlayingPost(state: State): string {
-  let audioLink = `#`;
+type PlayingAudio = NonNullable<State[`audio`]>;
+
+function audioSource(state: State): string | undefined {
   if (state.audio?.type === `post`) {
-    if (state.audio.post.category === `post` && state.language === `en`)
-      audioLink = `/posts/${state.audio.post[state.language].slug}`;
-    else if (state.audio?.post.category === `post` && state.language === `es`)
-      audioLink = `/publicaciones/${state.audio.post[state.language].slug}`;
-    else if (
-      state.audio?.post.category === `teaching` &&
-      state.language === `en`
-    )
-      audioLink = `/teachings/${state.audio.post[state.language].slug}`;
-    else if (
-      state.audio?.post.category === `teaching` &&
-      state.language === `es`
-    )
-      audioLink = `/ensenanzas/${state.audio.post[state.language].slug}`;
-  } else if (state.audio?.type === `meetingAudio`) {
-    if (state.language === `en`)
-      audioLink = `/meetings#${state.audio.meetingAudio.id}`;
-    else audioLink = `/reuniones#${state.audio.meetingAudio.id}`;
+    return state.audio.post[state.language].mp3Url;
   }
-  return audioLink;
+  if (state.audio?.type === `meetingAudio`) {
+    return state.audio.meetingAudio.mp3Url;
+  }
+  return state.audio?.audiobook.mp3Url;
+}
+
+function audioDuration(audio: HTMLAudioElement | null, state: State): number {
+  if (audio?.duration && Number.isFinite(audio.duration)) return audio.duration;
+  return state.audio?.type === `audiobook` ? state.audio.audiobook.duration : 0;
+}
+
+function playingAudioDetails(state: State): {
+  title: string;
+  category: string;
+  href: string;
+} {
+  const audio = state.audio as PlayingAudio;
+
+  if (audio.type === `audiobook`) {
+    return {
+      title: audio.audiobook.title,
+      category: audio.audiobook.language === `en` ? `Audiobook` : `Audiolibro`,
+      href: audio.audiobook.href,
+    };
+  }
+
+  if (audio.type === `meetingAudio`) {
+    return {
+      title: audio.meetingAudio.title,
+      category: state.language === `en` ? `Meeting` : `Reunión`,
+      href:
+        state.language === `en`
+          ? `/meetings#${audio.meetingAudio.id}`
+          : `/reuniones#${audio.meetingAudio.id}`,
+    };
+  }
+
+  const post = audio.post[state.language];
+  const basePath =
+    audio.post.category === `post`
+      ? state.language === `en`
+        ? `/posts`
+        : `/publicaciones`
+      : state.language === `en`
+        ? `/teachings`
+        : `/ensenanzas`;
+
+  return {
+    title: post.title,
+    category: audio.post.category,
+    href: `${basePath}/${post.slug}`,
+  };
 }

@@ -10,6 +10,7 @@ import Link from "next/link";
 import React from "react";
 import type { Language } from "@/lib/types";
 import Button from "../Button";
+import AudiobookActions from "../AudiobookActions";
 import {
   authoredBooks,
   booksPageAuthoredBookOrder,
@@ -38,8 +39,13 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
               key={id}
               id={id}
               book={authoredBooks[id].translations[language]}
+              language={language}
               coverAltPrefix={c.myBooks.coverAltPrefix}
-              downloadDescription={c.myBooks.downloadDescription}
+              downloadDescription={
+                authoredBooks[id].translations[language].audio
+                  ? c.myBooks.audiobookDownloadDescription
+                  : c.myBooks.downloadDescription
+              }
               printedButtonText={c.myBooks.printedButtonText}
             />
           ))}
@@ -234,6 +240,7 @@ export default BooksPageTemplate;
 interface AuthoredBookCardProps {
   id: AuthoredBookId;
   book: AuthoredBookTranslation;
+  language: Language;
   coverAltPrefix: string;
   downloadDescription: string;
   printedButtonText: string;
@@ -242,6 +249,7 @@ interface AuthoredBookCardProps {
 const AuthoredBookCard: React.FC<AuthoredBookCardProps> = ({
   id,
   book,
+  language,
   coverAltPrefix,
   downloadDescription,
   printedButtonText,
@@ -292,6 +300,14 @@ const AuthoredBookCard: React.FC<AuthoredBookCardProps> = ({
           >
             EPUB
           </Button>
+          {book.audio && (
+            <AudiobookActions
+              bookId={id}
+              title={book.title}
+              language={language}
+              audio={book.audio}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -327,6 +343,7 @@ const content = {
       title: `My Books`,
       coverAltPrefix: `Cover of`,
       downloadDescription: `Download an EPUB or PDF file, or get a printed copy from Amazon.`,
+      audiobookDownloadDescription: `Download an EPUB or PDF file, listen to or download the audiobook, or get a printed copy from Amazon.`,
       printedButtonText: `Paperback`,
     },
     earlyFriends: {
@@ -383,6 +400,7 @@ const content = {
       title: `Mis libros`,
       coverAltPrefix: `Portada de`,
       downloadDescription: `Descarga un archivo EPUB o PDF, o contáctame para solicitar un libro impreso.`,
+      audiobookDownloadDescription: `Descarga un archivo EPUB o PDF, escucha o descarga el audiolibro, o contáctame para solicitar un libro impreso.`,
       printedButtonText: `Libro impreso`,
     },
     earlyFriends: {

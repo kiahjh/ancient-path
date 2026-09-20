@@ -12,6 +12,13 @@ export const authoredBookIds = [
 
 export type AuthoredBookId = (typeof authoredBookIds)[number];
 
+export interface AuthoredBookAudio {
+  mp3Url: string;
+  fileName: string;
+  fileSize: number;
+  duration: number;
+}
+
 export interface AuthoredBookTranslation {
   title: string;
   cover: StaticImageData;
@@ -19,6 +26,7 @@ export interface AuthoredBookTranslation {
   pdfHref: string;
   epubHref: string;
   printedHref: string;
+  audio?: AuthoredBookAudio;
 }
 
 export interface AuthoredBook {
@@ -47,6 +55,12 @@ export const authoredBooks: Record<AuthoredBookId, AuthoredBook> = {
         pdfHref: `/books/living-under-grace/vivir-bajo-la-gracia.pdf`,
         epubHref: `/books/living-under-grace/vivir-bajo-la-gracia.epub`,
         printedHref: `/contacto`,
+        audio: {
+          mp3Url: `https://nyc3.digitaloceanspaces.com/hender-blog/audios/Vivir_bajo_gracia.mp3`,
+          fileName: `vivir-bajo-la-gracia-audiolibro.mp3`,
+          fileSize: 255260782,
+          duration: 14088,
+        },
       },
     },
   },
@@ -61,6 +75,12 @@ export const authoredBooks: Record<AuthoredBookId, AuthoredBook> = {
         pdfHref: `/books/power-of-the-gospel/the-power-of-the-gospel.pdf`,
         epubHref: `/books/power-of-the-gospel/the-power-of-the-gospel.epub`,
         printedHref: `https://www.amazon.com/dp/1644763648`,
+        audio: {
+          mp3Url: `https://nyc3.digitaloceanspaces.com/hender-blog/audios/Power_of_the_Gospel.mp3`,
+          fileName: `the-power-of-the-gospel-audiobook.mp3`,
+          fileSize: 96717018,
+          duration: 5287,
+        },
       },
       es: {
         title: `El poder del evangelio`,
@@ -70,6 +90,12 @@ export const authoredBooks: Record<AuthoredBookId, AuthoredBook> = {
         pdfHref: `/books/power-of-the-gospel/el-poder-del-evangelio.pdf`,
         epubHref: `/books/power-of-the-gospel/el-poder-del-evangelio.epub`,
         printedHref: `/contacto`,
+        audio: {
+          mp3Url: `https://nyc3.digitaloceanspaces.com/hender-blog/audios/El_poder_del_evangelio.mp3`,
+          fileName: `el-poder-del-evangelio-audiolibro.mp3`,
+          fileSize: 121288738,
+          duration: 6651,
+        },
       },
     },
   },
