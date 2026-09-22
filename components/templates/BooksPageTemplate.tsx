@@ -28,29 +28,31 @@ const BooksPageTemplate: React.FC<{ language: Language }> = ({ language }) => {
         <BookIcon size={24} />
       </div>
       <h1 className="text-4xl md:text-5xl font-bold mt-6">{c.title}</h1>
-      <p className="mt-4 max-w-2xl text-xl text-sky-900/60">{c.description}</p>
-      <div className="-mx-6 mt-8 rounded-3xl bg-white p-6 xs:-mx-8 xs:p-8 sm:mx-0 lg:p-12">
-        <h2 className="text-2xl font-medium text-slate-900">
-          {c.myBooks.title}
-        </h2>
-        <div className="mt-8 flex flex-col gap-6">
-          {booksPageAuthoredBookOrder.map((id) => (
-            <AuthoredBookCard
-              key={id}
-              id={id}
-              book={authoredBooks[id].translations[language]}
-              language={language}
-              coverAltPrefix={c.myBooks.coverAltPrefix}
-              downloadDescription={
-                authoredBooks[id].translations[language].audio
-                  ? c.myBooks.audiobookDownloadDescription
-                  : c.myBooks.downloadDescription
-              }
-              printedButtonText={c.myBooks.printedButtonText}
-            />
-          ))}
-        </div>
+      <div className="-mx-6 mt-8 flex flex-col gap-6 xs:-mx-8 sm:mx-0">
+        {booksPageAuthoredBookOrder.map((id) => (
+          <AuthoredBookCard
+            key={id}
+            id={id}
+            book={authoredBooks[id].translations[language]}
+            language={language}
+            coverAltPrefix={c.myBooks.coverAltPrefix}
+            downloadDescription={
+              authoredBooks[id].translations[language].audio
+                ? c.myBooks.audiobookDownloadDescription
+                : c.myBooks.downloadDescription
+            }
+            printedButtonText={c.myBooks.printedButtonText}
+          />
+        ))}
       </div>
+      <section className="mt-12">
+        <h2 className="text-3xl font-bold md:text-4xl">
+          {c.recommendedReading.title}
+        </h2>
+        <p className="mt-4 max-w-2xl text-xl text-sky-900/60">
+          {c.recommendedReading.description}
+        </p>
+      </section>
       <div className="-mx-6 mt-8 rounded-3xl bg-white p-6 xs:-mx-8 xs:p-8 sm:mx-0 lg:p-12">
         <h2 className="text-2xl font-medium text-slate-900">
           {c.earlyFriends.title}
@@ -256,7 +258,7 @@ const AuthoredBookCard: React.FC<AuthoredBookCardProps> = ({
 }) => (
   <article
     id={id}
-    className="scroll-mt-6 rounded-3xl bg-sky-50 p-6 xs:p-8 sm:p-10"
+    className="scroll-mt-6 rounded-3xl bg-white p-6 xs:p-8 sm:p-10 lg:p-12"
   >
     <div className="flex flex-col xl:flex-row">
       <Image
@@ -336,11 +338,13 @@ const Book: React.FC<BookProps> = ({ title, author, description, href }) => {
 
 const content = {
   en: {
-    title: "Recommended reading",
-    description:
-      "Below are some of the books that have had the greatest impact on my life and my knowledge of Jesus Christ.",
+    title: "My Books",
+    recommendedReading: {
+      title: "Recommended reading",
+      description:
+        "Below are some of the books that have had the greatest impact on my life and my knowledge of Jesus Christ.",
+    },
     myBooks: {
-      title: `My Books`,
       coverAltPrefix: `Cover of`,
       downloadDescription: `Download an EPUB or PDF file, or get a printed copy from Amazon.`,
       audiobookDownloadDescription: `Download an EPUB or PDF file, listen to or download the audiobook, or get a printed copy from Amazon.`,
@@ -393,11 +397,13 @@ const content = {
     },
   },
   es: {
-    title: "Lectura recomendada",
-    description:
-      "A continuación figuran algunos de los libros que más han influido en mi vida y en mi conocimiento de Jesucristo.",
+    title: "Mis libros",
+    recommendedReading: {
+      title: "Lectura recomendada",
+      description:
+        "A continuación figuran algunos de los libros que más han influido en mi vida y en mi conocimiento de Jesucristo.",
+    },
     myBooks: {
-      title: `Mis libros`,
       coverAltPrefix: `Portada de`,
       downloadDescription: `Descarga un archivo EPUB o PDF, o contáctame para solicitar un libro impreso.`,
       audiobookDownloadDescription: `Descarga un archivo EPUB o PDF, escucha o descarga el audiolibro, o contáctame para solicitar un libro impreso.`,
