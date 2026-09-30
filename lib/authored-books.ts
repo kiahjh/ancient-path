@@ -46,6 +46,12 @@ export const authoredBooks: Record<AuthoredBookId, AuthoredBook> = {
         pdfHref: `/books/living-under-grace/living-under-grace.pdf`,
         epubHref: `/books/living-under-grace/living-under-grace.epub`,
         printedHref: `https://www.amazon.com/dp/1644763699`,
+        audio: {
+          mp3Url: `https://nyc3.digitaloceanspaces.com/hender-blog/audios/Living_Under_Grace_Audiobook.mp3`,
+          fileName: `living-under-grace-audiobook.mp3`,
+          fileSize: 209125667,
+          duration: 11546,
+        },
       },
       es: {
         title: `Vivir bajo la gracia`,
