@@ -7,6 +7,8 @@ import {
 
 export const dynamic = `force-dynamic`;
 
+// Redirect to the file instead of proxying it: proxying every byte through a
+// function counts against Vercel's Fast Origin Transfer limit.
 export async function GET(
   request: Request,
   { params }: { params: { bookId: string; language: string } },
@@ -21,44 +23,7 @@ export async function GET(
     return new Response(`Audiobook not found`, { status: 404 });
   }
 
-  const requestHeaders = new Headers();
-  const range = request.headers.get(`range`);
-  if (range) requestHeaders.set(`range`, range);
-
-  const upstream = await fetch(audiobook.mp3Url, {
-    headers: requestHeaders,
-    cache: `no-store`,
-    signal: request.signal,
-  });
-
-  if (!upstream.ok) {
-    return new Response(`Unable to download audiobook`, {
-      status: upstream.status,
-    });
-  }
-
-  const headers = new Headers({
-    "Accept-Ranges": upstream.headers.get(`accept-ranges`) ?? `bytes`,
-    "Cache-Control": `private, no-store`,
-    "Content-Disposition": contentDisposition(audiobook.fileName),
-    "Content-Type": `audio/mpeg`,
-    "X-Content-Type-Options": `nosniff`,
-  });
-
-  for (const name of [
-    `content-length`,
-    `content-range`,
-    `etag`,
-    `last-modified`,
-  ]) {
-    const value = upstream.headers.get(name);
-    if (value) headers.set(name, value);
-  }
-
-  return new Response(upstream.body, {
-    status: upstream.status,
-    headers,
-  });
+  return Response.redirect(audiobook.mp3Url, 302);
 }
 
 function isAuthoredBookId(value: string): value is AuthoredBookId {
@@ -67,15 +32,4 @@ function isAuthoredBookId(value: string): value is AuthoredBookId {
 
 function isLanguage(value: string): value is Language {
   return value === `en` || value === `es`;
-}
-
-function contentDisposition(fileName: string): string {
-  const asciiFileName = fileName
-    .replace(/[^\x20-\x7e]/g, `_`)
-    .replace(/["\\]/g, `_`);
-  const encodedFileName = encodeURIComponent(fileName).replace(
-    /['()*]/g,
-    (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
-  );
-  return `attachment; filename="${asciiFileName}"; filename*=UTF-8''${encodedFileName}`;
 }

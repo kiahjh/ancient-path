@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import cx from "classnames";
 import { DownloadIcon, Loader2Icon } from "lucide-react";
 import PlayButton from "./PlayButton";
@@ -11,7 +11,6 @@ const PostPageAudioPrompt: React.FC = () => {
     state: { audio, language, cachedPost },
     dispatch,
   } = useGlobalState();
-  const [downloading, setDownloading] = useState(false);
 
   if (!cachedPost) {
     return (
@@ -92,33 +91,15 @@ const PostPageAudioPrompt: React.FC = () => {
           {language === `en` ? `Listen online` : `Escuchar en línea`}
         </span>
       </div>
-      <button
-        onClick={async () => {
-          setDownloading(true);
-          const res = await fetch(
-            `/api/download-audio/${encodeURIComponent(thisMp3Url)}`,
-          );
-          const blob = await res.blob();
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement(`a`);
-          link.href = url;
-          link.download = `${cachedPost[language].title}.mp3`;
-          link.click();
-          URL.revokeObjectURL(url);
-          link.remove();
-          setDownloading(false);
-        }}
+      <a
+        href={`/api/download-audio/${encodeURIComponent(thisMp3Url)}`}
+        download={`${cachedPost[language].title}.mp3`}
+        target="_blank"
+        rel="noopener"
         className="w-10 xs:w-12 h-10 xs:h-12 rounded-full bg-sky-200/70 hover:bg-sky-200 active:bg-sky-300 active:scale-95 transition-[background-color,transform] duration-200 flex justify-center items-center shrink-0"
       >
-        {downloading ? (
-          <Loader2Icon
-            className="text-sky-400 animate-spin"
-            strokeWidth={2.5}
-          />
-        ) : (
-          <DownloadIcon className="text-sky-600" strokeWidth={2.5} />
-        )}
-      </button>
+        <DownloadIcon className="text-sky-600" strokeWidth={2.5} />
+      </a>
     </div>
   );
 };

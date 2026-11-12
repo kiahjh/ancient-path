@@ -70,6 +70,8 @@ const Button: React.FC<Props> = (props) => {
       href={props.to}
       className={cx(classes, props.className)}
       download={props.download}
+      target={props.download ? `_blank` : undefined}
+      rel={props.download ? `noopener` : undefined}
       prefetch={props.download ? false : undefined}
     >
       <span>{props.children}</span>
